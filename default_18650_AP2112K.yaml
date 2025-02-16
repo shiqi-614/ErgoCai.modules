@@ -1,11 +1,11 @@
 battery:
   what:
     github:
-      repo: "shiqi-614/ErgoCai"
-      file: "modules/battery/default_18650_AP2112K.yaml"
+      repo: "shiqi-614/ErgoCai.modules"
+      file: "default_18650_AP2112K.yaml"
     template:  
       github:
-        repo: "shiqi-614/ErgoCai"
+        repo: "shiqi-614/ErgoCai.modules"
         file: "templates/battery/default_18650_AP2112K.kicad_sch"
   footprints:
     BAT_J1:
