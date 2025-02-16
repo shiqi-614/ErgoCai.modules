@@ -1166,6 +1166,12 @@
 		(uuid "bd9dd43b-9af5-4709-a3d6-a0748a4924bd")
 	)
 	(junction
+		(at 130.81 50.8)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c8e504d9-e13f-4f94-a940-7f906c43848f")
+	)
+	(junction
 		(at 91.44 93.98)
 		(diameter 0.9144)
 		(color 0 0 0 0)
@@ -1263,6 +1269,16 @@
 	)
 	(wire
 		(pts
+			(xy 120.65 50.8) (xy 123.19 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5dad2dce-e8ee-49a7-80d2-713fc349c369")
+	)
+	(wire
+		(pts
 			(xy 88.9 45.72) (xy 91.44 45.72)
 		)
 		(stroke
@@ -1290,6 +1306,16 @@
 			(type solid)
 		)
 		(uuid "7ee6ab61-5c67-4a25-8a1d-8273105cd1fe")
+	)
+	(wire
+		(pts
+			(xy 130.81 53.34) (xy 130.81 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86ac39fd-f848-4e02-b019-77347ef8ac2b")
 	)
 	(wire
 		(pts
@@ -1353,6 +1379,16 @@
 	)
 	(wire
 		(pts
+			(xy 128.27 50.8) (xy 130.81 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b27f0bba-5984-4ae0-aa6a-b6fc8aa3c5b5")
+	)
+	(wire
+		(pts
 			(xy 74.93 85.09) (xy 74.93 93.98)
 		)
 		(stroke
@@ -1370,6 +1406,38 @@
 			(type solid)
 		)
 		(uuid "bcdc3f37-97d4-43cb-93f6-2e42885eb24b")
+	)
+	(wire
+		(pts
+			(xy 130.81 50.8) (xy 133.35 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d929cf76-3201-4514-959c-93d909ca20ca")
+	)
+	(global_label "VBAT"
+		(shape input)
+		(at 120.65 50.8 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2decf5c1-6686-473d-a0cf-a93b0ef91d19")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 113.25 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
 	)
 	(global_label "nRF_VDD"
 		(shape input)
@@ -1433,6 +1501,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "BT_PIN"
+		(shape input)
+		(at 130.81 53.34 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c66a6429-8981-4837-bdde-ec0cdcd23ce7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 130.81 62.7357 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -1884,6 +1974,140 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 138.43 50.8 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a927ed91-b812-4820-96b3-8cfacfa6c8e5")
+		(property "Reference" "#PWR012"
+			(at 144.78 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 142.24 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.43 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 138.43 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0a082100-fb89-41e8-a248-567dd22950bf")
+		)
+		(instances
+			(project "ergo_cai"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 125.73 50.8 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b57a7363-7e92-44ad-95db-fd7f9948e5f0")
+		(property "Reference" "BAT_R2"
+			(at 129.54 45.466 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "810K"
+			(at 128.27 48.006 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ErgoCai:R_0603"
+			(at 125.73 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 125.73 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 125.73 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "83d39b8b-34ec-4c12-b080-35eeb6abc210")
+		)
+		(pin "2"
+			(uuid "8c4fea53-b1cc-4986-b7d6-005da6fa1746")
+		)
+		(instances
+			(project "ergo_cai"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+					(reference "BAT_R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
 		(at 83.82 50.8 180)
 		(unit 1)
@@ -2012,6 +2236,74 @@
 			(project "ergo_cai"
 				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
 					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 135.89 50.8 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d37aee0b-66c4-4a0d-8f77-0e04bd697996")
+		(property "Reference" "BAT_R3"
+			(at 135.89 45.72 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 135.89 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ErgoCai:R_0603"
+			(at 135.89 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 135.89 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 135.89 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "373bb3fa-c014-4240-a5f4-89d3a406541e")
+		)
+		(pin "2"
+			(uuid "6f7d108c-5f3c-445d-ba8f-39b17623fbd3")
+		)
+		(instances
+			(project "ergo_cai"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+					(reference "BAT_R3")
 					(unit 1)
 				)
 			)

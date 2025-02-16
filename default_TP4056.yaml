@@ -14,8 +14,6 @@ charging:
         github:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm.kicad_mod"
-      where:
-        shift: [20.5, 10]
     CHRG_R_PROG1:
       what:
         value: 1.2K 
@@ -23,7 +21,8 @@ charging:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "R_0603_1608Metric.kicad_mod"
       where:
-        shift: [36, 17]
+        shift: [-6, -0.5]
+        rotate: 180
     CHRG_R_CHRG1:
       what:
         value: 1K 
@@ -31,7 +30,8 @@ charging:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "R_0603_1608Metric.kicad_mod"
       where:
-        shift: [36, 17]
+        shift: [6, -0.7]
+        rotate: 180
     CHRG_R_STDBY1:
       what:
         value: 1K 
@@ -39,7 +39,8 @@ charging:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "R_0603_1608Metric.kicad_mod"
       where:
-        shift: [36, 17]
+        shift: [6, 1]
+        rotate: 180
     CHRG_LED_CHRG1:
       what:
         value: RED 
@@ -47,7 +48,7 @@ charging:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "LED_0603_1608Metric.kicad_mod"
       where:
-        shift: [36, 17]
+        shift: [10, -0.7]
     CHRG_LED_STDBY1:
       what:
         value: BLUE
@@ -55,4 +56,4 @@ charging:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "LED_0603_1608Metric.kicad_mod"
       where:
-        shift: [36, 17]
+        shift: [10, 1]
