@@ -1,0 +1,38 @@
+battery:
+  what:
+    github:
+      repo: "shiqi-614/ErgoCai"
+      file: "modules/battery/default_18650_AP2112K.yaml"
+    template:  
+      github:
+        repo: "shiqi-614/ErgoCai"
+        file: "templates/battery/default_18650_AP2112K.kicad_sch"
+  footprints:
+    BAT_J1:
+      what:
+        value: BATT
+        github:
+          repo: "shiqi-614/ErgoCai.pretty"
+          file: "Battery_Holder_18650_Nickel.kicad_mod"
+      where:
+        shift: [20.5, 10]
+    BAT_D1:
+      what:
+        value: 1N5819
+        github:
+          repo: "shiqi-614/ErgoCai.pretty"
+          file: "SOT-23.kicad_mod"
+    BAT_Q1:
+      what:
+        value: AO3407
+        github:
+          repo: "shiqi-614/ErgoCai.pretty"
+          file: "USB_Power_Switch.kicad_mod"
+    BAT_U1:
+      what:
+        value: AP2112K-3.3
+        github:
+          repo: "shiqi-614/ErgoCai.pretty"
+          file: "SOT-23-5.kicad_mod"
+      where:
+        shift: [36, 17]
