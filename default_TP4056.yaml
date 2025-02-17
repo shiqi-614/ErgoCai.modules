@@ -21,7 +21,7 @@ charging:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "R_0603_1608Metric.kicad_mod"
       where:
-        shift: [-6, -0.5]
+        shift: [-6, 0]
         rotate: 180
     CHRG_R_CHRG1:
       what:
