@@ -1,0 +1,23 @@
+mcu:
+  what:
+    github:
+      repo: "shiqi-614/ErgoCai.modules"
+      file: "nRF52840_holyiot_18010.yaml"
+    template:  
+      github:
+        repo: "shiqi-614/ErgoCai.modules"
+        file: "templates/mcu/nRF52840_holyiot_18010.kicad_sch"
+  footprints:
+    MCU_U1:
+      what: "nRF52840_holyiot_18010.kicad_mod"
+    MCU_SW1:
+      what: "K2-1187SQ.kicad_mod"
+      where:
+        shift: [-3, -17]
+      side: back
+    MCU_J1:
+      what: "Connector_THT_1x4_2.54.kicad_mod"
+      where:
+        shift: [7.5, 18]
+        rotate: -90
+      side: front
