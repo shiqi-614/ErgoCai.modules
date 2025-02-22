@@ -5,7 +5,7 @@ charging:
       file: "default_TP4056.yaml"
     template:  
       github:
-        repo: "shiqi-614/ErgoCai"
+        repo: "shiqi-614/ErgoCai.modules"
         file: "templates/charging/default_TP4056.kicad_sch"
   footprints:
     CHRG_U1:
