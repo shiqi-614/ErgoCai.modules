@@ -8,7 +8,7 @@ usb:
         repo: "shiqi-614/ErgoCai.modules"
         file: "templates/usb/default_usb.kicad_sch"
   footprints:
-    USB:
+    USB_J1:
       what: "USB_C_Receptacle_HRO_TYPE-C-31-M-12.kicad_mod"
       where:
         rotate: 180
