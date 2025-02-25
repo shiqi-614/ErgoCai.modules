@@ -38,5 +38,5 @@ usb:
           file: "C_0805_2012Metric.kicad_mod"
       where:
         shift: [0 ,-7.5]
-        rotate: -90
+        rotate: 90
       side: back
