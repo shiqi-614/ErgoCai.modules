@@ -14,6 +14,7 @@ mcu:
       what: "K2-1187SQ.kicad_mod"
       where:
         shift: [-3, -17]
+        rotate: -180
       side: back
     MCU_J1:
       what: "Connector_THT_1x4_2.54.kicad_mod"
