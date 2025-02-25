@@ -8,7 +8,7 @@ battery:
         repo: "shiqi-614/ErgoCai.modules"
         file: "templates/battery/default_18650_AP2112K.kicad_sch"
   footprints:
-    BAT_SWITCH:
+    BAT_SW1:
       what: "MSK-12C02.kicad_mod"
       where:
         shift: [15, 17]
