@@ -1388,14 +1388,6 @@
 		(pin "2"
 			(uuid "f9e85a66-6eb6-48b3-90ab-352ff7ccc42d")
 		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
-					(reference "USB_R_CC2")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Connector:USB_C_Receptacle_USB2.0")
@@ -1422,7 +1414,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
+		(property "Footprint" "ErgoCai.pretty:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
 			(at 93.98 85.09 0)
 			(effects
 				(font
@@ -1501,8 +1493,8 @@
 			(uuid "b87563eb-3d92-4e25-8f52-b9f00ce08b7e")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
 					(reference "USB_J1")
 					(unit 1)
 				)
@@ -1566,8 +1558,8 @@
 			(uuid "d1fe5891-25f2-49e4-ae5c-d1d446fe792d")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
 					(reference "#PWR01")
 					(unit 1)
 				)
@@ -1631,8 +1623,8 @@
 			(uuid "dd6d9bdb-e09a-43d8-929d-8070e7eb92c3")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
 					(reference "#PWR03")
 					(unit 1)
 				)
@@ -1696,8 +1688,8 @@
 			(uuid "1a8c3005-8072-4f9d-88fd-6f01687ca4a6")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
 					(reference "#PWR02")
 					(unit 1)
 				)
@@ -1765,14 +1757,6 @@
 		(pin "2"
 			(uuid "589a17e1-47f3-435d-82b0-9b633aa84114")
 		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
-					(reference "USB_C1")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1832,8 +1816,8 @@
 			(uuid "12282513-2264-4f0d-9c2e-a4479d64add5")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
 					(reference "#PWR07")
 					(unit 1)
 				)
@@ -1899,14 +1883,6 @@
 		)
 		(pin "2"
 			(uuid "bb4b02ba-733c-4624-9920-e071717c268e")
-		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/aa2d854c-6250-43f0-93ec-e020981ba8ea"
-					(reference "USB_R_CC1")
-					(unit 1)
-				)
-			)
 		)
 	)
 )

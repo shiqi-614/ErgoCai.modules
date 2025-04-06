@@ -456,7 +456,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(property "Footprint" "ErgoCai.pretty:SOT-23-5"
 				(at 0 8.255 0)
 				(effects
 					(font
@@ -630,7 +630,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(property "Footprint" "ErgoCai.pretty:SOT-23"
 				(at 5.08 -1.905 0)
 				(effects
 					(font
@@ -1575,7 +1575,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:MSK-12C02"
+		(property "Footprint" "ErgoCai.pretty:MSK-12C02"
 			(at 94.615 69.85 0)
 			(effects
 				(font
@@ -1612,8 +1612,8 @@
 			(uuid "676c2193-7843-4e8a-91d4-985d02243b0e")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "BAT_SW1")
 					(unit 1)
 				)
@@ -1677,8 +1677,8 @@
 			(uuid "68397ccf-41a2-4507-b2b1-48612beebae9")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "#PWR05")
 					(unit 1)
 				)
@@ -1712,7 +1712,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603"
 			(at 74.93 99.06 0)
 			(effects
 				(font
@@ -1745,14 +1745,6 @@
 		(pin "2"
 			(uuid "17efba66-2fd4-4cb3-bbe6-aa11d81d30f4")
 		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
-					(reference "BAT_R1")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Device:D_Small")
@@ -1779,7 +1771,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:D_SOD-123"
+		(property "Footprint" "ErgoCai.pretty:D_SOD-123"
 			(at 81.28 93.98 90)
 			(effects
 				(font
@@ -1812,14 +1804,6 @@
 		(pin "2"
 			(uuid "cb59e108-ed2c-4a4d-a826-2302aacabf8e")
 		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
-					(reference "BAT_D1")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Transistor_FET:AO3401A")
@@ -1848,7 +1832,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:SOT-23"
+		(property "Footprint" "ErgoCai.pretty:SOT-23"
 			(at 91.44 86.995 0)
 			(effects
 				(font
@@ -1888,8 +1872,8 @@
 			(uuid "76020cf6-a7b8-4009-90a4-6d1783096136")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "BAT_Q1")
 					(unit 1)
 				)
@@ -1922,7 +1906,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+		(property "Footprint" "ErgoCai.pretty:SOT-23-5"
 			(at 106.68 88.265 0)
 			(effects
 				(font
@@ -1966,7 +1950,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "BAT_U1")
 					(unit 1)
 				)
@@ -2030,8 +2014,8 @@
 			(uuid "0a082100-fb89-41e8-a248-567dd22950bf")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "#PWR012")
 					(unit 1)
 				)
@@ -2065,7 +2049,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603"
 			(at 125.73 50.8 0)
 			(effects
 				(font
@@ -2098,14 +2082,6 @@
 		(pin "2"
 			(uuid "8c4fea53-b1cc-4986-b7d6-005da6fa1746")
 		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
-					(reference "BAT_R2")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
@@ -2134,7 +2110,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:Battery_Holder_18650_Nickel"
+		(property "Footprint" "ErgoCai.pretty:Battery_Holder_18650_Nickel"
 			(at 83.82 50.8 0)
 			(effects
 				(font
@@ -2166,14 +2142,6 @@
 		)
 		(pin "2"
 			(uuid "a40565f7-5172-4e5d-911a-2994aeaa33e4")
-		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
-					(reference "BAT_J1")
-					(unit 1)
-				)
-			)
 		)
 	)
 	(symbol
@@ -2233,8 +2201,8 @@
 			(uuid "deb379e4-de73-4b1f-9937-faad33239e2e")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "#PWR04")
 					(unit 1)
 				)
@@ -2267,7 +2235,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603"
 			(at 135.89 50.8 0)
 			(effects
 				(font
@@ -2299,14 +2267,6 @@
 		)
 		(pin "2"
 			(uuid "6f7d108c-5f3c-445d-ba8f-39b17623fbd3")
-		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
-					(reference "BAT_R3")
-					(unit 1)
-				)
-			)
 		)
 	)
 	(symbol
@@ -2366,8 +2326,8 @@
 			(uuid "61c39eec-7f6b-45bc-9a8a-48f391cdca35")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/4f209baf-4a6a-4aad-b42b-666d7fffdcd4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/559a5175-ec72-4734-ba4a-6993c402281d"
 					(reference "#PWR06")
 					(unit 1)
 				)

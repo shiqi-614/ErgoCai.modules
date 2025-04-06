@@ -1065,7 +1065,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
+		(property "Footprint" "ErgoCai.pretty:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
 			(at 83.82 63.5 0)
 			(effects
 				(font
@@ -1120,8 +1120,8 @@
 			(uuid "3b90dfe6-227b-4e6f-b8bc-669090671ce1")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/e8f99de7-8b9a-4508-9f90-208f83e7960a"
 					(reference "CHRG_U1")
 					(unit 1)
 				)
@@ -1153,7 +1153,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603"
 			(at 72.39 61.468 90)
 			(effects
 				(font
@@ -1187,8 +1187,8 @@
 			(uuid "22bf619b-377a-4caa-8b9b-ea51ec014803")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/e8f99de7-8b9a-4508-9f90-208f83e7960a"
 					(reference "CHRG_R_CHRG1")
 					(unit 1)
 				)
@@ -1253,8 +1253,8 @@
 			(uuid "df439296-f75b-4258-bb4a-f15accc5e8d2")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/e8f99de7-8b9a-4508-9f90-208f83e7960a"
 					(reference "#PWR020")
 					(unit 1)
 				)
@@ -1286,7 +1286,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603"
 			(at 72.39 70.358 90)
 			(effects
 				(font
@@ -1320,8 +1320,8 @@
 			(uuid "ab3db4bb-0aac-4319-8820-3eddc0ac5191")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/e8f99de7-8b9a-4508-9f90-208f83e7960a"
 					(reference "CHRG_R_STDBY1")
 					(unit 1)
 				)
@@ -1353,7 +1353,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:LED_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:LED_0603_1608Metric"
 			(at 53.34 59.69 0)
 			(effects
 				(font
@@ -1387,8 +1387,8 @@
 			(uuid "46f480a9-0304-4a58-936a-dfa205acf293")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/e8f99de7-8b9a-4508-9f90-208f83e7960a"
 					(reference "CHRG_LED_CHRG1")
 					(unit 1)
 				)
@@ -1420,7 +1420,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:LED_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:LED_0603_1608Metric"
 			(at 53.34 68.58 0)
 			(effects
 				(font
@@ -1454,8 +1454,8 @@
 			(uuid "f2205086-24ce-4264-b713-427978ba9888")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/e8f99de7-8b9a-4508-9f90-208f83e7960a"
 					(reference "CHRG_LED_STDBY1")
 					(unit 1)
 				)
@@ -1519,14 +1519,6 @@
 		)
 		(pin "2"
 			(uuid "7d25477d-4bd0-4f08-898c-e6289a9b4e36")
-		)
-		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/250fc6fe-a9d9-4c83-8a52-c217220cf31a"
-					(reference "CHRG_R_PROG1")
-					(unit 1)
-				)
-			)
 		)
 	)
 )

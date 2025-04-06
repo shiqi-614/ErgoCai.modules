@@ -1879,7 +1879,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:nRF52840_holyiot_18010"
+		(property "Footprint" "ErgoCai.pretty:nRF52840_holyiot_18010"
 			(at 76.2 17.78 0)
 			(effects
 				(font
@@ -2073,7 +2073,7 @@
 		)
 		(instances
 			(project ""
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "MCU_U1")
 					(unit 1)
 				)
@@ -2145,8 +2145,8 @@
 			(uuid "651a0e95-26a8-4581-af0f-df5d73daec82")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/1defd50b-9fa9-4121-9475-90ecc1018df4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "#PWR013")
 					(unit 1)
 				)
@@ -2186,7 +2186,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:Connector_THT_1x4_2.54"
+		(property "Footprint" "ErgoCai.pretty:Connector_THT_1x4_2.54"
 			(at 137.16 60.96 0)
 			(effects
 				(font
@@ -2227,7 +2227,7 @@
 		)
 		(instances
 			(project ""
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "MCU_J1")
 					(unit 1)
 				)
@@ -2297,8 +2297,8 @@
 			(uuid "719c699e-c0d0-424f-a2a2-dc2c20fae235")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/1defd50b-9fa9-4121-9475-90ecc1018df4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "#PWR09")
 					(unit 1)
 				)
@@ -2369,8 +2369,8 @@
 			(uuid "4908db69-9025-4218-9907-0d0687b346d1")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/1defd50b-9fa9-4121-9475-90ecc1018df4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "#PWR08")
 					(unit 1)
 				)
@@ -2441,8 +2441,8 @@
 			(uuid "f0824789-1fb2-4156-97de-021567750b5c")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/1defd50b-9fa9-4121-9475-90ecc1018df4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "#PWR011")
 					(unit 1)
 				)
@@ -2514,12 +2514,6 @@
 			(uuid "230643a5-9b3c-4ebf-8e8f-2d7c9217eb82")
 		)
 		(instances
-			(project ""
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "MCU_SW1")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
 				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
 					(reference "MCU_SW1")
@@ -2586,8 +2580,8 @@
 			(uuid "be607e81-a7bc-4d1f-be51-c1b8342f67d8")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/1defd50b-9fa9-4121-9475-90ecc1018df4"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
 					(reference "#PWR010")
 					(unit 1)
 				)
