@@ -12,7 +12,7 @@ usb:
       what: "USB_C_Receptacle_HRO_TYPE-C-31-M-12.kicad_mod"
       where:
         rotate: 180
-    USB_R_CC1:
+    USB_R_CC2:
       what: 
         value: 5.1K
         github:
@@ -21,7 +21,7 @@ usb:
       where:
         shift: [-2, -7.5]
         rotate: -90
-    USB_R_CC2:
+    USB_R_CC1:
       what: 
         value: 5.1K
         github:
