@@ -17,18 +17,18 @@ usb:
         value: 5.1K
         github:
           repo: "shiqi-614/ErgoCai.pretty"
-          file: "R_0603.kicad_mod"
+          file: "R_0603_1608Metric.kicad_mod"
       where:
-        shift: [-2, -7.5]
+        shift: [-6.4, -3.8]
         rotate: -90
     USB_R_CC1:
       what: 
         value: 5.1K
         github:
           repo: "shiqi-614/ErgoCai.pretty"
-          file: "R_0603.kicad_mod"
+          file: "R_0603_1608Metric.kicad_mod"
       where:
-        shift: [2, -7.5]
+        shift: [6.4, -3.8]
         rotate: -90
     USB_C1:
       what: 
@@ -37,6 +37,6 @@ usb:
           repo: "shiqi-614/ErgoCai.pretty"
           file: "C_0805_2012Metric.kicad_mod"
       where:
-        shift: [0 ,-7.5]
-        rotate: 90
+        shift: [0 ,-6.5]
+        rotate: 0
       side: back
