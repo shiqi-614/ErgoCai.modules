@@ -957,9 +957,9 @@
 		)
 		(symbol "power:GND"
 			(power)
+			(pin_numbers hide)
 			(pin_names
-				(offset 0)
-			)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1007,7 +1007,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1033,8 +1033,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
-					(name "GND"
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1355,7 +1355,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 123.19 109.22 0)
 			(effects
 				(font
@@ -1373,7 +1373,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor, small symbol"
 			(at 123.19 109.22 0)
 			(effects
 				(font
@@ -1494,7 +1494,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
 					(reference "USB_J1")
 					(unit 1)
 				)
@@ -1545,7 +1545,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 90.17 109.22 0)
 			(effects
 				(font
@@ -1559,7 +1559,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
 					(reference "#PWR01")
 					(unit 1)
 				)
@@ -1610,7 +1610,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 123.19 111.76 0)
 			(effects
 				(font
@@ -1624,7 +1624,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
 					(reference "#PWR03")
 					(unit 1)
 				)
@@ -1675,7 +1675,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 105.41 111.76 0)
 			(effects
 				(font
@@ -1689,7 +1689,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
 					(reference "#PWR02")
 					(unit 1)
 				)
@@ -1742,7 +1742,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Unpolarized capacitor"
 			(at 142.24 111.76 0)
 			(effects
 				(font
@@ -1803,7 +1803,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 142.24 115.57 0)
 			(effects
 				(font
@@ -1817,7 +1817,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/8c853b1d-d586-4380-a2bc-921f5653e681"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
 					(reference "#PWR07")
 					(unit 1)
 				)
@@ -1851,7 +1851,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 105.41 109.22 0)
 			(effects
 				(font
@@ -1869,7 +1869,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor, small symbol"
 			(at 105.41 109.22 0)
 			(effects
 				(font

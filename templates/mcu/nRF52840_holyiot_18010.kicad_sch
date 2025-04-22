@@ -225,7 +225,7 @@
 					)
 				)
 			)
-			(property "Footprint" "ErgoCai:nRF52840_holyiot_18010"
+			(property "Footprint" "ErgoCai.pretty:nRF52840_holyiot_18010"
 				(at 0 35.56 0)
 				(effects
 					(font

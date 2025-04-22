@@ -746,7 +746,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "ErgoCai.pretty:SOT-23-5"
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 				(at 0 8.255 0)
 				(effects
 					(font
@@ -1145,7 +1145,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "ErgoCai.pretty:SOT-23"
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 				(at 5.08 -1.905 0)
 				(effects
 					(font
@@ -1157,7 +1157,7 @@
 				)
 			)
 			(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf"
-				(at 0 0 0)
+				(at 5.08 -3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1685,9 +1685,9 @@
 		)
 		(symbol "power:GND"
 			(power)
+			(pin_numbers hide)
 			(pin_names
-				(offset 0)
-			)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1735,7 +1735,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1761,8 +1761,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
-					(name "GND"
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2607,6 +2607,14 @@
 		(pin "3"
 			(uuid "676c2193-7843-4e8a-91d4-985d02243b0e")
 		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_SW1")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -2633,7 +2641,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 179.07 98.298 90)
 			(effects
 				(font
@@ -2665,6 +2673,14 @@
 		)
 		(pin "2"
 			(uuid "31f1b7bc-1603-4f39-8c14-2868d8f75b26")
+		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_R5")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -2712,7 +2728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 224.79 93.98 0)
 			(effects
 				(font
@@ -2776,7 +2792,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Light emitting diode"
 			(at 160.02 96.52 0)
 			(effects
 				(font
@@ -2835,7 +2851,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Light emitting diode"
 			(at 160.02 87.63 0)
 			(effects
 				(font
@@ -2895,7 +2911,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 106.68 102.87 0)
 			(effects
 				(font
@@ -2943,7 +2959,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 74.93 99.06 0)
 			(effects
 				(font
@@ -2961,7 +2977,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor, small symbol"
 			(at 74.93 99.06 0)
 			(effects
 				(font
@@ -2975,6 +2991,14 @@
 		)
 		(pin "2"
 			(uuid "17efba66-2fd4-4cb3-bbe6-aa11d81d30f4")
+		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_R1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3020,7 +3044,25 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Diode, small symbol"
+			(at 81.28 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "D"
+			(at 81.28 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
 			(at 81.28 93.98 0)
 			(effects
 				(font
@@ -3084,7 +3126,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"
 			(at 86.36 85.09 0)
 			(effects
 				(font
@@ -3101,6 +3143,14 @@
 		)
 		(pin "3"
 			(uuid "76020cf6-a7b8-4009-90a4-6d1783096136")
+		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_Q1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3171,6 +3221,14 @@
 		(pin "5"
 			(uuid "1f2a2ce8-3248-4919-ab36-0bc774730e0f")
 		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_U1")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -3216,7 +3274,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 138.43 50.8 0)
 			(effects
 				(font
@@ -3264,7 +3322,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 125.73 50.8 0)
 			(effects
 				(font
@@ -3282,7 +3340,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor, small symbol"
 			(at 125.73 50.8 0)
 			(effects
 				(font
@@ -3296,6 +3354,14 @@
 		)
 		(pin "2"
 			(uuid "8c4fea53-b1cc-4986-b7d6-005da6fa1746")
+		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_R2")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3343,7 +3409,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 83.82 50.8 0)
 			(effects
 				(font
@@ -3403,7 +3469,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 74.93 101.6 0)
 			(effects
 				(font
@@ -3450,7 +3516,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 135.89 50.8 0)
 			(effects
 				(font
@@ -3468,7 +3534,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor, small symbol"
 			(at 135.89 50.8 0)
 			(effects
 				(font
@@ -3482,6 +3548,14 @@
 		)
 		(pin "2"
 			(uuid "6f7d108c-5f3c-445d-ba8f-39b17623fbd3")
+		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_R3")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3617,7 +3691,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 91.44 45.72 0)
 			(effects
 				(font
@@ -3663,7 +3737,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:R_0603"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 179.07 89.408 90)
 			(effects
 				(font
@@ -3695,6 +3769,14 @@
 		)
 		(pin "2"
 			(uuid "1f6df007-d78a-4d1c-9636-676163ecb6b3")
+		)
+		(instances
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/68034258-a593-4021-a1f0-4d7f8aae109e"
+					(reference "BAT_R4")
+					(unit 1)
+				)
+			)
 		)
 	)
 )
