@@ -20,7 +20,7 @@ usb:
           file: "R_0603_1608Metric.kicad_mod"
       where:
         shift: [-6.4, -3.8]
-        rotate: -90
+        rotate: 90
     USB_R_CC1:
       what: 
         value: 5.1K
@@ -29,7 +29,7 @@ usb:
           file: "R_0603_1608Metric.kicad_mod"
       where:
         shift: [6.4, -3.8]
-        rotate: -90
+        rotate: 90
     USB_C1:
       what: 
         value: 10nF
