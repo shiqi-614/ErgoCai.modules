@@ -1444,9 +1444,9 @@
 		)
 		(symbol "power:GND"
 			(power)
+			(pin_numbers hide)
 			(pin_names
-				(offset 0)
-			)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1494,7 +1494,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "power-flag"
+			(property "ki_keywords" "global power"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1520,8 +1520,8 @@
 			(symbol "GND_1_1"
 				(pin power_in line
 					(at 0 0 270)
-					(length 0) hide
-					(name "GND"
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2041,7 +2041,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/dfc9fce5-ea07-41fd-b804-d0e2e53323ce"
 					(reference "MCU_U1")
 					(unit 1)
 				)
@@ -2064,7 +2064,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "08f66e3d-97a7-4ba0-a1e0-7a117d77693f")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR0104"
 			(at 123.19 57.15 0)
 			(effects
 				(font
@@ -2100,7 +2100,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 129.54 57.15 0)
 			(effects
 				(font
@@ -2114,8 +2114,8 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
-					(reference "#PWR013")
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/dfc9fce5-ea07-41fd-b804-d0e2e53323ce"
+					(reference "#PWR0104")
 					(unit 1)
 				)
 			)
@@ -2172,7 +2172,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 137.16 60.96 0)
 			(effects
 				(font
@@ -2194,12 +2194,6 @@
 			(uuid "3f459034-1fee-49ca-aecc-69f1f104f85b")
 		)
 		(instances
-			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
-					(reference "MCU_J1")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
 				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
 					(reference "MCU_J1")
@@ -2217,7 +2211,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6f786eb0-d2ae-45f6-9497-c4ac6757c7f7")
-		(property "Reference" "#PWR09"
+		(property "Reference" "#PWR0101"
 			(at 146.05 43.18 0)
 			(effects
 				(font
@@ -2252,7 +2246,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 139.7 43.18 0)
 			(effects
 				(font
@@ -2266,8 +2260,8 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
-					(reference "#PWR09")
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/dfc9fce5-ea07-41fd-b804-d0e2e53323ce"
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -2288,7 +2282,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "95dfd47d-ee31-43d9-b409-b220eec5b069")
-		(property "Reference" "#PWR08"
+		(property "Reference" "#PWR0103"
 			(at 46.99 55.88 0)
 			(effects
 				(font
@@ -2324,7 +2318,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 53.34 55.88 0)
 			(effects
 				(font
@@ -2338,8 +2332,8 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
-					(reference "#PWR08")
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/dfc9fce5-ea07-41fd-b804-d0e2e53323ce"
+					(reference "#PWR0103")
 					(unit 1)
 				)
 			)
@@ -2360,7 +2354,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9e28fe07-ec52-4f92-9213-b986510cd30e")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR0102"
 			(at 111.76 86.36 0)
 			(effects
 				(font
@@ -2396,7 +2390,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 105.41 86.36 0)
 			(effects
 				(font
@@ -2410,8 +2404,8 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
-					(reference "#PWR011")
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/dfc9fce5-ea07-41fd-b804-d0e2e53323ce"
+					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
@@ -2466,7 +2460,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Push button switch, generic, two pins"
 			(at 134.62 43.18 0)
 			(effects
 				(font
@@ -2499,7 +2493,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b22d4cf7-2911-4cf1-a6b3-e8b3f1dd91d7")
-		(property "Reference" "#PWR010"
+		(property "Reference" "#PWR0105"
 			(at 105.41 55.88 0)
 			(effects
 				(font
@@ -2535,7 +2529,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
 			(at 99.06 55.88 0)
 			(effects
 				(font
@@ -2549,8 +2543,8 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/6ca11bcf-11a9-4f93-970b-96b1b3348f3d"
-					(reference "#PWR010")
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/dfc9fce5-ea07-41fd-b804-d0e2e53323ce"
+					(reference "#PWR0105")
 					(unit 1)
 				)
 			)
