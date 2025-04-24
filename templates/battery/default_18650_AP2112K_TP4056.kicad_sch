@@ -478,127 +478,6 @@
 				)
 			)
 		)
-		(symbol "Device:R"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "R res resistor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:R_Small"
 			(pin_numbers hide)
 			(pin_names
@@ -1122,6 +1001,246 @@
 				)
 			)
 		)
+		(symbol "Switch:SW_DPDT_x2"
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_DPDT_x2"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Switch, dual pole double throw, separate symbols"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch dual-pole double-throw DPDT spdt ON-ON"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SW*DPDT*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_DPDT_x2_0_0"
+				(circle
+					(center -2.032 0)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 -2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_DPDT_x2_0_1"
+				(rectangle
+					(start -3.175 3.81)
+					(end 3.175 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 0.254) (xy 1.5748 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.032 2.54)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_DPDT_x2_1_1"
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "SW_DPDT_x2_2_1"
+				(pin passive line
+					(at 5.08 2.54 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -2.54 180)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Transistor_FET:AO3401A"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -1417,272 +1536,6 @@
 				)
 			)
 		)
-		(symbol "jiran-ble:SW_DPDT"
-			(pin_names hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_DPDT"
-				(at 0 5.715 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0.635 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0.635 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_DPDT_0_0"
-				(circle
-					(center -3.302 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0.762 -2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_DPDT_0_1"
-				(polyline
-					(pts
-						(xy -2.794 0.254) (xy 0.381 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0.762 2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_DPDT_1_1"
-				(pin passive line
-					(at 3.81 2.54 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -6.35 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 -2.54 180)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "nrfmicro-rescue:R"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "R"
-				(at 2.032 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "R"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "R_* R_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "R_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "power:GND"
 			(power)
 			(pin_numbers hide)
@@ -1847,8 +1700,8 @@
 		(uuid "eefd2086-8297-4dee-b887-ede93214e723")
 	)
 	(no_connect
-		(at 91.44 74.93)
-		(uuid "a5e2cf41-d600-4028-9a2b-6fc6c90daf4b")
+		(at 93.98 80.01)
+		(uuid "1baabe1e-dda6-470d-8229-eddf4f0b3e9e")
 	)
 	(wire
 		(pts
@@ -1902,7 +1755,7 @@
 	)
 	(wire
 		(pts
-			(xy 208.28 90.17) (xy 205.74 90.17)
+			(xy 205.74 90.17) (xy 209.55 90.17)
 		)
 		(stroke
 			(width 0)
@@ -2002,6 +1855,16 @@
 	)
 	(wire
 		(pts
+			(xy 181.61 96.52) (xy 184.15 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ec405db-ecb4-482a-b837-e1b721029548")
+	)
+	(wire
+		(pts
 			(xy 88.9 93.98) (xy 91.44 93.98)
 		)
 		(stroke
@@ -2009,16 +1872,6 @@
 			(type solid)
 		)
 		(uuid "5160087d-4d9b-4b04-acaa-47e423644e49")
-	)
-	(wire
-		(pts
-			(xy 182.88 87.63) (xy 187.96 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "55e09801-9c7b-4475-8aad-7c5b44bc61c4")
 	)
 	(wire
 		(pts
@@ -2032,7 +1885,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 87.63) (xy 175.26 87.63)
+			(xy 163.83 87.63) (xy 176.53 87.63)
 		)
 		(stroke
 			(width 0)
@@ -2082,16 +1935,6 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 80.01) (xy 91.44 80.01)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "5ff705e3-cfaa-4412-bf33-abab73f77d13")
-	)
-	(wire
-		(pts
 			(xy 224.79 93.98) (xy 223.52 93.98)
 		)
 		(stroke
@@ -2099,6 +1942,16 @@
 			(type default)
 		)
 		(uuid "70fd6184-cda9-48a4-85cc-1c0f1259500b")
+	)
+	(wire
+		(pts
+			(xy 181.61 87.63) (xy 187.96 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c3d8815-fcc8-4fdd-9cca-e979c2be39d8")
 	)
 	(wire
 		(pts
@@ -2162,16 +2015,6 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 90.17) (xy 223.52 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d3becc1-7c30-41be-92a6-4c780c6bce47")
-	)
-	(wire
-		(pts
 			(xy 91.44 93.98) (xy 91.44 96.52)
 		)
 		(stroke
@@ -2212,16 +2055,6 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 77.47) (xy 104.14 77.47)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "b1ade75a-b4ce-44e2-bc8a-a03572b9dae1")
-	)
-	(wire
-		(pts
 			(xy 128.27 50.8) (xy 130.81 50.8)
 		)
 		(stroke
@@ -2229,6 +2062,16 @@
 			(type default)
 		)
 		(uuid "b27f0bba-5984-4ae0-aa6a-b6fc8aa3c5b5")
+	)
+	(wire
+		(pts
+			(xy 214.63 90.17) (xy 223.52 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b57176a9-c37c-49a2-a00e-85b04d8f8815")
 	)
 	(wire
 		(pts
@@ -2282,23 +2125,13 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 96.52) (xy 175.26 96.52)
+			(xy 163.83 96.52) (xy 176.53 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "ec3e0cb4-03a7-4193-bae4-913a51d25d22")
-	)
-	(wire
-		(pts
-			(xy 182.88 96.52) (xy 184.15 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5eb0797-18cd-4a04-8838-fb0af3841158")
 	)
 	(wire
 		(pts
@@ -2309,6 +2142,28 @@
 			(type default)
 		)
 		(uuid "f6306522-ea23-4d0c-a541-b77ebc4218ad")
+	)
+	(global_label "VBAT"
+		(shape input)
+		(at 91.44 69.85 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1c329e92-8d15-49b0-913e-c2e1f86a6661")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.44 62.45 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
 	)
 	(global_label "VBAT"
 		(shape input)
@@ -2420,28 +2275,6 @@
 			)
 		)
 	)
-	(global_label "VBAT"
-		(shape input)
-		(at 104.14 77.47 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c20aff08-7b6d-450b-bb0c-5844647e07b4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 111.54 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "BT_PIN"
 		(shape input)
 		(at 130.81 53.34 270)
@@ -2487,7 +2320,7 @@
 		)
 	)
 	(symbol
-		(lib_id "nrfmicro-rescue:R")
+		(lib_id "Device:R_Small")
 		(at 212.09 90.17 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2511,7 +2344,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:R_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
 			(at 212.09 91.948 90)
 			(effects
 				(font
@@ -2520,7 +2353,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 212.09 90.17 0)
 			(effects
 				(font
@@ -2529,7 +2362,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "Resistor, small symbol"
 			(at 212.09 90.17 0)
 			(effects
 				(font
@@ -2546,33 +2379,35 @@
 		)
 	)
 	(symbol
-		(lib_id "jiran-ble:SW_DPDT")
-		(at 95.25 77.47 0)
-		(mirror y)
+		(lib_id "Switch:SW_DPDT_x2")
+		(at 91.44 74.93 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "305c8be5-5e7e-4a9a-94d2-e7b42b4ac044")
+		(fields_autoplaced yes)
+		(uuid "2ec79895-ee7e-42d3-8b43-e04f0fd538ba")
 		(property "Reference" "BAT_SW1"
-			(at 96.52 69.215 0)
+			(at 96.52 73.6599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "SW_DPDT"
-			(at 96.52 71.755 0)
+		(property "Value" "SW_DPDT_x2"
+			(at 96.52 76.1999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:MSK-12C02"
-			(at 94.615 69.85 0)
+			(at 91.44 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2580,8 +2415,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 94.615 69.85 0)
+		(property "Datasheet" "~"
+			(at 91.44 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2589,8 +2424,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 95.25 77.47 0)
+		(property "Description" "Switch, dual pole double throw, separate symbols"
+			(at 91.44 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2598,14 +2433,23 @@
 				(hide yes)
 			)
 		)
-		(pin "1"
-			(uuid "61638150-5706-429d-815e-ad47e936e074")
+		(pin "6"
+			(uuid "d7c324a5-43bd-4d3e-987f-6719b2791803")
 		)
-		(pin "2"
-			(uuid "16005312-b547-49fb-ac01-513d1ca8f318")
+		(pin "4"
+			(uuid "1537c051-2144-4982-bd95-1f70d072df68")
+		)
+		(pin "5"
+			(uuid "89b05497-232f-4d16-89ef-134e07d6d4b4")
 		)
 		(pin "3"
-			(uuid "676c2193-7843-4e8a-91d4-985d02243b0e")
+			(uuid "447f7767-8669-4e3f-a05e-a3655d4429ad")
+		)
+		(pin "2"
+			(uuid "49e4f7bd-57f2-431e-86b0-6270d08d19f3")
+		)
+		(pin "1"
+			(uuid "7576a77d-0698-4afe-bc1a-872293cbdc90")
 		)
 		(instances
 			(project ""
@@ -2617,7 +2461,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_Small")
 		(at 179.07 96.52 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2642,7 +2486,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 179.07 98.298 90)
+			(at 179.07 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2659,7 +2503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, small symbol"
 			(at 179.07 96.52 0)
 			(effects
 				(font
@@ -3105,7 +2949,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:SOT-23"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
 			(at 91.44 86.995 0)
 			(effects
 				(font
@@ -3179,7 +3023,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:SOT-23-5"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 			(at 106.68 88.265 0)
 			(effects
 				(font
@@ -3584,7 +3428,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
+		(property "Footprint" "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
 			(at 190.5 91.44 0)
 			(effects
 				(font
@@ -3713,7 +3557,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_Small")
 		(at 179.07 87.63 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3738,7 +3582,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 179.07 89.408 90)
+			(at 179.07 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3755,7 +3599,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, small symbol"
 			(at 179.07 87.63 0)
 			(effects
 				(font
