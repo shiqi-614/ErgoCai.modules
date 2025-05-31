@@ -2442,7 +2442,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai:K2-1187SQ"
+		(property "Footprint" "ErgoCai.pretty:K2-1187SQ"
 			(at 134.62 38.1 0)
 			(effects
 				(font
