@@ -1343,8 +1343,8 @@
 			(uuid "2a25f11f-d80c-4a94-9f86-b3b72d12fc29")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
+			(project ""
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/688aa8da-e41b-4f49-9e76-9679cfdd1c75"
 					(reference "#PWR01")
 					(unit 1)
 				)
@@ -1411,14 +1411,6 @@
 		(pin "2"
 			(uuid "f9e85a66-6eb6-48b3-90ab-352ff7ccc42d")
 		)
-		(instances
-			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
-					(reference "USB_R_CC2")
-					(unit 1)
-				)
-			)
-		)
 	)
 	(symbol
 		(lib_id "power:GND")
@@ -1478,7 +1470,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/688aa8da-e41b-4f49-9e76-9679cfdd1c75"
 					(reference "#PWR03")
 					(unit 1)
 				)
@@ -1543,7 +1535,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/688aa8da-e41b-4f49-9e76-9679cfdd1c75"
 					(reference "#PWR02")
 					(unit 1)
 				)
@@ -1656,7 +1648,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/688aa8da-e41b-4f49-9e76-9679cfdd1c75"
 					(reference "USB_J1")
 					(unit 1)
 				)
@@ -1784,7 +1776,7 @@
 		)
 		(instances
 			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
+				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/688aa8da-e41b-4f49-9e76-9679cfdd1c75"
 					(reference "#PWR07")
 					(unit 1)
 				)
@@ -1850,14 +1842,6 @@
 		)
 		(pin "2"
 			(uuid "bb4b02ba-733c-4624-9920-e071717c268e")
-		)
-		(instances
-			(project ""
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/eab2ad23-b528-4672-a6fc-854157c306db"
-					(reference "USB_R_CC1")
-					(unit 1)
-				)
-			)
 		)
 	)
 )
