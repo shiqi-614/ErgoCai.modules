@@ -134,7 +134,7 @@
 	(footprint "ErgoCai.pretty:Connector_THT_1x4_2.54"
 		(layer "F.Cu")
 		(uuid "40eece11-a52f-4f5b-8656-e5ccf26613a3")
-		(at -18 -6.281 90)
+		(at -18 -6.7 90)
 		(property "Reference" "MCU_J1"
 			(at 0 -6.096 90)
 			(layer "F.SilkS")
@@ -291,7 +291,7 @@
 		(property "Reference" "MCU_U1"
 			(at -5.3 -10.75 0)
 			(layer "B.SilkS")
-			(uuid "9a63edc3-682b-458b-933f-2ef6416fae7a")
+			(uuid "749c3418-d01d-4407-a76e-e82d3270653f")
 			(effects
 				(font
 					(size 1 1)
@@ -303,7 +303,7 @@
 		(property "Value" "nRF52840_holyiot_18010"
 			(at 0 -2.8 0)
 			(layer "B.Fab")
-			(uuid "74640e1d-c379-4b00-8c7e-2833bbb8ee51")
+			(uuid "7f249f21-a43d-42a1-acd2-8eba31893ef2")
 			(effects
 				(font
 					(size 1 1)
@@ -317,7 +317,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "52610bca-4f0e-4d20-af3e-7e9fe6e5d213")
+			(uuid "20407a9a-2ff7-40d5-9ecc-0278ca551848")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -331,7 +331,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "0be21dd8-5595-45ea-af1a-d69001af83c7")
+			(uuid "14a89cb8-4d43-434a-af59-23c9c3d71c62")
 			(effects
 				(font
 					(size 1.27 1.27)
