@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "dd638167-5b14-430c-bef4-f126bf5404f3")
+	(uuid "5ac02cf2-291a-487e-b868-5e66ea14e5ba")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x02"
@@ -1666,518 +1666,518 @@
 		)
 	)
 	(junction
-		(at 154.94 123.19)
+		(at 129.54 45.72)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "1af78b57-169b-439a-a371-1a8d8ccaf5a2")
+		(uuid "0e78329a-5913-4824-8cf2-c4ee97afd670")
 	)
 	(junction
-		(at 157.48 123.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7078787f-5840-4a3f-8efd-cbce9d5a86fe")
-	)
-	(junction
-		(at 74.93 93.98)
+		(at 73.66 80.01)
 		(diameter 0.9144)
 		(color 0 0 0 0)
-		(uuid "716210e9-c375-4511-84b5-da469280e2e8")
+		(uuid "12724507-d770-489a-90d1-1e861d8d1f9f")
 	)
 	(junction
-		(at 203.2 137.16)
+		(at 212.09 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "926986a2-4cee-4372-b3c4-7a98f0e1f217")
+		(uuid "12980944-ee9e-467f-923c-b7e3dfa54359")
 	)
 	(junction
-		(at 74.93 85.09)
+		(at 144.78 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "13122c7a-1920-40a6-a38c-9d005251dc62")
+	)
+	(junction
+		(at 166.37 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "35bdc4b2-f8d4-4bba-806e-2b0dc8be2aed")
+	)
+	(junction
+		(at 87.63 88.9)
 		(diameter 0.9144)
 		(color 0 0 0 0)
-		(uuid "bd9dd43b-9af5-4709-a3d6-a0748a4924bd")
+		(uuid "6c8c33d3-3f53-4fa8-b77a-4e1c54300c63")
 	)
 	(junction
-		(at 135.89 130.81)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c02b580a-4f5f-4998-8db5-c5bcf9cdd244")
-	)
-	(junction
-		(at 135.89 123.19)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c2cfd11c-b1da-4e4f-b72f-3f7d8ecdfa25")
-	)
-	(junction
-		(at 130.81 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c8e504d9-e13f-4f94-a940-7f906c43848f")
-	)
-	(junction
-		(at 91.44 93.98)
+		(at 90.17 88.9)
 		(diameter 0.9144)
 		(color 0 0 0 0)
-		(uuid "cd0db432-09ca-4e2f-99af-a15698fd0a4c")
+		(uuid "6f28de3f-be5e-4cfb-a3da-1883d7cf6e07")
 	)
 	(junction
-		(at 88.9 93.98)
-		(diameter 0.9144)
-		(color 0 0 0 0)
-		(uuid "e6ddd450-cf6c-4e60-8914-90de7daa4548")
-	)
-	(junction
-		(at 203.2 133.35)
+		(at 212.09 85.09)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "eefd2086-8297-4dee-b887-ede93214e723")
+		(uuid "8aac6483-a0a4-48dd-93a4-12a8b483915c")
+	)
+	(junction
+		(at 144.78 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8f342a43-6446-447f-bad1-45df84229990")
+	)
+	(junction
+		(at 73.66 88.9)
+		(diameter 0.9144)
+		(color 0 0 0 0)
+		(uuid "9b585c0c-3e28-440b-b91e-e23908eda463")
+	)
+	(junction
+		(at 163.83 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "adec285c-b0e0-4ac3-b582-35aa4024df5e")
 	)
 	(no_connect
-		(at 93.98 80.01)
-		(uuid "1baabe1e-dda6-470d-8229-eddf4f0b3e9e")
+		(at 92.71 74.93)
+		(uuid "b98f247a-5776-47fd-9b09-b683a254e22b")
 	)
 	(wire
 		(pts
-			(xy 91.44 96.52) (xy 99.06 96.52)
+			(xy 166.37 74.93) (xy 163.83 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "01f1dc57-616d-4651-9c78-bd5a987dd28f")
+	)
+	(wire
+		(pts
+			(xy 87.63 45.72) (xy 87.63 48.26)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "01929eef-2c42-43ed-b961-8e5fd5ddd11a")
+		(uuid "023e5112-618f-4e97-9215-ce5bbfaf6c21")
 	)
 	(wire
 		(pts
-			(xy 83.82 93.98) (xy 88.9 93.98)
+			(xy 144.78 82.55) (xy 144.78 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "059657a8-8b3f-4f80-9e38-887c9d26ba22")
+	)
+	(wire
+		(pts
+			(xy 129.54 48.26) (xy 129.54 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0771b412-a881-42be-8cdf-259b4b7ff5f4")
+	)
+	(wire
+		(pts
+			(xy 166.37 77.47) (xy 166.37 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a74d1c1-2284-48c1-a94b-14f106b90787")
+	)
+	(wire
+		(pts
+			(xy 113.03 88.9) (xy 114.3 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "0d6e519c-0ab5-4048-b818-645f80bdbb6c")
+		(uuid "1b0ad5f0-e894-459e-9872-1f9ceeac4587")
 	)
 	(wire
 		(pts
-			(xy 157.48 125.73) (xy 157.48 123.19)
+			(xy 152.4 91.44) (xy 165.1 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "111a72e7-4a7c-4ae8-875f-8e90d7fc31f7")
+		(uuid "279d4968-22fd-4318-8129-89fe939da9c6")
 	)
 	(wire
 		(pts
-			(xy 157.48 123.19) (xy 154.94 123.19)
+			(xy 212.09 81.28) (xy 212.09 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "19168f7c-93cd-472e-9b6c-92828dbf026a")
+		(uuid "3b587ac3-9fbf-4937-aee1-e8a7e2c73740")
 	)
 	(wire
 		(pts
-			(xy 74.93 93.98) (xy 74.93 96.52)
+			(xy 213.36 88.9) (xy 212.09 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3cf96599-6dbf-4ca2-abd3-a1efad443a35")
+	)
+	(wire
+		(pts
+			(xy 194.31 85.09) (xy 198.12 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41f71e20-9b6c-4fc5-8742-f8aacf5111f3")
+	)
+	(wire
+		(pts
+			(xy 119.38 45.72) (xy 121.92 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49753b6e-19c5-4b82-a1b4-a54d07b71746")
+	)
+	(wire
+		(pts
+			(xy 212.09 88.9) (xy 185.42 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49e97ca4-8eda-40fc-b80a-4abe14e92b19")
+	)
+	(wire
+		(pts
+			(xy 127 45.72) (xy 129.54 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f843ec3-bf24-4835-ab33-f77a8c290011")
+	)
+	(wire
+		(pts
+			(xy 90.17 91.44) (xy 97.79 91.44)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "196fe457-e25d-4aa1-8593-2cbf274eca3d")
+		(uuid "50cf6a33-1953-448e-94c3-8d69247f6c06")
 	)
 	(wire
 		(pts
-			(xy 185.42 133.35) (xy 189.23 133.35)
+			(xy 172.72 85.09) (xy 176.53 85.09)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1ea2253e-a27a-432c-b613-369fd717f366")
+		(uuid "5884da01-9819-4cc8-8eda-16487ea66aea")
 	)
 	(wire
 		(pts
-			(xy 203.2 133.35) (xy 203.2 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "249b6700-e120-4e88-827b-a978bc2c3eac")
-	)
-	(wire
-		(pts
-			(xy 135.89 123.19) (xy 128.27 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "29999d87-0c47-4ff4-830e-79ad71957012")
-	)
-	(wire
-		(pts
-			(xy 106.68 104.14) (xy 106.68 102.87)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2c7e6781-08cd-494f-95fb-9ac5fad6701d")
-	)
-	(wire
-		(pts
-			(xy 157.48 123.19) (xy 167.64 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2cc32595-c64e-459f-8f08-d40b7ffcffc9")
-	)
-	(wire
-		(pts
-			(xy 88.9 53.34) (xy 91.44 53.34)
+			(xy 73.66 88.9) (xy 77.47 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "2f2b6579-74ee-49a9-a7e7-d480a7add801")
+		(uuid "5e8e4300-ae95-4f76-a217-b0508582e638")
 	)
 	(wire
 		(pts
-			(xy 154.94 128.27) (xy 154.94 123.19)
+			(xy 129.54 45.72) (xy 132.08 45.72)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "33eb1ad3-589a-4311-b7ab-422ebd80739e")
+		(uuid "6285f901-fab2-4973-ac25-2f88a047385e")
 	)
 	(wire
 		(pts
-			(xy 114.3 93.98) (xy 115.57 93.98)
+			(xy 87.63 88.9) (xy 90.17 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "3ac9d0fd-32c1-4067-b110-e77afeff0d2b")
+		(uuid "7352a17e-a059-4d85-88e4-66e5c57ffdd1")
 	)
 	(wire
 		(pts
-			(xy 163.83 133.35) (xy 167.64 133.35)
+			(xy 212.09 85.09) (xy 212.09 88.9)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4cd1c667-9493-4655-a18c-1bc157dc9c78")
+		(uuid "7a287df8-e086-443b-9596-703061b54249")
 	)
 	(wire
 		(pts
-			(xy 203.2 129.54) (xy 203.2 133.35)
+			(xy 194.31 81.28) (xy 212.09 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4dda3634-bd1e-417e-b552-8049f913df81")
+		(uuid "7e723570-2bc9-4123-9e06-143e7bd81749")
 	)
 	(wire
 		(pts
-			(xy 161.29 139.7) (xy 163.83 139.7)
+			(xy 176.53 80.01) (xy 163.83 80.01)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "4ec405db-ecb4-482a-b837-e1b721029548")
+		(uuid "88476411-f302-4272-b581-abe2f0774b03")
 	)
 	(wire
 		(pts
-			(xy 88.9 93.98) (xy 91.44 93.98)
+			(xy 87.63 48.26) (xy 90.17 48.26)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "5160087d-4d9b-4b04-acaa-47e423644e49")
+		(uuid "89fedee6-7651-4f07-bb81-2d490ad7f936")
 	)
 	(wire
 		(pts
-			(xy 72.39 85.09) (xy 74.93 85.09)
+			(xy 144.78 74.93) (xy 144.78 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "904a2e6b-37c9-4bfe-bc67-dfae766c1381")
+	)
+	(wire
+		(pts
+			(xy 87.63 43.18) (xy 87.63 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0b50ce3-548c-48e3-bf0f-034409329145")
+	)
+	(wire
+		(pts
+			(xy 170.18 91.44) (xy 172.72 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0e7feb1-618a-4ca7-a932-06c4445decc1")
+	)
+	(wire
+		(pts
+			(xy 170.18 82.55) (xy 176.53 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6aaa3a0-001a-43c6-8bb0-c3a9325ccf15")
+	)
+	(wire
+		(pts
+			(xy 176.53 77.47) (xy 166.37 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b49601ea-ff83-43b5-9de2-9ad35ad24cdb")
+	)
+	(wire
+		(pts
+			(xy 82.55 88.9) (xy 87.63 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "57f688fb-dbab-42e0-8b0b-37a1839e72a8")
+		(uuid "b5439876-ae10-4ac9-874f-794ed58e52bb")
 	)
 	(wire
 		(pts
-			(xy 143.51 130.81) (xy 156.21 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5a507a13-1c36-4a6a-b1ca-01f049a61ae8")
-	)
-	(wire
-		(pts
-			(xy 203.2 137.16) (xy 176.53 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d68266a-07c3-47cf-9533-62dda7e1f6ef")
-	)
-	(wire
-		(pts
-			(xy 120.65 50.8) (xy 123.19 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5dad2dce-e8ee-49a7-80d2-713fc349c369")
-	)
-	(wire
-		(pts
-			(xy 185.42 129.54) (xy 203.2 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5e4de340-04b1-4e70-b519-7d0aaf15206e")
-	)
-	(wire
-		(pts
-			(xy 88.9 45.72) (xy 91.44 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5f52d19c-616d-4fea-8dac-5d40b8802330")
-	)
-	(wire
-		(pts
-			(xy 204.47 137.16) (xy 203.2 137.16)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70fd6184-cda9-48a4-85cc-1c0f1259500b")
-	)
-	(wire
-		(pts
-			(xy 161.29 130.81) (xy 167.64 130.81)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c3d8815-fcc8-4fdd-9cca-e979c2be39d8")
-	)
-	(wire
-		(pts
-			(xy 74.93 93.98) (xy 78.74 93.98)
+			(xy 90.17 88.9) (xy 97.79 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "7ee6ab61-5c67-4a25-8a1d-8273105cd1fe")
+		(uuid "bdaf1f60-4b68-48df-b3cc-400e068af711")
 	)
 	(wire
 		(pts
-			(xy 130.81 53.34) (xy 130.81 50.8)
+			(xy 144.78 74.93) (xy 137.16 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "86ac39fd-f848-4e02-b019-77347ef8ac2b")
+		(uuid "c5e14754-bd23-45f7-af94-78e0c405de8e")
 	)
 	(wire
 		(pts
-			(xy 135.89 123.19) (xy 154.94 123.19)
+			(xy 163.83 80.01) (xy 163.83 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "8e44cf93-e56d-464d-9797-05c87cd73ad6")
+		(uuid "cb3cc0cc-d610-47bc-bad7-5c3625a0f2d9")
 	)
 	(wire
 		(pts
-			(xy 167.64 128.27) (xy 154.94 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "921d76bc-ed9e-494e-a521-ffd91e489744")
-	)
-	(wire
-		(pts
-			(xy 88.9 50.8) (xy 88.9 53.34)
+			(xy 73.66 80.01) (xy 80.01 80.01)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "96c14438-f338-49dd-b6eb-11a6f1fd4e23")
+		(uuid "cdd86f7c-5bfb-416b-9dae-e783d34c62c7")
 	)
 	(wire
 		(pts
-			(xy 135.89 123.19) (xy 135.89 130.81)
+			(xy 152.4 82.55) (xy 165.1 82.55)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "9b6ba793-1e62-42cb-98b2-b200b7494754")
+		(uuid "ce857772-f480-41d2-8000-8444e4add429")
 	)
 	(wire
 		(pts
-			(xy 91.44 93.98) (xy 91.44 96.52)
+			(xy 105.41 99.06) (xy 105.41 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cebd534c-9782-4641-90ae-4dde78fd4138")
+	)
+	(wire
+		(pts
+			(xy 71.12 80.01) (xy 73.66 80.01)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "a126f39d-014b-4e5b-8b6e-a53b03fe2622")
+		(uuid "d1dc9de6-3f9d-46c2-bb52-ce170dabeefc")
 	)
 	(wire
 		(pts
-			(xy 91.44 93.98) (xy 99.06 93.98)
+			(xy 172.72 91.44) (xy 172.72 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6ba0635-7dac-409e-9460-e4f33ff7a9e5")
+	)
+	(wire
+		(pts
+			(xy 90.17 88.9) (xy 90.17 91.44)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "a438127f-99f7-40ba-bb1e-632a5ff14147")
+		(uuid "de9613f5-2899-4ce6-a5ef-060f287a4caa")
 	)
 	(wire
 		(pts
-			(xy 74.93 85.09) (xy 81.28 85.09)
+			(xy 87.63 40.64) (xy 90.17 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3d5782a-7989-4200-8ff1-60992331b369")
+	)
+	(wire
+		(pts
+			(xy 144.78 74.93) (xy 163.83 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e53552cf-33c7-42ca-b4d7-26c22de1f9e1")
+	)
+	(wire
+		(pts
+			(xy 73.66 88.9) (xy 73.66 91.44)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "a523c905-e00d-458d-9711-085f46b0c415")
+		(uuid "eaff089c-5113-45a6-9fc5-8b218507bc0c")
 	)
 	(wire
 		(pts
-			(xy 88.9 48.26) (xy 88.9 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1361a55-899e-40ce-b9af-f1664ddeb7fd")
-	)
-	(wire
-		(pts
-			(xy 128.27 50.8) (xy 130.81 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b27f0bba-5984-4ae0-aa6a-b6fc8aa3c5b5")
-	)
-	(wire
-		(pts
-			(xy 194.31 133.35) (xy 203.2 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b57176a9-c37c-49a2-a00e-85b04d8f8815")
-	)
-	(wire
-		(pts
-			(xy 74.93 85.09) (xy 74.93 93.98)
+			(xy 87.63 85.09) (xy 87.63 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "bbd40a03-5da7-4a4b-8214-1a4933d77054")
+		(uuid "eb92fa11-4211-4348-b03d-5aae4b588f0e")
 	)
 	(wire
 		(pts
-			(xy 88.9 90.17) (xy 88.9 93.98)
+			(xy 166.37 74.93) (xy 176.53 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eba9e818-769d-4d4c-8dc0-f12e86bbfa8e")
+	)
+	(wire
+		(pts
+			(xy 203.2 85.09) (xy 212.09 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f44ba1b9-8a7c-47e7-965f-763df6ce8d36")
+	)
+	(wire
+		(pts
+			(xy 73.66 80.01) (xy 73.66 88.9)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "bcdc3f37-97d4-43cb-93f6-2e42885eb24b")
-	)
-	(wire
-		(pts
-			(xy 135.89 130.81) (xy 135.89 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf91aecf-218d-4612-bf59-e57c3b75f018")
-	)
-	(wire
-		(pts
-			(xy 167.64 125.73) (xy 157.48 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d90e2482-1832-48ad-b39f-cc90abfee234")
-	)
-	(wire
-		(pts
-			(xy 130.81 50.8) (xy 133.35 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d929cf76-3201-4514-959c-93d909ca20ca")
-	)
-	(wire
-		(pts
-			(xy 143.51 139.7) (xy 156.21 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ec3e0cb4-03a7-4193-bae4-913a51d25d22")
-	)
-	(wire
-		(pts
-			(xy 163.83 139.7) (xy 163.83 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f6306522-ea23-4d0c-a541-b77ebc4218ad")
+		(uuid "f6b71ae2-881b-456d-8fc6-2b59a6412283")
 	)
 	(global_label "VBAT"
 		(shape input)
-		(at 91.44 69.85 90)
+		(at 90.17 48.26 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2185,9 +2185,9 @@
 			)
 			(justify left)
 		)
-		(uuid "1c329e92-8d15-49b0-913e-c2e1f86a6661")
+		(uuid "1c4a7fe4-38b3-4cbb-8d23-632eb34aa448")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 91.44 62.45 90)
+			(at 97.57 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2199,7 +2199,7 @@
 	)
 	(global_label "VBAT"
 		(shape input)
-		(at 120.65 50.8 180)
+		(at 119.38 45.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2207,9 +2207,75 @@
 			)
 			(justify right)
 		)
-		(uuid "2decf5c1-6686-473d-a0cf-a93b0ef91d19")
+		(uuid "3e35fdcf-3db3-4ac9-847b-068d35288f15")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.25 50.8 0)
+			(at 111.98 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS"
+		(shape input)
+		(at 137.16 74.93 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4b340299-496f-4ecc-a736-ff4ee008a4d4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 129.2762 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "BT_PIN"
+		(shape input)
+		(at 129.54 48.26 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6a3ee367-60c3-4ffd-8dd0-52d6b27326b2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 129.54 57.6557 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS"
+		(shape input)
+		(at 71.12 80.01 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "758394f0-6a45-4cce-a378-bd224aba17c7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 63.2362 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2221,7 +2287,7 @@
 	)
 	(global_label "nRF_VDD"
 		(shape input)
-		(at 115.57 93.98 0)
+		(at 114.3 88.9 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2229,9 +2295,9 @@
 			)
 			(justify left)
 		)
-		(uuid "76e63dd3-c220-45fa-b66d-056e6c1b4df9")
+		(uuid "7791d25a-b5f2-4fe4-86e6-cac012cc6948")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.659 93.98 0)
+			(at 125.389 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2241,53 +2307,9 @@
 			)
 		)
 	)
-	(global_label "VBUS"
-		(shape input)
-		(at 72.39 85.09 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "999b79b9-4eeb-456f-b196-02b943539b9d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 64.5062 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBUS"
-		(shape input)
-		(at 128.27 123.19 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "b92d5931-c3ad-42e4-91b5-7e4b067a86d7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 120.3862 123.19 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "VBAT"
 		(shape input)
-		(at 185.42 123.19 0)
+		(at 90.17 64.77 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2295,9 +2317,9 @@
 			)
 			(justify left)
 		)
-		(uuid "c1a3aa67-9da9-4d7f-aed8-992d78233228")
+		(uuid "91ff7fe6-a551-4db7-9421-caec9e552058")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 192.82 123.19 0)
+			(at 90.17 57.37 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2307,31 +2329,9 @@
 			)
 		)
 	)
-	(global_label "BT_PIN"
-		(shape input)
-		(at 130.81 53.34 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c66a6429-8981-4837-bdde-ec0cdcd23ce7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 130.81 62.7357 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "VBAT"
 		(shape input)
-		(at 91.44 53.34 0)
+		(at 194.31 74.93 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2339,9 +2339,9 @@
 			)
 			(justify left)
 		)
-		(uuid "e4f2f7a8-18a8-4fce-befe-07087fdbda9b")
+		(uuid "c6581b81-4180-4021-8730-6b87cc4fe2a4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 98.84 53.34 0)
+			(at 201.71 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2353,15 +2353,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 191.77 133.35 90)
+		(at 200.66 85.09 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "1a1229b3-66a7-4a58-8cf4-bf3be90cbdb5")
-		(property "Reference" "BAT_R_PRG"
-			(at 191.77 138.176 90)
+		(property "Reference" "BAT_R_PRG1"
+			(at 200.66 89.916 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2369,7 +2369,7 @@
 			)
 		)
 		(property "Value" "1.2K"
-			(at 191.77 135.636 90)
+			(at 200.66 87.376 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2377,7 +2377,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 191.77 135.128 90)
+			(at 200.66 86.868 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2386,7 +2386,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 191.77 133.35 0)
+			(at 200.66 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2395,7 +2395,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 191.77 133.35 0)
+			(at 200.66 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2410,15 +2410,9 @@
 			(uuid "105f11ae-f796-44cd-8671-eae440e6917b")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_R5")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_R_PRG")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_R_PRG1")
 					(unit 1)
 				)
 			)
@@ -2426,7 +2420,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_DPDT_x2")
-		(at 91.44 74.93 270)
+		(at 90.17 69.85 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2434,8 +2428,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ec79895-ee7e-42d3-8b43-e04f0fd538ba")
-		(property "Reference" "BAT_SW"
-			(at 96.52 73.6599 90)
+		(property "Reference" "BAT_SW1"
+			(at 95.25 68.5799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2444,7 +2438,7 @@
 			)
 		)
 		(property "Value" "SW_DPDT_x2"
-			(at 96.52 76.1999 90)
+			(at 95.25 71.1199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2453,7 +2447,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:MSK-12C02"
-			(at 91.44 74.93 0)
+			(at 90.17 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2462,7 +2456,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 91.44 74.93 0)
+			(at 90.17 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2471,7 +2465,7 @@
 			)
 		)
 		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 91.44 74.93 0)
+			(at 90.17 69.85 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2498,15 +2492,9 @@
 			(uuid "7576a77d-0698-4afe-bc1a-872293cbdc90")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "BAT_SW1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_SW")
 					(unit 1)
 				)
 			)
@@ -2514,15 +2502,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 158.75 139.7 90)
+		(at 167.64 91.44 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "42396d2c-948a-4630-90be-a75b0c94c843")
-		(property "Reference" "BAT_R_LEDB"
-			(at 158.75 144.018 90)
+		(property "Reference" "BAT_R_LEDB1"
+			(at 167.64 95.758 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2530,7 +2518,7 @@
 			)
 		)
 		(property "Value" "1K"
-			(at 158.75 141.986 90)
+			(at 167.64 93.726 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2538,7 +2526,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 158.75 139.7 0)
+			(at 167.64 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2547,7 +2535,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 158.75 139.7 0)
+			(at 167.64 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2556,7 +2544,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 158.75 139.7 0)
+			(at 167.64 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2571,15 +2559,9 @@
 			(uuid "31f1b7bc-1603-4f39-8c14-2868d8f75b26")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_R6")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_R_LEDB")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_R_LEDB1")
 					(unit 1)
 				)
 			)
@@ -2587,7 +2569,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 204.47 137.16 90)
+		(at 213.36 88.9 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2595,8 +2577,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "578be0fb-f4e5-425c-8da8-6d2435f5342b")
-		(property "Reference" "#PWR?"
-			(at 210.82 137.16 0)
+		(property "Reference" "#PWR0105"
+			(at 219.71 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2605,7 +2587,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 208.8642 137.033 0)
+			(at 217.7542 88.773 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2613,7 +2595,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 204.47 137.16 0)
+			(at 213.36 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2622,7 +2604,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 204.47 137.16 0)
+			(at 213.36 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2631,7 +2613,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 204.47 137.16 0)
+			(at 213.36 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2643,15 +2625,9 @@
 			(uuid "5fd9d681-0262-49dd-a163-e09adc12d5b9")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "#PWR0105")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "#PWR?")
 					(unit 1)
 				)
 			)
@@ -2659,15 +2635,15 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 139.7 139.7 180)
+		(at 148.59 91.44 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "586ff7fa-ceb3-4e6d-ba99-ae2d21fa39a9")
-		(property "Reference" "BAT_LEDB"
-			(at 139.192 144.78 0)
+		(property "Reference" "BAT_LEDB1"
+			(at 148.082 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2675,7 +2651,7 @@
 			)
 		)
 		(property "Value" "BLUE"
-			(at 139.7 142.875 0)
+			(at 148.59 94.615 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2683,7 +2659,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:LED_0603_1608Metric"
-			(at 139.7 139.7 0)
+			(at 148.59 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2692,7 +2668,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 139.7 139.7 0)
+			(at 148.59 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2701,7 +2677,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 139.7 139.7 0)
+			(at 148.59 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2716,15 +2692,9 @@
 			(uuid "59499219-8547-44b3-a1a2-9b87527cfc1e")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_LED2")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_LEDB")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_LEDB1")
 					(unit 1)
 				)
 			)
@@ -2732,15 +2702,15 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 139.7 130.81 180)
+		(at 148.59 82.55 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "663f3630-7f26-4961-b4a5-c0852fdbef46")
-		(property "Reference" "BAT_LEDR"
-			(at 139.7 135.89 0)
+		(property "Reference" "BAT_LEDR1"
+			(at 148.59 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2748,7 +2718,7 @@
 			)
 		)
 		(property "Value" "RED"
-			(at 139.7 133.985 0)
+			(at 148.59 85.725 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2756,7 +2726,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:LED_0603_1608Metric"
-			(at 139.7 130.81 0)
+			(at 148.59 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2765,7 +2735,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 139.7 130.81 0)
+			(at 148.59 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2774,7 +2744,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 139.7 130.81 0)
+			(at 148.59 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2789,15 +2759,9 @@
 			(uuid "17febf0b-3e6d-4ac4-8893-ced105c2ea2c")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_LED1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_LEDR")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_LEDR1")
 					(unit 1)
 				)
 			)
@@ -2805,15 +2769,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 102.87 0)
+		(at 105.41 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "6ea0e9f5-f703-4224-b9f0-ad3f379711ea")
-		(property "Reference" "#PWR?"
-			(at 106.68 109.22 0)
+		(property "Reference" "#PWR0104"
+			(at 105.41 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2822,7 +2786,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 106.68 106.68 0)
+			(at 105.41 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2830,7 +2794,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 102.87 0)
+			(at 105.41 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2839,7 +2803,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 102.87 0)
+			(at 105.41 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2848,7 +2812,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 102.87 0)
+			(at 105.41 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2860,15 +2824,9 @@
 			(uuid "68397ccf-41a2-4507-b2b1-48612beebae9")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "#PWR0102")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "#PWR?")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "#PWR0104")
 					(unit 1)
 				)
 			)
@@ -2876,15 +2834,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 74.93 99.06 0)
+		(at 73.66 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "8fbf3bbc-86a7-41d3-b2d0-2b6672617514")
-		(property "Reference" "BAT_R_G"
-			(at 76.2 97.7899 0)
+		(property "Reference" "BAT_R_G1"
+			(at 74.93 92.7099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2893,7 +2851,7 @@
 			)
 		)
 		(property "Value" "100k"
-			(at 76.2 100.3299 0)
+			(at 74.93 95.2499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2902,7 +2860,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 74.93 99.06 0)
+			(at 73.66 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2911,7 +2869,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 74.93 99.06 0)
+			(at 73.66 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2920,7 +2878,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 74.93 99.06 0)
+			(at 73.66 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2935,15 +2893,9 @@
 			(uuid "17efba66-2fd4-4cb3-bbe6-aa11d81d30f4")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_R3")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_R_G")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_R_G1")
 					(unit 1)
 				)
 			)
@@ -2951,15 +2903,15 @@
 	)
 	(symbol
 		(lib_id "Device:D_Small")
-		(at 81.28 93.98 180)
+		(at 80.01 88.9 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "9356275c-c357-41fd-b34c-3ae6eef60003")
-		(property "Reference" "BAT_D"
-			(at 81.28 88.9 0)
+		(property "Reference" "BAT_D1"
+			(at 80.01 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2967,7 +2919,7 @@
 			)
 		)
 		(property "Value" "1N5819"
-			(at 81.28 91.44 0)
+			(at 80.01 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2975,7 +2927,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:D_SOD-123"
-			(at 81.28 93.98 90)
+			(at 80.01 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2984,7 +2936,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 81.28 93.98 90)
+			(at 80.01 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2993,7 +2945,7 @@
 			)
 		)
 		(property "Description" "Diode, small symbol"
-			(at 81.28 93.98 0)
+			(at 80.01 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3002,7 +2954,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 81.28 93.98 0)
+			(at 80.01 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3011,7 +2963,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 81.28 93.98 0)
+			(at 80.01 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3026,15 +2978,9 @@
 			(uuid "cb59e108-ed2c-4a4d-a826-2302aacabf8e")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "BAT_D1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_D")
 					(unit 1)
 				)
 			)
@@ -3042,15 +2988,15 @@
 	)
 	(symbol
 		(lib_id "Transistor_FET:AO3401A")
-		(at 86.36 85.09 0)
+		(at 85.09 80.01 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "9a43aa47-437f-4cc7-9f87-ad31b19baad1")
-		(property "Reference" "BAT_Q"
-			(at 91.44 84.4549 0)
+		(property "Reference" "BAT_Q1"
+			(at 90.17 79.3749 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3059,7 +3005,7 @@
 			)
 		)
 		(property "Value" "AO3401A"
-			(at 91.44 86.9949 0)
+			(at 90.17 81.9149 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3068,7 +3014,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:SOT-23"
-			(at 91.44 86.995 0)
+			(at 90.17 81.915 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3079,7 +3025,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf"
-			(at 86.36 85.09 0)
+			(at 85.09 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3089,7 +3035,7 @@
 			)
 		)
 		(property "Description" "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"
-			(at 86.36 85.09 0)
+			(at 85.09 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3107,15 +3053,9 @@
 			(uuid "76020cf6-a7b8-4009-90a4-6d1783096136")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "BAT_Q1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_Q")
 					(unit 1)
 				)
 			)
@@ -3123,7 +3063,7 @@
 	)
 	(symbol
 		(lib_id "ErgoCai:AP2112K-3.3")
-		(at 106.68 96.52 0)
+		(at 105.41 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3131,8 +3071,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9d772919-b3c2-42ad-a004-9f9379849d78")
-		(property "Reference" "BAT_AP"
-			(at 106.68 87.63 0)
+		(property "Reference" "BAT_AP1"
+			(at 105.41 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3140,7 +3080,7 @@
 			)
 		)
 		(property "Value" "AP2112K-3.3"
-			(at 106.68 90.17 0)
+			(at 105.41 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3148,7 +3088,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:SOT-23-5"
-			(at 106.68 88.265 0)
+			(at 105.41 83.185 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3157,7 +3097,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
-			(at 106.68 93.98 0)
+			(at 105.41 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3166,7 +3106,7 @@
 			)
 		)
 		(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
-			(at 106.68 96.52 0)
+			(at 105.41 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3190,15 +3130,9 @@
 			(uuid "1f2a2ce8-3248-4919-ab36-0bc774730e0f")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_U1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_AP")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_AP1")
 					(unit 1)
 				)
 			)
@@ -3206,15 +3140,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 138.43 50.8 90)
+		(at 137.16 45.72 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "a927ed91-b812-4820-96b3-8cfacfa6c8e5")
-		(property "Reference" "#PWR?"
-			(at 144.78 50.8 0)
+		(property "Reference" "#PWR0101"
+			(at 143.51 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3223,7 +3157,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 142.24 50.8 0)
+			(at 140.97 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3231,7 +3165,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 138.43 50.8 0)
+			(at 137.16 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3240,7 +3174,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 138.43 50.8 0)
+			(at 137.16 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3249,7 +3183,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 138.43 50.8 0)
+			(at 137.16 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3261,15 +3195,9 @@
 			(uuid "0a082100-fb89-41e8-a248-567dd22950bf")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "#PWR0104")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "#PWR?")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -3277,15 +3205,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 125.73 50.8 90)
+		(at 124.46 45.72 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "b57a7363-7e92-44ad-95db-fd7f9948e5f0")
-		(property "Reference" "BAT_RA"
-			(at 129.54 45.466 90)
+		(property "Reference" "BAT_RA1"
+			(at 128.27 40.386 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3294,7 +3222,7 @@
 			)
 		)
 		(property "Value" "810K"
-			(at 128.27 48.006 90)
+			(at 127 42.926 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3303,7 +3231,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 125.73 50.8 0)
+			(at 124.46 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3312,7 +3240,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 125.73 50.8 0)
+			(at 124.46 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3321,7 +3249,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 125.73 50.8 0)
+			(at 124.46 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3336,15 +3264,9 @@
 			(uuid "8c4fea53-b1cc-4986-b7d6-005da6fa1746")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_R1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_RA")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_RA1")
 					(unit 1)
 				)
 			)
@@ -3352,15 +3274,15 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 83.82 50.8 180)
+		(at 82.55 45.72 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "bb3ceeec-e902-4ca2-8dbd-a95143b80cf6")
-		(property "Reference" "BAT_J"
-			(at 81.788 50.5968 0)
+		(property "Reference" "BAT_J1"
+			(at 80.518 45.5168 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3369,7 +3291,7 @@
 			)
 		)
 		(property "Value" "BATT"
-			(at 81.788 48.2854 0)
+			(at 80.518 43.2054 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3378,7 +3300,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:Battery_Holder_18650_Nickel"
-			(at 83.82 50.8 0)
+			(at 82.55 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3387,7 +3309,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 83.82 50.8 0)
+			(at 82.55 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3396,7 +3318,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 83.82 50.8 0)
+			(at 82.55 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3411,15 +3333,9 @@
 			(uuid "a40565f7-5172-4e5d-911a-2994aeaa33e4")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "BAT_J1")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_J")
 					(unit 1)
 				)
 			)
@@ -3427,15 +3343,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 74.93 101.6 0)
+		(at 73.66 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "c93721cf-0b5b-409c-ae29-c5aaba467226")
-		(property "Reference" "#PWR?"
-			(at 74.93 107.95 0)
+		(property "Reference" "#PWR0103"
+			(at 73.66 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3444,7 +3360,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 74.93 105.41 0)
+			(at 73.66 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3452,7 +3368,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 74.93 101.6 0)
+			(at 73.66 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3461,7 +3377,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 74.93 101.6 0)
+			(at 73.66 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3470,7 +3386,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 74.93 101.6 0)
+			(at 73.66 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3482,15 +3398,9 @@
 			(uuid "deb379e4-de73-4b1f-9937-faad33239e2e")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "#PWR0101")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "#PWR?")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "#PWR0103")
 					(unit 1)
 				)
 			)
@@ -3498,7 +3408,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 135.89 50.8 90)
+		(at 134.62 45.72 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3506,8 +3416,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d37aee0b-66c4-4a0d-8f77-0e04bd697996")
-		(property "Reference" "BAT_RB"
-			(at 135.89 45.72 90)
+		(property "Reference" "BAT_RB1"
+			(at 134.62 40.64 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3515,7 +3425,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 135.89 48.26 90)
+			(at 134.62 43.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3523,7 +3433,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 135.89 50.8 0)
+			(at 134.62 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3532,7 +3442,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 135.89 50.8 0)
+			(at 134.62 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3541,7 +3451,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 135.89 50.8 0)
+			(at 134.62 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3556,15 +3466,9 @@
 			(uuid "6f7d108c-5f3c-445d-ba8f-39b17623fbd3")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_R2")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_RB")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_RB1")
 					(unit 1)
 				)
 			)
@@ -3572,7 +3476,7 @@
 	)
 	(symbol
 		(lib_id "ErgoCai:TP4056")
-		(at 170.18 134.62 0)
+		(at 179.07 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3580,8 +3484,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dbf492ac-4555-4e32-a00a-2e6cf3418557")
-		(property "Reference" "BAT_TP"
-			(at 176.53 116.84 0)
+		(property "Reference" "BAT_TP1"
+			(at 185.42 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3589,7 +3493,7 @@
 			)
 		)
 		(property "Value" "TP4056"
-			(at 176.53 119.38 0)
+			(at 185.42 71.12 0)
 			(effects
 				(font
 					(size 1.1 1.1)
@@ -3597,7 +3501,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
-			(at 170.18 134.62 0)
+			(at 179.07 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3606,7 +3510,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 170.18 134.62 0)
+			(at 179.07 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3615,7 +3519,7 @@
 			)
 		)
 		(property "Description" "TP4056"
-			(at 170.18 134.62 0)
+			(at 179.07 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3651,15 +3555,9 @@
 			(uuid "c448f335-7b2a-4470-9be7-e8f64c60ad4d")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_U2")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_TP")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_TP1")
 					(unit 1)
 				)
 			)
@@ -3667,15 +3565,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 91.44 45.72 90)
+		(at 90.17 40.64 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "e72e169c-2426-4497-aa71-a9e0cd07aea7")
-		(property "Reference" "#PWR?"
-			(at 97.79 45.72 0)
+		(property "Reference" "#PWR0102"
+			(at 96.52 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3684,7 +3582,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 95.25 45.72 0)
+			(at 93.98 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3692,7 +3590,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 91.44 45.72 0)
+			(at 90.17 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3701,7 +3599,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 91.44 45.72 0)
+			(at 90.17 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3710,7 +3608,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 91.44 45.72 0)
+			(at 90.17 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3722,15 +3620,9 @@
 			(uuid "61c39eec-7f6b-45bc-9a8a-48f391cdca35")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "#PWR0103")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "#PWR?")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
@@ -3738,15 +3630,15 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 158.75 130.81 90)
+		(at 167.64 82.55 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "f8a98937-7875-47c9-a470-8567532293b9")
-		(property "Reference" "BAT_R_LEDR"
-			(at 158.75 134.874 90)
+		(property "Reference" "BAT_R_LEDR1"
+			(at 167.64 86.614 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3754,7 +3646,7 @@
 			)
 		)
 		(property "Value" "1K"
-			(at 158.75 133.096 90)
+			(at 167.64 84.836 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3762,7 +3654,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 158.75 130.81 0)
+			(at 167.64 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3771,7 +3663,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 158.75 130.81 0)
+			(at 167.64 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3780,7 +3672,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 158.75 130.81 0)
+			(at 167.64 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3795,15 +3687,9 @@
 			(uuid "1f6df007-d78a-4d1c-9636-676163ecb6b3")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/5ec08b2d-949b-4244-aac0-74d3ea275c70"
-					(reference "BAT_R4")
-					(unit 1)
-				)
-			)
-			(project "default_18650_AP2112K_TP4056"
-				(path "/dd638167-5b14-430c-bef4-f126bf5404f3"
-					(reference "BAT_R_LEDR")
+			(project "default_battery"
+				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
+					(reference "BAT_R_LEDR1")
 					(unit 1)
 				)
 			)

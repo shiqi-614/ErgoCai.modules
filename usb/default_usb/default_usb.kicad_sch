@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "006345dc-cb88-4aee-8294-864b4c4764a7")
+	(uuid "432d8d65-9222-4b2b-986b-9da987eb142e")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector:USB_C_Receptacle_USB2.0_16P"
@@ -1071,218 +1071,152 @@
 		)
 	)
 	(junction
-		(at 69.85 134.62)
+		(at 85.09 121.92)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5309ff8c-e6c2-44e9-b79a-d25bb511b6a1")
+		(uuid "800831f8-5376-4a6c-bf47-e8c696b7ab11")
 	)
 	(no_connect
-		(at 85.09 124.46)
-		(uuid "1c762f01-0f3e-468f-a8f2-440250b0284a")
+		(at 100.33 114.3)
+		(uuid "8327a75e-48e3-40a0-9c28-d2ccbe2def69")
 	)
 	(no_connect
-		(at 85.09 127)
-		(uuid "4aaf71f8-afb8-4826-b84f-0ed453da9c48")
+		(at 100.33 111.76)
+		(uuid "9a5880b3-207a-4cb1-a6e0-c628311b6eee")
 	)
 	(wire
 		(pts
-			(xy 123.19 105.41) (xy 123.19 106.68)
+			(xy 138.43 92.71) (xy 138.43 93.98)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "223be0d1-077a-4d6e-8852-e7a45e39727e")
+		(uuid "2de988e6-2b22-4495-a999-f12bb0957522")
 	)
 	(wire
 		(pts
-			(xy 85.09 114.3) (xy 87.63 114.3)
+			(xy 77.47 121.92) (xy 85.09 121.92)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2cc0c218-17df-4220-af6d-4800e9207e6b")
+		(uuid "4be86999-5f6b-4b25-9d84-20c0ca0dcd1a")
 	)
 	(wire
 		(pts
-			(xy 87.63 109.22) (xy 87.63 111.76)
+			(xy 100.33 101.6) (xy 102.87 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "614f2e87-6606-479b-a707-dc9f0dd8dece")
+		(uuid "606efd84-87d6-4da5-b906-005fca149881")
 	)
 	(wire
 		(pts
-			(xy 85.09 109.22) (xy 87.63 109.22)
+			(xy 100.33 104.14) (xy 102.87 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "781954d1-f561-48e5-ab9b-ca644e302180")
+		(uuid "700d00b3-80f0-4be7-8a9d-3bba0be27d53")
 	)
 	(wire
 		(pts
-			(xy 85.09 116.84) (xy 87.63 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7bb1429b-aaa4-42ef-a405-354425ed7fe9")
-	)
-	(wire
-		(pts
-			(xy 85.09 111.76) (xy 87.63 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7cb157bd-c171-4bde-9634-b2f733bbb161")
-	)
-	(wire
-		(pts
-			(xy 87.63 114.3) (xy 87.63 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a799209a-de17-4480-b088-a483ce474e13")
-	)
-	(wire
-		(pts
-			(xy 105.41 105.41) (xy 105.41 106.68)
+			(xy 120.65 92.71) (xy 120.65 93.98)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "ac76373b-5954-4c20-ae52-57c410d4675b")
+		(uuid "83ef8a33-4928-4880-b49a-67f48baf6ddd")
 	)
 	(wire
 		(pts
-			(xy 62.23 134.62) (xy 69.85 134.62)
+			(xy 100.33 99.06) (xy 102.87 99.06)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "acc54eb3-718e-4df0-9666-161a7d0132d3")
+		(uuid "8ec2f141-375c-4b1d-affe-d37566471d87")
+	)
+	(wire
+		(pts
+			(xy 102.87 96.52) (xy 102.87 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad3db5a4-e383-4ffe-b2a9-6b058c3522db")
+	)
+	(wire
+		(pts
+			(xy 100.33 96.52) (xy 102.87 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e4448c08-1c74-4006-94c9-584289a84a4e")
+	)
+	(wire
+		(pts
+			(xy 102.87 101.6) (xy 102.87 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee58719d-4eb5-475c-aae2-42cf4c380a9c")
 	)
 	(label "CCB"
-		(at 85.09 104.14 0)
+		(at 100.33 91.44 0)
 		(effects
 			(font
 				(size 1.5494 1.5494)
 			)
 			(justify left bottom)
 		)
-		(uuid "055df3a2-4300-44fb-a5cd-43449fbd79ad")
+		(uuid "123c85a0-dd22-4eb1-b265-c99af1246198")
 	)
 	(label "CCA"
-		(at 85.09 101.6 0)
+		(at 120.65 92.71 0)
 		(effects
 			(font
 				(size 1.5494 1.5494)
 			)
 			(justify left bottom)
 		)
-		(uuid "8e4f13b3-47ce-49b7-9868-1a7f19674458")
+		(uuid "4e41e61c-1812-43e3-a3df-dba2872e079a")
+	)
+	(label "CCA"
+		(at 100.33 88.9 0)
+		(effects
+			(font
+				(size 1.5494 1.5494)
+			)
+			(justify left bottom)
+		)
+		(uuid "a796df01-92b4-4021-9825-37ba5fd8aee8")
 	)
 	(label "CCB"
-		(at 123.19 105.41 0)
+		(at 138.43 92.71 0)
 		(effects
 			(font
 				(size 1.5494 1.5494)
 			)
 			(justify left bottom)
 		)
-		(uuid "950b1a29-79d6-4005-b355-d26c30e87ed7")
-	)
-	(label "CCA"
-		(at 105.41 105.41 0)
-		(effects
-			(font
-				(size 1.5494 1.5494)
-			)
-			(justify left bottom)
-		)
-		(uuid "b7d7ce8a-2d83-463a-8d15-30ad334e8e99")
-	)
-	(global_label "DATA-"
-		(shape input)
-		(at 87.63 110.49 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "638874e1-7b4b-4035-bfda-85484afcdc09")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.6024 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBUS"
-		(shape input)
-		(at 85.09 96.52 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "7fe95c14-f772-45f1-8c45-9344f364b4f4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 92.9738 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBUS"
-		(shape input)
-		(at 142.24 107.95 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b4f1c42b-3920-44a1-8bbb-9fc6d09437f2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.24 100.0662 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
+		(uuid "b4fa864a-5182-4b02-b655-7fafd9abd770")
 	)
 	(global_label "DATA+"
 		(shape input)
-		(at 87.63 115.57 0)
+		(at 102.87 102.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1290,9 +1224,75 @@
 			)
 			(justify left)
 		)
-		(uuid "f2313cc7-7f8f-42c6-8416-be2af35da2a6")
+		(uuid "4ea624e0-7f91-4b3c-a580-b457a8b80174")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 96.6024 115.57 0)
+			(at 111.8424 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "DATA-"
+		(shape input)
+		(at 102.87 97.79 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "766211d4-616e-4267-a5da-db2114c79442")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 111.8424 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS"
+		(shape input)
+		(at 100.33 83.82 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "869dee81-73c7-42ae-8721-a09f9f68a038")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 108.2138 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS"
+		(shape input)
+		(at 157.48 95.25 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "9419dfa5-b0e5-4425-a906-821bf0c5235a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 157.48 87.3662 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1304,7 +1304,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 69.85 134.62 0)
+		(at 85.09 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1312,7 +1312,7 @@
 		(dnp no)
 		(uuid "0754c6cb-c1fe-4d05-baed-09e51ebee456")
 		(property "Reference" "#PWR?"
-			(at 69.85 140.97 0)
+			(at 85.09 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1321,7 +1321,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 69.85 139.065 0)
+			(at 85.09 126.365 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1329,7 +1329,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 69.85 134.62 0)
+			(at 85.09 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1338,7 +1338,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 69.85 134.62 0)
+			(at 85.09 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1347,7 +1347,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 69.85 134.62 0)
+			(at 85.09 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1359,15 +1359,9 @@
 			(uuid "2a25f11f-d80c-4a94-9f86-b3b72d12fc29")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "#PWR0109")
 					(unit 1)
 				)
 			)
@@ -1375,7 +1369,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 123.19 109.22 0)
+		(at 138.43 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1383,7 +1377,7 @@
 		(dnp no)
 		(uuid "1d835f93-48f5-4801-aa28-bc8404cdb46a")
 		(property "Reference" "USB_R_CCB"
-			(at 124.46 107.9499 0)
+			(at 139.7 95.2499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1392,7 +1386,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 124.46 110.4899 0)
+			(at 139.7 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1401,7 +1395,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 123.19 109.22 0)
+			(at 138.43 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1410,7 +1404,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 123.19 109.22 0)
+			(at 138.43 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1419,7 +1413,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 123.19 109.22 0)
+			(at 138.43 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1434,15 +1428,9 @@
 			(uuid "f9e85a66-6eb6-48b3-90ab-352ff7ccc42d")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "USB_R_CCB")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "USB_R_CC2")
 					(unit 1)
 				)
 			)
@@ -1450,7 +1438,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 123.19 111.76 0)
+		(at 138.43 99.06 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1458,7 +1446,7 @@
 		(dnp no)
 		(uuid "7bb9f50a-d427-49b4-b998-3c26b026ea0b")
 		(property "Reference" "#PWR?"
-			(at 123.19 118.11 0)
+			(at 138.43 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1467,7 +1455,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 123.19 115.57 0)
+			(at 138.43 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1475,7 +1463,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 123.19 111.76 0)
+			(at 138.43 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1484,7 +1472,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 123.19 111.76 0)
+			(at 138.43 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1493,7 +1481,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 123.19 111.76 0)
+			(at 138.43 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1505,15 +1493,9 @@
 			(uuid "dd6d9bdb-e09a-43d8-929d-8070e7eb92c3")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "#PWR0107")
 					(unit 1)
 				)
 			)
@@ -1521,7 +1503,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 105.41 111.76 0)
+		(at 120.65 99.06 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1529,7 +1511,7 @@
 		(dnp no)
 		(uuid "cb0792cb-45f0-4ec2-a20e-fb902ee3a703")
 		(property "Reference" "#PWR?"
-			(at 105.41 118.11 0)
+			(at 120.65 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1538,7 +1520,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 105.41 115.57 0)
+			(at 120.65 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1546,7 +1528,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 105.41 111.76 0)
+			(at 120.65 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1555,7 +1537,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 105.41 111.76 0)
+			(at 120.65 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1564,7 +1546,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 105.41 111.76 0)
+			(at 120.65 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1576,15 +1558,9 @@
 			(uuid "1a8c3005-8072-4f9d-88fd-6f01687ca4a6")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "#PWR0108")
 					(unit 1)
 				)
 			)
@@ -1592,7 +1568,7 @@
 	)
 	(symbol
 		(lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
-		(at 69.85 111.76 0)
+		(at 85.09 99.06 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1601,7 +1577,7 @@
 		(fields_autoplaced yes)
 		(uuid "d99341a8-e735-4ad6-831e-5564af61f480")
 		(property "Reference" "USB_J"
-			(at 69.85 88.9 0)
+			(at 85.09 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1609,7 +1585,7 @@
 			)
 		)
 		(property "Value" "USB_C_Receptacle_USB2.0_16P"
-			(at 69.85 91.44 0)
+			(at 85.09 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1617,7 +1593,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
-			(at 73.66 111.76 0)
+			(at 88.9 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1626,7 +1602,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
-			(at 73.66 111.76 0)
+			(at 88.9 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1635,7 +1611,7 @@
 			)
 		)
 		(property "Description" "USB 2.0-only 16P Type-C Receptacle connector"
-			(at 69.85 111.76 0)
+			(at 85.09 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1695,15 +1671,9 @@
 			(uuid "887013da-5af5-4ca7-ad15-8915e614a4ae")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "USB_J")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "USB_J1")
 					(unit 1)
 				)
 			)
@@ -1711,7 +1681,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 142.24 111.76 180)
+		(at 157.48 99.06 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1720,7 +1690,7 @@
 		(fields_autoplaced yes)
 		(uuid "e7c01406-eafc-4aa5-92e0-a274c59df007")
 		(property "Reference" "USB_C"
-			(at 146.05 110.4899 0)
+			(at 161.29 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1729,7 +1699,7 @@
 			)
 		)
 		(property "Value" "10nF"
-			(at 146.05 113.0299 0)
+			(at 161.29 100.3299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1738,7 +1708,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 141.2748 107.95 0)
+			(at 156.5148 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1747,7 +1717,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 142.24 111.76 0)
+			(at 157.48 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1756,7 +1726,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 142.24 111.76 0)
+			(at 157.48 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1771,15 +1741,9 @@
 			(uuid "589a17e1-47f3-435d-82b0-9b633aa84114")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "USB_C")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "USB_C1")
 					(unit 1)
 				)
 			)
@@ -1787,7 +1751,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 142.24 115.57 0)
+		(at 157.48 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1796,7 +1760,7 @@
 		(fields_autoplaced yes)
 		(uuid "e7dc1621-d401-4b18-9a4c-38d7016b8613")
 		(property "Reference" "#PWR?"
-			(at 142.24 121.92 0)
+			(at 157.48 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1805,7 +1769,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 142.367 119.9642 0)
+			(at 157.607 107.2642 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1813,7 +1777,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 142.24 115.57 0)
+			(at 157.48 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1822,7 +1786,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 142.24 115.57 0)
+			(at 157.48 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1831,7 +1795,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 142.24 115.57 0)
+			(at 157.48 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1843,15 +1807,9 @@
 			(uuid "12282513-2264-4f0d-9c2e-a4479d64add5")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "#PWR?")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "#PWR0106")
 					(unit 1)
 				)
 			)
@@ -1859,7 +1817,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 105.41 109.22 0)
+		(at 120.65 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1867,7 +1825,7 @@
 		(dnp no)
 		(uuid "ee9379b2-630c-4e46-8bb7-1bb3b372afea")
 		(property "Reference" "USB_R_CCA"
-			(at 106.68 107.9499 0)
+			(at 121.92 95.2499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1876,7 +1834,7 @@
 			)
 		)
 		(property "Value" "5.1k"
-			(at 106.68 110.4899 0)
+			(at 121.92 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1885,7 +1843,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:R_0603_1608Metric"
-			(at 105.41 109.22 0)
+			(at 120.65 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1894,7 +1852,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 105.41 109.22 0)
+			(at 120.65 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1903,7 +1861,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 105.41 109.22 0)
+			(at 120.65 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1918,15 +1876,9 @@
 			(uuid "bb4b02ba-733c-4624-9920-e071717c268e")
 		)
 		(instances
-			(project "default_usb"
-				(path "/006345dc-cb88-4aee-8294-864b4c4764a7"
+			(project "1099-INT 2023 - Tax Form"
+				(path "/432d8d65-9222-4b2b-986b-9da987eb142e"
 					(reference "USB_R_CCA")
-					(unit 1)
-				)
-			)
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/a8714b1d-44f0-4fae-a737-c14cb87b3fc3"
-					(reference "USB_R_CC1")
 					(unit 1)
 				)
 			)

@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "a09f68bc-a7d5-404f-ac28-eebdcd98bea9")
+	(uuid "a75e1a70-312e-4b3d-9ad5-017ab62e82c1")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x04"
@@ -1555,47 +1555,47 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 58.42) (xy 132.08 58.42)
+			(xy 144.78 69.85) (xy 147.32 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3d732031-16ce-4b6c-bb32-6fbea35b2ebe")
+		(uuid "16fd5cce-ba1f-430e-8fb2-68e96ac524df")
 	)
 	(wire
 		(pts
-			(xy 129.54 57.15) (xy 129.54 58.42)
+			(xy 144.78 68.58) (xy 144.78 69.85)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b46a5388-b037-454e-b442-8b894a2af293")
+		(uuid "4ca99f4a-5aa2-453c-bfb3-01ae9aa74303")
 	)
 	(wire
 		(pts
-			(xy 105.41 86.36) (xy 99.06 86.36)
+			(xy 120.65 97.79) (xy 114.3 97.79)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b72b247f-9d24-47de-b886-2de8eaaa8920")
+		(uuid "81ea254c-ed3c-4bce-b910-a0bcfd473419")
 	)
 	(wire
 		(pts
-			(xy 128.27 43.18) (xy 129.54 43.18)
+			(xy 143.51 54.61) (xy 144.78 54.61)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
-		(uuid "e6f8d04c-7abd-4c30-887e-d576d19ddc19")
+		(uuid "e83bcc0b-b469-474e-8389-4faed4dc0644")
 	)
-	(global_label "nRF_VDD"
+	(global_label "RESET"
 		(shape input)
-		(at 63.5 100.33 270)
+		(at 96.52 111.76 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1603,9 +1603,9 @@
 			)
 			(justify right)
 		)
-		(uuid "18b5cfc3-d1ba-4961-8c65-2b3cf6e04ab6")
+		(uuid "0fa46293-5cc2-442e-8020-4da2de6e6e79")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 63.5 111.419 90)
+			(at 96.52 120.4903 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1615,53 +1615,31 @@
 			)
 		)
 	)
-	(global_label "SWD"
+	(global_label "RESET"
 		(shape input)
-		(at 99.06 68.58 0)
+		(at 143.51 54.61 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "264e7385-fe52-43de-a0dd-e0fb5e3ccfd0")
+		(uuid "46c0c613-1ba0-4609-819c-6174bbfdf82e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 105.9761 68.58 0)
+			(at 134.7797 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SWC"
-		(shape input)
-		(at 99.06 71.12 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "2bffd4e4-16f2-4840-ad32-31318004890b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 105.9761 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "DATA+"
 		(shape input)
-		(at 88.9 100.33 270)
+		(at 104.14 111.76 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1669,9 +1647,9 @@
 			)
 			(justify right)
 		)
-		(uuid "35e2d034-efa0-463a-b16b-65ae7d8db836")
+		(uuid "5872a982-f701-4984-9c3e-8e4ebe2e148c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 88.9 109.3024 90)
+			(at 104.14 120.7324 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1683,7 +1661,7 @@
 	)
 	(global_label "nRF_VDD"
 		(shape input)
-		(at 132.08 60.96 180)
+		(at 147.32 72.39 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1691,9 +1669,31 @@
 			)
 			(justify right)
 		)
-		(uuid "46982fdb-c861-47ef-9dff-73b55f4efbc3")
+		(uuid "6d252f45-bcb5-4a80-a2fe-dfbc9860c65c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 120.991 60.96 0)
+			(at 136.231 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SWC"
+		(shape input)
+		(at 147.32 77.47 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8f8c63e3-1501-4081-abb3-acb6e45beea6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 140.4039 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1705,7 +1705,7 @@
 	)
 	(global_label "DATA-"
 		(shape input)
-		(at 86.36 100.33 270)
+		(at 101.6 111.76 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1713,97 +1713,9 @@
 			)
 			(justify right)
 		)
-		(uuid "5a59cc2d-8b70-4f07-97e2-af5ba3675587")
+		(uuid "a3622797-eafc-472a-a5ed-ed31fb4d18da")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 86.36 109.3024 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SWD"
-		(shape input)
-		(at 132.08 63.5 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "a815aecc-103d-478c-8f7a-9215ef44df48")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 125.1639 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "RESET"
-		(shape input)
-		(at 81.28 100.33 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c6ca7beb-85e2-471b-a914-5ac44b77889b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 81.28 109.0603 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "RESET"
-		(shape input)
-		(at 128.27 43.18 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c8cbaeeb-dbc9-4f92-85e9-5e9361a009f5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 119.5397 43.18 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SWC"
-		(shape input)
-		(at 132.08 66.04 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "f2b27a7d-d682-497d-932d-a78b3e6435e8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 125.1639 66.04 0)
+			(at 101.6 120.7324 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1815,7 +1727,7 @@
 	)
 	(global_label "VBUS"
 		(shape input)
-		(at 83.82 100.33 270)
+		(at 99.06 111.76 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1823,9 +1735,9 @@
 			)
 			(justify right)
 		)
-		(uuid "f4fb3b04-b997-4ec2-9fe5-cdc469acc53f")
+		(uuid "a3d586f6-96b7-4e78-a3f2-fd3741f3e966")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 83.82 108.2138 90)
+			(at 99.06 119.6438 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1835,9 +1747,97 @@
 			)
 		)
 	)
+	(global_label "nRF_VDD"
+		(shape input)
+		(at 78.74 111.76 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a5dc1b3b-66cf-4707-b478-0ccdec40e50d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 78.74 122.849 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SWD"
+		(shape input)
+		(at 147.32 74.93 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b604bfe6-a336-490e-8ff4-d89707b88067")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 140.4039 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SWD"
+		(shape input)
+		(at 114.3 80.01 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "ded3eb47-496c-4fad-9502-a1305fce4e6d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 121.2161 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SWC"
+		(shape input)
+		(at 114.3 82.55 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e74cae5c-8a86-4557-a69d-ea13aaa89340")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 121.2161 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(symbol
 		(lib_id "ErgoCai:nRF52840_holyiot_18010")
-		(at 76.2 53.34 0)
+		(at 91.44 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1845,8 +1845,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0374852d-a4c5-4250-a8cf-cb779ca9d794")
-		(property "Reference" "MCU_U"
-			(at 76.2 22.86 0)
+		(property "Reference" "MCU_U1"
+			(at 91.44 34.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1854,7 +1854,7 @@
 			)
 		)
 		(property "Value" "nRF52840_holyiot_18010"
-			(at 76.2 25.4 0)
+			(at 91.44 36.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1862,7 +1862,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:nRF52840_holyiot_18010"
-			(at 76.2 17.78 0)
+			(at 91.44 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1871,7 +1871,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.holyiot.com/tp/2019042516322180424.pdf"
-			(at 76.2 20.32 0)
+			(at 91.44 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1880,7 +1880,7 @@
 			)
 		)
 		(property "Description" "nRF52840 BT LE module"
-			(at 76.2 53.34 0)
+			(at 91.44 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2054,15 +2054,9 @@
 			(uuid "c9366774-999f-4b8d-a6a1-ef39e4d2bd4b")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "MCU_U1")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "MCU_U")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "MCU_U1")
 					(unit 1)
 				)
 			)
@@ -2070,7 +2064,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 129.54 57.15 270)
+		(at 144.78 68.58 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2078,8 +2072,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "08f66e3d-97a7-4ba0-a1e0-7a117d77693f")
-		(property "Reference" "#PWR?"
-			(at 123.19 57.15 0)
+		(property "Reference" "#PWR0104"
+			(at 138.43 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2088,7 +2082,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 125.73 57.1499 90)
+			(at 140.97 68.5799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2097,7 +2091,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 129.54 57.15 0)
+			(at 144.78 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2106,7 +2100,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 129.54 57.15 0)
+			(at 144.78 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2115,7 +2109,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 129.54 57.15 0)
+			(at 144.78 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2127,15 +2121,9 @@
 			(uuid "651a0e95-26a8-4581-af0f-df5d73daec82")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "#PWR0110")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "#PWR?")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "#PWR0104")
 					(unit 1)
 				)
 			)
@@ -2143,15 +2131,15 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 137.16 60.96 0)
+		(at 152.4 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "38e1feea-5f56-41be-9e03-af3e7a33e622")
-		(property "Reference" "MCU_J"
-			(at 139.065 59.055 0)
+		(property "Reference" "MCU_J1"
+			(at 154.305 70.485 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2160,7 +2148,7 @@
 			)
 		)
 		(property "Value" "SWD"
-			(at 139.065 62.865 0)
+			(at 154.305 74.295 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2169,7 +2157,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:Connector_THT_1x4_2.54"
-			(at 137.16 60.96 0)
+			(at 152.4 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2178,7 +2166,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 137.16 60.96 0)
+			(at 152.4 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2187,7 +2175,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 137.16 60.96 0)
+			(at 152.4 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2208,15 +2196,9 @@
 			(uuid "3f459034-1fee-49ca-aecc-69f1f104f85b")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "MCU_J1")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "MCU_J")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "MCU_J1")
 					(unit 1)
 				)
 			)
@@ -2224,15 +2206,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 139.7 43.18 90)
+		(at 154.94 54.61 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "6f786eb0-d2ae-45f6-9497-c4ac6757c7f7")
-		(property "Reference" "#PWR?"
-			(at 146.05 43.18 0)
+		(property "Reference" "#PWR0103"
+			(at 161.29 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2241,7 +2223,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 143.51 43.18 0)
+			(at 158.75 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2249,7 +2231,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 139.7 43.18 0)
+			(at 154.94 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2258,7 +2240,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 139.7 43.18 0)
+			(at 154.94 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2267,7 +2249,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 139.7 43.18 0)
+			(at 154.94 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2279,15 +2261,9 @@
 			(uuid "719c699e-c0d0-424f-a2a2-dc2c20fae235")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "#PWR0114")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "#PWR?")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "#PWR0103")
 					(unit 1)
 				)
 			)
@@ -2295,15 +2271,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 53.34 55.88 270)
+		(at 68.58 67.31 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "95dfd47d-ee31-43d9-b409-b220eec5b069")
-		(property "Reference" "#PWR?"
-			(at 46.99 55.88 0)
+		(property "Reference" "#PWR0105"
+			(at 62.23 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2312,7 +2288,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 49.53 57.785 0)
+			(at 64.77 69.215 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2321,7 +2297,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 55.88 0)
+			(at 68.58 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2330,7 +2306,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 55.88 0)
+			(at 68.58 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2339,7 +2315,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 53.34 55.88 0)
+			(at 68.58 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2351,15 +2327,9 @@
 			(uuid "4908db69-9025-4218-9907-0d0687b346d1")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "#PWR0112")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "#PWR?")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "#PWR0105")
 					(unit 1)
 				)
 			)
@@ -2367,15 +2337,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 105.41 86.36 90)
+		(at 120.65 97.79 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "9e28fe07-ec52-4f92-9213-b986510cd30e")
-		(property "Reference" "#PWR?"
-			(at 111.76 86.36 0)
+		(property "Reference" "#PWR0101"
+			(at 127 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2384,7 +2354,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 109.22 84.455 0)
+			(at 124.46 95.885 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2393,7 +2363,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 105.41 86.36 0)
+			(at 120.65 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2402,7 +2372,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 105.41 86.36 0)
+			(at 120.65 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2411,7 +2381,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 105.41 86.36 0)
+			(at 120.65 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2423,15 +2393,9 @@
 			(uuid "f0824789-1fb2-4156-97de-021567750b5c")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "#PWR0111")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "#PWR?")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "#PWR0101")
 					(unit 1)
 				)
 			)
@@ -2439,15 +2403,15 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
-		(at 134.62 43.18 0)
+		(at 149.86 54.61 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "aad66804-ee24-4351-b342-ccf34e93adb0")
-		(property "Reference" "MCU_SW"
-			(at 134.62 36.195 0)
+		(property "Reference" "MCU_SW1"
+			(at 149.86 47.625 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2455,7 +2419,7 @@
 			)
 		)
 		(property "Value" "SW_Push"
-			(at 134.62 38.735 0)
+			(at 149.86 50.165 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2463,7 +2427,7 @@
 			)
 		)
 		(property "Footprint" "ErgoCai.pretty:K2-1187SQ"
-			(at 134.62 38.1 0)
+			(at 149.86 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2472,7 +2436,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 134.62 38.1 0)
+			(at 149.86 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2481,7 +2445,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 134.62 43.18 0)
+			(at 149.86 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2496,15 +2460,9 @@
 			(uuid "230643a5-9b3c-4ebf-8e8f-2d7c9217eb82")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "MCU_SW1")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "MCU_SW")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "MCU_SW1")
 					(unit 1)
 				)
 			)
@@ -2512,15 +2470,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 99.06 55.88 90)
+		(at 114.3 67.31 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "b22d4cf7-2911-4cf1-a6b3-e8b3f1dd91d7")
-		(property "Reference" "#PWR?"
-			(at 105.41 55.88 0)
+		(property "Reference" "#PWR0102"
+			(at 120.65 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2529,7 +2487,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 102.87 53.975 0)
+			(at 118.11 65.405 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2538,7 +2496,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 99.06 55.88 0)
+			(at 114.3 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2547,7 +2505,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 55.88 0)
+			(at 114.3 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2556,7 +2514,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 99.06 55.88 0)
+			(at 114.3 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2568,15 +2526,9 @@
 			(uuid "be607e81-a7bc-4d1f-be51-c1b8342f67d8")
 		)
 		(instances
-			(project "ergo_cai"
-				(path "/4ad52d44-7e09-4b14-9ca9-1745a5702ae6/299106a9-2127-40b9-badb-4caf73c79ea5"
-					(reference "#PWR0113")
-					(unit 1)
-				)
-			)
 			(project "nRF52840_holyiot_18010"
-				(path "/a09f68bc-a7d5-404f-ac28-eebdcd98bea9"
-					(reference "#PWR?")
+				(path "/a75e1a70-312e-4b3d-9ad5-017ab62e82c1"
+					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
