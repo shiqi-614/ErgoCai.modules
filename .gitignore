@@ -4,3 +4,4 @@
 *.swo
 *.DS_Store
 *fp-info-cache
+*.lck
