@@ -1082,7 +1082,7 @@
 	(footprint "ErgoCai.pretty:K2-1187SQ"
 		(layer "B.Cu")
 		(uuid "d3245141-9b64-46f5-ac6d-eea74e5619fd")
-		(at 17 2.719)
+		(at 20 2.5)
 		(property "Reference" "MCU_SW1"
 			(at 0 3.683 180)
 			(unlocked yes)
