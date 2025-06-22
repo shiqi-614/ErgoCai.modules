@@ -285,13 +285,13 @@
 	(footprint "ErgoCai.pretty:nRF52840_holyiot_18010"
 		(layer "B.Cu")
 		(uuid "68034a9d-b26b-4ef7-908d-a10514904d9c")
-		(at 0 0.719 180)
+		(at 0 0 180)
 		(descr "Module containing a nRF52840 and most passives and antenna")
 		(tags "holyiot 18010 nRF52840 bluetooth low energy ")
 		(property "Reference" "MCU_U1"
 			(at -5.3 -10.75 0)
 			(layer "B.SilkS")
-			(uuid "749c3418-d01d-4407-a76e-e82d3270653f")
+			(uuid "4bba1f83-134a-4145-a0bb-ef15f97abdc1")
 			(effects
 				(font
 					(size 1 1)
@@ -303,7 +303,7 @@
 		(property "Value" "nRF52840_holyiot_18010"
 			(at 0 -2.8 0)
 			(layer "B.Fab")
-			(uuid "7f249f21-a43d-42a1-acd2-8eba31893ef2")
+			(uuid "f745b26f-ef96-4925-b825-49cb91197d6d")
 			(effects
 				(font
 					(size 1 1)
@@ -317,7 +317,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "20407a9a-2ff7-40d5-9ecc-0278ca551848")
+			(uuid "fdb7182f-2d94-42c3-9507-a812aa66d0c0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -331,7 +331,7 @@
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "14a89cb8-4d43-434a-af59-23c9c3d71c62")
+			(uuid "9fa8e2a9-831a-4c50-84da-ebfea2da9be5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1062,7 +1062,7 @@
 			)
 			(polygon
 				(pts
-					(xy 9.5 -5.481) (xy 9.5 -10.481) (xy -9.5 -10.481) (xy -9.5 -5.481)
+					(xy 9.5 -6.2) (xy 9.5 -11.2) (xy -9.5 -11.2) (xy -9.5 -6.2)
 				)
 			)
 		)
@@ -1524,52 +1524,52 @@
 		)
 	)
 	(segment
-		(start -5.788 8.219)
-		(end -5.5 7.931)
+		(start -6.75 -5.7)
+		(end 6.75 -5.7)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "172ed04d-3d5b-4a2a-8cc6-f07496b6761f")
+		(uuid "703ea5d6-6626-4a25-9e8d-f4be4aed34af")
 	)
 	(segment
-		(start -5.5 7.931)
-		(end -5.5 -4.5)
+		(start -5.46 7.172)
+		(end -5.46 -5.024)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "2d69b12e-e342-4197-a8ed-5920160c5745")
+		(uuid "8f53a586-253c-476b-83bd-0518cba4d100")
 	)
 	(segment
-		(start -5.5 -4.5)
-		(end -5.981 -4.981)
+		(start -5.46 -5.024)
+		(end -6.136 -5.7)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "593909f5-3d7d-43ff-be69-08a5c7974a3d")
+		(uuid "982522a9-7f9e-4a62-89d7-50a5da8513b0")
 	)
 	(segment
-		(start -6.75 8.219)
-		(end -5.788 8.219)
+		(start -6.136 -5.7)
+		(end -6.75 -5.7)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "782a2a92-2593-4dbf-a427-f2f250363ea8")
+		(uuid "a9170d56-e456-4882-9a7a-f7c8c4a58c94")
 	)
 	(segment
-		(start -6.75 -4.981)
-		(end 6.75 -4.981)
+		(start -6.75 7.5)
+		(end -5.788 7.5)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "ada8b4de-2ee6-4a2e-8609-ce17075a3111")
+		(uuid "b7ddfac6-c680-4bf1-bfc6-a30e4598a4e3")
 	)
 	(segment
-		(start -5.981 -4.981)
-		(end -6.75 -4.981)
+		(start -5.788 7.5)
+		(end -5.46 7.172)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 3)
-		(uuid "f256f2ac-209a-49f0-b65e-8b627219bd48")
+		(uuid "daf81769-0d6f-4bab-8d2f-5fea5b527e22")
 	)
 	(embedded_fonts no)
 )
