@@ -1283,7 +1283,7 @@
 			)
 		)
 	)
-	(global_label "nRF_VDD"
+	(global_label "VCC"
 		(shape input)
 		(at 147.32 72.39 180)
 		(fields_autoplaced yes)
@@ -1295,7 +1295,7 @@
 		)
 		(uuid "6d252f45-bcb5-4a80-a2fe-dfbc9860c65c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 136.231 72.39 0)
+			(at 140.7062 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1305,7 +1305,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_7"
 		(shape input)
 		(at 60.96 73.66 180)
 		(fields_autoplaced yes)
@@ -1317,7 +1317,7 @@
 		)
 		(uuid "822a171f-e9e5-4569-9933-929014399c5e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 73.66 0)
+			(at 52.1691 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1349,7 +1349,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_2"
 		(shape input)
 		(at 60.96 60.96 180)
 		(fields_autoplaced yes)
@@ -1361,7 +1361,7 @@
 		)
 		(uuid "8c985e7c-9a4a-4245-b297-7adfd97515d6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 60.96 0)
+			(at 52.1691 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1393,7 +1393,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_1"
 		(shape input)
 		(at 60.96 58.42 180)
 		(fields_autoplaced yes)
@@ -1405,7 +1405,7 @@
 		)
 		(uuid "9079a2ee-7c59-4240-be08-3be3bab63ed8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 58.42 0)
+			(at 52.1691 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1415,7 +1415,7 @@
 			)
 		)
 	)
-	(global_label "nRF_VDD"
+	(global_label "VCC"
 		(shape input)
 		(at 72.39 88.9 270)
 		(fields_autoplaced yes)
@@ -1427,7 +1427,7 @@
 		)
 		(uuid "96ab3e63-1535-4b44-bcf1-e55e7b9d9757")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.39 99.989 90)
+			(at 72.39 95.5138 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1437,7 +1437,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_6"
 		(shape input)
 		(at 60.96 71.12 180)
 		(fields_autoplaced yes)
@@ -1449,7 +1449,7 @@
 		)
 		(uuid "998e53b0-b5e4-45c0-91a9-638479a08fd5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 71.12 0)
+			(at 52.1691 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1481,7 +1481,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_8"
 		(shape input)
 		(at 60.96 76.2 180)
 		(fields_autoplaced yes)
@@ -1493,7 +1493,7 @@
 		)
 		(uuid "aa5acec3-4488-4276-b459-b58a25572d9a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 76.2 0)
+			(at 52.1691 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1503,7 +1503,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_4"
 		(shape input)
 		(at 60.96 66.04 180)
 		(fields_autoplaced yes)
@@ -1515,7 +1515,7 @@
 		)
 		(uuid "af54e071-6a35-4935-a081-b76827659bbd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 66.04 0)
+			(at 52.1691 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1569,7 +1569,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_3"
 		(shape input)
 		(at 60.96 63.5 180)
 		(fields_autoplaced yes)
@@ -1581,7 +1581,7 @@
 		)
 		(uuid "e5c4f9fe-77a4-4d0e-9da1-ae682d933fca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 63.5 0)
+			(at 52.1691 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1591,7 +1591,7 @@
 			)
 		)
 	)
-	(global_label "AnalogInput"
+	(global_label "ADC_5"
 		(shape input)
 		(at 60.96 68.58 180)
 		(fields_autoplaced yes)
@@ -1603,7 +1603,7 @@
 		)
 		(uuid "f8e47637-3c01-47cc-bbd3-bf6740c3bb9a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 46.8475 68.58 0)
+			(at 52.1691 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)

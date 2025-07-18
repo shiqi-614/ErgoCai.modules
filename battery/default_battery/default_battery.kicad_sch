@@ -2238,7 +2238,7 @@
 			)
 		)
 	)
-	(global_label "BT_PIN"
+	(global_label "ADC_BT"
 		(shape input)
 		(at 129.54 48.26 270)
 		(fields_autoplaced yes)
@@ -2250,7 +2250,7 @@
 		)
 		(uuid "6a3ee367-60c3-4ffd-8dd0-52d6b27326b2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 129.54 57.6557 90)
+			(at 129.54 58.079 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2282,7 +2282,7 @@
 			)
 		)
 	)
-	(global_label "nRF_VDD"
+	(global_label "VCC"
 		(shape input)
 		(at 114.3 88.9 0)
 		(fields_autoplaced yes)
@@ -2294,7 +2294,7 @@
 		)
 		(uuid "7791d25a-b5f2-4fe4-86e6-cac012cc6948")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 125.389 88.9 0)
+			(at 120.9138 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2434,7 +2434,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SW_DPDT_x2"
+		(property "Value" ""
 			(at 91.44 69.8499 0)
 			(effects
 				(font
