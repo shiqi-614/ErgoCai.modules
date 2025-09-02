@@ -756,5 +756,45 @@
 		)
 		(embedded_fonts no)
 	)
+	(gr_line
+		(start -13 13)
+		(end 13 13)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "0581e18c-4297-4a9e-8128-4b1319886ec7")
+	)
+	(gr_line
+		(start -13 -13)
+		(end -13 13)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "5d54b286-1611-4e6d-9833-76f084165f8f")
+	)
+	(gr_line
+		(start -13 -13)
+		(end 13 -13)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "5dbb5f54-7e1b-4a4d-80fd-7eec1fa1cbe0")
+	)
+	(gr_line
+		(start 13 -13)
+		(end 13 13)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "cfe12ae6-23d2-4a08-bc16-7bfb1b6385d3")
+	)
 	(embedded_fonts no)
 )
