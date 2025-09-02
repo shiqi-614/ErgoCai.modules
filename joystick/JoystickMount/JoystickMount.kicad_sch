@@ -479,7 +479,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+		(property "Footprint" "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 			(at 81.28 92.71 0)
 			(effects
 				(font
@@ -543,7 +543,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+		(property "Footprint" "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 			(at 102.87 100.33 0)
 			(effects
 				(font
@@ -607,7 +607,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+		(property "Footprint" "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 			(at 81.28 100.33 0)
 			(effects
 				(font
@@ -765,7 +765,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965"
+		(property "Footprint" "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 			(at 102.87 92.71 0)
 			(effects
 				(font

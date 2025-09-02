@@ -83,7 +83,7 @@
 	(net 3 "VCC")
 	(net 4 "JT_B1")
 	(net 5 "ADC0")
-	(footprint "MountingHole:MountingHole_2.2mm_M2_DIN965"
+	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
 		(uuid "25e6a373-bd23-4e4f-be0b-c49270d857f1")
 		(at -10.85 10.85)
@@ -138,7 +138,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/a94443c1-4c54-4dc5-b080-f7d4b57d9015")
 		(sheetname "/")
-		(sheetfile "Ps4Mount.kicad_sch")
+		(sheetfile "JoystickMount.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -149,7 +149,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "c58ccf27-bd7c-446a-8f67-08ee1d2caa72")
+			(uuid "8106cd7b-443b-476c-a449-310d5a1d9e4a")
 		)
 		(fp_circle
 			(center 0 0)
@@ -160,7 +160,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "fa84b67a-8477-48b2-9689-127c0a34f250")
+			(uuid "290b5bef-7094-4518-8786-533ffd737473")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
@@ -178,11 +178,11 @@
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "e33a1af8-bfaf-41b6-9162-0fbc704bc9b2")
+			(uuid "509c704c-eb5d-4c9f-800b-15e9ef79a025")
 		)
 		(embedded_fonts no)
 	)
-	(footprint "MountingHole:MountingHole_2.2mm_M2_DIN965"
+	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
 		(uuid "40679c90-71f0-461b-b4b8-df0a004602fe")
 		(at 10.85 -10.85)
@@ -237,7 +237,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/119d7d61-a3d4-43ae-b124-5c714eba69d2")
 		(sheetname "/")
-		(sheetfile "Ps4Mount.kicad_sch")
+		(sheetfile "JoystickMount.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -248,7 +248,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "ec69ec1e-e69a-43b2-b613-7763ec501c18")
+			(uuid "abc64a11-f086-4a04-b4dc-ce42af5c1e76")
 		)
 		(fp_circle
 			(center 0 0)
@@ -259,7 +259,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "8e4da6ab-cd94-4dc3-8108-4318df4151f2")
+			(uuid "8e6afce1-bbd4-4c54-8d60-922a656353de")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
@@ -277,7 +277,7 @@
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "55ce585b-dbb2-4216-81a3-bfd9541e31e5")
+			(uuid "8b3ef13a-703e-40d3-a724-955adf0ed37f")
 		)
 		(embedded_fonts no)
 	)
@@ -346,7 +346,7 @@
 		)
 		(path "/dcf789c3-6749-4bad-a60e-8614d22bace5")
 		(sheetname "/")
-		(sheetfile "Ps4Mount.kicad_sch")
+		(sheetfile "JoystickMount.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 3.5 4.57)
@@ -558,7 +558,7 @@
 			)
 		)
 	)
-	(footprint "MountingHole:MountingHole_2.2mm_M2_DIN965"
+	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
 		(uuid "6b573d56-fb68-4bd0-8563-82948b1d6790")
 		(at 10.85 10.85)
@@ -613,7 +613,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/def01e70-5602-44eb-920f-3464e1e48839")
 		(sheetname "/")
-		(sheetfile "Ps4Mount.kicad_sch")
+		(sheetfile "JoystickMount.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -624,7 +624,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "50e0f3b4-5127-40cc-8db4-26d729ed3d96")
+			(uuid "0dc90ef2-817d-4ae4-a18c-e5d87f1a5f11")
 		)
 		(fp_circle
 			(center 0 0)
@@ -635,7 +635,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "c524d1ac-8b73-43c8-8ff5-302097482400")
+			(uuid "ab31d5cb-f020-497f-a419-4e03a780453c")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
@@ -653,11 +653,11 @@
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "a48f83e3-66ac-4ee4-a670-57d4d0c13319")
+			(uuid "6d0a2ed5-53b0-48e1-9070-3d497afbcf2e")
 		)
 		(embedded_fonts no)
 	)
-	(footprint "MountingHole:MountingHole_2.2mm_M2_DIN965"
+	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
 		(uuid "85429c53-a594-4fcd-aea5-4a0736f11d69")
 		(at -10.85 -10.85)
@@ -712,7 +712,7 @@
 		(property ki_fp_filters "MountingHole*")
 		(path "/cec7bc34-c02a-4d9a-8ea4-e71d9e50fbbb")
 		(sheetname "/")
-		(sheetfile "Ps4Mount.kicad_sch")
+		(sheetfile "JoystickMount.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -723,7 +723,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "2629a85e-192b-43b5-bb48-7d60dee4889c")
+			(uuid "05db8d7f-a127-49ea-956c-5a617a995c71")
 		)
 		(fp_circle
 			(center 0 0)
@@ -734,7 +734,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "553c8b96-a907-4879-b7f8-f1565f372111")
+			(uuid "1d1a16b5-d22b-4167-807b-ec6ae83307e0")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
@@ -752,7 +752,7 @@
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "3b643887-afb1-4236-9486-e301c07bbc12")
+			(uuid "b9fd7849-66e6-4ab4-be2f-88d769a7dd9b")
 		)
 		(embedded_fonts no)
 	)
