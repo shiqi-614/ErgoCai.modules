@@ -451,7 +451,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "battery_led_back.kicad_pro",
+    "filename": "RGB_WS2812B_3.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -611,7 +611,7 @@
   },
   "sheets": [
     [
-      "5ac02cf2-291a-487e-b868-5e66ea14e5ba",
+      "f9185a35-e356-472f-8484-2d230d2d99c9",
       "Root"
     ]
   ],
