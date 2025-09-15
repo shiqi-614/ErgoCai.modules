@@ -315,7 +315,7 @@
 	(footprint "ErgoCai.pretty:CONN-TH_S5B-ZR-LF-SN"
 		(layer "F.Cu")
 		(uuid "ead859b1-f7b6-4b19-a012-639795580bee")
-		(at -0.19 -0.1 90)
+		(at -7.5 0 90)
 		(property "Reference" "J1"
 			(at 0 -4 90)
 			(layer "F.SilkS")
