@@ -451,7 +451,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "nRF52840_holyiot_18010.kicad_pro",
+    "filename": "reset.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -611,7 +611,7 @@
   },
   "sheets": [
     [
-      "a75e1a70-312e-4b3d-9ad5-017ab62e82c1",
+      "bfa7eed2-3077-427f-9556-fd2cbd0f3928",
       "Root"
     ]
   ],
