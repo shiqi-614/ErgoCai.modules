@@ -116,7 +116,7 @@
 	(footprint "ErgoCai.pretty:Connector_THT_1x4_2.54"
 		(layer "F.Cu")
 		(uuid "40eece11-a52f-4f5b-8656-e5ccf26613a3")
-		(at -15 -7.5 -90)
+		(at -15 -6.5 -90)
 		(property "Reference" "MCU_J1"
 			(at 0 -6.096 90)
 			(layer "F.SilkS")
