@@ -3198,7 +3198,7 @@
 				)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR"
+		(property "Footprint" "ErgoCai.pretty:SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR"
 			(at 132.08 121.92 0)
 			(effects
 				(font
@@ -3417,7 +3417,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:SW-TH_SK12D07VG4"
+		(property "Footprint" "ErgoCai.pretty:SW-TH_SK12D07VG4"
 			(at 78.74 62.23 0)
 			(effects
 				(font
@@ -3586,7 +3586,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:C_0603_1608Metric"
 			(at 107.6452 137.16 0)
 			(effects
 				(font
@@ -3863,7 +3863,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:L_0603_1608Metric"
 			(at 146.05 129.54 0)
 			(effects
 				(font
@@ -4562,7 +4562,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+		(property "Footprint" "ErgoCai.pretty:SOT-23"
 			(at 90.17 81.915 0)
 			(effects
 				(font
@@ -4637,7 +4637,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:C_0603_1608Metric"
 			(at 167.3352 137.16 0)
 			(effects
 				(font
@@ -4771,7 +4771,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "ErgoCai.pretty:C_0603_1608Metric"
 			(at 180.0352 137.16 0)
 			(effects
 				(font
@@ -5110,7 +5110,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
+		(property "Footprint" "ErgoCai.pretty:SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.29x3mm"
 			(at 179.07 86.36 0)
 			(effects
 				(font
