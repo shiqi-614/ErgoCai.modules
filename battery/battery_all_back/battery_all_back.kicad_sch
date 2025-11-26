@@ -1050,381 +1050,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ErgoCai:SK12D07VG4"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SK12D07VG4"
-				(at 0 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "easyeda2kicad:SW-TH_SK12D07VG4"
-				(at 0 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG4_C393937.html"
-				(at 0 -15.24 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "LCSC Part" "C393937"
-				(at 0 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SK12D07VG4_0_1"
-				(polyline
-					(pts
-						(xy -7.62 0) (xy -7.62 5.08) (xy 7.62 5.08) (xy 7.62 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 0.51) (xy -5.33 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 0.51) (xy -4.83 1.52) (xy -4.83 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 0.51) (xy -5.08 2.54) (xy 0 2.54) (xy 0 0.51) (xy 0.25 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -5.08 0)
-					(radius 0.51)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 3.56) (xy 0 4.06) (xy 0.51 4.06)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0 3.05)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0.51) (xy -0.25 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 0)
-					(radius 0.51)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.76 4.06) (xy 1.52 4.06)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.78 4.06) (xy 2.54 4.06)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.79 4.06) (xy 3.56 4.06)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 3.81 4.06) (xy 4.57 4.06)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 4.83 4.06) (xy 5.08 4.06) (xy 5.08 3.3)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.79) (xy 5.08 2.29)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.03) (xy 5.08 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 1.27) (xy 5.08 0.51) (xy 5.33 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 0.51) (xy 4.83 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 5.08 0)
-					(radius 0.51)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin unspecified line
-					(at -7.62 -5.08 90)
-					(length 5.08)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 -5.08 90)
-					(length 5.08)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 0 -5.08 90)
-					(length 5.08)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 5.08 -5.08 90)
-					(length 5.08)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 7.62 -5.08 90)
-					(length 5.08)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "ErgoCai:TP4056"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2337,20 +1962,10 @@
 		(uuid "adec285c-b0e0-4ac3-b582-35aa4024df5e")
 	)
 	(junction
-		(at 76.2 66.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f3f68828-8f0a-4ae5-9c72-ba4bd22e8787")
-	)
-	(junction
 		(at 154.94 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f6d7adb4-eaaf-4c51-92f8-13b04bd03b16")
-	)
-	(no_connect
-		(at 76.2 60.96)
-		(uuid "b98f247a-5776-47fd-9b09-b683a254e22b")
 	)
 	(wire
 		(pts
@@ -2484,16 +2099,6 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 66.04) (xy 77.47 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "47dbaa65-e369-43e2-bc35-e22bbf420ff7")
-	)
-	(wire
-		(pts
 			(xy 149.86 129.54) (xy 154.94 129.54)
 		)
 		(stroke
@@ -2551,16 +2156,6 @@
 			(type default)
 		)
 		(uuid "55920f47-079c-477f-bbdf-94e20772dbd9")
-	)
-	(wire
-		(pts
-			(xy 76.2 71.12) (xy 85.09 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "55976e70-fa45-46da-89ac-dba1ac83389a")
 	)
 	(wire
 		(pts
@@ -2771,26 +2366,6 @@
 			(type default)
 		)
 		(uuid "ba0e8054-76e5-484c-b9ee-dd7694c1fc1f")
-	)
-	(wire
-		(pts
-			(xy 85.09 71.12) (xy 85.09 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd051a51-e2b0-4cc6-be68-86c1cd82a1e1")
-	)
-	(wire
-		(pts
-			(xy 74.93 66.04) (xy 76.2 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c014d6a9-7461-49c2-999a-f25aac2aba21")
 	)
 	(wire
 		(pts
@@ -3084,28 +2659,6 @@
 			)
 		)
 	)
-	(global_label "VBAT"
-		(shape input)
-		(at 77.47 66.04 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "91ff7fe6-a551-4db7-9421-caec9e552058")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 84.87 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "VIN"
 		(shape input)
 		(at 88.9 91.44 0)
@@ -3163,6 +2716,28 @@
 		(uuid "dd8bac21-4ab8-4281-baad-5096dc9c7b09")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 195.8438 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VSYS"
+		(shape input)
+		(at 85.09 77.47 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "de13dcb2-9bf5-4e97-acc9-63bf8db03cc9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 85.09 69.8886 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3267,7 +2842,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1a1229b3-66a7-4a58-8cf4-bf3be90cbdb5")
-		(property "Reference" "BAT_R_PRG1"
+		(property "Reference" "BAT_R_P1"
 			(at 200.66 89.916 90)
 			(effects
 				(font
@@ -3319,7 +2894,7 @@
 		(instances
 			(project "default_battery"
 				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
-					(reference "BAT_R_PRG1")
+					(reference "BAT_R_P1")
 					(unit 1)
 				)
 			)
@@ -3385,174 +2960,6 @@
 			(project "battery_led_back"
 				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "#PWR02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ErgoCai:SK12D07VG4")
-		(at 71.12 66.04 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2ec79895-ee7e-42d3-8b43-e04f0fd538ba")
-		(property "Reference" "BAT_SW1"
-			(at 65.024 61.722 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "~"
-			(at 68.5801 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:SW-TH_SK12D07VG4"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG4_C393937.html"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" "C&K"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "Switch Slide ON ON SPDT Side Slide 0.3A 30VDC PC Pins Bracket Mount/Through Hole Bulk"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "None"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Price" "None"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/SK12D07VG4/C%2526K/view-part/?ref=snap"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "SK12D07VG4"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Availability" "Not in stock"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/SK12D07VG4/C%2526K/view-part/?ref=eda"
-			(at 71.12 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part" "C393937"
-			(at 88.9 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "d7c324a5-43bd-4d3e-987f-6719b2791803")
-		)
-		(pin "2"
-			(uuid "49e4f7bd-57f2-431e-86b0-6270d08d19f3")
-		)
-		(pin "1"
-			(uuid "7576a77d-0698-4afe-bc1a-872293cbdc90")
-		)
-		(pin "3"
-			(uuid "42781faf-c103-4365-85f6-d0eb38bb07d9")
-		)
-		(pin "4"
-			(uuid "73604f58-eb5a-4cd3-a3a5-7b856157e098")
-		)
-		(instances
-			(project "default_battery"
-				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
-					(reference "BAT_SW1")
 					(unit 1)
 				)
 			)
@@ -4245,71 +3652,6 @@
 			(project "default_battery"
 				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "BAT_R_G1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 73.66 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "90e14ee8-147c-4707-b96a-fef56b084628")
-		(property "Reference" "#PWR05"
-			(at 82.55 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 80.01 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 76.2 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a8d88d2f-4476-4540-84a4-d0290e01af70")
-		)
-		(instances
-			(project "battery_all_back"
-				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
-					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -5168,71 +4510,6 @@
 			(project "default_battery"
 				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
 					(reference "#PWR0102")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 76.2 58.42 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ecda05b3-a33c-4b4d-8949-abd6fb7826db")
-		(property "Reference" "#PWR04"
-			(at 82.55 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 80.01 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 76.2 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 76.2 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 76.2 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cf33ea41-a157-44c4-990f-7eca4df60b25")
-		)
-		(instances
-			(project "battery_all_back"
-				(path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba"
-					(reference "#PWR04")
 					(unit 1)
 				)
 			)
