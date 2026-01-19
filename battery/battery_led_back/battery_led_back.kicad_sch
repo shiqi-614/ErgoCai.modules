@@ -2659,7 +2659,7 @@
 			)
 		)
 	)
-	(global_label "VCC"
+	(global_label "3.3V"
 		(shape input)
 		(at 187.96 123.19 0)
 		(fields_autoplaced yes)
@@ -2671,7 +2671,7 @@
 		)
 		(uuid "a70fc004-ab0e-441f-bfcd-755860c165be")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 194.5738 123.19 0)
+			(at 195.0576 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)

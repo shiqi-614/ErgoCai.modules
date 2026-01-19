@@ -1101,7 +1101,7 @@
 			)
 		)
 	)
-	(global_label "VCC"
+	(global_label "3.3V"
 		(shape input)
 		(at 147.32 72.39 180)
 		(fields_autoplaced yes)
@@ -1113,7 +1113,7 @@
 		)
 		(uuid "6d252f45-bcb5-4a80-a2fe-dfbc9860c65c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.7062 72.39 0)
+			(at 140.2224 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1233,7 +1233,7 @@
 			)
 		)
 	)
-	(global_label "VCC"
+	(global_label "3.3V"
 		(shape input)
 		(at 72.39 88.9 270)
 		(fields_autoplaced yes)
@@ -1245,7 +1245,7 @@
 		)
 		(uuid "96ab3e63-1535-4b44-bcf1-e55e7b9d9757")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.39 95.5138 90)
+			(at 72.39 95.9976 90)
 			(effects
 				(font
 					(size 1.27 1.27)
