@@ -851,7 +851,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0b8d5545-0e3e-4aaf-b4bd-851c0db1ddc4")
-		(property "Reference" "J2"
+		(property "Reference" "EPAPER_J2"
 			(at 110.49 92.7099 0)
 			(effects
 				(font
@@ -908,7 +908,7 @@
 		(instances
 			(project "1.02inch-e-Paper-socket"
 				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
-					(reference "J2")
+					(reference "EPAPER_J2")
 					(unit 1)
 				)
 			)
@@ -989,7 +989,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a313ea70-d5a9-474c-a5e0-c3cccf748be2")
-		(property "Reference" "J1"
+		(property "Reference" "EPAPER_J1"
 			(at 110.49 71.1199 0)
 			(effects
 				(font
@@ -1052,7 +1052,7 @@
 		(instances
 			(project "1.02inch-e-Paper-socket"
 				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
-					(reference "J1")
+					(reference "EPAPER_J1")
 					(unit 1)
 				)
 			)
@@ -1068,7 +1068,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ee08b1a2-ce03-4224-8ef8-bfa8a91a5c7b")
-		(property "Reference" "H1"
+		(property "Reference" "EPAPER_H1"
 			(at 149.86 80.0099 0)
 			(effects
 				(font
@@ -1116,7 +1116,7 @@
 		(instances
 			(project ""
 				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
-					(reference "H1")
+					(reference "EPAPER_H1")
 					(unit 1)
 				)
 			)

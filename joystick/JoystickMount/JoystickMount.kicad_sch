@@ -438,7 +438,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c9bc4cad-98bb-412f-85af-0d6dae64e9a3")
-		(property "Reference" "J1"
+		(property "Reference" "JOYSTICK_J1"
 			(at 100.33 76.2 0)
 			(effects
 				(font
@@ -499,7 +499,7 @@
 		(instances
 			(project "JoystickMount"
 				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
-					(reference "J1")
+					(reference "JOYSTICK_J1")
 					(unit 1)
 				)
 			)
@@ -515,7 +515,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ff091071-59e6-4c0b-b2b5-3ce3bc7dc608")
-		(property "Reference" "H1"
+		(property "Reference" "JOYSTICK_H1"
 			(at 80.01 85.0899 0)
 			(effects
 				(font
@@ -563,7 +563,7 @@
 		(instances
 			(project ""
 				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
-					(reference "H1")
+					(reference "JOYSTICK_H1")
 					(unit 1)
 				)
 			)

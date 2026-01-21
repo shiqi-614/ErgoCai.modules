@@ -92,8 +92,8 @@
 		(at 2 2.54 180)
 		(descr "Through hole straight socket strip, 1x03, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x03 2.54mm single row")
-		(property "Reference" "J2"
-			(at 0 -2.77 180)
+		(property "Reference" "EPAPER_J2"
+			(at 2.53 1.75 270)
 			(layer "F.SilkS")
 			(uuid "813ff6d7-ba4c-4457-a096-4d15dc8ae1f3")
 			(effects
@@ -352,13 +352,13 @@
 	)
 	(footprint "ErgoCai.pretty:e-paper_1.02inch_mount"
 		(layer "F.Cu")
-		(uuid "7312419f-d6e9-4ba1-aaf0-3f8efe428033")
+		(uuid "be75cf17-49b5-47b3-8c3c-9329649a9ddb")
 		(at 20 0)
-		(property "Reference" "H1"
+		(property "Reference" "EPAPER_H1"
 			(at 0 -0.5 0)
 			(unlocked yes)
 			(layer "F.SilkS")
-			(uuid "eb6a2c73-44d7-4b43-9ddb-9d4ec85a9e7e")
+			(uuid "4d578cc2-f8e2-463f-9947-77b39e21b94b")
 			(effects
 				(font
 					(size 1 1)
@@ -370,7 +370,7 @@
 			(at 0 1 0)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "81df0af9-d3a0-43e8-b487-11d9fb0a8afc")
+			(uuid "d535cdfa-031d-4311-a61d-66b75498738f")
 			(effects
 				(font
 					(size 1 1)
@@ -383,7 +383,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f0ef1125-2a6d-47f7-978b-ea0b5fe53f45")
+			(uuid "e5621bf2-0c9c-4800-906e-8cae8b945dc2")
 			(effects
 				(font
 					(size 1 1)
@@ -396,7 +396,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b330b43a-23ba-4d99-867c-f071be3a88db")
+			(uuid "321e21f9-3951-422f-a609-12e8150f8c48")
 			(effects
 				(font
 					(size 1 1)
@@ -418,7 +418,7 @@
 			)
 			(fill no)
 			(layer "F.SilkS")
-			(uuid "5d6f1668-d463-46d1-b0ad-6484f9398dc2")
+			(uuid "4cbda158-dde4-4de7-9401-2745fb6275aa")
 		)
 		(fp_circle
 			(center -17.8562 -8.3058)
@@ -429,7 +429,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "df582d92-1b3c-462c-9477-3679a3c7cc65")
+			(uuid "a3a36a6c-cc2b-4ed1-be6d-685f48676a4e")
 		)
 		(fp_circle
 			(center -17.8512 8.3058)
@@ -440,7 +440,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "02ca221f-d2e5-462f-8bad-d9c594a9b45d")
+			(uuid "dd77b787-2c32-4e32-8492-6391f1350828")
 		)
 		(fp_circle
 			(center -17.8562 -8.3058)
@@ -451,7 +451,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "80104ef1-1fcb-40b6-af72-e1015a539e0d")
+			(uuid "05165c07-4b22-4714-bcc7-a9542df3a9d8")
 		)
 		(fp_circle
 			(center -17.8512 8.3058)
@@ -462,13 +462,13 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "b0891a37-2856-47d6-bb0f-68b85e434875")
+			(uuid "9cad825b-9d43-4a5f-9e9c-093b02348e60")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 2.5 0)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "cf481e41-0960-4ada-a08a-74c30aa4aa41")
+			(uuid "e11d76c4-5d1f-4490-841c-043232ed5447")
 			(effects
 				(font
 					(size 1 1)
@@ -481,14 +481,14 @@
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "a5c47354-e4e0-4153-aeb6-a16519d96999")
+			(uuid "e2cf36ee-693d-419d-8aef-6038127aeaf6")
 		)
 		(pad "" np_thru_hole circle
 			(at -17.8512 8.3058)
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "21ab8fde-8222-4541-b866-5d4bbd6837d5")
+			(uuid "1d82dd02-f8a8-4550-9e62-dc070e1b803f")
 		)
 		(embedded_fonts no)
 	)
@@ -498,8 +498,8 @@
 		(at 5.6 5.07 180)
 		(descr "Through hole straight socket strip, 1x05, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
 		(tags "Through hole socket strip THT 1x05 2.54mm single row")
-		(property "Reference" "J1"
-			(at 0 -2.77 180)
+		(property "Reference" "EPAPER_J1"
+			(at -2.47 4.87 90)
 			(layer "F.SilkS")
 			(uuid "276779c6-f1a2-4a86-8be9-4ca02f8c140c")
 			(effects
