@@ -529,18 +529,7 @@
 			(uuid "f6355e26-2bdb-468b-9976-1eca6f68df56")
 		)
 		(embedded_fonts no)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/FPC-SMD_AFC01-S05FCA-00.wrl"
-			(offset
-				(xyz 0 -1.32 -0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "/Users/jinsongc/Documents/KiCad/easyeda2kicad/easyeda2kicad.3dshapes/FPC-SMD_AFC01-S05FCA-00.step"
+		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/FPC-SMD_AFC01-S05FCA-00.step"
 			(offset
 				(xyz 0 -1 2)
 			)
@@ -1666,16 +1655,6 @@
 		(uuid "05c17399-48ad-4139-9f5e-d5d6c1f0edf9")
 	)
 	(gr_line
-		(start -12.67 -4)
-		(end -12.67 4)
-		(stroke
-			(width 0.05)
-			(type solid)
-		)
-		(layer "Edge.Cuts")
-		(uuid "08706115-966d-4f7c-a4f7-6f8aec4a35d4")
-	)
-	(gr_line
 		(start 13 10.85)
 		(end 13 -10.85)
 		(stroke
@@ -1696,16 +1675,6 @@
 		(layer "Edge.Cuts")
 		(uuid "2ce9aa9b-6415-494c-b10e-7e5362af228f")
 	)
-	(gr_line
-		(start -12.99 -4)
-		(end -12.67 -4)
-		(stroke
-			(width 0.05)
-			(type solid)
-		)
-		(layer "Edge.Cuts")
-		(uuid "362d6daa-e24e-476d-b469-889c7a540ded")
-	)
 	(gr_arc
 		(start 13 10.85)
 		(mid 12.37028 12.37028)
@@ -1716,16 +1685,6 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "42d743ad-a71b-47e9-acc7-94773b2999b9")
-	)
-	(gr_line
-		(start -12.67 4)
-		(end -13 4)
-		(stroke
-			(width 0.05)
-			(type solid)
-		)
-		(layer "Edge.Cuts")
-		(uuid "520e12ef-5f16-42c2-8d5e-c5ee6f02519d")
 	)
 	(gr_line
 		(start -13 4)
@@ -1749,7 +1708,7 @@
 	)
 	(gr_line
 		(start -12.999999 -10.85)
-		(end -12.999999 -4)
+		(end -12.999999 4)
 		(stroke
 			(width 0.05)
 			(type default)

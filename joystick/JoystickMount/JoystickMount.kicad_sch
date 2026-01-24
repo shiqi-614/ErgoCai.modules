@@ -454,7 +454,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:CONN-TH_S5B-ZR-LF-SN"
+		(property "Footprint" "ErgoCai.pretty:FPC-SMD_AFC01-S05FCA-00"
 			(at 100.33 87.63 0)
 			(effects
 				(font
