@@ -5,3 +5,8 @@
 *.DS_Store
 *fp-info-cache
 *.lck
+*.step
+gerber
+*.kicad_prl
+*.gbrjob
+*.kicad_prl
