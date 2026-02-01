@@ -401,17 +401,6 @@
 		(sheetname "/")
 		(sheetfile "JoystickMount.kicad_sch")
 		(attr exclude_from_pos_files exclude_from_bom)
-		(fp_rect
-			(start -13 -13)
-			(end 14.5 13)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(fill no)
-			(layer "Dwgs.User")
-			(uuid "c7279c65-85d5-41d5-9ff1-b51e89c4bf6c")
-		)
 		(fp_circle
 			(center -10.85 -10.85)
 			(end -8.95 -10.85)
@@ -421,7 +410,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "9b7cd709-3744-4bf3-8e0f-bb4cf86da5e9")
+			(uuid "616cd57d-cc23-41be-8df6-72244adb9acf")
 		)
 		(fp_circle
 			(center -10.85 10.85)
@@ -432,7 +421,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "e0854062-3d31-4e96-b042-6dc7f349ba3e")
+			(uuid "6b64c693-12a4-4557-878b-fddc0d1b3aaf")
 		)
 		(fp_circle
 			(center 12.35 -10.85)
@@ -443,7 +432,7 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "c150c16d-d458-48f8-940a-96756c5fade4")
+			(uuid "5e1694cf-6615-4123-9681-a2dbc59a6c5e")
 		)
 		(fp_circle
 			(center 12.35 10.85)
@@ -454,7 +443,18 @@
 			)
 			(fill no)
 			(layer "Cmts.User")
-			(uuid "1d680e30-5d19-409f-bdfe-68c8452e52b2")
+			(uuid "2092a80f-3cf0-4d25-b856-e1cbdcc47000")
+		)
+		(fp_rect
+			(start -13.1 -13.1)
+			(end 14.6 13.1)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "d265136d-86eb-4f33-b2a6-05f22c59a468")
 		)
 		(fp_circle
 			(center -10.85 -10.85)
@@ -465,7 +465,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "0e3b2ac2-13ab-4af8-9e93-bec7d9d08e2b")
+			(uuid "cccaf9a1-43e2-41ff-9061-5bcb39289558")
 		)
 		(fp_circle
 			(center -10.85 10.85)
@@ -476,7 +476,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "4638fb76-8698-4e82-b0db-f35fa0d3f8c6")
+			(uuid "aceb1a15-de67-4172-8af8-31de6137e372")
 		)
 		(fp_circle
 			(center 12.35 -10.85)
@@ -487,7 +487,7 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "f039db87-0043-4ed9-8158-98c0e8baffbc")
+			(uuid "01419210-adf1-461b-92dd-baf9cb92d9d4")
 		)
 		(fp_circle
 			(center 12.35 10.85)
@@ -498,35 +498,35 @@
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "1e64b125-c34a-4a7a-ad05-8d44eb2e297d")
+			(uuid "0f69532e-f5ed-4a31-b622-071744cef5e6")
 		)
 		(pad "" np_thru_hole circle
 			(at -10.85 -10.85)
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "d9de8dcd-3c43-40f3-8e17-9c960a1d020e")
+			(uuid "53c6dcd1-7c6b-4f7d-b9e5-54d1d49b4895")
 		)
 		(pad "" np_thru_hole circle
 			(at -10.85 10.85)
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "802b255f-9ccb-4127-91fa-4d1b8efa758a")
+			(uuid "098d4905-1c23-49d3-bbae-b842d38af87a")
 		)
 		(pad "" np_thru_hole circle
 			(at 12.35 -10.85)
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "f1e6a71f-f581-4c3a-ae5f-450ba6cfbd67")
+			(uuid "511de8f1-d3d8-4438-94f7-2ca069af7f68")
 		)
 		(pad "" np_thru_hole circle
 			(at 12.35 10.85)
 			(size 2.2 2.2)
 			(drill 2.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "e843673f-b01f-4699-8d71-b7fe71377137")
+			(uuid "3cb8aeb3-60da-420f-ad01-5fa45b403e0a")
 		)
 		(embedded_fonts no)
 		(model "/Users/jinsongc/Development/ErgoCai.modules/joystick/Alpsalpine/Alpsalpine.step"
