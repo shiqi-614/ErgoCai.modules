@@ -82,14 +82,14 @@
 	(net 2 "unconnected-(BAT_SW1-Pad1)")
 	(net 3 "VBAT")
 	(net 4 "VSYS")
-	(footprint "ErgoCai.pretty:SW-TH_SK12D07VG4"
+	(footprint "ErgoCai.pretty:SW-TH_SK12D07VG5-1"
 		(layer "F.Cu")
-		(uuid "4d9c3433-b27f-4dd5-bde5-394a8721e860")
+		(uuid "bb50a511-68e2-4dc5-b790-c61229767878")
 		(at 0 0 180)
 		(property "Reference" "BAT_SW1"
-			(at 0 -4 180)
+			(at 0 -4 0)
 			(layer "F.SilkS")
-			(uuid "df582f22-f7a1-4515-b6b2-db6f6fb1e149")
+			(uuid "6d7bfdaf-9acc-47d9-b596-a3997d9ea203")
 			(effects
 				(font
 					(size 1 1)
@@ -97,10 +97,10 @@
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 0 4 180)
+		(property "Value" "SK12D07VG5"
+			(at 0 4 0)
 			(layer "F.Fab")
-			(uuid "a38e59d4-ae91-4873-b653-b31b26f4d615")
+			(uuid "5ea55aba-0a27-42c1-ad54-a1aa1423c3cc")
 			(effects
 				(font
 					(size 1 1)
@@ -108,11 +108,11 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG4_C393937.html"
-			(at 0 0 180)
+		(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG5_C431548.html"
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "cd9e98bd-a9f5-4439-bc95-4fde064c579d")
+			(uuid "7ec23424-ba06-40e2-87a1-0b67b63d49d6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -120,11 +120,11 @@
 				)
 			)
 		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 0 0 180)
+		(property "Description" ""
+			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "079de61c-65c9-4ff7-8044-d47c2a04deca")
+			(uuid "7d950a54-e818-4f30-a455-2e38b85334c5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -132,12 +132,12 @@
 				)
 			)
 		)
-		(property "MF" "C&K"
+		(property "LCSC Part" "C431548"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6887cb59-fd6b-416e-97c7-d6e68d4cfd94")
+			(uuid "c56e0d59-6e44-4b19-b1bf-e3d041af2071")
 			(effects
 				(font
 					(size 1 1)
@@ -145,230 +145,115 @@
 				)
 			)
 		)
-		(property "Description_1" "Switch Slide ON ON SPDT Side Slide 0.3A 30VDC PC Pins Bracket Mount/Through Hole Bulk"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "1e69e6a2-ff59-40ed-af72-556c32673575")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Package" "None"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6fc1eef0-357b-4314-9edf-9dfecfbbe1ca")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Price" "None"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "8bb33c42-4725-46ce-8e35-0bfd52386f8d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/SK12D07VG4/C%2526K/view-part/?ref=snap"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "2fc06c7a-d18e-4a3e-9171-6395201810ac")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "MP" "SK12D07VG4"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e8be9fea-6c8a-4485-b2ed-8b9cff190e70")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Availability" "Not in stock"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "58c17d85-ebac-4c58-aaa2-c7a3acbcf7f1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/SK12D07VG4/C%2526K/view-part/?ref=eda"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6abea2f2-f70a-48ec-9eef-e5e5a3017061")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "LCSC Part" "C393937"
-			(at 0 0 180)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "6d5e32c6-eb6e-483d-a9ac-e7dc18ddf112")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(path "/2ec79895-ee7e-42d3-8b43-e04f0fd538ba")
+		(path "/1d0c3470-e128-4ea1-9c9a-39961b907257")
 		(sheetname "/")
 		(sheetfile "power_switch_left.kicad_sch")
 		(attr through_hole)
 		(fp_line
-			(start 4.35 2.2)
-			(end -4.35 2.2)
+			(start 4.4 2.2)
+			(end -4.4 2.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "3d0f39ad-a7b1-4d1e-adc9-09a7e16798ca")
+			(uuid "c1b3bce4-c28e-4afb-8212-9c059e5ce3f5")
 		)
 		(fp_line
-			(start 4.35 1.31)
-			(end 4.35 2.2)
+			(start 4.4 1.71)
+			(end 4.4 2.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "d9753021-1ffd-4c0d-8441-9e1f55271d4c")
+			(uuid "7c35dccf-d07a-4335-bca9-619634e3e7ee")
 		)
 		(fp_line
-			(start 4.35 -2.2)
-			(end 4.35 -1.31)
+			(start 4.4 -2.2)
+			(end 4.4 -1.72)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "e20f14b8-541c-4e5c-a581-caf88a0eee9a")
+			(uuid "0f6e67d2-a941-4402-8d53-e4a346ade325")
 		)
 		(fp_line
-			(start 0 4.85)
-			(end 0 2.2)
+			(start 4.4 -2.2)
+			(end -4.4 -2.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "0b5f4715-7f39-495e-b92b-b137b7b38c91")
+			(uuid "7a3720f9-e036-405f-9b4b-f1a2913eae57")
 		)
 		(fp_line
-			(start -2.01 4.85)
-			(end 0 4.85)
+			(start 0 2.2)
+			(end 0 7.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "1c962f46-b7b2-4751-be60-14261f494093")
+			(uuid "a64eecb0-83a0-41aa-ab01-09f0b6402a92")
 		)
 		(fp_line
-			(start -2.01 2.2)
-			(end -2.01 4.85)
+			(start -2.03 7.2)
+			(end 0 7.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "f28e3d71-46ac-45b2-ba0a-bb66445f6d65")
+			(uuid "14bd8415-eb53-4504-903e-0bfbf469b504")
 		)
 		(fp_line
-			(start -4.35 2.2)
-			(end -4.35 1.31)
+			(start -2.03 7.2)
+			(end -2.03 2.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "3930dc3d-f9a3-4fb1-8d08-98978f233831")
+			(uuid "a9a294d9-84ae-4471-a617-38788dd7e463")
 		)
 		(fp_line
-			(start -4.35 -1.31)
-			(end -4.35 -2.2)
+			(start -4.4 1.71)
+			(end -4.4 2.2)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "e3f9c39a-7134-4e7d-86a6-6a46992c3b29")
+			(uuid "aed66e86-7701-4236-bf7a-8050d5616f11")
 		)
 		(fp_line
-			(start -4.35 -2.2)
-			(end 4.35 -2.2)
+			(start -4.4 -2.2)
+			(end -4.4 -1.72)
 			(stroke
 				(width 0.25)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "4199734a-0ac5-411c-b12c-7e7d70aaddbb")
+			(uuid "254de770-3877-41e8-a26b-f855e7401042")
 		)
 		(fp_rect
-			(start -4.9 -2.4)
-			(end 4.9 2.4)
+			(start -5.5 -2.5)
+			(end 5.5 2.5)
 			(stroke
 				(width 0.05)
-				(type solid)
+				(type default)
 			)
 			(fill no)
 			(layer "F.CrtYd")
-			(uuid "0dc07c7f-43a3-41e2-9a3a-43121bb5bb13")
-		)
-		(fp_circle
-			(center -4.47 2.2)
-			(end -4.44 2.2)
-			(stroke
-				(width 0.06)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.Fab")
-			(uuid "9999f3e7-d5e1-413a-aa6d-7276573ade71")
+			(uuid "04ddf308-3aa9-456b-b5a7-68de65d3c23c")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 180)
+			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "edd4697a-26ed-4607-8961-251aada95876")
+			(uuid "eadb0baa-27fb-4536-9a32-62eb0bf09b65")
 			(effects
 				(font
 					(size 1 1)
@@ -376,65 +261,65 @@
 				)
 			)
 		)
-		(pad "1" thru_hole circle
-			(at -2 0 180)
-			(size 1.52 1.52)
-			(drill 0.9144)
+		(pad "1" thru_hole oval
+			(at -2 0)
+			(size 1.6 1.6)
+			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 2 "unconnected-(BAT_SW1-Pad1)")
 			(pinfunction "1")
 			(pintype "unspecified+no_connect")
-			(uuid "5225482a-cb4a-4755-9605-d5e7e8783aac")
+			(uuid "8273074d-5e60-4af1-b986-64de5434594d")
 		)
-		(pad "2" thru_hole circle
-			(at 0 0 180)
-			(size 1.52 1.52)
-			(drill 0.9144)
+		(pad "2" thru_hole oval
+			(at 0 0)
+			(size 1.6 1.6)
+			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 3 "VBAT")
 			(pinfunction "2")
 			(pintype "unspecified")
-			(uuid "7dd03642-d605-4741-8e15-2d591d94e66f")
+			(uuid "f1ba87f6-88e3-4bb3-bd82-8562e1d0b938")
 		)
-		(pad "3" thru_hole circle
-			(at 2 0 180)
-			(size 1.52 1.52)
-			(drill 0.9144)
+		(pad "3" thru_hole oval
+			(at 2 0)
+			(size 1.6 1.6)
+			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 4 "VSYS")
 			(pinfunction "3")
 			(pintype "unspecified")
-			(uuid "dd6b5e26-1184-43f4-aae5-f2bec6405e09")
+			(uuid "2674e13d-f04d-4a7b-9c3f-b7cd3425a075")
 		)
 		(pad "4" thru_hole oval
-			(at 4.15 0 180)
-			(size 1.4 2.2)
-			(drill oval 0.799998 1.599997)
+			(at 4.15 0 90)
+			(size 3 2)
+			(drill oval 1.799996 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 1 "GND")
 			(pinfunction "4")
 			(pintype "unspecified")
-			(uuid "35358736-f9e0-4958-828c-6122929af634")
+			(uuid "7abeb809-a11a-4ba1-a21d-821fded549a5")
 		)
 		(pad "5" thru_hole oval
-			(at -4.15 0 180)
-			(size 1.4 2.2)
-			(drill oval 0.799998 1.599997)
+			(at -4.15 0 90)
+			(size 3 2)
+			(drill oval 1.799996 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
 			(net 1 "GND")
 			(pinfunction "5")
 			(pintype "unspecified")
-			(uuid "9decd1de-bd3e-4f1d-901c-cf1961275c29")
+			(uuid "3c53a31f-e440-49d3-aa1c-dbcd2f5e8bc2")
 		)
 		(embedded_fonts no)
-		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/SW-TH_L8.7-W4.4-H4.0-P2.0.step"
+		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/SW-TH_SK12D07VG5-1.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 -2 4.5)
 			)
 			(scale
 				(xyz 1 1 1)

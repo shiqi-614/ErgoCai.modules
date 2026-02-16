@@ -5,7 +5,7 @@
 	(uuid "c041283f-87c4-47d6-8437-14bf29e22537")
 	(paper "A4")
 	(lib_symbols
-		(symbol "ErgoCai:SK12D07VG4"
+		(symbol "ErgoCai:SK12D07VG5"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -17,7 +17,7 @@
 					)
 				)
 			)
-			(property "Value" "SK12D07VG4"
+			(property "Value" "SK12D07VG5"
 				(at 0 -10.16 0)
 				(effects
 					(font
@@ -25,7 +25,7 @@
 					)
 				)
 			)
-			(property "Footprint" "easyeda2kicad:SW-TH_SK12D07VG4"
+			(property "Footprint" "easyeda2kicad:SW-TH_SK12D07VG5-1"
 				(at 0 -12.7 0)
 				(effects
 					(font
@@ -34,7 +34,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG4_C393937.html"
+			(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG5_C431548.html"
 				(at 0 -15.24 0)
 				(effects
 					(font
@@ -52,7 +52,7 @@
 					(hide yes)
 				)
 			)
-			(property "LCSC Part" "C393937"
+			(property "LCSC Part" "C431548"
 				(at 0 -17.78 0)
 				(effects
 					(font
@@ -61,34 +61,21 @@
 					(hide yes)
 				)
 			)
-			(symbol "SK12D07VG4_0_1"
-				(polyline
-					(pts
-						(xy -7.62 0) (xy -7.62 5.08) (xy 7.62 5.08) (xy 7.62 0)
-					)
+			(symbol "SK12D07VG5_0_1"
+				(rectangle
+					(start -3.56 3.56)
+					(end -1.52 2.54)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type background)
 					)
 				)
 				(polyline
 					(pts
-						(xy -5.08 0.51) (xy -5.33 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 0.51) (xy -4.83 1.52) (xy -4.83 1.52)
+						(xy -2.54 5.08) (xy 0 5.08)
 					)
 					(stroke
 						(width 0)
@@ -100,30 +87,7 @@
 				)
 				(polyline
 					(pts
-						(xy -5.08 0.51) (xy -5.08 2.54) (xy 0 2.54) (xy 0 0.51) (xy 0.25 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -5.08 0)
-					(radius 0.51)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 3.56) (xy 0 4.06) (xy 0.51 4.06)
+						(xy -2.54 4.06) (xy -2.54 5.08)
 					)
 					(stroke
 						(width 0)
@@ -135,7 +99,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0 3.05)
+						(xy -2.54 0) (xy -2.54 2.54)
 					)
 					(stroke
 						(width 0)
@@ -147,42 +111,30 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0.51) (xy -0.25 1.52)
+						(xy -2.29 4.06) (xy -2.79 4.06) (xy -2.54 3.56) (xy -2.29 4.06)
 					)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type background)
 					)
 				)
-				(circle
-					(center 0 0)
-					(radius 0.51)
+				(rectangle
+					(start -1.02 3.56)
+					(end 1.02 2.54)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.76 4.06) (xy 1.52 4.06)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
+						(type background)
 					)
 				)
 				(polyline
 					(pts
-						(xy 1.78 4.06) (xy 2.54 4.06)
+						(xy 0 4.06) (xy 0 5.84) (xy 0.76 5.84)
 					)
 					(stroke
 						(width 0)
@@ -194,7 +146,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.79 4.06) (xy 3.56 4.06)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -206,7 +158,42 @@
 				)
 				(polyline
 					(pts
-						(xy 3.81 4.06) (xy 4.57 4.06)
+						(xy 0.25 4.06) (xy -0.25 4.06) (xy 0 3.56) (xy 0.25 4.06)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 5.84) (xy 1.52 5.84)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 1.52 3.56)
+					(end 3.56 2.54)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.03 5.84) (xy 2.54 5.84) (xy 2.54 4.06)
 					)
 					(stroke
 						(width 0)
@@ -218,7 +205,7 @@
 				)
 				(polyline
 					(pts
-						(xy 4.83 4.06) (xy 5.08 4.06) (xy 5.08 3.3)
+						(xy 2.54 0) (xy 2.54 2.54)
 					)
 					(stroke
 						(width 0)
@@ -230,65 +217,18 @@
 				)
 				(polyline
 					(pts
-						(xy 5.08 2.79) (xy 5.08 2.29)
+						(xy 2.79 4.06) (xy 2.29 4.06) (xy 2.54 3.56) (xy 2.79 4.06)
 					)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.03) (xy 5.08 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 1.27) (xy 5.08 0.51) (xy 5.33 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 0.51) (xy 4.83 1.52)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 5.08 0)
-					(radius 0.51)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
+						(type background)
 					)
 				)
 				(pin unspecified line
-					(at -7.62 -5.08 90)
+					(at -5.08 -5.08 90)
 					(length 5.08)
 					(name "5"
 						(effects
@@ -306,7 +246,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -5.08 -5.08 90)
+					(at -2.54 -5.08 90)
 					(length 5.08)
 					(name "1"
 						(effects
@@ -342,7 +282,7 @@
 					)
 				)
 				(pin unspecified line
-					(at 5.08 -5.08 90)
+					(at 2.54 -5.08 90)
 					(length 5.08)
 					(name "3"
 						(effects
@@ -360,7 +300,7 @@
 					)
 				)
 				(pin unspecified line
-					(at 7.62 -5.08 90)
+					(at 5.08 -5.08 90)
 					(length 5.08)
 					(name "4"
 						(effects
@@ -483,12 +423,12 @@
 		)
 	)
 	(no_connect
-		(at 106.68 73.66)
-		(uuid "eb69f88c-3eb1-4696-9049-63720d7f5216")
+		(at 137.16 77.47)
+		(uuid "858d3c31-30de-4d09-823a-73f1198825bc")
 	)
 	(global_label "VBAT"
 		(shape input)
-		(at 106.68 78.74 0)
+		(at 137.16 80.01 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -496,9 +436,9 @@
 			)
 			(justify left)
 		)
-		(uuid "db6ba5ef-ef5c-40a3-951e-df2a69a3bb6a")
+		(uuid "1e5d7726-e631-422a-9870-6ddebab2ec7f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.08 78.74 0)
+			(at 144.56 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -510,7 +450,7 @@
 	)
 	(global_label "VSYS"
 		(shape input)
-		(at 106.68 83.82 0)
+		(at 137.16 82.55 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -518,9 +458,9 @@
 			)
 			(justify left)
 		)
-		(uuid "f0842aae-5018-4fbe-8489-2d4f1b910fef")
+		(uuid "28ee6e98-ffd6-4844-bef0-2bf4e795839c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.2614 83.82 0)
+			(at 144.7414 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -531,184 +471,16 @@
 		)
 	)
 	(symbol
-		(lib_id "ErgoCai:SK12D07VG4")
-		(at 101.6 78.74 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2ec79895-ee7e-42d3-8b43-e04f0fd538ba")
-		(property "Reference" "BAT_SW1"
-			(at 91.694 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "~"
-			(at 99.0601 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:SW-TH_SK12D07VG4"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG4_C393937.html"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, dual pole double throw, separate symbols"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MF" "C&K"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Description_1" "Switch Slide ON ON SPDT Side Slide 0.3A 30VDC PC Pins Bracket Mount/Through Hole Bulk"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Package" "None"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Price" "None"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "SnapEDA_Link" "https://www.snapeda.com/parts/SK12D07VG4/C%2526K/view-part/?ref=snap"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "MP" "SK12D07VG4"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Availability" "Not in stock"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "Check_prices" "https://www.snapeda.com/parts/SK12D07VG4/C%2526K/view-part/?ref=eda"
-			(at 101.6 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify bottom)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part" "C393937"
-			(at 119.38 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "d7c324a5-43bd-4d3e-987f-6719b2791803")
-		)
-		(pin "2"
-			(uuid "49e4f7bd-57f2-431e-86b0-6270d08d19f3")
-		)
-		(pin "1"
-			(uuid "7576a77d-0698-4afe-bc1a-872293cbdc90")
-		)
-		(pin "3"
-			(uuid "5028fb81-77b0-428d-bb11-ae475cd44898")
-		)
-		(pin "4"
-			(uuid "5ec89f65-9640-4877-8e37-ec6121eda288")
-		)
-		(instances
-			(project "power_switch_right"
-				(path "/c041283f-87c4-47d6-8437-14bf29e22537"
-					(reference "BAT_SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 106.68 86.36 0)
+		(at 137.16 74.93 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "58379b2d-d021-48be-8a6c-28725e2fdddd")
-		(property "Reference" "#PWR01"
-			(at 106.68 92.71 0)
+		(uuid "4c8e83d0-c3d7-442b-98ed-c7c51ca8a44a")
+		(property "Reference" "#PWR02"
+			(at 137.16 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -717,7 +489,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 106.68 90.17 0)
+			(at 137.16 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -725,7 +497,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 86.36 0)
+			(at 137.16 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -734,7 +506,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 86.36 0)
+			(at 137.16 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -743,7 +515,72 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 86.36 0)
+			(at 137.16 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cbdacb54-5cea-47b8-9859-20fa8ac39f4f")
+		)
+		(instances
+			(project "power_switch_right"
+				(path "/c041283f-87c4-47d6-8437-14bf29e22537"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 137.16 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58379b2d-d021-48be-8a6c-28725e2fdddd")
+		(property "Reference" "#PWR01"
+			(at 137.16 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 137.16 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 137.16 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 137.16 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 137.16 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -764,16 +601,33 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 106.68 71.12 180)
+		(lib_id "ErgoCai:SK12D07VG5")
+		(at 132.08 80.01 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "798fa1c5-6516-403c-90af-95060616cfdf")
-		(property "Reference" "#PWR03"
-			(at 106.68 64.77 0)
+		(fields_autoplaced yes)
+		(uuid "9a48d19d-9e6b-4e5c-8636-22f7a6a4a675")
+		(property "Reference" "BAT_SW1"
+			(at 129.16 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SK12D07VG5"
+			(at 129.16 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ErgoCai.pretty:SW-TH_SK12D07VG5-1"
+			(at 144.78 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -781,16 +635,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 106.68 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 106.68 71.12 0)
+		(property "Datasheet" "https://lcsc.com/product-detail/Toggle-Switches_SHOU-HAN-SK12D07VG5_C431548.html"
+			(at 147.32 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -798,8 +644,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
-			(at 106.68 71.12 0)
+		(property "Description" ""
+			(at 132.08 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -807,22 +653,34 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 71.12 0)
+		(property "LCSC Part" "C431548"
+			(at 149.86 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
+		)
+		(pin "5"
+			(uuid "4bebad51-bea8-48d0-9aff-aee53e1ea3d9")
 		)
 		(pin "1"
-			(uuid "0876beeb-a21c-47a3-a91c-165a19069b3e")
+			(uuid "870e16dc-08f8-4701-9344-1ebcdb7adf0a")
+		)
+		(pin "2"
+			(uuid "af51e629-9414-478b-88ff-2d47bcba27cf")
+		)
+		(pin "3"
+			(uuid "93fbe33e-707b-4349-9643-fa1da034d3b3")
+		)
+		(pin "4"
+			(uuid "a29e87a0-55cd-4277-9190-32181c8f3945")
 		)
 		(instances
-			(project "power_switch_right"
+			(project ""
 				(path "/c041283f-87c4-47d6-8437-14bf29e22537"
-					(reference "#PWR03")
+					(reference "BAT_SW1")
 					(unit 1)
 				)
 			)
