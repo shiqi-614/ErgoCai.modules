@@ -490,7 +490,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "1.02inch-e-Paper.step",
+      "step": "../../../ErgoCaiLib/3dmodels/1.02inch-e-Paper.step",
       "svg": "",
       "vrml": ""
     },

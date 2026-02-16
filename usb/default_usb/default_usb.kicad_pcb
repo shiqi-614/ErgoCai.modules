@@ -432,7 +432,7 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "1f75cd98-84a1-442d-b701-5eb9a112a7b0")
+			(uuid "04bf5b8d-be46-43f3-a9ee-21ec556971a2")
 		)
 		(pad "S1" thru_hole oval
 			(at 4.32 -3.13 180)
@@ -443,7 +443,7 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "1f75cd98-84a1-442d-b701-5eb9a112a7b0")
+			(uuid "b4bca657-e026-4178-9f45-585c49343f14")
 		)
 		(pad "S1" thru_hole oval
 			(at 4.32 1.05 180)
@@ -454,18 +454,18 @@
 			(net 2 "GND")
 			(pinfunction "SHIELD")
 			(pintype "passive")
-			(uuid "1f75cd98-84a1-442d-b701-5eb9a112a7b0")
+			(uuid "43499ea1-6ab3-4c7e-a9ed-70738afcf232")
 		)
 		(embedded_fonts no)
-		(model "${KICAD8_3RD_PARTY}/3dmodels/com_github_ebastler_marbastlib/CON_TYPE-C-31-M-12.step"
+		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/TYPE-C-31-M-12--3DModel-STEP-56544.STEP"
 			(offset
-				(xyz -4.47 -3.65 0.04)
+				(xyz 0 -1 0.04)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 90 180 -180)
 			)
 		)
 	)

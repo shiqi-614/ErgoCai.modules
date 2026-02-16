@@ -432,15 +432,15 @@
 			(uuid "9decd1de-bd3e-4f1d-901c-cf1961275c29")
 		)
 		(embedded_fonts no)
-		(model "${EASYEDA2KICAD}/easyeda2kicad.3dshapes/SW-TH_L8.7-W4.4-H4.0-P2.0.wrl"
+		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/SW-TH_L8.7-W4.4-H4.0-P2.0.step"
 			(offset
-				(xyz 0 -1.3 0)
+				(xyz 0 0 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
