@@ -2077,7 +2077,29 @@
 		)
 		(uuid "f9d65782-8dc8-40f2-a942-da7a27d988a0")
 	)
-	(global_label "EP_DIN"
+	(global_label "EP_RST"
+		(shape input)
+		(at 60.96 64.77 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "14fe1249-ec15-4309-a315-0fddd8592732")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 51.1411 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "EP_BUSY"
 		(shape input)
 		(at 60.96 62.23 180)
 		(fields_autoplaced yes)
@@ -2087,9 +2109,31 @@
 			)
 			(justify right)
 		)
-		(uuid "1467e5a4-926f-4e6f-ac6b-04eb90bc7f95")
+		(uuid "161fd4f6-ebab-4003-9504-48dd69b4072d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 51.3829 62.23 0)
+			(at 49.6896 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GPIO_DIN"
+		(shape input)
+		(at 60.96 59.69 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1c58fa67-b4e1-466a-96a1-245e80c3f1f6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 49.3266 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2121,6 +2165,50 @@
 			)
 		)
 	)
+	(global_label "EP_DC"
+		(shape input)
+		(at 60.96 67.31 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "389fc436-28ac-487c-976d-30af932de8e6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 52.0482 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "EP_CLK"
+		(shape input)
+		(at 60.96 72.39 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "41e08989-7c38-4b97-9faa-5eac8a3fd970")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 51.0201 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "3.3V"
 		(shape input)
 		(at 173.99 62.23 0)
@@ -2139,6 +2227,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "EP_CS"
+		(shape input)
+		(at 60.96 69.85 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4be76dc9-67b3-4c2a-9d8e-da51aabdf9d6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 52.1087 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -2183,28 +2293,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "EP_DC"
-		(shape input)
-		(at 60.96 69.85 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "778eafb0-5efa-4152-8290-13bc5c047900")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 52.0482 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 				(hide yes)
 			)
 		)
@@ -2275,7 +2363,7 @@
 			)
 		)
 	)
-	(global_label "GPIO_DIN"
+	(global_label "3.3V"
 		(shape input)
 		(at 60.96 77.47 180)
 		(fields_autoplaced yes)
@@ -2285,31 +2373,9 @@
 			)
 			(justify right)
 		)
-		(uuid "8be957ab-9ec8-4339-83a9-34b0ca9f46d3")
+		(uuid "b1e24311-1aaa-4e93-9452-9d310fe273b4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 49.3266 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "EP_CLK"
-		(shape input)
-		(at 60.96 64.77 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "afdf0745-7ecf-4148-a888-d3b24906529a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 51.0201 64.77 0)
+			(at 53.8624 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2341,9 +2407,9 @@
 			)
 		)
 	)
-	(global_label "EP_RST"
+	(global_label "EP_DIN"
 		(shape input)
-		(at 60.96 72.39 180)
+		(at 60.96 74.93 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2351,31 +2417,9 @@
 			)
 			(justify right)
 		)
-		(uuid "b5c13c38-37d8-4eaf-bf1d-df9fe9575c1e")
+		(uuid "bb6778e3-0906-4fa1-bc9d-1747f2ff0443")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 51.1411 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "3.3V"
-		(shape input)
-		(at 60.96 59.69 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c328ab98-d7d2-423f-82cb-5c028b3badc3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 53.8624 59.69 0)
+			(at 51.3829 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2407,28 +2451,6 @@
 			)
 		)
 	)
-	(global_label "EP_BUSY"
-		(shape input)
-		(at 60.96 74.93 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "d200db84-7af3-40e3-a1cb-39dbe67ce8e9")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 49.6896 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "GND"
 		(shape input)
 		(at 93.98 115.57 180)
@@ -2442,28 +2464,6 @@
 		(uuid "ebbbc3c9-5a51-4da1-815f-0551d28374bb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 87.1243 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "EP_CS"
-		(shape input)
-		(at 60.96 67.31 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "fab1b9e9-f104-45ba-8f64-2f1447b62da2")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 52.1087 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2843,72 +2843,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 115.57 85.09 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0f6ef265-f9e5-42c1-b225-a34bd8b1a14a")
-		(property "Reference" "#PWR09"
-			(at 115.57 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 115.57 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 115.57 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 115.57 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 115.57 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "86434a4d-acab-4ffa-8681-4b7f73568ee4")
-		)
-		(instances
-			(project "1.02inch-e-Paper"
-				(path "/f99e7b9e-4a74-4369-97e4-c9c7465008e0"
-					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 143.51 59.69 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3264,72 +3198,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 115.57 54.61 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4f368f23-6713-429c-8937-b07387ea0a45")
-		(property "Reference" "#PWR08"
-			(at 115.57 48.26 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 115.57 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 115.57 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 115.57 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 115.57 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ce183a77-b134-4af2-a21a-7046a1672eb8")
-		)
-		(instances
-			(project "1.02inch-e-Paper"
-				(path "/f99e7b9e-4a74-4369-97e4-c9c7465008e0"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 60.96 57.15 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3423,7 +3291,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "easyeda2kicad:FPC-SMD_10P-P0.50_JS_AFD01-S10FCA-00"
+		(property "Footprint" "ErgoCai.pretty:FPC-SMD_10P-P0.50_JS_AFD01-S10FCA-00"
 			(at 66.04 92.71 0)
 			(effects
 				(font
@@ -3715,7 +3583,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "816144c8-b1e2-4900-ae86-962f21744c2c")
-		(property "Reference" "RGB_D1"
+		(property "Reference" "EP_RGB1"
 			(at 116.84 101.5298 0)
 			(effects
 				(font
@@ -3731,7 +3599,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
+		(property "Footprint" "ErgoCai.pretty:LED-SMD_4P-L5.0-W5.0-TL_WS2812B-B"
 			(at 106.68 115.57 0)
 			(effects
 				(font
@@ -3741,7 +3609,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+		(property "Datasheet" "https://item.szlcsc.com/2886707.html"
 			(at 107.95 117.475 0)
 			(effects
 				(font
@@ -3775,7 +3643,7 @@
 		(instances
 			(project "1.02inch-e-Paper"
 				(path "/f99e7b9e-4a74-4369-97e4-c9c7465008e0"
-					(reference "RGB_D1")
+					(reference "EP_RGB1")
 					(unit 1)
 				)
 			)

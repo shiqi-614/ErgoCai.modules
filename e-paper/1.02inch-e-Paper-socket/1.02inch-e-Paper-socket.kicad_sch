@@ -745,7 +745,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6d44d443-6575-4197-8cc9-87a896ec77ab")
-		(property "Reference" "EPM_FPC2"
+		(property "Reference" "EPM_FPC1"
 			(at 165.1 119.3799 0)
 			(effects
 				(font
@@ -838,7 +838,7 @@
 		(instances
 			(project "1.02inch-e-Paper-socket"
 				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
-					(reference "EPM_FPC2")
+					(reference "EPM_FPC1")
 					(unit 1)
 				)
 			)
