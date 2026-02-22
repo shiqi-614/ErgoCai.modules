@@ -5,28 +5,28 @@
 	(uuid "bf5afe15-cf3d-46e1-8aa0-69f985978787")
 	(paper "A4")
 	(lib_symbols
-		(symbol "ErgoCai:AFC01-S05FCA-00"
+		(symbol "ErgoCai:AFD01-S06FCA-00"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "FPC"
-				(at 0 15.24 0)
+			(property "Reference" "U"
+				(at 0 17.78 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "AFC01-S05FCA-00"
-				(at 0 -13.97 0)
+			(property "Value" "AFD01-S06FCA-00"
+				(at 0 -15.24 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Footprint" "easyeda2kicad:FPC-SMD_AFC01-S05FCA-00"
-				(at 0 -16.51 0)
+			(property "Footprint" "ErgoCai.pretty:FPC-SMD_6P-P0.50_JS_AFD01-S06FCA-00"
+				(at 0 -17.78 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -34,8 +34,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://lcsc.com/product-detail/FFC-FPC-Connectors_JUSHUO-AFC01-S05FCA-00_C262654.html"
-				(at 0 -19.05 0)
+			(property "Datasheet" ""
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -52,8 +52,8 @@
 					(hide yes)
 				)
 			)
-			(property "LCSC Part" "C262654"
-				(at 0 -21.59 0)
+			(property "LCSC Part" "C18198574"
+				(at 0 -20.32 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -61,10 +61,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "AFC01-S05FCA-00_0_1"
+			(symbol "AFD01-S06FCA-00_0_1"
 				(rectangle
-					(start -1.27 7.62)
-					(end 3.81 -6.35)
+					(start -2.54 10.16)
+					(end 5.08 -7.62)
 					(stroke
 						(width 0)
 						(type default)
@@ -74,7 +74,7 @@
 					)
 				)
 				(circle
-					(center 0 6.35)
+					(center -1.27 8.89)
 					(radius 0.38)
 					(stroke
 						(width 0)
@@ -85,7 +85,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -3.81 5.08 0)
+					(at -5.08 7.62 0)
 					(length 2.54)
 					(name "1"
 						(effects
@@ -103,7 +103,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -3.81 2.54 0)
+					(at -5.08 5.08 0)
 					(length 2.54)
 					(name "2"
 						(effects
@@ -121,7 +121,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -3.81 0 0)
+					(at -5.08 2.54 0)
 					(length 2.54)
 					(name "3"
 						(effects
@@ -139,7 +139,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -3.81 -2.54 0)
+					(at -5.08 0 0)
 					(length 2.54)
 					(name "4"
 						(effects
@@ -157,7 +157,7 @@
 					)
 				)
 				(pin unspecified line
-					(at -3.81 -5.08 0)
+					(at -5.08 -2.54 0)
 					(length 2.54)
 					(name "5"
 						(effects
@@ -175,25 +175,7 @@
 					)
 				)
 				(pin unspecified line
-					(at 2.54 10.16 270)
-					(length 2.54)
-					(name "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 2.54 -8.89 90)
+					(at -5.08 -5.08 0)
 					(length 2.54)
 					(name "6"
 						(effects
@@ -203,6 +185,42 @@
 						)
 					)
 					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 2.54 12.7 270)
+					(length 2.54)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 2.54 -10.16 90)
+					(length 2.54)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -570,27 +588,9 @@
 			(embedded_fonts no)
 		)
 	)
-	(global_label "VCC"
-		(shape input)
-		(at 69.85 81.28 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0863b89f-e309-4d27-b57e-109936b9ff68")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.4638 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
+	(no_connect
+		(at 50.8 86.36)
+		(uuid "940b5bed-7abe-4bd9-8543-98adedcfa5a6")
 	)
 	(global_label "ADC1"
 		(shape input)
@@ -616,7 +616,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 63.5 69.85 90)
+		(at 58.42 68.58 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -624,9 +624,9 @@
 			)
 			(justify left)
 		)
-		(uuid "1fae0fc1-6181-4113-a2c1-ace0a6ad3a40")
+		(uuid "1ad67a75-57a1-4c17-ad13-ca9813343b96")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 63.5 62.9943 90)
+			(at 58.42 61.7243 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -638,44 +638,88 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 69.85 83.82 0)
+		(at 58.42 91.44 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "2c7319af-b761-4a76-9e89-bc144a56fc76")
+		(uuid "1c78da9d-d0e1-4223-8489-c8d12b6243cc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 76.7057 83.82 0)
+			(at 58.42 98.2957 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
-	(global_label "ADC0"
+	(global_label "ADC1"
 		(shape input)
-		(at 69.85 76.2 0)
+		(at 50.8 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "4e76a0cd-77c3-420a-a960-68c2f6741a32")
+		(uuid "48047e8b-c1d4-4adc-a35c-20e3636cee70")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 77.6733 76.2 0)
+			(at 42.9767 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VCC"
+		(shape input)
+		(at 50.8 76.2 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4e4884d2-cf78-4c25-93d8-f8bb47462567")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 44.1862 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape input)
+		(at 50.8 73.66 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "629a7d14-a2e2-4c5f-b10b-c9b9d0a57892")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 43.9443 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -724,28 +768,6 @@
 			)
 		)
 	)
-	(global_label "JT_B1"
-		(shape input)
-		(at 69.85 73.66 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "834f96cf-6257-4f12-b8eb-56189a1dbaee")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 78.2175 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "VCC"
 		(shape input)
 		(at 100.33 82.55 180)
@@ -764,28 +786,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ADC1"
-		(shape input)
-		(at 69.85 78.74 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "9968d5fe-44ad-435a-8c0a-fce27a5d9167")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 77.6733 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -878,9 +878,9 @@
 			)
 		)
 	)
-	(global_label "GND"
+	(global_label "JT_B1"
 		(shape input)
-		(at 63.5 88.9 270)
+		(at 50.8 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -888,9 +888,9 @@
 			)
 			(justify right)
 		)
-		(uuid "cd1c03fa-1a00-4715-88b7-fe8ecce520c3")
+		(uuid "d9de6b32-b1ff-445e-9e12-c3f8c22d1bbf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 63.5 95.7557 90)
+			(at 42.4325 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -935,6 +935,28 @@
 		(uuid "f51e6317-58db-4904-919a-b91a0911c562")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 93.4743 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ADC0"
+		(shape input)
+		(at 50.8 78.74 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fb625187-3771-40a3-98ca-e30507986a46")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 42.9767 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1009,6 +1031,103 @@
 		)
 	)
 	(symbol
+		(lib_id "ErgoCai:AFD01-S06FCA-00")
+		(at 55.88 81.28 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "40ad1211-df81-4293-aa02-c5870c14a1cf")
+		(property "Reference" "JT_J2"
+			(at 62.23 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AFD01-S06FCA-00"
+			(at 62.23 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ErgoCai.pretty:FPC-SMD_6P-P0.50_JS_AFD01-S06FCA-00"
+			(at 55.88 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC Part" "C18198574"
+			(at 55.88 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "3785c225-6b8f-43ac-b438-3a2539b4c859")
+		)
+		(pin "3"
+			(uuid "00eb481e-d88e-44a6-a440-5a45a7c25ff0")
+		)
+		(pin "4"
+			(uuid "6893f71f-b1dc-456f-a725-7c72fc07b5a8")
+		)
+		(pin "7"
+			(uuid "d5e49a39-4df9-4190-b045-31c173ac92df")
+		)
+		(pin "8"
+			(uuid "d287581e-a500-4fba-800e-2c54a808dd41")
+		)
+		(pin "2"
+			(uuid "76e80380-130f-4a2a-904c-52399c76144d")
+		)
+		(pin "1"
+			(uuid "01d6aa73-2333-4ab8-8b95-2d7f8a1a7812")
+		)
+		(pin "5"
+			(uuid "81f9f45c-6d68-426b-96db-89e35e846e40")
+		)
+		(instances
+			(project ""
+				(path "/bf5afe15-cf3d-46e1-8aa0-69f985978787"
+					(reference "JT_J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "ILO_sym:Alpsalpine_RKJXV")
 		(at 110.49 78.74 0)
 		(unit 1)
@@ -1017,7 +1136,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "58c5bf56-a048-4fa0-a5c1-ee2bb4b5714a")
-		(property "Reference" "JT1"
+		(property "Reference" "JT_J1"
 			(at 110.49 67.31 0)
 			(effects
 				(font
@@ -1129,7 +1248,7 @@
 		(instances
 			(project "Alpsalpine"
 				(path "/bf5afe15-cf3d-46e1-8aa0-69f985978787"
-					(reference "JT1")
+					(reference "JT_J1")
 					(unit 1)
 				)
 			)
@@ -1258,100 +1377,6 @@
 			(project "Alpsalpine"
 				(path "/bf5afe15-cf3d-46e1-8aa0-69f985978787"
 					(reference "H3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ErgoCai:AFC01-S05FCA-00")
-		(at 66.04 78.74 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "dcf789c3-6749-4bad-a60e-8614d22bace5")
-		(property "Reference" "FPC1"
-			(at 60.96 78.1049 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AFC01-S05FCA-00"
-			(at 60.96 80.6449 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:FPC-SMD_AFC01-S05FCA-00"
-			(at 66.04 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://lcsc.com/product-detail/FFC-FPC-Connectors_JUSHUO-AFC01-S05FCA-00_C262654.html"
-			(at 66.04 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 66.04 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part" "C262654"
-			(at 66.04 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4139936e-e921-4593-9dab-056e2dfd0b65")
-		)
-		(pin "2"
-			(uuid "23683636-9e10-43d3-b3df-85b5766ee79d")
-		)
-		(pin "3"
-			(uuid "b541ab93-2b7e-40c7-9d68-531a73c11e32")
-		)
-		(pin "4"
-			(uuid "7aefee83-5e3d-4eef-9c00-e24d95bb1b5e")
-		)
-		(pin "6"
-			(uuid "8b11ea30-ddc2-4152-a25d-641431228cdf")
-		)
-		(pin "5"
-			(uuid "f5eeb433-71f4-4d91-8c39-04c465618b72")
-		)
-		(pin "7"
-			(uuid "09ce1131-8927-457e-afdd-594c97216812")
-		)
-		(instances
-			(project ""
-				(path "/bf5afe15-cf3d-46e1-8aa0-69f985978787"
-					(reference "FPC1")
 					(unit 1)
 				)
 			)
