@@ -54,6 +54,7 @@
     "zone_display_mode": 0
   },
   "git": {
+    "integration_disabled": false,
     "repo_type": "",
     "repo_username": "",
     "ssh_key": ""
@@ -97,7 +98,7 @@
       103,
       63,
       103,
-      10
+      0
     ],
     "custom_group_rules": [],
     "expanded_rows": [],

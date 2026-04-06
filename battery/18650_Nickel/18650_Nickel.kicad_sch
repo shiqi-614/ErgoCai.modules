@@ -1,0 +1,319 @@
+(kicad_sch 
+  (version 20250114) 
+  (generator "eeschema") 
+  (generator_version "9.0") 
+  (uuid "5ac02cf2-291a-487e-b868-5e66ea14e5ba") 
+  (paper "A4") 
+  (lib_symbols 
+    (symbol "Connector_Generic:Conn_01x02" 
+      (pin_names 
+        (offset 1.016) 
+        (hide yes)) 
+      (exclude_from_sim no) 
+      (in_bom yes) 
+      (on_board yes) 
+      (property "Reference" "J" 
+        (at 0 2.54 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Value" "Conn_01x02" 
+        (at 0 -5.08 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Footprint" "" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "Datasheet" "~" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "ki_keywords" "connector" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "ki_fp_filters" "Connector*:*_1x??_*" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (symbol "Conn_01x02_1_1" 
+        (rectangle 
+          (start -1.27 1.27) 
+          (end 1.27 -3.81) 
+          (stroke 
+            (width 0.254) 
+            (type default)) 
+          (fill 
+            (type background))) 
+        (rectangle 
+          (start -1.27 0.127) 
+          (end 0 -0.127) 
+          (stroke 
+            (width 0.1524) 
+            (type default)) 
+          (fill 
+            (type none))) 
+        (rectangle 
+          (start -1.27 -2.413) 
+          (end 0 -2.667) 
+          (stroke 
+            (width 0.1524) 
+            (type default)) 
+          (fill 
+            (type none))) 
+        (pin passive line 
+          (at -5.08 0 0) 
+          (length 3.81) 
+          (name "Pin_1" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 1.27 1.27))))) 
+        (pin passive line 
+          (at -5.08 -2.54 0) 
+          (length 3.81) 
+          (name "Pin_2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "2" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))))) 
+      (embedded_fonts no)) 
+    (symbol "power:GND" 
+      (power) 
+      (pin_numbers 
+        (hide yes)) 
+      (pin_names 
+        (offset 0) 
+        (hide yes)) 
+      (exclude_from_sim no) 
+      (in_bom yes) 
+      (on_board yes) 
+      (property "Reference" "#PWR" 
+        (at 0 -6.35 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "Value" "GND" 
+        (at 0 -3.81 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)))) 
+      (property "Footprint" "" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "Datasheet" "" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "Description" "Power symbol creates a global label with name \"GND\" , ground" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (property "ki_keywords" "global power" 
+        (at 0 0 0) 
+        (effects 
+          (font 
+            (size 1.27 1.27)) 
+          (hide yes))) 
+      (symbol "GND_0_1" 
+        (polyline 
+          (pts 
+            (xy 0 0) 
+            (xy 0 -1.27) 
+            (xy 1.27 -1.27) 
+            (xy 0 -2.54) 
+            (xy -1.27 -1.27) 
+            (xy 0 -1.27)) 
+          (stroke 
+            (width 0) 
+            (type default)) 
+          (fill 
+            (type none)))) 
+      (symbol "GND_1_1" 
+        (pin power_in line 
+          (at 0 0 270) 
+          (length 0) 
+          (name "~" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))) 
+          (number "1" 
+            (effects 
+              (font 
+                (size 1.27 1.27)))))) 
+      (embedded_fonts no))) 
+  (wire 
+    (pts 
+      (xy 87.63 45.72) 
+      (xy 87.63 48.26)) 
+    (stroke 
+      (width 0) 
+      (type solid)) 
+    (uuid "023e5112-618f-4e97-9215-ce5bbfaf6c21")) 
+  (wire 
+    (pts 
+      (xy 87.63 48.26) 
+      (xy 90.17 48.26)) 
+    (stroke 
+      (width 0) 
+      (type solid)) 
+    (uuid "89fedee6-7651-4f07-bb81-2d490ad7f936")) 
+  (wire 
+    (pts 
+      (xy 87.63 43.18) 
+      (xy 87.63 40.64)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "a0b50ce3-548c-48e3-bf0f-034409329145")) 
+  (wire 
+    (pts 
+      (xy 87.63 40.64) 
+      (xy 90.17 40.64)) 
+    (stroke 
+      (width 0) 
+      (type default)) 
+    (uuid "e3d5782a-7989-4200-8ff1-60992331b369")) 
+  (global_label "VBAT" 
+    (shape input) 
+    (at 90.17 48.26 0) 
+    (fields_autoplaced yes) 
+    (effects 
+      (font 
+        (size 1.27 1.27)) 
+      (justify left)) 
+    (uuid "1c4a7fe4-38b3-4cbb-8d23-632eb34aa448") 
+    (property "Intersheetrefs" "${INTERSHEET_REFS}" 
+      (at 97.56999999999999 48.26 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (justify left) 
+        (hide yes)))) 
+  (symbol 
+    (lib_id "Connector_Generic:Conn_01x02") 
+    (at 82.55 45.72 180) 
+    (unit 1) 
+    (exclude_from_sim no) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "bb3ceeec-e902-4ca2-8dbd-a95143b80cf6") 
+    (property "Reference" "BAT_J1" 
+      (at 80.518 45.5168 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (justify left))) 
+    (property "Value" "BATT" 
+      (at 80.518 43.2054 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (justify left))) 
+    (property "Footprint" "ErgoCai.pretty:Battery_Holder_18650_Nickel" 
+      (at 82.55 45.72 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (property "Datasheet" "~" 
+      (at 82.55 45.72 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)" 
+      (at 82.55 45.72 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "fc65ef3f-b908-4fa7-937e-04af9250fed3")) 
+    (pin "2" 
+      (uuid "a40565f7-5172-4e5d-911a-2994aeaa33e4")) 
+    (instances 
+      (project "18650_Nickel" 
+        (path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba" 
+          (reference "BAT_J1") 
+          (unit 1))))) 
+  (symbol 
+    (lib_id "power:GND") 
+    (at 90.17 40.64 90) 
+    (unit 1) 
+    (exclude_from_sim no) 
+    (in_bom yes) 
+    (on_board yes) 
+    (dnp no) 
+    (uuid "e72e169c-2426-4497-aa71-a9e0cd07aea7") 
+    (property "Reference" "#PWR0102" 
+      (at 96.52 40.64 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (property "Value" "GND" 
+      (at 93.98 40.64 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)))) 
+    (property "Footprint" "" 
+      (at 90.17 40.64 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (property "Datasheet" "" 
+      (at 90.17 40.64 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (property "Description" "Power symbol creates a global label with name \"GND\" , ground" 
+      (at 90.17 40.64 0) 
+      (effects 
+        (font 
+          (size 1.27 1.27)) 
+        (hide yes))) 
+    (pin "1" 
+      (uuid "61c39eec-7f6b-45bc-9a8a-48f391cdca35")) 
+    (instances 
+      (project "18650_Nickel" 
+        (path "/5ac02cf2-291a-487e-b868-5e66ea14e5ba" 
+          (reference "#PWR0102") 
+          (unit 1))))) 
+  (sheet_instances 
+    (path "/" 
+      (page "1"))) 
+  (embedded_fonts no))

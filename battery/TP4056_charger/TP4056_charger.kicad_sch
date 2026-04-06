@@ -5,148 +5,6 @@
 	(uuid "87b2bd7a-5243-4dbd-af50-a317a385260e")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Connector_Generic:Conn_01x02"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x02"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x02_1_1"
-				(rectangle
-					(start -1.27 1.27)
-					(end 1.27 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:C"
 			(pin_numbers
 				(hide yes)
@@ -2009,16 +1867,6 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 41.91) (xy 92.71 44.45)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "278698e8-a275-46c6-9e31-c309caf6d945")
-	)
-	(wire
-		(pts
 			(xy 153.67 140.97) (xy 160.02 140.97)
 		)
 		(stroke
@@ -2066,16 +1914,6 @@
 			(type default)
 		)
 		(uuid "2d754153-ec77-4ded-bd79-53a986fee2a0")
-	)
-	(wire
-		(pts
-			(xy 92.71 39.37) (xy 92.71 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2f251509-409d-42c8-9123-5dae2481bd08")
 	)
 	(wire
 		(pts
@@ -2319,16 +2157,6 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 36.83) (xy 95.25 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b7596303-ff70-4449-9ef1-0f22261508f1")
-	)
-	(wire
-		(pts
 			(xy 149.86 71.12) (xy 142.24 71.12)
 		)
 		(stroke
@@ -2456,16 +2284,6 @@
 			(type default)
 		)
 		(uuid "e736e128-8ad9-4bfa-bf1e-41cd82479aaf")
-	)
-	(wire
-		(pts
-			(xy 92.71 44.45) (xy 95.25 44.45)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "e9f33831-2b6c-4388-ae0b-2ded5042f10d")
 	)
 	(wire
 		(pts
@@ -2650,28 +2468,6 @@
 		(uuid "af6893da-5130-4a92-9c7f-48952d09be63")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 90.17 66.0786 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VBAT"
-		(shape input)
-		(at 95.25 44.45 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "c236cbd7-b5bd-494c-8cac-d5fb24a118c5")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 102.65 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4160,75 +3956,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 87.63 41.91 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "bb3ceeec-e902-4ca2-8dbd-a95143b80cf6")
-		(property "Reference" "BAT_J1"
-			(at 85.598 41.7068 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "BATT"
-			(at 85.598 39.3954 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
-			(at 87.63 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 87.63 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 87.63 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fc65ef3f-b908-4fa7-937e-04af9250fed3")
-		)
-		(pin "2"
-			(uuid "a40565f7-5172-4e5d-911a-2994aeaa33e4")
-		)
-		(instances
-			(project "TP4056_charger"
-				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
-					(reference "BAT_J1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 76.2 95.25 0)
 		(unit 1)
@@ -4445,71 +4172,6 @@
 			(project "TP4056_charger"
 				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
 					(reference "BAT_TP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 95.25 36.83 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e72e169c-2426-4497-aa71-a9e0cd07aea7")
-		(property "Reference" "#PWR0102"
-			(at 101.6 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 99.06 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 95.25 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 95.25 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 95.25 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "61c39eec-7f6b-45bc-9a8a-48f391cdca35")
-		)
-		(instances
-			(project "TP4056_charger"
-				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
-					(reference "#PWR0102")
 					(unit 1)
 				)
 			)
