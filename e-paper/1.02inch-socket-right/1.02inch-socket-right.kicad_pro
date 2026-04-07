@@ -451,7 +451,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "1.02inch-e-Paper.kicad_pro",
+    "filename": "1.02inch-socket-right.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -490,7 +490,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../../Desktop/1.02inch-e-Paper.step",
+      "step": "",
       "svg": "",
       "vrml": ""
     },
@@ -611,7 +611,7 @@
   },
   "sheets": [
     [
-      "f99e7b9e-4a74-4369-97e4-c9c7465008e0",
+      "dcbfc6a7-a2a9-4110-89bd-d7cd283ac454",
       "Root"
     ]
   ],
