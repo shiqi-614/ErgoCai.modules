@@ -446,16 +446,59 @@
 		(sheetname "/")
 		(sheetfile "1.02inch-socket-right.kicad_sch")
 		(attr smd exclude_from_bom)
-		(fp_rect
-			(start -6 -1)
-			(end 6 1)
+		(fp_line
+			(start -4.7 -0.5)
+			(end 4.7 -0.5)
+			(stroke
+				(width 0.05)
+				(type default)
+			)
+			(layer "Edge.Cuts")
+			(uuid "ac1d063a-d767-450a-8bf1-b8297d12cd7c")
+		)
+		(fp_line
+			(start 4.7 0.5)
+			(end -4.7 0.5)
+			(stroke
+				(width 0.05)
+				(type default)
+			)
+			(layer "Edge.Cuts")
+			(uuid "05d202f5-9546-461a-8af8-483fda280cc6")
+		)
+		(fp_arc
+			(start -4.7 0.5)
+			(mid -5.2 0)
+			(end -4.7 -0.5)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
-			(fill no)
 			(layer "Edge.Cuts")
-			(uuid "5e976071-0a6e-4446-a674-f67f92246989")
+			(uuid "21b6ee33-7909-4fee-8df9-0f4650a60acc")
+		)
+		(fp_arc
+			(start 4.7 -0.5)
+			(mid 5.2 0)
+			(end 4.7 0.5)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "Edge.Cuts")
+			(uuid "ed9bbf7d-19fe-47fc-a835-2bc9dcbdadab")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 2.5 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "e1050b8d-00ff-4344-9ffa-a6ed00ec0e37")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
 		)
 		(embedded_fonts no)
 	)
@@ -561,11 +604,11 @@
 	(footprint "ErgoCai.pretty:FPC-SMD_10P-P0.50_JS_AFD01-S10FCA-00"
 		(layer "B.Cu")
 		(uuid "21cfb6d3-6c76-4467-a574-4bf118305564")
-		(at 10 2 180)
+		(at 10 0 180)
 		(property "Reference" "EPM_FPC1"
 			(at 0 5.36 0)
 			(layer "B.SilkS")
-			(uuid "fbe6fa8c-ee34-42b3-9b26-b2e0b4d9e5a5")
+			(uuid "4e24a5c8-87d2-4251-a8cf-d9813f6d3720")
 			(effects
 				(font
 					(size 1 1)
@@ -577,7 +620,7 @@
 		(property "Value" "AFD01-S10FCA-00"
 			(at 0 -5.36 0)
 			(layer "B.Fab")
-			(uuid "5dd1dfaa-7926-44ce-9758-6096b8fe6c95")
+			(uuid "400ae6be-ee03-42a7-9427-87f7eb40fe05")
 			(effects
 				(font
 					(size 1 1)
@@ -590,7 +633,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "b3a58709-dbb3-4b70-869f-167a7a0c8aa1")
+			(uuid "1479d132-9ce5-46c6-b627-0aae16090774")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -603,7 +646,7 @@
 			(at 0 0 0)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "da78144d-67ce-482e-9ed5-2252ab59518b")
+			(uuid "b56c3463-d0ba-4b9d-baac-45495f46e72d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -956,28 +999,28 @@
 		(embedded_fonts no)
 	)
 	(segment
-		(start 5.85 0.64)
-		(end 14.15 0.64)
+		(start 5.85 -1.36)
+		(end 14.15 -1.36)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 6)
-		(uuid "445b8e08-f3f6-46cf-bf96-dc7e5ae4e3b7")
+		(uuid "8a94b595-4c67-47b7-9603-326cfde27681")
 	)
 	(segment
-		(start 14.15 0.64)
-		(end 12.25 2.54)
+		(start 12.25 0.54)
+		(end 12.25 1.36)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 6)
-		(uuid "59a70dc4-2f40-4d61-bf10-a1588d86ef02")
+		(uuid "c8617253-ba64-45b5-9192-ba7cf1bb1512")
 	)
 	(segment
-		(start 12.25 2.54)
-		(end 12.25 3.36)
+		(start 14.15 -1.36)
+		(end 12.25 0.54)
 		(width 0.2)
 		(layer "B.Cu")
 		(net 6)
-		(uuid "e8332ae7-76bb-4ce6-acf9-3eb5d38226e4")
+		(uuid "d96ad899-d110-4f44-a9d5-bb48ca61d4e7")
 	)
 	(embedded_fonts no)
 )
