@@ -999,14 +999,6 @@
 		(embedded_fonts no)
 	)
 	(segment
-		(start 5.85 -1.36)
-		(end 14.15 -1.36)
-		(width 0.2)
-		(layer "B.Cu")
-		(net 6)
-		(uuid "8a94b595-4c67-47b7-9603-326cfde27681")
-	)
-	(segment
 		(start 12.25 0.54)
 		(end 12.25 1.36)
 		(width 0.2)
