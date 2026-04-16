@@ -388,7 +388,7 @@
 	(footprint "ErgoCai.pretty:e-paper_1.02inch_gap"
 		(layer "F.Cu")
 		(uuid "ead606b7-6bef-4158-8357-97a9980fd2cf")
-		(at 10 -8)
+		(at 10.5 -8)
 		(property "Reference" "EPM_GAP1"
 			(at 0 -0.5 0)
 			(unlocked yes)
@@ -604,7 +604,7 @@
 	(footprint "ErgoCai.pretty:FPC-SMD_10P-P0.50_JS_AFD01-S10FCA-00"
 		(layer "B.Cu")
 		(uuid "21cfb6d3-6c76-4467-a574-4bf118305564")
-		(at 10 0 180)
+		(at 10.5 0 180)
 		(property "Reference" "EPM_FPC1"
 			(at 0 5.36 0)
 			(layer "B.SilkS")

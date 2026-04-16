@@ -470,6 +470,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole")
+		(at 78.74 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d03814cd-9f9e-4529-85da-16ddb74e54dc")
+		(property "Reference" "JOYSTICK_H2"
+			(at 81.28 101.5999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole"
+			(at 81.28 104.1399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ErgoCai.pretty:joystick_fpc_hole"
+			(at 78.74 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 78.74 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole without connection"
+			(at 78.74 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "JoystickMount"
+				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
+					(reference "JOYSTICK_H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "ErgoCai:AFD01-S06FCA-00")
 		(at 125.73 99.06 0)
 		(unit 1)
@@ -558,7 +622,7 @@
 			(uuid "e39dff77-8930-4805-a2bc-4d7af9f9b24e")
 		)
 		(instances
-			(project ""
+			(project "JoystickMount"
 				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
 					(reference "JOYSTICK_J1")
 					(unit 1)
@@ -622,7 +686,7 @@
 			)
 		)
 		(instances
-			(project ""
+			(project "JoystickMount"
 				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
 					(reference "JOYSTICK_H1")
 					(unit 1)
