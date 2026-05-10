@@ -388,13 +388,13 @@
 	(footprint "ErgoCai.pretty:e-paper_1.02inch_gap"
 		(layer "F.Cu")
 		(uuid "ead606b7-6bef-4158-8357-97a9980fd2cf")
-		(at 10.5 -8)
+		(at 10.5 -6.38)
 		(property "Reference" "EPM_GAP1"
 			(at 0 -0.5 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "1284fe2f-d83b-4277-8263-ea74813e684d")
+			(uuid "bbc2f6da-50f2-410e-adaa-2bf1f127b57f")
 			(effects
 				(font
 					(size 1 1)
@@ -407,7 +407,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1d2aae53-2b05-44ff-839b-fe902e0d9b06")
+			(uuid "00c1be6e-6053-4e17-9e9b-bc490d6f311b")
 			(effects
 				(font
 					(size 1 1)
@@ -420,7 +420,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1fe7a761-a2ed-42ca-9ed8-a257faef0ab5")
+			(uuid "3819f8f8-432b-4251-ac20-c28b3b83412a")
 			(effects
 				(font
 					(size 1 1)
@@ -433,7 +433,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "dce334cb-7f0c-4492-92fe-86daa49f26b8")
+			(uuid "65c93dfa-6cfc-410f-bdd9-a53ec954fd33")
 			(effects
 				(font
 					(size 1 1)
