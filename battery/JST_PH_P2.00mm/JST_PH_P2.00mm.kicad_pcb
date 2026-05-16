@@ -83,13 +83,13 @@
 	(footprint "ErgoCai.pretty:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal"
 		(layer "F.Cu")
 		(uuid "d4a86cba-3412-426d-9c89-62be956fd5c9")
-		(at 0 0)
+		(at -1 0)
 		(descr "JST PH series connector, S2B-PH-K (http://www.jst-mfg.com/product/pdf/eng/ePH.pdf), generated with kicad-footprint-generator")
 		(tags "connector JST PH horizontal")
 		(property "Reference" "BAT_JST_PH1"
 			(at 1 -2.55 0)
 			(layer "F.SilkS")
-			(uuid "9a3fffa4-c815-4b44-85b4-20a30f10047f")
+			(uuid "d3f95242-e744-4afa-832d-a3721b8d285f")
 			(effects
 				(font
 					(size 1 1)
@@ -100,7 +100,7 @@
 		(property "Value" "BATT"
 			(at 1 7.45 0)
 			(layer "F.Fab")
-			(uuid "3689bee6-ec30-4908-ae36-057c931d69bd")
+			(uuid "2ee0b88d-4bdb-4927-8871-18356e502860")
 			(effects
 				(font
 					(size 1 1)
@@ -112,7 +112,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ccaefd97-9f09-4aa2-95af-44a2b42085b0")
+			(uuid "03a02c9a-fa4e-4380-a780-493b4aa1ee17")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -124,7 +124,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "47761590-4d36-4152-b0b8-178226d6377f")
+			(uuid "f5790375-751e-4e0a-9a50-ab1f5cdec12a")
 			(effects
 				(font
 					(size 1.27 1.27)
