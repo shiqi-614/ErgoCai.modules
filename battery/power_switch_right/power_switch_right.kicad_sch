@@ -423,8 +423,8 @@
 		)
 	)
 	(no_connect
-		(at 137.16 77.47)
-		(uuid "858d3c31-30de-4d09-823a-73f1198825bc")
+		(at 137.16 82.55)
+		(uuid "523e925b-3077-475b-b065-f0ccb1c92e55")
 	)
 	(global_label "VBAT"
 		(shape input)
@@ -450,7 +450,7 @@
 	)
 	(global_label "VSYS"
 		(shape input)
-		(at 137.16 82.55 0)
+		(at 137.16 77.47 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -458,9 +458,9 @@
 			)
 			(justify left)
 		)
-		(uuid "28ee6e98-ffd6-4844-bef0-2bf4e795839c")
+		(uuid "74509ad1-55ac-4b54-be95-c2fe653d5084")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.7414 82.55 0)
+			(at 144.7414 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -678,7 +678,7 @@
 			(uuid "a29e87a0-55cd-4277-9190-32181c8f3945")
 		)
 		(instances
-			(project ""
+			(project "power_switch_right"
 				(path "/c041283f-87c4-47d6-8437-14bf29e22537"
 					(reference "BAT_SW1")
 					(unit 1)

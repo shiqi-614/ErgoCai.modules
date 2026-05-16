@@ -81,7 +81,7 @@
 	(net 1 "VBAT")
 	(net 2 "VSYS")
 	(net 3 "GND")
-	(net 4 "unconnected-(BAT_SW1-Pad3)")
+	(net 4 "unconnected-(BAT_SW1-Pad1)")
 	(footprint "ErgoCai.pretty:SW-TH_SK12D07VG5-1"
 		(layer "F.Cu")
 		(uuid "2fa8292b-474b-4912-8b77-20379a6625f8")
@@ -267,9 +267,9 @@
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 2 "VSYS")
+			(net 4 "unconnected-(BAT_SW1-Pad1)")
 			(pinfunction "1")
-			(pintype "unspecified")
+			(pintype "unspecified+no_connect")
 			(uuid "fc415948-6aff-4f4a-81c7-8cbb6c1da581")
 		)
 		(pad "2" thru_hole oval
@@ -289,9 +289,9 @@
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 4 "unconnected-(BAT_SW1-Pad3)")
+			(net 2 "VSYS")
 			(pinfunction "3")
-			(pintype "unspecified+no_connect")
+			(pintype "unspecified")
 			(uuid "20cd717a-573e-4e82-a716-727176eb4b00")
 		)
 		(pad "4" thru_hole oval
