@@ -388,7 +388,7 @@
 	(footprint "ErgoCai.pretty:e-paper_1.02inch_gap"
 		(layer "F.Cu")
 		(uuid "ead606b7-6bef-4158-8357-97a9980fd2cf")
-		(at 10.5 -6.38)
+		(at 10.5 -8)
 		(property "Reference" "EPM_GAP1"
 			(at 0 -0.5 0)
 			(unlocked yes)
