@@ -426,7 +426,7 @@
 		(at 120.65 72.39)
 		(uuid "64724bc9-6af3-4e84-b8a1-c2f546723a46")
 	)
-	(global_label "VSYS"
+	(global_label "VDDH_SW"
 		(shape input)
 		(at 120.65 77.47 0)
 		(fields_autoplaced yes)
@@ -438,7 +438,7 @@
 		)
 		(uuid "46f5a5dc-1ff5-49f0-b146-dd310a46b662")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.2314 77.47 0)
+			(at 132.2228 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -448,7 +448,7 @@
 			)
 		)
 	)
-	(global_label "VBAT"
+	(global_label "VDDH"
 		(shape input)
 		(at 120.65 74.93 0)
 		(fields_autoplaced yes)
@@ -460,7 +460,7 @@
 		)
 		(uuid "d1a18406-35a9-433b-9321-2fbf59f4b4a7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 128.05 74.93 0)
+			(at 128.5943 74.93 0)
 			(effects
 				(font
 					(size 1.27 1.27)
