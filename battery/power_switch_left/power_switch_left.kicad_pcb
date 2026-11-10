@@ -80,7 +80,7 @@
 	(net 0 "")
 	(net 1 "GND")
 	(net 2 "unconnected-(BAT_SW1-Pad3)")
-	(net 3 "VDDH_SW")
+	(net 3 "OUT")
 	(net 4 "VDDH")
 	(footprint "ErgoCai.pretty:SW-TH_SK12D07VG5-1"
 		(layer "F.Cu")
@@ -267,7 +267,7 @@
 			(drill 0.999998)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 3 "VDDH_SW")
+			(net 3 "OUT")
 			(pinfunction "1")
 			(pintype "unspecified")
 			(uuid "8273074d-5e60-4af1-b986-64de5434594d")

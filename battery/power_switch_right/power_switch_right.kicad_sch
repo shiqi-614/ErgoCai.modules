@@ -448,7 +448,7 @@
 			)
 		)
 	)
-	(global_label "VDDH_SW"
+	(global_label "OUT"
 		(shape input)
 		(at 137.16 77.47 0)
 		(fields_autoplaced yes)
@@ -460,7 +460,7 @@
 		)
 		(uuid "74509ad1-55ac-4b54-be95-c2fe653d5084")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 148.7328 77.47 0)
+			(at 143.7738 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
