@@ -1,0 +1,4 @@
+(version 1)
+(rule "EP_RGB1: reverse-mount LED pads sit next to its own light cutout"
+	(condition "A.memberOfFootprint('EP_RGB1')")
+	(constraint edge_clearance (min 0.2mm)))
