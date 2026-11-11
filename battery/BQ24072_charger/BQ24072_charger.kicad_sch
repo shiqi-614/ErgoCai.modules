@@ -1130,28 +1130,6 @@
 			)
 		)
 	)
-	(global_label "GPIO_CHARGING"
-		(shape input)
-		(at 91.44 80.01 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "be88ad2e-5ec5-4cbf-ace3-de2674610e37")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.3025 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "OUT"
 		(shape input)
 		(at 106.68 62.23 0)
@@ -1174,7 +1152,7 @@
 			)
 		)
 	)
-	(global_label "VDDH"
+	(global_label "OUT"
 		(shape input)
 		(at 107.95 82.55 0)
 		(fields_autoplaced yes)
@@ -2135,7 +2113,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100K"
+		(property "Value" "1M"
 			(at 144.78 65.786 90)
 			(effects
 				(font
@@ -2339,7 +2317,7 @@
 				)
 			)
 		)
-		(property "Value" "100K"
+		(property "Value" "1M"
 			(at 152.4 66.04 90)
 			(effects
 				(font
@@ -2504,6 +2482,481 @@
 				)
 			)
 		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 120.65 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0f8d91a4-0739-44cb-9753-d024ca189d0c")
+		(property "Reference" "BAT_C2"
+			(at 123.444 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1uF"
+			(at 123.444 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ErgoCai.pretty:C_0603_1608Metric"
+			(at 121.615 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 120.65 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 120.65 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "92f880f2-2d30-4564-aaa0-a16ef6871b07")
+		)
+		(pin "2"
+			(uuid "4f910a73-2009-4039-b93c-82c54a938329")
+		)
+		(instances
+			(project "BQ24072_charger"
+				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
+					(reference "BAT_C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "VBUS"
+		(shape input)
+		(at 120.65 48.26 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4c4cc974-06f3-4698-a7f3-33a4cea34aa3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 120.65 40.3762 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 120.65 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0e05c9a3-12e1-4b85-9b5d-1a7c9db4f516")
+		(property "Reference" "#PWR09"
+			(at 120.65 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 120.65 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 120.65 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 120.65 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cd8361ee-4bfa-412a-8277-de82cc195bde")
+		)
+		(instances
+			(project "BQ24072_charger"
+				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
+					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 138.43 52.07 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7dc98a92-3fd2-4042-a3e3-a1c687a4f8e6")
+		(property "Reference" "BAT_C3"
+			(at 141.224 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7uF"
+			(at 141.224 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ErgoCai.pretty:C_0603_1608Metric"
+			(at 139.395 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 138.43 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 138.43 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8b7e7e17-59ce-4a41-a495-bdbb9dac615e")
+		)
+		(pin "2"
+			(uuid "d389f0ad-a417-438a-9e02-27850cbd033b")
+		)
+		(instances
+			(project "BQ24072_charger"
+				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
+					(reference "BAT_C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "VBAT"
+		(shape input)
+		(at 138.43 48.26 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "82b189d3-1240-461e-b41f-464ceaa07288")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 138.43 40.3762 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 138.43 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ae37dddd-e6aa-44a6-b246-37eb20c2f7bc")
+		(property "Reference" "#PWR10"
+			(at 138.43 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 138.43 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.43 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 138.43 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "98ee8dad-5894-45b8-944b-54f8c62a0557")
+		)
+		(instances
+			(project "BQ24072_charger"
+				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
+					(reference "#PWR10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 167.64 76.2 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1fe7f4a6-bd8a-4c42-b425-f90f76738f3b")
+		(property "Reference" "BAT_C4"
+			(at 170.434 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 170.434 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ErgoCai.pretty:C_0603_1608Metric"
+			(at 168.605 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 167.64 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 167.64 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5f073131-4c51-424f-8e15-e81a48630a2b")
+		)
+		(pin "2"
+			(uuid "41a682bb-2a6e-4d96-97b6-21d21befa14b")
+		)
+		(instances
+			(project "BQ24072_charger"
+				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
+					(reference "BAT_C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(global_label "ADC_BAT"
+		(shape input)
+		(at 167.64 72.39 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8fb5ba45-5b18-4290-a6c2-e9c62c2afbfe")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 167.64 64.5062 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 167.64 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8f02ba25-d1b1-4344-b707-c392ba88daa9")
+		(property "Reference" "#PWR11"
+			(at 167.64 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 167.64 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 167.64 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1943964b-3587-4aa9-b1ae-d2c928724a32")
+		)
+		(instances
+			(project "BQ24072_charger"
+				(path "/87b2bd7a-5243-4dbd-af50-a317a385260e"
+					(reference "#PWR11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(no_connect
+		(at 91.44 80.01)
+		(uuid "50bd1b2b-df3d-44ef-b10e-d059f8098856")
 	)
 	(sheet_instances
 		(path "/"
