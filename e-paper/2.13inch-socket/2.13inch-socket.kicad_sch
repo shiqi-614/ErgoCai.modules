@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "dcbfc6a7-a2a9-4110-89bd-d7cd283ac454")
+	(uuid "f67ceb49-9f20-582a-81ce-3ef9e06b549c")
 	(paper "A4")
 	(lib_symbols
 		(symbol "ErgoCai:AFD01-S10FCA-00"
@@ -453,9 +453,7 @@
 			)
 			(symbol "GND_0_1"
 				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
+					(pts (xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27))
 					(stroke
 						(width 0)
 						(type default)
@@ -490,7 +488,7 @@
 	)
 	(global_label "3.3V"
 		(shape input)
-		(at 153.67 111.76 180)
+		(at 153.67 129.54 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -498,9 +496,9 @@
 			)
 			(justify right)
 		)
-		(uuid "15f73a09-3a3b-4592-8286-02c0d360626c")
+		(uuid "ab654c89-fb0f-556f-8ca1-9bb118615ab0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 146.5724 111.76 0)
+			(at 146.5724 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -512,7 +510,7 @@
 	)
 	(global_label "EP_BUSY"
 		(shape input)
-		(at 153.67 127 180)
+		(at 153.67 114.3 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -520,9 +518,9 @@
 			)
 			(justify right)
 		)
-		(uuid "28a7928a-65d2-46d5-a817-18e9db9f095d")
+		(uuid "82b4ce64-3b93-5071-b4e7-2559add32882")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.3996 127 0)
+			(at 142.3996 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -534,7 +532,7 @@
 	)
 	(global_label "EP_DIN"
 		(shape input)
-		(at 153.67 114.3 180)
+		(at 153.67 127 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -542,9 +540,9 @@
 			)
 			(justify right)
 		)
-		(uuid "3ec6063e-0c74-4ac1-a9cc-50ff10e1650b")
+		(uuid "acbcaf3b-c540-5b8b-bcfd-288374932ff4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.0929 114.3 0)
+			(at 144.0929 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -556,7 +554,7 @@
 	)
 	(global_label "GPIO_DIN"
 		(shape input)
-		(at 153.67 129.54 180)
+		(at 153.67 111.76 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -564,9 +562,9 @@
 			)
 			(justify right)
 		)
-		(uuid "46b7e2b9-8855-4fce-a84e-f715941b3ee0")
+		(uuid "b31eaee5-1920-5d9f-8854-797b401005d2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.0366 129.54 0)
+			(at 142.0366 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -578,7 +576,7 @@
 	)
 	(global_label "EP_CS"
 		(shape input)
-		(at 153.67 119.38 180)
+		(at 153.67 121.92 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -586,9 +584,9 @@
 			)
 			(justify right)
 		)
-		(uuid "5beb29ec-f052-435e-a744-606d1035aaaa")
+		(uuid "bd4bec8d-8100-5d87-973c-d3456809cfa1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.8187 119.38 0)
+			(at 144.8187 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -600,7 +598,7 @@
 	)
 	(global_label "EP_CLK"
 		(shape input)
-		(at 153.67 116.84 180)
+		(at 153.67 124.46 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -608,9 +606,9 @@
 			)
 			(justify right)
 		)
-		(uuid "66e33642-6995-4481-90a7-0b9d80a6d776")
+		(uuid "25b6a717-a8a2-5e9b-84fb-dc3bb1922ba3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.7301 116.84 0)
+			(at 143.7301 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -622,7 +620,7 @@
 	)
 	(global_label "EP_DC"
 		(shape input)
-		(at 153.67 121.92 180)
+		(at 153.67 119.38 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -630,9 +628,9 @@
 			)
 			(justify right)
 		)
-		(uuid "bda6a517-d723-42b7-83f4-8dee2f930682")
+		(uuid "7cf44f07-407c-59e1-9418-097af17d1ae7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.7582 121.92 0)
+			(at 144.7582 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -644,7 +642,7 @@
 	)
 	(global_label "EP_RST"
 		(shape input)
-		(at 153.67 124.46 180)
+		(at 153.67 116.84 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -652,9 +650,9 @@
 			)
 			(justify right)
 		)
-		(uuid "eeafebe9-1cdb-4165-af62-b6f7330c7c25")
+		(uuid "1aab6d5e-a488-5aec-b4a1-a5f6a3f66785")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.8511 124.46 0)
+			(at 143.8511 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -673,7 +671,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2ea66833-7b33-439f-9bb4-eca6adfd5951")
+		(uuid "c5cef067-8d26-5969-ad96-6f1feed58038")
 		(property "Reference" "EPM_H2"
 			(at 128.27 97.7899 0)
 			(effects
@@ -720,73 +718,9 @@
 			)
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "EPM_H2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 87.63 106.68 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5789c165-daa6-4263-bca5-dca14dc1fbc9")
-		(property "Reference" "EPM_GAP1"
-			(at 90.17 105.4099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 90.17 107.9499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:e-paper_1.02inch_gap"
-			(at 87.63 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 87.63 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 87.63 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
-					(reference "EPM_GAP1")
 					(unit 1)
 				)
 			)
@@ -801,7 +735,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "5b563ab4-2986-4d76-a130-06cda8fc2c30")
+		(uuid "bb7f3c7d-8cc7-5dfe-847b-49dbbfc7e938")
 		(property "Reference" "#PWR010"
 			(at 147.32 109.22 0)
 			(effects
@@ -848,11 +782,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "f0e47959-f1a8-43cc-b59f-4ea4bd6e44ae")
+			(uuid "d1afc51e-cc67-5eb2-8f76-d8e48aeee564")
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "#PWR010")
 					(unit 1)
 				)
@@ -868,7 +802,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "69053d7b-6e03-4083-a988-1f0a87ae7b17")
+		(uuid "7961ca62-535b-5f42-86d9-6fcd80de68ff")
 		(property "Reference" "EPM_H4"
 			(at 128.27 115.5699 0)
 			(effects
@@ -915,8 +849,8 @@
 			)
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "EPM_H4")
 					(unit 1)
 				)
@@ -932,7 +866,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "6d44d443-6575-4197-8cc9-87a896ec77ab")
+		(uuid "da7572ec-48ca-56f5-be06-407335f7125d")
 		(property "Reference" "EPM_FPC1"
 			(at 165.1 119.3799 0)
 			(effects
@@ -988,44 +922,44 @@
 			)
 		)
 		(pin "11"
-			(uuid "1ed3c425-a486-4f98-801f-d78352a6b49d")
+			(uuid "8c51a835-9bf8-58cd-a7c3-2918f11b7089")
 		)
 		(pin "12"
-			(uuid "62f939b1-2f79-4bd7-917f-35c0662b724a")
+			(uuid "524e93df-279a-5438-8bd9-d8ec3f8a47c3")
 		)
 		(pin "10"
-			(uuid "ecd1a721-3a0f-4236-a546-599732d4a5f3")
+			(uuid "ccda701a-eac8-55fe-8e6f-64861bb4f3de")
 		)
 		(pin "9"
-			(uuid "29a0de67-eb64-4677-bbb2-454f1ad118ce")
+			(uuid "1eff76fd-3b5c-553e-a9a8-b139f1df60bd")
 		)
 		(pin "8"
-			(uuid "746e0f3d-b785-4df8-91d2-beaf7f026a24")
+			(uuid "9b38130d-d9b5-5526-a893-cd05dcd59ce6")
 		)
 		(pin "7"
-			(uuid "2728885f-dda8-48d4-89c0-41e5474b55e2")
+			(uuid "586e4651-77ba-5ffa-8d46-3c8572fea05c")
 		)
 		(pin "6"
-			(uuid "94e7f172-2e15-4f65-9b83-dedc06b6390d")
+			(uuid "b9894a27-61cb-569a-b888-01c9c47417ca")
 		)
 		(pin "5"
-			(uuid "6c1cfda8-cabd-4a65-a31f-7610c3c2d6d5")
+			(uuid "77ccb74f-ba08-5e53-81c8-ee36da4276b6")
 		)
 		(pin "4"
-			(uuid "3d3a79e8-87b4-4e32-8c6f-b7175f566b6d")
+			(uuid "ad275186-512b-519a-aa1f-93ad556ff943")
 		)
 		(pin "3"
-			(uuid "2f7e4e70-b042-4f4a-a89b-8040b3370bf9")
+			(uuid "81b665c7-fbe9-5cdb-9858-96134ea3cdc4")
 		)
 		(pin "2"
-			(uuid "e31efbb7-7828-42c6-aea1-6b2ac73ef58e")
+			(uuid "52803c60-e762-5d6d-81b8-92de5d296b6c")
 		)
 		(pin "1"
-			(uuid "f0574037-ad2c-483f-ad97-70843bf0892e")
+			(uuid "49aa66fb-2d63-510f-b942-9616358275f7")
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "EPM_FPC1")
 					(unit 1)
 				)
@@ -1041,7 +975,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "8d3357fa-6167-43b5-a06d-131b12e14cf3")
+		(uuid "21c92644-aa11-5cf1-8d44-5a43fbe6f671")
 		(property "Reference" "#PWR012"
 			(at 161.29 143.51 0)
 			(effects
@@ -1087,11 +1021,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "fa37df34-3237-4cce-85b8-3c48e7a96c24")
+			(uuid "adfbd600-4a1c-5ee2-8793-edc5a8f7a9eb")
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "#PWR012")
 					(unit 1)
 				)
@@ -1107,7 +1041,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a24fb119-a3ad-4aa0-9e6e-412836a3ec51")
+		(uuid "0c12194d-1c4e-5e5f-84e6-190901e55275")
 		(property "Reference" "#PWR011"
 			(at 161.29 97.79 0)
 			(effects
@@ -1153,11 +1087,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "993b1156-c087-4fc6-aa1b-9fc7462c3cf0")
+			(uuid "7df1dac6-972b-584c-9543-9694664186aa")
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "#PWR011")
 					(unit 1)
 				)
@@ -1173,7 +1107,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a6b0cc75-6d0c-4146-ab5a-44d4f21586a4")
+		(uuid "182a3957-42c3-55f3-8369-dfd75ee1d915")
 		(property "Reference" "EPM_H3"
 			(at 128.27 106.6799 0)
 			(effects
@@ -1220,8 +1154,8 @@
 			)
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "EPM_H3")
 					(unit 1)
 				)
@@ -1237,7 +1171,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ba8bb8cd-f16e-4d87-b8be-0b81c424ff98")
+		(uuid "6120960e-32ef-55e0-9f5c-743adb077697")
 		(property "Reference" "EPM_AREA1"
 			(at 90.17 93.9799 0)
 			(effects
@@ -1247,7 +1181,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole"
+		(property "Value" "e-paper_2.13inch_area"
 			(at 90.17 96.5199 0)
 			(effects
 				(font
@@ -1256,7 +1190,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:e-paper_1.02inch_area"
+		(property "Footprint" "ErgoCai.pretty:e-paper_2.13inch_area"
 			(at 87.63 95.25 0)
 			(effects
 				(font
@@ -1284,8 +1218,8 @@
 			)
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "EPM_AREA1")
 					(unit 1)
 				)
@@ -1301,7 +1235,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "c14eb916-a52c-4706-aff4-efb2a933bbd5")
+		(uuid "6b7d785f-26da-57f0-a9d3-cba0b3d013d8")
 		(property "Reference" "EPM_H1"
 			(at 127 88.8999 0)
 			(effects
@@ -1348,8 +1282,8 @@
 			)
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "EPM_H1")
 					(unit 1)
 				)
@@ -1365,7 +1299,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d19cb429-f5c9-4927-a73f-c3adcde6cbab")
+		(uuid "9c5d465e-d8b2-51b7-8719-9251599a34aa")
 		(property "Reference" "#PWR01"
 			(at 147.32 132.08 0)
 			(effects
@@ -1412,16 +1346,27 @@
 			)
 		)
 		(pin "1"
-			(uuid "99e72f0d-72ac-4e87-9a8e-3b41de72622f")
+			(uuid "45cf078d-5022-59cd-a5dd-7a468322a28b")
 		)
 		(instances
-			(project "1.02inch-socket-right"
-				(path "/dcbfc6a7-a2a9-4110-89bd-d7cd283ac454"
+			(project "2.13inch-socket"
+				(path "/f67ceb49-9f20-582a-81ce-3ef9e06b549c"
 					(reference "#PWR01")
 					(unit 1)
 				)
 			)
 		)
+	)
+	(text "Keyboard-side socket for e-paper/2.13inch (GDEY0213B74 module, mounted upright on M2 standoffs over the 18650).\nEPM_FPC1 sits on the keyboard FRONT, beyond the 18650 tail, facing the module: the 10P 0.5mm FFC leaves the\nmodule's tail and drops in an S-shape into it, so pins run straight through (pin k = module EP_FPC2 pin k).\nAFD01 is bottom-contact on both boards -> use an opposite-side-contact (reverse, Type B) FFC."
+		(exclude_from_sim no)
+		(at 80.01 146.05 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4e1ff6d9-1397-53ff-bf44-e16f230ab1b0")
 	)
 	(sheet_instances
 		(path "/"
