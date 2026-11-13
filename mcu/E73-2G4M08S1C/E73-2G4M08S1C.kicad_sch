@@ -2627,6 +2627,28 @@
 			)
 		)
 	)
+	(global_label "DCCH"
+		(shape passive)
+		(at 106.68 26.67 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4279d58d-6782-5ff0-9d0c-946cb0a52bb7")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 106.68 18.7257 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
