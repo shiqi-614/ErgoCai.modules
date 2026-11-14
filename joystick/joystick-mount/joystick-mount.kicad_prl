@@ -60,7 +60,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "JoystickMount.kicad_prl",
+    "filename": "joystick-mount.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
@@ -98,7 +98,7 @@
       103,
       63,
       103,
-      0
+      10
     ],
     "custom_group_rules": [],
     "expanded_rows": [],

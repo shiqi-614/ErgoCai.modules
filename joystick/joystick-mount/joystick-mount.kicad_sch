@@ -315,7 +315,11 @@
 			(embedded_fonts no)
 		)
 	)
-	(global_label "ADC_JT1"
+	(no_connect
+		(at 120.65 104.14)
+		(uuid "41e78cbe-5508-4ea7-a790-fd6d0c47b199")
+	)
+	(global_label "GPIO_JT_B1"
 		(shape input)
 		(at 120.65 101.6 180)
 		(fields_autoplaced yes)
@@ -327,7 +331,7 @@
 		)
 		(uuid "11d6ce4e-6ff8-442e-ba35-0ce276ebb69c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 109.9239 101.6 0)
+			(at 106.68 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -391,7 +395,7 @@
 			)
 			(justify right)
 		)
-		(uuid "7afc81fe-0325-45d0-b9b4-2367ed27196a")
+		(uuid "759cbf1f-7fc3-47f5-ad70-c4837a49b91b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 113.7943 91.44 0)
 			(effects
@@ -403,7 +407,7 @@
 			)
 		)
 	)
-	(global_label "3.3V"
+	(global_label "GPIO_JT_VCC"
 		(shape input)
 		(at 120.65 93.98 180)
 		(fields_autoplaced yes)
@@ -415,7 +419,7 @@
 		)
 		(uuid "96dec71d-78c8-4e5c-9ff1-106458b80364")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.5524 93.98 0)
+			(at 106.1 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -447,7 +451,7 @@
 			)
 		)
 	)
-	(global_label "ADC_JT3"
+	(global_label "ADC_JT1"
 		(shape input)
 		(at 120.65 96.52 180)
 		(fields_autoplaced yes)
@@ -466,70 +470,6 @@
 				)
 				(justify right)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 78.74 102.87 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d03814cd-9f9e-4529-85da-16ddb74e54dc")
-		(property "Reference" "JOYSTICK_H2"
-			(at 81.28 101.5999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at 81.28 104.1399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:joystick_fpc_hole"
-			(at 78.74 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 78.74 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole without connection"
-			(at 78.74 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(instances
-			(project "JoystickMount"
-				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
-					(reference "JOYSTICK_H2")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -622,7 +562,7 @@
 			(uuid "e39dff77-8930-4805-a2bc-4d7af9f9b24e")
 		)
 		(instances
-			(project "JoystickMount"
+			(project "joystick-mount"
 				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
 					(reference "JOYSTICK_J1")
 					(unit 1)
@@ -686,7 +626,7 @@
 			)
 		)
 		(instances
-			(project "JoystickMount"
+			(project "joystick-mount"
 				(path "/a3bb8e3e-5002-46e5-9310-dabcf88c147f"
 					(reference "JOYSTICK_H1")
 					(unit 1)
