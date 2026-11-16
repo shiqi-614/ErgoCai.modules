@@ -261,6 +261,17 @@
 				)
 			)
 		)
+		(fp_rect
+			(start -5.45 1.5)
+			(end 5.45 7.5)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "Dwgs.User")
+			(uuid "19e89f7f-dcc3-469b-9019-48bd2dcd5155")
+		)
 		(pad "1" thru_hole oval
 			(at -2 0)
 			(size 1.6 1.6)
