@@ -519,7 +519,7 @@
 			(uuid "19e09e1e-7e78-4d87-bfdc-13309224d32e")
 		)
 		(embedded_fonts no)
-		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/FPC-SMD_6P-P0.50_JS_AFD01-S06FCA-00.step"
+		(model "${ERGOCAI_LIB}/3dmodels/FPC-SMD_6P-P0.50_JS_AFD01-S06FCA-00.step"
 			(offset
 				(xyz -0 1.53 0)
 			)
@@ -1521,7 +1521,7 @@
 			)
 		)
 		(embedded_fonts no)
-		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/RKJXV122400R--3DModel-STEP-805722.STEP"
+		(model "${ERGOCAI_LIB}/3dmodels/RKJXV122400R--3DModel-STEP-805722.STEP"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1532,7 +1532,7 @@
 				(xyz 0 0 180)
 			)
 		)
-		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/Joystick Cap.stp"
+		(model "${ERGOCAI_LIB}/3dmodels/Joystick Cap.stp"
 			(opacity 0.7800)
 			(offset
 				(xyz 0 0 18)

@@ -328,7 +328,7 @@
 			(uuid "3c53a31f-e440-49d3-aa1c-dbcd2f5e8bc2")
 		)
 		(embedded_fonts no)
-		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/SW-TH_SK12D07VG5-1.step"
+		(model "${ERGOCAI_LIB}/3dmodels/SW-TH_SK12D07VG5-1.step"
 			(offset
 				(xyz 0 -2 4.5)
 			)

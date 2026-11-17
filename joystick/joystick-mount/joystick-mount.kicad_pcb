@@ -504,7 +504,7 @@
 			(uuid "3cb8aeb3-60da-420f-ad01-5fa45b403e0a")
 		)
 		(embedded_fonts no)
-		(model "/Users/jinsongc/Development/ErgoCai.modules/joystick/Alpsalpine/Alpsalpine.step"
+		(model "${ERGOCAI_LIB}/3dmodels/Alpsalpine.step"
 			(opacity 0.8100)
 			(offset
 				(xyz 0 0 3.5)

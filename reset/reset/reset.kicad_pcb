@@ -383,7 +383,7 @@
 			(uuid "c0c93141-0179-4182-b674-c4cc81d68366")
 		)
 		(embedded_fonts no)
-		(model "/Users/jinsongc/Development/ErgoCaiLib/3dmodels/SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5.step"
+		(model "${ERGOCAI_LIB}/3dmodels/SW-SMD_4P-L5.1-W5.1-P3.70-LS6.5-TL_H1.5.step"
 			(offset
 				(xyz 0 -0 -0)
 			)

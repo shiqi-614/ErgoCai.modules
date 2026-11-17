@@ -696,7 +696,7 @@
 			(uuid "2d890a1e-5af8-4df0-ad3b-212575adad75")
 		)
 		(embedded_fonts no)
-		(model "${ERGOCAI_LIB}/3dmodels/14500.stp"
+		(model "${ERGOCAI_LIB}/3dmodels/Battery_14500.stp"
 			(offset
 				(xyz 0 -25 7)
 			)
