@@ -1,0 +1,37 @@
+# Pin functions of 2.13inch-socket's EPM_FPC1, by pad number: the keyboard end of the 2.13inch e-paper module's FFC
+# (JUSHUO AFD01-S10FCA-00, 10P 0.5 mm; it meets the module's EP_FPC2 pin k to pin k). Panel: GDEY0213B74 (SSD1680,
+# 4-wire SPI with BS1 to GND); LED: the module's SK6805-EC20.
+# For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shield
+# epaper_gdey0213b74 in zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to
+# 2.13inch-socket.kicad_sch; kbplacer finds it from the sheet file of the socket's footprints.
+# - pins: by EPM_FPC1 pad, the net, what it does, and its direction seen from the MCU (out, in, power).
+# - signals: what each signal needs of its MCU pin; kbplacer's SignalAssignor reads this.
+#   needs: fast   switches faster than the nRF52840's low-frequency pins allow (10 kHz, standard drive): an SPI
+#                 clock or data line, the LED's 800 kbit/s data;
+#          any    any GPIO;
+#          analog an AIN pin.
+#   zmk: where the firmware sets the pin. The shield defines the nodes; the pins are in zmk-config (for now the
+#        nRF52840 DK's: config/epaper_gdey0213b74.dtsi).
+footprint: EPM_FPC1
+connector: JUSHUO AFD01-S10FCA-00
+pins:
+  "1": {net: GND}
+  "2": {net: GPIO_DIN, function: "data in of the module's SK6805-EC20 status LED (WS2812 timing, 800 kbit/s)", dir: out}
+  "3": {net: EP_BUSY, function: "panel BUSY: high while the panel is busy", dir: in}
+  "4": {net: EP_RST, function: "panel RES#: reset, active low", dir: out}
+  "5": {net: EP_DC, function: "panel D/C#: data high, command low", dir: out}
+  "6": {net: EP_CS, function: "panel CS#: SPI chip select, active low", dir: out}
+  "7": {net: EP_CLK, function: "panel SCL: SPI clock", dir: out}
+  "8": {net: EP_DIN, function: "panel SDA: SPI data to the panel (MOSI)", dir: out}
+  "9": {net: 3.3V, function: "supply of the panel and the LED", dir: power}
+  "10": {net: GND}
+  "11": {net: GND, function: "mounting pad"}
+  "12": {net: GND, function: "mounting pad"}
+signals:
+  EP_CLK: {needs: fast, zmk: "NRF_PSEL(SPIM_SCK, ...) in the pinctrl of the panel's SPI (spi-dev: spi2 in the shield, spi1 on the DK)"}
+  EP_DIN: {needs: fast, zmk: "NRF_PSEL(SPIM_MOSI, ...) in the pinctrl of the panel's SPI"}
+  EP_CS: {needs: any, zmk: "cs-gpios of the panel's SPI (active low)"}
+  EP_DC: {needs: any, zmk: "mipi-dbi dc-gpios"}
+  EP_RST: {needs: any, zmk: "mipi-dbi reset-gpios (active low)"}
+  EP_BUSY: {needs: any, zmk: "busy-gpios"}
+  GPIO_DIN: {needs: fast, zmk: "no LED driver in the firmware yet; would be a worldsemi,ws2812-spi led-strip on an SPIM of its own, MOSI on this pin"}
