@@ -486,7 +486,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(global_label "GPIO_DIN"
+	(global_label "3.3V"
 		(shape input)
 		(at 153.67 129.54 180)
 		(fields_autoplaced yes)
@@ -508,7 +508,7 @@
 			)
 		)
 	)
-	(global_label "EP_DIN"
+	(global_label "EP_BUSY"
 		(shape input)
 		(at 153.67 114.3 180)
 		(fields_autoplaced yes)
@@ -530,7 +530,7 @@
 			)
 		)
 	)
-	(global_label "EP_BUSY"
+	(global_label "EP_DIN"
 		(shape input)
 		(at 153.67 127 180)
 		(fields_autoplaced yes)
@@ -552,7 +552,7 @@
 			)
 		)
 	)
-	(global_label "3.3V"
+	(global_label "GPIO_DIN"
 		(shape input)
 		(at 153.67 111.76 180)
 		(fields_autoplaced yes)
@@ -574,7 +574,7 @@
 			)
 		)
 	)
-	(global_label "EP_DC"
+	(global_label "EP_CS"
 		(shape input)
 		(at 153.67 121.92 180)
 		(fields_autoplaced yes)
@@ -596,7 +596,7 @@
 			)
 		)
 	)
-	(global_label "EP_RST"
+	(global_label "EP_CLK"
 		(shape input)
 		(at 153.67 124.46 180)
 		(fields_autoplaced yes)
@@ -618,7 +618,7 @@
 			)
 		)
 	)
-	(global_label "EP_CS"
+	(global_label "EP_DC"
 		(shape input)
 		(at 153.67 119.38 180)
 		(fields_autoplaced yes)
@@ -640,7 +640,7 @@
 			)
 		)
 	)
-	(global_label "EP_CLK"
+	(global_label "EP_RST"
 		(shape input)
 		(at 153.67 116.84 180)
 		(fields_autoplaced yes)
