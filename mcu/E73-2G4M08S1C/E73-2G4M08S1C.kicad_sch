@@ -1482,7 +1482,7 @@
 			)
 		)
 	)
-	(global_label "SPI_SCK{slash}ADC_7"
+	(global_label "MCU_P0_31"
 		(shape input)
 		(at 124.46 54.61 0)
 		(fields_autoplaced yes)
@@ -1702,7 +1702,7 @@
 			)
 		)
 	)
-	(global_label "SPI_MOSI{slash}ADC_6"
+	(global_label "MCU_P0_30"
 		(shape input)
 		(at 124.46 52.07 0)
 		(fields_autoplaced yes)
