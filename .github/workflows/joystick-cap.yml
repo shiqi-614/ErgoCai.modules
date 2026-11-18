@@ -1,0 +1,59 @@
+# Makes a joystick cap of the height you give it (tools/joystick_cap.py): Actions > joystick cap > Run workflow, enter
+# the height (and the clearance round the shaft), and download the STEP, STL and GLB under Artifacts on the run's
+# page. A push that changes the script, its requirements or this file makes one of the source cap's height, to check
+# that it still works.
+name: joystick cap
+
+on:
+  workflow_dispatch:
+    inputs:
+      height:
+        description: The cap's height, its skirt's rim to its top, in mm (the source cap is 16.92; at least 15.2)
+        required: true
+        default: '16.92'
+      fit:
+        description: Clearance round the shaft, a side, in mm (more if a printed cap won't go on)
+        required: true
+        default: '0.05'
+  push:
+    branches: [main]
+    paths: ['tools/joystick_cap.py', 'tools/requirements-cap.txt', '.github/workflows/joystick-cap.yml']
+
+permissions:
+  contents: read
+
+jobs:
+  cap:
+    runs-on: ubuntu-latest
+    env:
+      HEIGHT: ${{ inputs.height || '16.92' }}
+      FIT: ${{ inputs.fit || '0.05' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # the source cap, ErgoCaiLib's Joystick Cap.stp, at the head of main
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: shiqi-614/ErgoCaiLib
+          path: .ergocailib
+          sparse-checkout: 3dmodels/Joystick Cap.stp
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/requirements-cap.txt
+      - run: pip install -r tools/requirements-cap.txt
+      - name: Cap
+        run: |
+          mkdir -p cap
+          python tools/joystick_cap.py --height "$HEIGHT" --fit "$FIT" --source '.ergocailib/3dmodels/Joystick Cap.stp' \
+            --out "cap/joystick-cap-${HEIGHT}mm" | tee cap/about.txt
+          { echo '### Joystick cap'; echo; cat cap/about.txt; echo; echo 'The STEP, STL and GLB are under Artifacts below.'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: joystick-cap-${{ env.HEIGHT }}mm-fit-${{ env.FIT }}
+          path: cap/
+          if-no-files-found: error
