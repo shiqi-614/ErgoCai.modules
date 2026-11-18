@@ -1,0 +1,65 @@
+# Exports the modules' 3D models again and commits the ones that changed. A module has one when its .glb is committed
+# beside its .kicad_pcb (e-paper/2.13inch/2.13inch.glb), and ergogen-gui's 3D view draws it (assemblies.<half>.parts
+# in ErgoCai's config). tools/export_glb.py does the export; any file of the right name opts a new module in.
+# Runs:
+# - when a board, a .glb, the script or this file changes on main;
+# - every day, for ErgoCaiLib's models, which go into the files too;
+# - by hand (Actions > glb > Run workflow).
+# Its own commits don't start it again: pushes made with the workflow's token start no workflows.
+name: glb
+
+on:
+  push:
+    branches: [main]
+    paths: ['**.kicad_pcb', '**.glb', 'tools/export_glb.py', '.github/workflows/glb.yml']
+  schedule:
+    - cron: '17 19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# one run at a time, each on the commits before it
+concurrency:
+  group: glb
+  cancel-in-progress: false
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    # KiCad 9.0.2 with its own 3D models (the -full image), pinned: another KiCad meshes the models differently, and
+    # every .glb would change
+    container:
+      image: ghcr.io/kicad/kicad:9.0.2-full@sha256:1e58a5271f6619741a8309b6f813a0057fcef00037c57890f4a55d7086bb9ae0
+      options: --user root
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # the whole history, to rebase onto a main that moved on
+          fetch-depth: 0
+      # the models the boards name under ${ERGOCAI_LIB}, at the head of main as ergogen reads it; a hidden
+      # directory, which the script doesn't look in
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: shiqi-614/ErgoCaiLib
+          path: .ergocailib
+          sparse-checkout: 3dmodels
+          persist-credentials: false
+      - name: Export
+        run: python3 tools/export_glb.py --ergocai-lib .ergocailib --kicad-3d /usr/share/kicad/3dmodels --changed "$RUNNER_TEMP/changed.txt"
+      - name: Commit what changed
+        run: |
+          if [ ! -s "$RUNNER_TEMP/changed.txt" ]; then echo 'every .glb is up to date'; exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --pathspec-from-file="$RUNNER_TEMP/changed.txt"
+          git commit -q -F - <<EOF
+          glb: $(sed 's|.*/||' "$RUNNER_TEMP/changed.txt" | paste -sd ' ' -) exported again
+
+          By the glb workflow (tools/export_glb.py), from ${GITHUB_SHA::7} with KiCad 9.0.2 and ErgoCaiLib $(git -C .ergocailib rev-parse --short HEAD).
+          EOF
+          for i in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            git pull -q --rebase origin main
+          done
+          exit 1
