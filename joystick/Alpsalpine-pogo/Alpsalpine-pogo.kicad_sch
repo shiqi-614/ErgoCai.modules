@@ -94,232 +94,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ErgoCai:AFD01-S06FCA-00"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "AFD01-S06FCA-00"
-				(at 0 -15.24 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "ErgoCai.pretty:FPC-SMD_6P-P0.50_JS_AFD01-S06FCA-00"
-				(at 0 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "LCSC Part" "C18198574"
-				(at 0 -20.32 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "AFD01-S06FCA-00_0_1"
-				(rectangle
-					(start -2.54 10.16)
-					(end 5.08 -7.62)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(circle
-					(center -1.27 8.89)
-					(radius 0.38)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 7.62 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 5.08 0)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 2.54 0)
-					(length 2.54)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 -2.54 0)
-					(length 2.54)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at -5.08 -5.08 0)
-					(length 2.54)
-					(name "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 2.54 12.7 270)
-					(length 2.54)
-					(name "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin unspecified line
-					(at 2.54 -10.16 90)
-					(length 2.54)
-					(name "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "ILO_sym:Alpsalpine_RKJXV"
 			(pin_names
 				(offset 1.016)
@@ -677,10 +451,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(no_connect
-		(at 50.8 86.36)
-		(uuid "940b5bed-7abe-4bd9-8543-98adedcfa5a6")
-	)
 	(global_label "ADC1"
 		(shape input)
 		(at 113.03 88.9 270)
@@ -694,116 +464,6 @@
 		(uuid "1817dc41-d297-414d-88d9-5b05289dcd08")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 113.03 96.7233 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 58.42 68.58 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "1ad67a75-57a1-4c17-ad13-ca9813343b96")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.42 61.7243 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 58.42 91.44 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1c78da9d-d0e1-4223-8489-c8d12b6243cc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.42 98.2957 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ADC1"
-		(shape input)
-		(at 50.8 81.28 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "48047e8b-c1d4-4adc-a35c-20e3636cee70")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.9767 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "VCC"
-		(shape input)
-		(at 50.8 76.2 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "4e4884d2-cf78-4c25-93d8-f8bb47462567")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 44.1862 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 50.8 73.66 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "629a7d14-a2e2-4c5f-b10b-c9b9d0a57892")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 43.9443 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -967,28 +627,6 @@
 			)
 		)
 	)
-	(global_label "JT_B1"
-		(shape input)
-		(at 50.8 83.82 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "d9de6b32-b1ff-445e-9e12-c3f8c22d1bbf")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.4325 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "ADC0"
 		(shape input)
 		(at 110.49 88.9 270)
@@ -1024,28 +662,6 @@
 		(uuid "f51e6317-58db-4904-919a-b91a0911c562")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 93.4743 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ADC0"
-		(shape input)
-		(at 50.8 78.74 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "fb625187-3771-40a3-98ca-e30507986a46")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 42.9767 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1111,106 +727,9 @@
 			)
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "H1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ErgoCai:AFD01-S06FCA-00")
-		(at 55.88 81.28 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "40ad1211-df81-4293-aa02-c5870c14a1cf")
-		(property "Reference" "JT_J2"
-			(at 62.23 78.7399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "AFD01-S06FCA-00"
-			(at 62.23 81.2799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "ErgoCai.pretty:FPC-SMD_6P-P0.50_JS_AFD01-S06FCA-00"
-			(at 55.88 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 55.88 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 81.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC Part" "C18198574"
-			(at 55.88 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "6"
-			(uuid "3785c225-6b8f-43ac-b438-3a2539b4c859")
-		)
-		(pin "3"
-			(uuid "00eb481e-d88e-44a6-a440-5a45a7c25ff0")
-		)
-		(pin "4"
-			(uuid "6893f71f-b1dc-456f-a725-7c72fc07b5a8")
-		)
-		(pin "7"
-			(uuid "d5e49a39-4df9-4190-b045-31c173ac92df")
-		)
-		(pin "8"
-			(uuid "d287581e-a500-4fba-800e-2c54a808dd41")
-		)
-		(pin "2"
-			(uuid "76e80380-130f-4a2a-904c-52399c76144d")
-		)
-		(pin "1"
-			(uuid "01d6aa73-2333-4ab8-8b95-2d7f8a1a7812")
-		)
-		(pin "5"
-			(uuid "81f9f45c-6d68-426b-96db-89e35e846e40")
-		)
-		(instances
-			(project "Alpsalpine-ffc-pogo"
-				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
-					(reference "JT_J2")
 					(unit 1)
 				)
 			)
@@ -1335,7 +854,7 @@
 			(uuid "df552b1b-dbf3-4a3c-b4fb-51aa3262abb9")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_J1")
 					(unit 1)
@@ -1399,7 +918,7 @@
 			)
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "H4")
 					(unit 1)
@@ -1463,7 +982,7 @@
 			)
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "H3")
 					(unit 1)
@@ -1527,7 +1046,7 @@
 			)
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "H2")
 					(unit 1)
@@ -1603,33 +1122,11 @@
 			(uuid "77139bb6-8118-47ec-8cf0-2a101e65ed7e")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_P1")
 					(unit 1)
 				)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 147.32 73.66 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "4a3ed4e9-a263-4553-8121-200bec763444")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 141.52 73.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
 			)
 		)
 	)
@@ -1701,33 +1198,11 @@
 			(uuid "90de8b78-af11-4e68-8d3f-83e48b9c74e5")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_P2")
 					(unit 1)
 				)
-			)
-		)
-	)
-	(global_label "ADC1"
-		(shape input)
-		(at 147.32 78.74 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "c443737c-8a49-4dbe-8b0a-1554c1c39d0f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.42 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
 			)
 		)
 	)
@@ -1799,33 +1274,11 @@
 			(uuid "216e4a53-7da4-47fd-bab7-4e2b4fa98f4d")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_P3")
 					(unit 1)
 				)
-			)
-		)
-	)
-	(global_label "VCC"
-		(shape input)
-		(at 147.32 83.82 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "d313aab0-1495-4729-972b-3bd518283abb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 141.52 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
 			)
 		)
 	)
@@ -1897,33 +1350,11 @@
 			(uuid "0016393f-0f69-4f34-bd79-b1993d952f65")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_P4")
 					(unit 1)
 				)
-			)
-		)
-	)
-	(global_label "JT_B1"
-		(shape input)
-		(at 147.32 88.9 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "247dca66-346b-4ffa-898a-a5e83241cee0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 139.32 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
 			)
 		)
 	)
@@ -1995,17 +1426,13 @@
 			(uuid "4fe6f3ea-38b7-48ad-bad1-6211a7a3a404")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_P5")
 					(unit 1)
 				)
 			)
 		)
-	)
-	(no_connect
-		(at 147.32 93.98)
-		(uuid "3dd97eb8-b5e6-4530-b218-e26975466ddd")
 	)
 	(symbol
 		(lib_id "ErgoCai:KTT50003UT01-R")
@@ -2075,7 +1502,7 @@
 			(uuid "67065bd8-c175-4007-ad1b-2744c0528967")
 		)
 		(instances
-			(project "Alpsalpine-ffc-pogo"
+			(project "Alpsalpine-pogo"
 				(path "/5720966f-d1c5-498e-9510-92ceffc8d262"
 					(reference "JT_P6")
 					(unit 1)
@@ -2083,9 +1510,9 @@
 			)
 		)
 	)
-	(global_label "ADC0"
+	(global_label "VCC"
 		(shape input)
-		(at 147.32 99.06 180)
+		(at 147.32 73.66 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2093,9 +1520,9 @@
 			)
 			(justify right)
 		)
-		(uuid "cc9ba026-9bf1-416f-9db7-3d9f4293e1b4")
+		(uuid "892974a5-5af0-50b9-b9a1-08fd14075aca")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.42 99.06 0)
+			(at 141.52 73.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2105,7 +1532,99 @@
 			)
 		)
 	)
-	(text "Use one: JT_J2 for the 6P FFC, or JT_P1-JT_P6, pogo pins on the back, for the mount's contact pads"
+	(global_label "ADC1"
+		(shape input)
+		(at 147.32 78.74 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "843250dc-354d-54dc-b05a-2039c9f54afd")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 141.52 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ADC0"
+		(shape input)
+		(at 147.32 83.82 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fc529293-5f89-548f-8d5c-e9c24dc65891")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 141.52 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(no_connect
+		(at 147.32 88.9)
+		(uuid "c717b416-c4aa-593d-b1fc-ee4a926ffa5c")
+	)
+	(global_label "JT_B1"
+		(shape input)
+		(at 147.32 93.98 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "227de9c2-cd9a-5b9e-ab7e-e2f389173fbb")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 141.52 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape input)
+		(at 147.32 99.06 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "45059c7b-f70e-5bd7-ae43-657f289a680c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 141.52 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(text "JT_P1-JT_P6: pogo pins on the back, a column at the right edge, on the contact pads of the mount (joystick-mount-pogo), pin k on pad k"
 		(exclude_from_sim no)
 		(at 127 114.3 0)
 		(effects

@@ -1,0 +1,11 @@
+{
+  "name": "pmw3610-pogo-cup",
+  "private": true,
+  "description": "The trackball module's ball cup, written as STL by cup.js",
+  "scripts": {
+    "build": "node cup.js"
+  },
+  "dependencies": {
+    "manifold-3d": "^3.5.5"
+  }
+}

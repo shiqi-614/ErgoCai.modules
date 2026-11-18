@@ -451,7 +451,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "Alpsalpine-ffc-pogo.kicad_pro",
+    "filename": "Alpsalpine-pogo.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -490,7 +490,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "Alpsalpine-ffc-pogo.step",
+      "step": "Alpsalpine-pogo.step",
       "svg": "",
       "vrml": ""
     },

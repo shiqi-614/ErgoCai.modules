@@ -1,0 +1,70 @@
+# Pin functions of joystick-mount-pogo's JOYSTICK_P1, by pad number: bare gold contact pads, a column at the module's
+# right edge, for the six pogo pins on the back of the module that sits on the mount (KERUI KTT50003UT01-R, LCSC
+# C56282211), pin k on pad k. The mount takes one module at a time:
+# - joystick (joystick/Alpsalpine-pogo): Alps Alpine RKJXV122400R, two potentiometers and a push switch;
+# - trackball (trackball/PMW3610-pogo): a PixArt PMW3610DM-SUDU on 3-wire SPI, with its own 1.8 V LDO.
+# Both use the same lines: the stick's wipers are the sensor's SPI clock and data, its switch the sensor's motion
+# line, and the pin the stick leaves free (4) the sensor's chip select.
+# For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shields joystick and
+# trackball in zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to
+# joystick-mount-pogo.kicad_sch; kbplacer finds it from the sheet file of the socket's footprints.
+# - zmk: the west project that has the modules' shields, and shields, the module choices: zmk-config builds the half
+#   once with each. central: both are input devices, and that config does not forward input from a split's
+#   peripheral, so the half with the mount is the central.
+# - pins: by JOYSTICK_P1 pad, the net, what it does for each module, and its direction seen from the MCU (out, in,
+#   power); in brackets the net's name on the module.
+# - signals: what each signal needs of its MCU pin; kbplacer's SignalAssignor reads this.
+#   needs: fast   not one of the nRF52840's low-frequency pins (10 kHz, standard drive only);
+#          any    any GPIO;
+#          analog an AIN pin;
+#          a list of these: all of them (the wipers are SPI lines of the trackball, up to 2 MHz).
+#   zmk: per shield, where the pin goes in its devicetree; kbplacer writes it into zmk-config's config/<half>.overlay
+#        under #ifdef SHIELD_<NAME>. ~ for a shield that leaves the line unused.
+#        {node: label, ain: prop}               prop = <NRF_SAADC_AIN<n>>
+#        {node: label, gpios: prop, flags}      prop = <&gpio<port> <pin> flags>
+#        {pinctrl: [nodes], psel: F}            NRF_PSEL(F, port, pin) in group1 of each node; F a list for one pin
+#                                               with two functions (the sensor's SDIO: SPIM_MOSI and SPIM_MISO)
+#        {key: direct, flags, binding, at}      a key of its own (zmk,kscan-gpio-direct), after the matrix keys; binding
+#                                               is what it does in the first keymap kbplacer writes (the joystick
+#                                               scrolls on layer 1), at the footprint ZMK Studio draws it at (the mount).
+zmk:
+  module: {name: zmk-ergo-cai, url: https://github.com/shiqi-614/zmk-ergo-cai, revision: main}
+  central: true
+  shields: [joystick, trackball]
+footprint: JOYSTICK_P1
+connector: Pogo_Target_1x6_P2.54mm
+pins:
+  "1": {net: GPIO_JT_VCC, function: "the module's supply: the potentiometers' (VCC), switched on only to sample them; the trackball's LDO input and VDDIO, on all the time", dir: out}
+  "2": {net: ADC_JT2, function: "joystick: wiper of the second potentiometer (ADC1, RKJXV pin 5); trackball: SDIO, 3-wire SPI data (SDIO)", dir: in}
+  "3": {net: ADC_JT1, function: "joystick: wiper of the first potentiometer (ADC0, RKJXV pin 2); trackball: SCLK (SCLK)", dir: in}
+  "4": {net: GPIO_JT_CS, function: "joystick: not connected; trackball: NCS, the sensor's chip select, active low (NCS)", dir: out}
+  "5": {net: GPIO_JT_B1, function: "joystick: push switch (JT_B1), to GND when pressed, so active low with a pull-up; trackball: MOTION, active low (MOTION)", dir: in}
+  "6": {net: GND}
+signals:
+  ADC_JT1:
+    needs: [analog, fast]
+    zmk:
+      joystick: {node: adc_joystick_x, ain: "zephyr,input-positive"}
+      trackball: {pinctrl: [trackball_spi_default, trackball_spi_sleep], psel: SPIM_SCK}
+  ADC_JT2:
+    needs: [analog, fast]
+    zmk:
+      joystick: {node: adc_joystick_y, ain: "zephyr,input-positive"}
+      trackball: {pinctrl: [trackball_spi_default, trackball_spi_sleep], psel: [SPIM_MOSI, SPIM_MISO]}
+  # power-gpios and enable-gpios ask for high drive, NRF_GPIO_DRIVE_H0H1, and the low-frequency pins are standard
+  # drive only
+  GPIO_JT_VCC:
+    needs: fast
+    zmk:
+      joystick: {node: joystick, gpios: power-gpios, flags: "(GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)"}
+      trackball: {node: trackball_power, gpios: enable-gpios, flags: "(GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)"}
+  GPIO_JT_CS:
+    needs: any
+    zmk:
+      joystick: ~
+      trackball: {node: trackball_spi, gpios: cs-gpios, flags: GPIO_ACTIVE_LOW}
+  GPIO_JT_B1:
+    needs: any
+    zmk:
+      joystick: {key: direct, flags: "(GPIO_ACTIVE_LOW | GPIO_PULL_UP)", binding: "&tog 1", at: JOYSTICK_H1}
+      trackball: {node: trackball, gpios: motion-gpios, flags: "(GPIO_ACTIVE_LOW | GPIO_PULL_UP)"}
