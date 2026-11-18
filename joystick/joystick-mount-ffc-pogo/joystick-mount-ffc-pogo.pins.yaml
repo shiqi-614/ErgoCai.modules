@@ -1,0 +1,46 @@
+# Pin functions of joystick-mount-ffc-pogo's JOYSTICK_J1, by pad number: the keyboard end of the joystick module's
+# FFC (JUSHUO AFD01-S06FCA-00, 6P 0.5 mm; it meets the Alpsalpine-ffc-pogo module's JT_J2 pin k to pin k). Stick:
+# Alps Alpine RKJXV122400R, two potentiometers and a push switch.
+# JOYSTICK_P1 is the other way to connect it: bare gold contact pads for the six pogo pins on the module's back
+# (JT_P1-JT_P6, KERUI KTT50003UT01-R, LCSC C56282211), wired to the same nets inside this module; use one of J1 and
+# P1. P1's pads by number, pad k under pin JT_Pk: 1 GND, 2 ADC_JT2, 3 GPIO_JT_VCC, 4 GPIO_JT_B1, 5 NC, 6 ADC_JT1.
+# For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shield joystick in
+# zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to
+# joystick-mount-ffc-pogo.kicad_sch; kbplacer finds it from the sheet file of the socket's footprints.
+# - zmk: the ZMK shield of this module and the west project that has it, for the zmk-config kbplacer writes after
+#   routing. central: the stick is an input device, and that config does not forward input from a split's
+#   peripheral, so the half with it is the central.
+# - pins: by JOYSTICK_J1 pad, the net, what it does, and its direction seen from the MCU (out, in, power); in
+#   brackets the net's name on the joystick module.
+# - signals: what each signal needs of its MCU pin; kbplacer's SignalAssignor reads this.
+#   needs: fast   not one of the nRF52840's low-frequency pins (10 kHz, standard drive only);
+#          any    any GPIO;
+#          analog an AIN pin.
+#   zmk: where the pin goes in the shield's devicetree; kbplacer writes it into zmk-config's config/<half>.overlay
+#        (for now the nRF52840 DK's pins are set by hand in config/joystick.dtsi and config/phys_layout.dtsi).
+#        {node: label, ain: prop}          prop = <NRF_SAADC_AIN<n>>
+#        {node: label, gpios: prop, flags} prop = <&gpio<port> <pin> flags>
+#        {key: direct, flags, binding, at} a key of its own (zmk,kscan-gpio-direct), after the matrix keys; binding
+#                                          is what it does in the first keymap kbplacer writes (the shield scrolls
+#                                          on layer 1), at the footprint ZMK Studio draws it at (the stick's mount).
+zmk:
+  shield: joystick
+  module: {name: zmk-ergo-cai, url: https://github.com/shiqi-614/zmk-ergo-cai, revision: main}
+  central: true
+footprint: JOYSTICK_J1
+connector: JUSHUO AFD01-S06FCA-00
+pins:
+  "1": {net: GND}
+  "2": {net: GPIO_JT_VCC, function: "supply of both potentiometers (VCC), switched on by the MCU only to sample them", dir: out}
+  "3": {net: ADC_JT1, function: "wiper of the first potentiometer (ADC0, RKJXV pin 2)", dir: in}
+  "4": {net: ADC_JT2, function: "wiper of the second potentiometer (ADC1, RKJXV pin 5)", dir: in}
+  "5": {net: GPIO_JT_B1, function: "push switch (JT_B1): to GND when pressed, so active low with a pull-up", dir: in}
+  "6": {net: none, function: "not connected"}
+  "7": {net: GND, function: "mounting pad"}
+  "8": {net: GND, function: "mounting pad"}
+signals:
+  ADC_JT1: {needs: analog, zmk: {node: adc_joystick_x, ain: "zephyr,input-positive"}}
+  ADC_JT2: {needs: analog, zmk: {node: adc_joystick_y, ain: "zephyr,input-positive"}}
+  # power-gpios asks for high drive, NRF_GPIO_DRIVE_H0H1, and the low-frequency pins are standard drive only
+  GPIO_JT_VCC: {needs: fast, zmk: {node: joystick, gpios: power-gpios, flags: "(GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)"}}
+  GPIO_JT_B1: {needs: any, zmk: {key: direct, flags: "(GPIO_ACTIVE_LOW | GPIO_PULL_UP)", binding: "&tog 1", at: JOYSTICK_H1}}
