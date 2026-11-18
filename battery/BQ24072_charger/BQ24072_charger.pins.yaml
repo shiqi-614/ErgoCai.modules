@@ -1,0 +1,12 @@
+# Signals of the BQ24072_charger module for the MCU. KicadGen puts this table into the project next to
+# BQ24072_charger.kicad_sch; kbplacer finds it from the sheet file of the module's footprints.
+# - signals: what each signal needs of its MCU pin (kbplacer's SignalAssignor), and where it goes in ZMK, for the
+#   zmk-config kbplacer writes after routing:
+#   ADC_BAT  the battery voltage halved by BAT_RA1 (VBAT to ADC_BAT) over BAT_RB1 (ADC_BAT to GND), with BAT_C4
+#            across BAT_RB1. {battery: {top, bottom}} becomes a zmk,battery-voltage-divider on the AIN of its pad;
+#            kbplacer reads the two resistors' values from the board.
+# - zmk: conf, the Kconfig the battery needs; kbplacer puts it into zmk-config's config/<half>.conf.
+zmk:
+  conf: [CONFIG_ZMK_BATTERY_REPORTING=y]
+signals:
+  ADC_BAT: {needs: analog, zmk: {battery: {top: BAT_RA1, bottom: BAT_RB1}}}

@@ -4,15 +4,21 @@
 # - name: the pin name of the symbol (ErgoCaiLib nRF52840_E73-2G4M08S1C), equal to the pad's pinfunction on the
 #   footprint. A free GPIO pad carries the placeholder net MCU_P<port>_<pin> of its gpio.
 # - gpio, ain, nfc, xl, reset: read from that name.
-#   nfc: a GPIO only once the NFCT pins are configured as GPIOs (zmk-config: CONFIG_NFCT_PINS_AS_GPIOS=y).
+#   nfc: a GPIO only once the NFCT pins are configured as GPIOs (devicetree &uicr { nfct-pins-as-gpios; }, which
+#        kbplacer's zmk-config sets when it uses one; CONFIG_NFCT_PINS_AS_GPIOS=y is deprecated since Zephyr 3.7).
 #        The two pins leak up to 10 uA between them while driven to different levels (PS 6.14.3, INFC_LEAK).
 #   xl: the module has no 32.768 kHz crystal and ErgoCai uses the internal RC
 #       (CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y), so both are plain GPIOs.
-#   reset: P0.18 is the RESET pin when configured as such.
+#   reset: P0.18 is the RESET pin when configured as such (&uicr { gpio-as-nreset; } when the pad is wired).
 # - low_freq, recommended: the "Recommended usage" column of nRF52840 Product Specification v1.1 (4413_417),
 #   Table 142 "aQFN73 ball assignments", pages 576-578.
 #   low_freq: "Standard drive, low frequency I/O only", i.e. signals up to 10 kHz. Fine for a key matrix or an
 #   enable line, not for an SPI clock or data line.
+# - zmk: conf, the Kconfig any firmware for the module needs; kbplacer puts it into zmk-config's config/<half>.conf:
+#   the low-frequency clock from the internal RC (no crystal), and BLE, which a board of ZMK's own turns on
+#   but a generic one (nrf52840dk) does not; a split needs it to reach the other half.
+zmk:
+  conf: [CONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y, CONFIG_ZMK_BLE=y]
 mcu: MCU_U1
 chip: nRF52840
 pins:

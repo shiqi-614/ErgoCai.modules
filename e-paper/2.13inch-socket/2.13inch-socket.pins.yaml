@@ -4,14 +4,23 @@
 # For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shield
 # epaper_gdey0213b74 in zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to
 # 2.13inch-socket.kicad_sch; kbplacer finds it from the sheet file of the socket's footprints.
+# - zmk: the ZMK shield of this module and the west project that has it, for the zmk-config kbplacer writes after
+#   routing (build.yaml, west.yml; the pins below go under #ifdef SHIELD_EPAPER_GDEY0213B74).
 # - pins: by EPM_FPC1 pad, the net, what it does, and its direction seen from the MCU (out, in, power).
 # - signals: what each signal needs of its MCU pin; kbplacer's SignalAssignor reads this.
 #   needs: fast   switches faster than the nRF52840's low-frequency pins allow (10 kHz, standard drive): an SPI
 #                 clock or data line, the LED's 800 kbit/s data;
 #          any    any GPIO;
 #          analog an AIN pin.
-#   zmk: where the firmware sets the pin. The shield defines the nodes; the pins are in zmk-config (for now the
-#        nRF52840 DK's: config/epaper_gdey0213b74.dtsi).
+#   zmk: where the pin goes in the shield's devicetree; kbplacer writes it into zmk-config's config/<half>.overlay
+#        (for now the nRF52840 DK's pins are set by hand in config/epaper_gdey0213b74.dtsi).
+#        {pinctrl: [nodes], psel: F}       NRF_PSEL(F, port, pin) in group1 of each pinctrl node
+#        {node: label, gpios: prop, flags} prop = <&gpio<port> <pin> flags>
+#        The LED has an SPI of its own (spi3, led-strip epaper_led, worldsemi,ws2812-spi), so its pin can be on
+#        either port; Zephyr's ws2812-gpio would drive P0 pins only. The layer colours are layer_led's colors.
+zmk:
+  shield: epaper_gdey0213b74
+  module: {name: zmk-ergo-cai, url: https://github.com/shiqi-614/zmk-ergo-cai, revision: main}
 footprint: EPM_FPC1
 connector: JUSHUO AFD01-S10FCA-00
 pins:
@@ -28,10 +37,10 @@ pins:
   "11": {net: GND, function: "mounting pad"}
   "12": {net: GND, function: "mounting pad"}
 signals:
-  EP_CLK: {needs: fast, zmk: "NRF_PSEL(SPIM_SCK, ...) in the pinctrl of the panel's SPI (spi-dev: spi2 in the shield, spi1 on the DK)"}
-  EP_DIN: {needs: fast, zmk: "NRF_PSEL(SPIM_MOSI, ...) in the pinctrl of the panel's SPI"}
-  EP_CS: {needs: any, zmk: "cs-gpios of the panel's SPI (active low)"}
-  EP_DC: {needs: any, zmk: "mipi-dbi dc-gpios"}
-  EP_RST: {needs: any, zmk: "mipi-dbi reset-gpios (active low)"}
-  EP_BUSY: {needs: any, zmk: "busy-gpios"}
-  GPIO_DIN: {needs: fast, zmk: "NRF_PSEL(SPIM_MOSI, ...) in epaper_led_default / epaper_led_sleep, the pinctrl of the LED's own SPI (spi3; led-strip epaper_led, worldsemi,ws2812-spi). Any port: Zephyr's ws2812-gpio would drive P0 pins only. The layer colours are layer_led's colors"}
+  EP_CLK: {needs: fast, zmk: {pinctrl: [spi2_default, spi2_sleep], psel: SPIM_SCK}}
+  EP_DIN: {needs: fast, zmk: {pinctrl: [spi2_default, spi2_sleep], psel: SPIM_MOSI}}
+  EP_CS: {needs: any, zmk: {node: epaper_spi, gpios: cs-gpios, flags: GPIO_ACTIVE_LOW}}
+  EP_DC: {needs: any, zmk: {node: mipi_dbi_epaper, gpios: dc-gpios, flags: GPIO_ACTIVE_HIGH}}
+  EP_RST: {needs: any, zmk: {node: mipi_dbi_epaper, gpios: reset-gpios, flags: GPIO_ACTIVE_LOW}}
+  EP_BUSY: {needs: any, zmk: {node: ssd16xx_waveshare_epaper_gdey0213b74, gpios: busy-gpios, flags: GPIO_ACTIVE_HIGH}}
+  GPIO_DIN: {needs: fast, zmk: {pinctrl: [epaper_led_default, epaper_led_sleep], psel: SPIM_MOSI}}
