@@ -8,7 +8,8 @@
 #   count.
 # - Every model a board names must be found, or that module's .glb is left as it was and the run fails. kicad-cli
 #   itself would only warn and leave the model out of the file.
-# GitHub Actions runs this on macOS with KiCad's app (.github/workflows/glb.yml) and commits what changed.
+# GitHub Actions runs this on macOS with KiCad's app (.github/workflows/glb.yml) and commits what changed. Its files
+# are the ones to keep: another Mac meshes a few faces a little differently, so a local run rewrites the files.
 # usage: python3 tools/export_glb.py --ergocai-lib <ErgoCaiLib checkout> --kicad-3d <KiCad's 3dmodels dir>
 #        [--kicad-cli <command>] [--changed <file to list the rewritten .glb files in>] [<dir to look in>...]
 import argparse
