@@ -24,14 +24,15 @@ concurrency:
   group: glb
   cancel-in-progress: false
 
+env:
+  KICAD_VERSION: 9.0.2
+
 jobs:
   export:
-    runs-on: ubuntu-latest
-    # KiCad 9.0.2 with its own 3D models (the -full image), pinned: another KiCad meshes the models differently, and
-    # every .glb would change
-    container:
-      image: ghcr.io/kicad/kicad:9.0.2-full@sha256:1e58a5271f6619741a8309b6f813a0057fcef00037c57890f4a55d7086bb9ae0
-      options: --user root
+    # KiCad's macOS app on Apple silicon, as the files were first exported. KiCad's Linux image (OCCT 7.6) leaves
+    # most models' colours out of a .glb; the app (OCCT 7.8) keeps them. The version is pinned: another KiCad
+    # meshes the models differently, and every .glb would change.
+    runs-on: macos-latest
     defaults:
       run:
         shell: bash
@@ -48,24 +49,32 @@ jobs:
           path: .ergocailib
           sparse-checkout: 3dmodels
           persist-credentials: false
+      - name: KiCad
+        run: |
+          curl -fsSL --retry 3 -o "$RUNNER_TEMP/kicad.dmg" \
+            "https://github.com/KiCad/kicad-source-mirror/releases/download/$KICAD_VERSION/kicad-unified-universal-$KICAD_VERSION.dmg"
+          hdiutil attach -nobrowse -readonly -noautoopen -mountpoint "$RUNNER_TEMP/kicad" "$RUNNER_TEMP/kicad.dmg" < /dev/null > /dev/null
+          app=$(find "$RUNNER_TEMP/kicad" -maxdepth 3 -name KiCad.app -type d -print -quit)
+          # KiCad's own build: signed by KiCad Services Corporation
+          codesign --verify --strict "$app/Contents/MacOS/kicad-cli"
+          codesign -dv "$app" 2>&1 | grep -x 'TeamIdentifier=9FQDHNY6U2'
+          echo "KICAD_CLI=$app/Contents/MacOS/kicad-cli" >> "$GITHUB_ENV"
+          echo "KICAD_3D=$app/Contents/SharedSupport/3dmodels" >> "$GITHUB_ENV"
+          "$app/Contents/MacOS/kicad-cli" version
       - name: Export
-        run: python3 tools/export_glb.py --ergocai-lib .ergocailib --kicad-3d /usr/share/kicad/3dmodels --changed "$RUNNER_TEMP/changed.txt"
+        run: python3 tools/export_glb.py --ergocai-lib .ergocailib --kicad-3d "$KICAD_3D" --kicad-cli "$KICAD_CLI" --changed "$RUNNER_TEMP/changed.txt"
       - name: Commit what changed
         run: |
           # a failing command is named on the run's page
           trap 'echo "::error::the commit step failed at: $BASH_COMMAND"' ERR
           if [ ! -s "$RUNNER_TEMP/changed.txt" ]; then echo 'every .glb is up to date'; exit 0; fi
-          # the job runs as root in KiCad's image, but the workspace belongs to the runner's user, and git won't work
-          # in a repository someone else owns
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE/.ergocailib"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add --pathspec-from-file="$RUNNER_TEMP/changed.txt"
           git commit -q -F - <<EOF
           glb: $(sed 's|.*/||' "$RUNNER_TEMP/changed.txt" | paste -sd ' ' -) exported again
 
-          By the glb workflow (tools/export_glb.py), from ${GITHUB_SHA::7} with KiCad 9.0.2 and ErgoCaiLib $(git -C .ergocailib rev-parse --short HEAD).
+          By the glb workflow (tools/export_glb.py), from ${GITHUB_SHA::7} with KiCad $KICAD_VERSION and ErgoCaiLib $(git -C .ergocailib rev-parse --short HEAD).
           EOF
           for i in 1 2 3; do
             git push origin HEAD:main && exit 0
