@@ -32,6 +32,9 @@ jobs:
     container:
       image: ghcr.io/kicad/kicad:9.0.2-full@sha256:1e58a5271f6619741a8309b6f813a0057fcef00037c57890f4a55d7086bb9ae0
       options: --user root
+    defaults:
+      run:
+        shell: bash
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -49,7 +52,13 @@ jobs:
         run: python3 tools/export_glb.py --ergocai-lib .ergocailib --kicad-3d /usr/share/kicad/3dmodels --changed "$RUNNER_TEMP/changed.txt"
       - name: Commit what changed
         run: |
+          # a failing command is named on the run's page
+          trap 'echo "::error::the commit step failed at: $BASH_COMMAND"' ERR
           if [ ! -s "$RUNNER_TEMP/changed.txt" ]; then echo 'every .glb is up to date'; exit 0; fi
+          # the job runs as root in KiCad's image, but the workspace belongs to the runner's user, and git won't work
+          # in a repository someone else owns
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE/.ergocailib"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add --pathspec-from-file="$RUNNER_TEMP/changed.txt"
