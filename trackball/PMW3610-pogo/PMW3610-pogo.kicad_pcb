@@ -384,6 +384,94 @@
 		)
 		(embedded_fonts no)
 	)
+	(footprint "ErgoCai.pretty:TrackballCup_PMW3610-pogo"
+		(layer "F.Cu")
+		(uuid "78d14f91-6cee-4536-ac81-8175c4771d4a")
+		(at 0 0)
+		(tags "trackball ball cup PMW3610")
+		(property "Reference" "TB_CUP1"
+			(at 0 -20 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2d8da988-97ab-4487-bfa5-ea54f1021f4d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TrackballCup_PMW3610-pogo"
+			(at 0 20 0)
+			(layer "F.Fab")
+			(uuid "ab04063f-f869-415c-90bb-ff90e1f5f668")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "871bd3ab-5fed-4172-a01b-b9eeea25a1f6")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "The ball cup of ErgoCai.modules trackball/PMW3610-pogo (cup/cup.js, 3D printed) with its 25 mm ball and three 2.5 mm support balls in place, for the 3D view only: no copper, nothing in the BOM. The cup is 28.4 mm round with a plate over the board, inside the case opening of the joystick mount, and snaps onto the board's top and bottom edges. Origin on the ball's axis, the sensor's optical centre; the model is cup.js --step, for a lens 3.4 mm over the board."
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "079b0546-01a8-4333-92d5-e66e5b19d7d7")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(attr board_only exclude_from_pos_files exclude_from_bom)
+		(fp_circle
+			(center 0 0)
+			(end 12.5 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "e755ea29-2dba-4c23-9c70-634214fd47c6")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 14.2 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "5215e61b-b601-46f4-80a8-a0ac6ca57da0")
+		)
+		(embedded_fonts no)
+		(model "${ERGOCAI_LIB}/3dmodels/TrackballCup_PMW3610-pogo.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
 		(uuid "faec837b-134c-4bb8-a064-b5ec1cb0dc74")
