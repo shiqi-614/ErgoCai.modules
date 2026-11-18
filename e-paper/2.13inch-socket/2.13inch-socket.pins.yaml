@@ -34,4 +34,4 @@ signals:
   EP_DC: {needs: any, zmk: "mipi-dbi dc-gpios"}
   EP_RST: {needs: any, zmk: "mipi-dbi reset-gpios (active low)"}
   EP_BUSY: {needs: any, zmk: "busy-gpios"}
-  GPIO_DIN: {needs: fast, zmk: "no LED driver in the firmware yet; would be a worldsemi,ws2812-spi led-strip on an SPIM of its own, MOSI on this pin"}
+  GPIO_DIN: {needs: fast, zmk: "NRF_PSEL(SPIM_MOSI, ...) in epaper_led_default / epaper_led_sleep, the pinctrl of the LED's own SPI (spi3; led-strip epaper_led, worldsemi,ws2812-spi). Any port: Zephyr's ws2812-gpio would drive P0 pins only. The layer colours are layer_led's colors"}
