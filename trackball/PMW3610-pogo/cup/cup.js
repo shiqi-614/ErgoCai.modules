@@ -22,9 +22,15 @@
 //   Keyboards' trackball sockets take for a PMW3610 board with its lens (PMW_LENS_HEIGHT in its trackball-gen.ts).
 //   Measure it on the assembled board (a caliper from the board's top to the lens's top face) and build the cup
 //   for that height. Every height below follows from it;
-// - ball: 25 mm, a mini billiard ball; 0.5 mm round it, so the wall is 1.2 mm at the equator;
+// - ball: 25 mm, a mini billiard ball; 0.5 mm round it, so the wall is 1.2 mm at the equator. The wall runs on
+//   past the equator to a rim 24.4 mm across, 0.6 mm less than the ball, cut into six fingers: the ball is pressed
+//   in past them (0.3 mm each, about 1.7 % strain: print it in PETG) and stays in with the keyboard upside down;
+//   it is pried out to clean;
 // - support: three balls of 2.5 mm (ceramic, Si3N4 or ZrO2, or steel), pressed into their seats from inside the
-//   cup, 50 degrees off the bottom, one opposite the lens's long side and two at 120 degrees from it;
+//   cup, 50 degrees off the bottom, one opposite the lens's long side and two at 120 degrees from it. A seat
+//   cannot snap a ball in: its equator is only 0.75 mm (its radius less the ball's 0.5 mm room) inside the wall,
+//   which leaves a lip of about 0.1 mm. The seats point down and out, so a loose support ball stays put while the
+//   cup stands; a drop of thin CA glue fixes them for good (they slide, they do not turn);
 // - the pocket in the floor clears the lens, the sensor's leads (trim them to 1.5 mm) and their solder; the pogo
 //   pins' tails stay under solder mask, flat, so the plate sits on them;
 // - the tabs: 10 mm long and 1 mm thick, cut free from the wall, bend the 0.4 mm their hooks reach under the board
@@ -51,7 +57,7 @@ const SEAT = SUPPORT - 0.05                      // a support ball's hole: a pre
 const TILT = 50                                  // support balls, degrees off the ball's bottom
 const AZIMUTHS = [90, 210, 330]                  // and round the axis (90: +y, away from the lens's long side)
 const OUTER = 14.2                               // the cup's outside, 0.4 inside the case's opening each way
-const ABOVE = 0.5                                // the rim, over the ball's equator
+const LIP = {mouth: 12.2, fingers: 6, slit: 0.8, below: 2}   // the rim's radius; slits from 2 mm under the equator
 // the module board: its outline (KiCad's frame, round the holes' centres at the corners) and thickness
 const BOARD = {x0: -13.0, x1: 14.5, y0: -13.0, y1: 13.0, r: 2.15, t: 1.6}
 const HOLES = [[-10.85, 10.85], [12.35, 10.85], [-10.85, -10.85], [12.35, -10.85]]
@@ -67,7 +73,7 @@ const POCKET = {x0: -6.4, x1: 6.4, y0: -7.5, y1: 12.5}
 const R = BALL / 2
 const BOTTOM = LENS + Z_GAP                      // the ball's lowest point
 const CENTRE = BOTTOM + R
-const TOP = CENTRE + ABOVE
+const TOP = CENTRE + Math.sqrt((R + CLEAR) ** 2 - LIP.mouth ** 2)   // where the cavity narrows to the rim
 const SEGMENTS = 128
 
 const main = async () => {
@@ -129,6 +135,11 @@ const main = async () => {
             .rotate([0, 0, azimuth])
             .translate([0, 0, CENTRE])
         cut.push(seat)
+    }
+    // the rim's fingers: slits through the wall from above the cut-free tabs to the top
+    for (let k = 0; k < LIP.fingers; k++) {
+        cut.push(Manifold.cube([OUTER + 2, LIP.slit, TOP - (CENTRE - LIP.below) + 1])
+            .translate([0, -LIP.slit / 2, CENTRE - LIP.below]).rotate([0, 0, 30 + 360 * k / LIP.fingers]))
     }
     cup = cup.subtract(Manifold.union(cut))
 
@@ -218,12 +229,16 @@ const partsList = () => [
     '',
     '| Part | Qty | What | Notes |',
     '|---|---|---|---|',
-    `| Ball | 1 | ${BALL} mm | a mini billiard ball, or a ${BALL} mm replacement trackball ball |`,
+    `| Ball | 1 | ${BALL} mm | a mini billiard ball, or a ${BALL} mm replacement trackball ball; pressed in past the ` +
+        `rim's fingers (${(2 * LIP.mouth).toFixed(1)} mm across), pried out to clean |`,
+    '| Lens | 1 | PixArt LM18-LSI | the PMW3610\'s lens, bought with or beside the sensor; clips into the board\'s ' +
+        'aperture from the front, under the ball. Measure how far its top stands over the board: that is `--lens` |',
     `| Support balls | 3 | ${SUPPORT} mm, silicon nitride (Si3N4) or zirconia (ZrO2) ceramic, or steel | pressed into the ` +
-        `seats from inside the cup (holes ${SEAT.toFixed(2)} mm, a press fit: enlarge \`SEAT\` for a loose printer); ` +
-        `they are static, the ball slides on them |`,
-    `| Cup | 1 | cup.stl, printed | PETG or PLA, 3 or more perimeters (the wall is ${(OUTER - R - CLEAR).toFixed(1)} mm ` +
-        `at the equator); rim up, supports only under the plate, between the skirts |`,
+        `seats from inside the cup (holes ${SEAT.toFixed(2)} mm, a press fit: enlarge \`SEAT\` for a loose printer), ` +
+        `then a drop of thin CA glue each; they are static, the ball slides on them |`,
+    `| Cup | 1 | cup.stl, printed | PETG (the rim's fingers bend each time the ball goes in or out), 3 or more ` +
+        `perimeters (the wall is ${(OUTER - R - CLEAR).toFixed(1)} mm at the equator); rim up, supports only under the ` +
+        `plate, between the skirts |`,
     '| Module fasteners | 4 | M2 screws and 4 mm M2 standoffs | or M2 locating pins and 4 x 2 mm disc magnets: the mount ' +
         'takes either (ErgoCaiLib Ps4JoystickMount_Pogo); the module is fastened first, then the cup snaps on |',
     '',
@@ -268,13 +283,14 @@ const sections = ({cup, ball, supports, board}) => {
     }
     const s = 9
     view('section x-z through the axis (y = 0)', 'xz', 30, 40, s, [-17, -4, 17, 32])
-    view('section y-z through the axis (x = 0): the tabs, a support seat', 'yz', 380, 40, s, [-17, -4, 17, 32])
+    view('section y-z through the axis (x = 0): the tabs, a support seat, the rim', 'yz', 380, 40, s, [-17, -4, 17, 32])
     view(`z -2.0: the tabs' hooks`, -2.0, 30, 410, 6, [-16, -16, 17, 16])
     view('z 0.5: plate, pockets', 0.5, 260, 410, 6, [-16, -16, 17, 16])
     const zs = (supports.boundingBox().min[2] + supports.boundingBox().max[2]) / 2
     view(`z ${zs.toFixed(1)}: support balls`, zs, 490, 410, 6, [-16, -16, 17, 16])
-    view('the +y tab, x = 0', 'yz', 730, 410, 22, [10.5, -3, 15.5, 6.5])
-    const w = 1000, h = 640
+    view(`z ${(TOP - 0.5).toFixed(1)}: the rim's fingers`, TOP - 0.5, 720, 410, 6, [-16, -16, 17, 16])
+    view('the +y tab, x = 0', 'yz', 950, 410, 22, [10.5, -3, 15.5, 6.5])
+    const w = 1080, h = 640
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
         `<rect width="${w}" height="${h}" fill="white"/>${views.join('')}` +
         `<text x="30" y="${h - 12}" font-size="11" font-family="sans-serif">trackball/PMW3610-pogo cup (cup.js): ` +
