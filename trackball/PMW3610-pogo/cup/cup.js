@@ -18,10 +18,12 @@
 // What the numbers rest on:
 // - the ball's surface is 2.4 mm (2.2 to 2.6) from the lens's reference plane, its face toward the ball
 //   (PMW3610DM-SUDU datasheet, table 2);
-// - lens: that plane's height over the board's top. The LM18-LSI lens drawing is not at hand; 3.4 is what Cosmos
-//   Keyboards' trackball sockets take for a PMW3610 board with its lens (PMW_LENS_HEIGHT in its trackball-gen.ts).
-//   Measure it on the assembled board (a caliper from the board's top to the lens's top face) and build the cup
-//   for that height. Every height below follows from it;
+// - lens: that plane's height over the board's top. The LM18-LSI datasheet (PixArt PMS0039 R1.03, figure 2;
+//   https://github.com/ufan/pmw3610_breakout/blob/9bca482d2f900bf7c481b08167e90c663fe9e129/datasheet/lens-LM18-LSI.pdf) puts
+//   the tracking surface 8.35 mm from the sensor's pin reference plane, which rests on the lens through the board's
+//   aperture, and 2.4 mm from the lens's: the lens is 5.95 mm from one to the other. The leads' shoulder sits on the
+//   board's back, so on the 1.6 mm board the plane is 4.35 mm over the top (Cosmos Keyboards' PMW_LENS_HEIGHT, 3.4,
+//   is short of it). A caliper from the board's top to the lens's face checks it. Every height below follows from it;
 // - ball: 25 mm, a mini billiard ball; 0.5 mm round it, so the wall is 1.2 mm at the equator. The wall runs on
 //   past the equator to a rim 24.4 mm across, 0.6 mm less than the ball, cut into six fingers: the ball is pressed
 //   in past them (0.3 mm each, about 1.7 % strain: print it in PETG) and stays in with the keyboard upside down;
@@ -30,7 +32,8 @@
 //   cup, 50 degrees off the bottom, one opposite the lens's long side and two at 120 degrees from it. A seat
 //   cannot snap a ball in: its equator is only 0.75 mm (its radius less the ball's 0.5 mm room) inside the wall,
 //   which leaves a lip of about 0.1 mm. The seats point down and out, so a loose support ball stays put while the
-//   cup stands; a drop of thin CA glue fixes them for good (they slide, they do not turn);
+//   cup stands; a drop of thin CA glue fixes them for good (they slide, they do not turn), cured before the cup goes
+//   over the lens: it is polycarbonate, which CA attacks;
 // - the pocket in the floor clears the lens, the sensor's leads (trim them to 1.5 mm) and their solder; the pogo
 //   pins' tails stay under solder mask, flat, so the plate sits on them;
 // - the tabs: 10 mm long and 1 mm thick, cut free from the wall, bend the 0.4 mm their hooks reach under the board
@@ -43,7 +46,7 @@ const arg = (name, value) => {
     const i = process.argv.indexOf(`--${name}`)
     return i > 0 ? process.argv[i + 1] : value
 }
-const LENS = Number(arg('lens', 3.4))           // lens reference plane over the board's top
+const LENS = Number(arg('lens', 4.35))           // lens reference plane over the board's top
 const BALL = Number(arg('ball', 25))
 const SUPPORT = Number(arg('support', 2.5))      // support balls
 const OUT = arg('out', path.join(__dirname, 'cup.stl'))
@@ -232,10 +235,12 @@ const partsList = () => [
     `| Ball | 1 | ${BALL} mm | a mini billiard ball, or a ${BALL} mm replacement trackball ball; pressed in past the ` +
         `rim's fingers (${(2 * LIP.mouth).toFixed(1)} mm across), pried out to clean |`,
     '| Lens | 1 | PixArt LM18-LSI | the PMW3610\'s lens, bought with or beside the sensor; clips into the board\'s ' +
-        'aperture from the front, under the ball. Measure how far its top stands over the board: that is `--lens` |',
+        'aperture from the front, up against the sensor, under the ball (datasheet PMS0039: 5.95 mm from the ' +
+        'sensor\'s pin reference plane to its own) |',
     `| Support balls | 3 | ${SUPPORT} mm, silicon nitride (Si3N4) or zirconia (ZrO2) ceramic, or steel | pressed into the ` +
         `seats from inside the cup (holes ${SEAT.toFixed(2)} mm, a press fit: enlarge \`SEAT\` for a loose printer), ` +
-        `then a drop of thin CA glue each; they are static, the ball slides on them |`,
+        `then a drop of thin CA glue each, left to cure before the cup goes over the lens (the lens is polycarbonate, ` +
+        `which CA attacks); they are static, the ball slides on them |`,
     `| Cup | 1 | cup.stl, printed | PETG (the rim's fingers bend each time the ball goes in or out), 3 or more ` +
         `perimeters (the wall is ${(OUTER - R - CLEAR).toFixed(1)} mm at the equator); rim up, supports only under the ` +
         `plate, between the skirts |`,
@@ -243,7 +248,8 @@ const partsList = () => [
         'takes either (ErgoCaiLib Ps4JoystickMount_Pogo); the module is fastened first, then the cup snaps on |',
     '',
     `The ball's bottom sits ${BOTTOM.toFixed(2)} mm over the board: the lens's reference plane at ${LENS} mm plus ` +
-        `${Z_GAP} mm. ${LENS} mm is assumed; measure the lens and run \`node cup.js --lens <mm>\`.`,
+        `${Z_GAP} mm, from the lens's datasheet for a 1.6 mm board; for another, or what a caliper says, run ` +
+        `\`node cup.js --lens <mm>\`.`,
     '',
 ].join('\n')
 
