@@ -4,7 +4,9 @@
 // the board and its edges. The module is screwed down first (four M2 screws through H1..H4 into the mount's
 // standoffs); the cup clears the screw heads and two tabs hook under the board's top and bottom edges, so it comes
 // off again to clean the ball, the lens and the support balls.
-// Writes a binary STL in mm: z up, the board's top at z = 0, the ball's axis (the sensor's optical centre) at
+// Writes a binary STL in mm, sections.svg (the cup cut through the ball's axis both ways, in plan at a few heights,
+// and one snap tab, with the ball, the support balls and the board) and parts.md (what to buy besides the print).
+// The STL: z up, the board's top at z = 0, the ball's axis (the sensor's optical centre) at
 // x = y = 0, x as the board's x and y as the board's -y (KiCad's y points down), which is also KiCad's frame for a
 // footprint's 3D model. With --step, also a STEP of the cup with its ball and support balls in place, for the
 // footprint ErgoCaiLib TrackballCup_PMW3610-pogo that shows them on the module board (3D viewer, the module's .glb):
@@ -40,6 +42,8 @@ const BALL = Number(arg('ball', 25))
 const SUPPORT = Number(arg('support', 2.5))      // support balls
 const OUT = arg('out', path.join(__dirname, 'cup.stl'))
 const STEP = arg('step', '')
+const SECTIONS = arg('sections', path.join(__dirname, 'sections.svg'))
+const PARTS = arg('parts', path.join(__dirname, 'parts.md'))
 
 const Z_GAP = 2.4                                // reference plane to the ball's surface
 const CLEAR = 0.5                                // between the ball and the cup
@@ -133,6 +137,11 @@ const main = async () => {
         return [d * Math.sin(t) * Math.cos(p), d * Math.sin(t) * Math.sin(p), CENTRE - d * Math.cos(t)]
     })
     fs.writeFileSync(OUT, stl(cup))
+    const ball = Manifold.sphere(R, 96).translate([0, 0, CENTRE])
+    const supportBalls = Manifold.union(supports.map(s => Manifold.sphere(SUPPORT / 2, 24).translate(s)))
+    const boardSolid = slab(board(0), -BOARD.t, 0)
+    fs.writeFileSync(SECTIONS, sections({cup, ball, supports: supportBalls, board: boardSolid}))
+    fs.writeFileSync(PARTS, partsList())
     if (STEP) {
         // the 3D view's cup: printed white, a red ball (a mini billiard ball is 25 mm), grey ceramic support balls
         const parts = [{name: 'cup', solid: cup, rgb: [0.92, 0.92, 0.9]},
@@ -198,6 +207,78 @@ const step = (parts, title) => {
             `FILE_NAME('${title}.step','',(''),(''),'cup.js','manifold-3d','');`,
             `FILE_SCHEMA(('AP242_MANAGED_MODEL_BASED_3D_ENGINEERING_MIM_LF { 1 0 10303 442 1 1 4 }'));`, 'ENDSEC;',
             'DATA;', ...out, 'ENDSEC;', 'END-ISO-10303-21;', ''].join('\n')
+}
+
+// What to buy besides the print, from the numbers above
+const partsList = () => [
+    '# Trackball cup: the parts besides the print',
+    '',
+    'Written by cup.js with the cup (cup.stl) and its drawing (sections.svg); run it again after changing a number.',
+    'The module board itself is in the KiCad BOM of PMW3610-pogo.',
+    '',
+    '| Part | Qty | What | Notes |',
+    '|---|---|---|---|',
+    `| Ball | 1 | ${BALL} mm | a mini billiard ball, or a ${BALL} mm replacement trackball ball |`,
+    `| Support balls | 3 | ${SUPPORT} mm, silicon nitride (Si3N4) or zirconia (ZrO2) ceramic, or steel | pressed into the ` +
+        `seats from inside the cup (holes ${SEAT.toFixed(2)} mm, a press fit: enlarge \`SEAT\` for a loose printer); ` +
+        `they are static, the ball slides on them |`,
+    `| Cup | 1 | cup.stl, printed | PETG or PLA, 3 or more perimeters (the wall is ${(OUTER - R - CLEAR).toFixed(1)} mm ` +
+        `at the equator); rim up, supports only under the plate, between the skirts |`,
+    '| Module fasteners | 4 | M2 screws and 4 mm M2 standoffs | or M2 locating pins and 4 x 2 mm disc magnets: the mount ' +
+        'takes either (ErgoCaiLib Ps4JoystickMount_Pogo); the module is fastened first, then the cup snaps on |',
+    '',
+    `The ball's bottom sits ${BOTTOM.toFixed(2)} mm over the board: the lens's reference plane at ${LENS} mm plus ` +
+        `${Z_GAP} mm. ${LENS} mm is assumed; measure the lens and run \`node cup.js --lens <mm>\`.`,
+    '',
+].join('\n')
+
+// The drawing: sections through the ball's axis (x-z at y = 0, y-z at x = 0), plans at a few heights, and one snap
+// tab enlarged; the cup grey, the ball red, the support balls dark, the board green. mm, z up.
+const sections = ({cup, ball, supports, board}) => {
+    const views = []
+    // a solid's polygons on a plane: 'xz' (y = 0), 'yz' (x = 0) or a height; in drawing coordinates (right, up)
+    const cut = (solid, plane) => {
+        if (plane === 'xz') return solid.rotate([90, 0, 0]).slice(0).toPolygons().map(p => p.map(([a, b]) => [a, -b]))
+        if (plane === 'yz') return solid.rotate([0, 0, -90]).rotate([90, 0, 0]).slice(0).toPolygons().map(p => p.map(([a, b]) => [a, -b]))
+        return solid.slice(plane).toPolygons()
+    }
+    const colours = [['board', '#7c7', 0.7], ['cup', '#bcc4cc', 1], ['supports', '#445', 1], ['ball', '#d33', 0.35]]
+    const view = (title, plane, x0, y0, scale, window) => {
+        const [wx0, wy0, wx1, wy1] = window                  // the part of the plane shown, mm
+        const px = (x) => x0 + (x - wx0) * scale, py = (y) => y0 + (wy1 - y) * scale
+        const solids = {cup, ball, supports, board}
+        let out = `<g><text x="${x0}" y="${y0 - 8}" font-size="13" font-family="sans-serif">${title}</text>` +
+            `<clipPath id="c${views.length}"><rect x="${x0}" y="${y0}" width="${(wx1 - wx0) * scale}" height="${(wy1 - wy0) * scale}"/></clipPath>` +
+            `<g clip-path="url(#c${views.length})">`
+        for (const [name, fill, opacity] of colours) {
+            const polys = cut(solids[name], plane)
+            if (!polys.length) continue
+            const d = polys.map(p => 'M' + p.map(([x, y]) => `${px(x).toFixed(1)},${py(y).toFixed(1)}`).join('L') + 'Z').join(' ')
+            out += `<path d="${d}" fill="${fill}" fill-opacity="${opacity}" stroke="#334" stroke-width="0.5" fill-rule="evenodd"/>`
+        }
+        if (typeof plane === 'string') {                     // the heights that set the ball's place
+            for (const [z, label] of [[0, 'board top'], [LENS, `lens ${LENS}`], [BOTTOM, `ball bottom ${BOTTOM.toFixed(1)}`], [CENTRE, `centre ${CENTRE.toFixed(1)}`]]) {
+                if (z < wy0 || z > wy1) continue
+                out += `<line x1="${px(wx0)}" x2="${px(wx1)}" y1="${py(z)}" y2="${py(z)}" stroke="#36c" stroke-width="0.6" stroke-dasharray="4 3"/>` +
+                    `<text x="${px(wx1) - 4}" y="${py(z) - 3}" font-size="10" font-family="sans-serif" text-anchor="end" fill="#36c">${label}</text>`
+            }
+        }
+        out += '</g></g>'
+        views.push(out)
+    }
+    const s = 9
+    view('section x-z through the axis (y = 0)', 'xz', 30, 40, s, [-17, -4, 17, 32])
+    view('section y-z through the axis (x = 0): the tabs, a support seat', 'yz', 380, 40, s, [-17, -4, 17, 32])
+    view(`z -2.0: the tabs' hooks`, -2.0, 30, 410, 6, [-16, -16, 17, 16])
+    view('z 0.5: plate, pockets', 0.5, 260, 410, 6, [-16, -16, 17, 16])
+    const zs = (supports.boundingBox().min[2] + supports.boundingBox().max[2]) / 2
+    view(`z ${zs.toFixed(1)}: support balls`, zs, 490, 410, 6, [-16, -16, 17, 16])
+    view('the +y tab, x = 0', 'yz', 730, 410, 22, [10.5, -3, 15.5, 6.5])
+    const w = 1000, h = 640
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
+        `<rect width="${w}" height="${h}" fill="white"/>${views.join('')}` +
+        `<text x="30" y="${h - 12}" font-size="11" font-family="sans-serif">trackball/PMW3610-pogo cup (cup.js): ` +
+        `grey the cup, red the ${BALL} mm ball, dark the ${SUPPORT} mm support balls, green the module board; mm</text></svg>\n`
 }
 
 // binary STL, as ergogen writes its cases
