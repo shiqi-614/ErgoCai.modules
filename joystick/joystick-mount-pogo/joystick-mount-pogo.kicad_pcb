@@ -84,7 +84,7 @@
 	(net 4 "ADC_JT1")
 	(net 5 "GPIO_JT_VCC")
 	(net 6 "GPIO_JT_CS")
-	(footprint "ErgoCai.pretty:Pogo_ModuleMount"
+	(footprint "ErgoCai.pretty:Pogo_ModuleMount_1x6_P2.54mm"
 		(layer "F.Cu")
 		(uuid "40da2c2e-1ae8-452c-9711-2ba7f77f6429")
 		(at 0 0)
@@ -100,7 +100,7 @@
 				)
 			)
 		)
-		(property "Value" "Pogo_ModuleMount"
+		(property "Value" "Pogo_ModuleMount_1x6_P2.54mm"
 			(at -0.0254 12.1158 0)
 			(unlocked yes)
 			(layer "F.Fab")

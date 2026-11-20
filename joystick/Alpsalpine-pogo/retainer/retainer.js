@@ -45,7 +45,7 @@
 //   manifold-3d (npm install in this folder; or MANIFOLD=<a node_modules folder that has it>)
 //
 // What the numbers rest on (the board and its holes: joystick/Alpsalpine-pogo; the case: ErgoCai.ts):
-// - the board: x -14.5..14.5, y -13.0..13.0, 1.6 mm, holes at (+-12.35, +-10.85), as the mount (Pogo_ModuleMount);
+// - the board: x -14.5..14.5, y -13.0..13.0, 1.6 mm, holes at (+-12.35, +-10.85), as the mount (Pogo_ModuleMount_1x6_P2.54mm);
 // - its top is taken by the stick (its outline, from the footprint's silkscreen, -10.0..8.25 by -11.75..10.0), and
 //   by the pins' solder at x 9.6..12.4, |y| < 7.5: the frame stays outside those, but for the feet;
 // - the case's opening, from the mount's courtyard (-14.6..14.6 by -13.1..13.1) grown by 1.5: -16.1..16.1 by

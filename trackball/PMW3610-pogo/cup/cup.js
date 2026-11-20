@@ -83,7 +83,7 @@ const OUTER = STYLE === 'seat' ? BALL / 2 + CLEAR + 1.5 : 14.2
 const LIP = {mouth: 12.2, fingers: 6, slit: 0.8, below: 2}   // the rim's radius; slits from 2 mm under the equator
 // the module board: its outline (KiCad's frame, round the holes' centres at the corners) and thickness
 const BOARD = {x0: -14.5, x1: 14.5, y0: -13.0, y1: 13.0, r: 2.15, t: 1.6}
-// the screws' holes: the module board's (tabs, cartridge: the mount's, ErgoCaiLib Pogo_ModuleMount), or the cup's own
+// the screws' holes: the module board's (tabs, cartridge: the mount's, ErgoCaiLib Pogo_ModuleMount_1x6_P2.54mm), or the cup's own
 // in the keyboard board (screws); where an M2 head (3.8 mm) and its driver stay clear of the seat's wall (OUTER): 16.4 mm
 // or more from the axis
 const HOLES = FIX === 'screws' ? [[-11.8, 11.8], [12.35, 11.8], [-11.8, -11.8], [12.35, -11.8]]
@@ -473,7 +473,7 @@ const partsList = () => [
           (FIX === 'tabs' ? `, supports only under the plate, between the skirts |` : `, flat on the plate: no supports |`),
     FIX === 'tabs'
         ? '| Module fasteners | 4 | M2 screws and 4 mm M2 standoffs | or M2 locating pins and 4 x 2 mm disc magnets: the mount ' +
-          'takes either (ErgoCaiLib Pogo_ModuleMount); the module is fastened first, then the cup snaps on |'
+          'takes either (ErgoCaiLib Pogo_ModuleMount_1x6_P2.54mm); the module is fastened first, then the cup snaps on |'
         : FIX === 'cartridge'
         ? `| Inserts | 4 | M2 heat-set inserts (M2 x 3 x 3.2) | melted into the base's spacers from above |\n` +
           `| Screws | 4 | M2 x ${CART.top.length} countersunk (DIN 965 / ISO 7046) | the module board in the frame, on the base: ` +
