@@ -6763,7 +6763,7 @@
 			)
 		)
 	)
-	(text "Pad k = panel pin 25-k (FPC folded 180 deg onto the back)"
+	(text "Pad k = panel pin 25-k (AFC24 numbering, not the fold)"
 		(exclude_from_sim no)
 		(at 119.38 101.6 0)
 		(effects
@@ -8185,7 +8185,7 @@
 		)
 		(uuid "cdd4cddd-30c2-58bd-bc68-244d8507a30e")
 	)
-	(text "NOTES\n1. GDEY0213B74: SSD1680, 250x122, VCI 2.2-3.7V (3.3V here).\n   BS1 = GND -> 4-wire SPI, so EP_DC is required.\n2. Boost/charge pump = Good Display reference circuit:\n   L1 47uH (Isat >= 0.4A), Q1 Si1308EDL (alt. AO3400A, SOT-23),\n   D1-D3 MBR0530, R1 1M gate pull-down, R2 2.2 ohm RESE sense.\n   (2.2 ohm + 47uH suit SSD ICs; UC ICs use 0.47 ohm + 10uH.)\n3. Caps on PREVGH/PREVGL/VSH/VSL/VCOM must be rated >= 25V\n   (1uF/50V X5R; C8/C9 4.7uF/25V X5R).\n4. Pins 1/4 (NC), 6/7 (TSCL/TSDA), 19 (VPP) are left open.\n5. Stack-up: panel taped to the FRONT, every part on the BACK.\n   The panel FPC wraps 180 deg around the board edge into\n   EP_FPC1, so its gold fingers face AWAY from the PCB:\n   EP_FPC1 must be top- or dual-contact. AFC24-S24FIA-00 is\n   dual-contact, front-insert / rear-flip: the FPC enters on\n   the side opposite the pads, so face that side to the edge.\n   A bottom-contact socket (e.g. AFC01) won't mate.\n   Because of the fold, connector pad k = panel pin 25-k.\n6. EP_FPC2 mates e-paper/2.13inch-socket pin for pin. Upright board:\n   panel FPC fold at the top, EP_FPC2 on the back at the bottom (tail)\n   end, centred, FFC exiting past the 18650: fits both keyboard halves.\n7. Keep the L1/Q1/R2/C8 loop tight; route PREVGH/PREVGL/VCOM\n   short and away from EP_CLK/EP_DIN; solid GND on the back.\n8. EP_RGB1 is on the FRONT, centred below the panel; R3 (data\n   series R, may be 0R) and C11 stay on the back. SK6805: 3.5-5.5V."
+	(text "NOTES\n1. GDEY0213B74: SSD1680, 250x122, VCI 2.2-3.7V (3.3V here).\n   BS1 = GND -> 4-wire SPI, so EP_DC is required.\n2. Boost/charge pump = Good Display reference circuit:\n   L1 47uH (Isat >= 0.4A), Q1 Si1308EDL (alt. AO3400A: SOT-23 pads),\n   D1-D3 MBR0530, R1 1M gate pull-down, R2 2.2 ohm RESE sense.\n   (2.2 ohm + 47uH suit SSD ICs; UC ICs use 0.47 ohm + 10uH.)\n3. Caps on PREVGH/PREVGL/VSH/VSL/VCOM must be rated >= 25V\n   (1uF/50V X5R; C8/C9 4.7uF/25V X5R).\n4. Pins 1/4 (NC), 6/7 (TSCL/TSDA), 19 (VPP) are left open.\n5. Stack-up: panel taped to the FRONT, every part on the BACK.\n   The panel FPC wraps 180 deg around the board edge into\n   EP_FPC1, so its gold fingers face AWAY from the PCB:\n   EP_FPC1 must be top- or dual-contact. AFC24-S24FIA-00 is\n   dual-contact, front-insert / rear-flip: the FPC enters on\n   the side opposite the pads, so face that side to the edge.\n   A bottom-contact socket (e.g. AFC01) won't mate.\n   Pad k = panel pin 25-k by AFC24 numbering; the fold keeps order.\n6. EP_FPC2 mates e-paper/2.13inch-socket pin for pin. Upright board:\n   panel FPC fold at the top, EP_FPC2 on the back at the bottom (tail)\n   end, centred, FFC exiting past the 18650: fits both keyboard halves.\n7. Keep the L1/Q1/R2/C8 loop tight; route PREVGH/PREVGL/VCOM\n   short and away from EP_CLK/EP_DIN; solid GND on the back.\n8. EP_RGB1 is on the FRONT, centred below the panel; R3 (data\n   series R, may be 0R) and C11 stay on the back. SK6805: 3.5-5.5V."
 		(exclude_from_sim no)
 		(at 116.84 116.84 0)
 		(effects
