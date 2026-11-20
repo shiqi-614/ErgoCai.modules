@@ -1,0 +1,11 @@
+{
+  "name": "joystick-retainer",
+  "private": true,
+  "description": "The joystick module's retainer frame and base, written as STL and glTF by retainer.js",
+  "scripts": {
+    "build": "node retainer.js --glb retainer.glb"
+  },
+  "dependencies": {
+    "manifold-3d": "^3.5.5"
+  }
+}
