@@ -84,6 +84,259 @@
 	(net 4 "ADC_JT1")
 	(net 5 "GPIO_JT_VCC")
 	(net 6 "GPIO_JT_CS")
+	(footprint "ErgoCai.pretty:Pogo_ModuleMount"
+		(layer "F.Cu")
+		(uuid "40da2c2e-1ae8-452c-9711-2ba7f77f6429")
+		(at 0 0)
+		(property "Reference" "JOYSTICK_H1"
+			(at 0.1524 10.6172 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "a658321a-43d8-4a91-864c-381dc2b83bd3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "Pogo_ModuleMount"
+			(at -0.0254 12.1158 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "ae7b8f28-358c-4645-aaba-effb958abd19")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "293278ff-0f21-42eb-a939-3fc9ba7b9364")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "A pogo module's place on the keyboard board (joystick/Alpsalpine-pogo, trackball/PMW3610-pogo, by joystick/joystick-mount-pogo): the module in its printed cartridge (the joystick's retainer, the trackball's seat), whose base stands on this board with a spigot in each of the four 2.2 mm holes, at (+-12.35, +-10.85), the same both sides so all four screws go in from the top, clear of a trackball's ball seat (16.4 mm off the axis). Or the module on four 4 mm M2 standoffs, or on M2 locating pins at the PIN corners and a 4 x 2 mm disc magnet pair at each MAG corner (north up on this board). The courtyard is what the case opens round. No 3D model of the module here: the config's assemblies place it as a part of its own (ErgoCai.modules joystick/Alpsalpine-pogo/Alpsalpine-pogo.glb, trackball/PMW3610-pogo/PMW3610-pogo.glb)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a57552bf-67c2-4b24-8685-edadaaba2c6e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(path "/ff091071-59e6-4c0b-b2b5-3ce3bc7dc608")
+		(sheetname "/")
+		(sheetfile "joystick-mount-pogo.kicad_sch")
+		(attr exclude_from_pos_files exclude_from_bom)
+		(fp_circle
+			(center -12.35 10.85)
+			(end -10.25 10.85)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "79e0dca0-51de-42d3-95ac-a53f900244e7")
+		)
+		(fp_circle
+			(center 12.35 -10.85)
+			(end 14.45 -10.85)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "5d23f10d-e68f-49f8-a33f-7667cd58a63f")
+		)
+		(fp_circle
+			(center -12.35 -10.85)
+			(end -10.45 -10.85)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(fill no)
+			(layer "Cmts.User")
+			(uuid "9792a21c-8503-48da-af19-098d81c66937")
+		)
+		(fp_circle
+			(center -12.35 10.85)
+			(end -10.45 10.85)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(fill no)
+			(layer "Cmts.User")
+			(uuid "6e8be31d-9b70-4516-9bd4-1539030119ce")
+		)
+		(fp_circle
+			(center 12.35 -10.85)
+			(end 14.25 -10.85)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(fill no)
+			(layer "Cmts.User")
+			(uuid "b07eec0b-4f49-4970-a0ad-64ee366a16c0")
+		)
+		(fp_circle
+			(center 12.35 10.85)
+			(end 14.25 10.85)
+			(stroke
+				(width 0.15)
+				(type solid)
+			)
+			(fill no)
+			(layer "Cmts.User")
+			(uuid "e1875596-2302-4466-a885-a112a3f799ad")
+		)
+		(fp_rect
+			(start -14.6 -13.1)
+			(end 14.6 13.1)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "b66423e3-7e8c-4d40-abd2-cdb510c97c55")
+		)
+		(fp_circle
+			(center -12.35 -10.85)
+			(end -10.2 -10.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "0be73f1b-cbb8-436a-acf4-6f601f54d6d2")
+		)
+		(fp_circle
+			(center -12.35 10.85)
+			(end -10.2 10.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "0befec4c-0b8c-4910-b70e-a7b2160e92ac")
+		)
+		(fp_circle
+			(center 12.35 -10.85)
+			(end 14.5 -10.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "955ecb21-a660-4796-89bc-901226fa8091")
+		)
+		(fp_circle
+			(center 12.35 10.85)
+			(end 14.5 10.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "1a00f264-ce82-47b7-97b9-431bc56193f0")
+		)
+		(fp_text user "MAG"
+			(at -8.05 10.85 0)
+			(layer "F.SilkS")
+			(uuid "38cced86-fa60-468a-a867-98ee3dd6a86d")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "PIN"
+			(at 8.05 10.85 0)
+			(layer "F.SilkS")
+			(uuid "4edd8ec5-f4d8-4e43-bd93-10553dbeeb07")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "MAG"
+			(at 8.05 -10.85 0)
+			(layer "F.SilkS")
+			(uuid "c3798131-77aa-4f93-a4ae-12ce12b9647f")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.12)
+				)
+			)
+		)
+		(fp_text user "PIN"
+			(at -8.05 -10.85 0)
+			(layer "F.SilkS")
+			(uuid "c8ba8e86-41ab-462f-b70f-a3781f422008")
+			(effects
+				(font
+					(size 0.8 0.8)
+					(thickness 0.12)
+				)
+			)
+		)
+		(pad "" np_thru_hole circle
+			(at -12.35 -10.85)
+			(size 2.2 2.2)
+			(drill 2.2)
+			(layers "*.Cu" "*.Mask")
+			(uuid "bcbb37af-b9df-4ff1-97b8-45a3a3c4c234")
+		)
+		(pad "" np_thru_hole circle
+			(at -12.35 10.85)
+			(size 2.2 2.2)
+			(drill 2.2)
+			(layers "*.Cu" "*.Mask")
+			(uuid "f337c400-ad61-4188-adcf-b02b32e7fc95")
+		)
+		(pad "" np_thru_hole circle
+			(at 12.35 -10.85)
+			(size 2.2 2.2)
+			(drill 2.2)
+			(layers "*.Cu" "*.Mask")
+			(uuid "f5d30b63-384a-422f-9f85-520cda447327")
+		)
+		(pad "" np_thru_hole circle
+			(at 12.35 10.85)
+			(size 2.2 2.2)
+			(drill 2.2)
+			(layers "*.Cu" "*.Mask")
+			(uuid "f260d58b-3575-4166-b7e6-a4cea7a46e9f")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "ErgoCai.pretty:Pogo_Target_1x6_P2.54mm"
 		(layer "F.Cu")
 		(uuid "592aa874-6d58-4918-a4f9-dbcca27ee69f")
@@ -224,259 +477,6 @@
 			(layers "F.Cu" "F.Mask")
 			(net 1 "GND")
 			(uuid "da42ac1d-e3aa-4f01-a941-36d7b3ac7852")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "ErgoCai.pretty:Ps4JoystickMount_Pogo"
-		(layer "F.Cu")
-		(uuid "8bd5b2be-f01a-48c9-beb0-b06ab310e2a2")
-		(at 0 0)
-		(property "Reference" "JOYSTICK_H1"
-			(at 0.1524 10.6172 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(uuid "8d2431ec-e8c1-4f4b-9d28-3ef400acd0c1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.1)
-				)
-			)
-		)
-		(property "Value" "MountingHole"
-			(at -0.0254 12.1158 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(uuid "af8e3a64-bb5f-498b-9f4d-d368fc0798b3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "e28200c4-dd72-4bc5-bf09-23d03ed55dc1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "A pogo module (joystick/Alpsalpine-pogo, trackball/PMW3610-pogo) on 4 mm: four M2 standoffs and screws, or M2 locating pins at the PIN corners (on 4 mm spacers) and a 4 x 2 mm disc magnet pair at each MAG corner (north up on this board), the magnets 4 mm together. No 3D model of the module here: the config's assemblies place it as a part of its own (ErgoCai.modules joystick/Alpsalpine-pogo/Alpsalpine-pogo.glb, trackball/PMW3610-pogo/PMW3610-pogo.glb)"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9c01b6e3-04f7-4f51-9034-11fe08254ddf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(path "/ff091071-59e6-4c0b-b2b5-3ce3bc7dc608")
-		(sheetname "/")
-		(sheetfile "joystick-mount-pogo.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
-		(fp_circle
-			(center -10.85 10.85)
-			(end -8.75 10.85)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.SilkS")
-			(uuid "47ead7d5-52a2-487a-9ab8-585995127498")
-		)
-		(fp_circle
-			(center 12.35 -10.85)
-			(end 14.45 -10.85)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.SilkS")
-			(uuid "9289dfb6-9032-4516-8464-91878a5db889")
-		)
-		(fp_circle
-			(center -10.85 -10.85)
-			(end -8.95 -10.85)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "2ad9cd1d-e0dc-46c5-a1f6-2116bed2845f")
-		)
-		(fp_circle
-			(center -10.85 10.85)
-			(end -8.95 10.85)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "1cae1f67-86e7-486b-841d-2f58bcec4cd1")
-		)
-		(fp_circle
-			(center 12.35 -10.85)
-			(end 14.25 -10.85)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "f7c3f812-7604-43d9-b0e2-b82f7e1ad7d2")
-		)
-		(fp_circle
-			(center 12.35 10.85)
-			(end 14.25 10.85)
-			(stroke
-				(width 0.15)
-				(type solid)
-			)
-			(fill no)
-			(layer "Cmts.User")
-			(uuid "c72899c1-1553-409f-b625-869414528942")
-		)
-		(fp_rect
-			(start -13.1 -13.1)
-			(end 14.6 13.1)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "407d7e10-adfe-44f7-ac97-14af52e521df")
-		)
-		(fp_circle
-			(center -10.85 -10.85)
-			(end -8.7 -10.85)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "cc53546d-59d5-4be3-a2b8-942bfb51491d")
-		)
-		(fp_circle
-			(center -10.85 10.85)
-			(end -8.7 10.85)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "d36cc03e-11ad-4094-82cb-7478b916bfe7")
-		)
-		(fp_circle
-			(center 12.35 -10.85)
-			(end 14.5 -10.85)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "0984b508-7d29-463e-9155-808c5071b608")
-		)
-		(fp_circle
-			(center 12.35 10.85)
-			(end 14.5 10.85)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "fc52f91c-5d58-4a76-9462-9ac0cb122b66")
-		)
-		(fp_text user "MAG"
-			(at 8.05 -10.85 0)
-			(layer "F.SilkS")
-			(uuid "091733e2-4bb6-4809-9ad7-166aee4afcbf")
-			(effects
-				(font
-					(size 0.8 0.8)
-					(thickness 0.12)
-				)
-			)
-		)
-		(fp_text user "MAG"
-			(at -6.55 10.85 0)
-			(layer "F.SilkS")
-			(uuid "4d951b5f-00fc-4806-b4f9-8e20df4a23db")
-			(effects
-				(font
-					(size 0.8 0.8)
-					(thickness 0.12)
-				)
-			)
-		)
-		(fp_text user "PIN"
-			(at 8.05 10.85 0)
-			(layer "F.SilkS")
-			(uuid "8a1339ba-7bb7-4a3a-8dc5-85c102c3bd57")
-			(effects
-				(font
-					(size 0.8 0.8)
-					(thickness 0.12)
-				)
-			)
-		)
-		(fp_text user "PIN"
-			(at -6.55 -10.85 0)
-			(layer "F.SilkS")
-			(uuid "d8d0535d-ccb0-4f23-a3e6-48d645a1a5a8")
-			(effects
-				(font
-					(size 0.8 0.8)
-					(thickness 0.12)
-				)
-			)
-		)
-		(pad "" np_thru_hole circle
-			(at -10.85 -10.85)
-			(size 2.2 2.2)
-			(drill 2.2)
-			(layers "*.Cu" "*.Mask")
-			(uuid "0e304ccf-e944-47b9-b2c9-0677d1e86b9a")
-		)
-		(pad "" np_thru_hole circle
-			(at -10.85 10.85)
-			(size 2.2 2.2)
-			(drill 2.2)
-			(layers "*.Cu" "*.Mask")
-			(uuid "0cfbf650-e0ae-4fde-a502-c2b29fea99d7")
-		)
-		(pad "" np_thru_hole circle
-			(at 12.35 -10.85)
-			(size 2.2 2.2)
-			(drill 2.2)
-			(layers "*.Cu" "*.Mask")
-			(uuid "c103f152-e260-420e-a963-5d3558b11e0f")
-		)
-		(pad "" np_thru_hole circle
-			(at 12.35 10.85)
-			(size 2.2 2.2)
-			(drill 2.2)
-			(layers "*.Cu" "*.Mask")
-			(uuid "4c6faa91-2306-44cb-bf81-fead241ed767")
 		)
 		(embedded_fonts no)
 	)

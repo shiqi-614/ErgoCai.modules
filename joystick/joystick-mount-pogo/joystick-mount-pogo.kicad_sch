@@ -287,7 +287,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:Ps4JoystickMount_Pogo"
+		(property "Footprint" "ErgoCai.pretty:Pogo_ModuleMount"
 			(at 77.47 86.36 0)
 			(effects
 				(font

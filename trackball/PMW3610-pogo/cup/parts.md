@@ -10,8 +10,8 @@ The module board itself is in the KiCad BOM of PMW3610-pogo.
 | Small balls | 7 | 2 mm, PTFE (as the seat's makers use them), or ceramic | three supports pressed half into the wall under the ball (holes 1.95 mm, a press fit), four that hold the ball down dropped into the lugs' holes from above once the ball is in (take them out to take the ball out); no glue: PTFE takes none, and the lens is polycarbonate, which CA attacks |
 | Cup and frame | 1 | cup.stl, printed | PETG (the arms bend as the cartridge snaps under the case's top layer), 3 or more perimeters; the frame's bottom down, supports under the plinth (the rim goes 1.6 mm further down, round the board) and under the arms |
 | Base | 1 | base.stl, printed | PETG or PLA; the plate down, flat: no supports |
-| Inserts | 4 | M2 heat-set inserts (M2 x 3 x 3.2) | two melted into the cup's -x bosses from below, two into the base's +x spacers from above |
-| Screws | 2 + 2 | M2 x 6 (pan heads), M2 x 12 countersunk (DIN 965) | the module board in the frame, on the base: the M2 x 6 up from under the base at -x, through the spacers and the board into the cup's inserts (their heads sunk in the base's bottom), then the M2 x 12 down through the cup's +x corners and the board into the spacers' inserts; the base's spigots go into the keyboard board's mount holes, and the frame's arms snap under the case's top layer: no screws into the keyboard |
+| Inserts | 4 | M2 heat-set inserts (M2 x 3 x 3.2) | melted into the base's spacers from above |
+| Screws | 4 | M2 x 12 countersunk (DIN 965 / ISO 7046) | the module board in the frame, on the base: down through the cup's corners and the board into the spacers' inserts, their heads flush; the base's spigots go into the keyboard board's mount holes, and the frame's arms snap under the case's top layer: no screws into the keyboard |
 
 The ball's bottom sits 6.75 mm over the board: the lens's reference plane at 4.35 mm plus 2.4 mm, from the lens's datasheet for a 1.6 mm board; for another, or what a caliper says, run `node cup.js --lens <mm>`.
 

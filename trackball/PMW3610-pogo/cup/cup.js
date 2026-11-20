@@ -1,6 +1,6 @@
 // The ball cup of the trackball module (trackball/PMW3610-pogo): printed, it snaps onto the module board's front and
 // holds the ball over the sensor's lens on three small support balls. It stays inside the case's opening for the
-// joystick mount (the mount's courtyard, -13.1..14.6 by -13.1..13.1, grown by 1.5): 28.4 mm round, with a plate over
+// joystick mount (the mount's courtyard, -14.6..14.6 by -13.1..13.1, grown by 1.5): 28.4 mm round, with a plate over
 // the board and its edges. The module is screwed down first (four M2 screws through H1..H4 into the mount's
 // standoffs); the cup clears the screw heads and two tabs hook under the board's top and bottom edges, so it comes
 // off again to clean the ball, the lens and the support balls.
@@ -82,29 +82,29 @@ const AZIMUTHS = [90, 210, 330]                  // and round the axis (90: +y, 
 const OUTER = STYLE === 'seat' ? BALL / 2 + CLEAR + 1.5 : 14.2
 const LIP = {mouth: 12.2, fingers: 6, slit: 0.8, below: 2}   // the rim's radius; slits from 2 mm under the equator
 // the module board: its outline (KiCad's frame, round the holes' centres at the corners) and thickness
-const BOARD = {x0: -13.0, x1: 14.5, y0: -13.0, y1: 13.0, r: 2.15, t: 1.6}
-// the screws' holes: the module board's (tabs), or the cup's own in the keyboard board (screws), where an M2 head
-// (3.8 mm) stays clear of the cup's wall (OUTER): 16.4 mm or more from the axis; -10.85 was 15.3
+const BOARD = {x0: -14.5, x1: 14.5, y0: -13.0, y1: 13.0, r: 2.15, t: 1.6}
+// the screws' holes: the module board's (tabs, cartridge: the mount's, ErgoCaiLib Pogo_ModuleMount), or the cup's own
+// in the keyboard board (screws); where an M2 head (3.8 mm) and its driver stay clear of the seat's wall (OUTER): 16.4 mm
+// or more from the axis
 const HOLES = FIX === 'screws' ? [[-11.8, 11.8], [12.35, 11.8], [-11.8, -11.8], [12.35, -11.8]]
-                               : [[-10.85, 10.85], [12.35, 10.85], [-10.85, -10.85], [12.35, -10.85]]
+                               : [[-12.35, 10.85], [12.35, 10.85], [-12.35, -10.85], [12.35, -10.85]]
 // --fix cartridge, as joystick/Alpsalpine-pogo/retainer/retainer.js has it (its comments say what each rests on): the
 // keyboard board's top over the case's bottom, the board 3.8 mm over it on the base's spacers (the pins at 3.8 mm),
 // the case's top layer 18..21 and its opening, the mount's courtyard the case cuts round
 const CART = {
     keyboardTop: 8.0, spacer: 3.8, clamp: 0.1, caseTop: 21.0, ledge: 18.0,
-    opening: {x0: -14.6, x1: 16.1, y: 14.6}, courtyard: {x0: -13.1, x1: 14.6, y: 13.1, grown: 1.5},
+    opening: {x0: -16.1, x1: 16.1, y: 14.6}, courtyard: {x0: -14.6, x1: 14.6, y: 13.1, grown: 1.5},
     spacerD: 5.2, spigot: 2.15, spigotH: 1.2, chamfer: 0.2,
-    insert: {length: 3.0, hole: 3.2, extra: 0.2},               // M2 x 3 x 3.2, in the +x spacers' tops
+    insert: {length: 3.0, hole: 3.2, extra: 0.2},               // M2 x 3 x 3.2, in the spacers' tops
     plate: {t: 1.0, inset: 0.3, r: 2.15, pads: {x0: 9.4, x1: 12.6, y: 8.0}},
     rim: {gap: 0.15, wall: 1.0, z0: -1.6},
     arm: {root: 9.0, free: -7.0, z0: 0.4, post: 1.5}, hook: {length: 4.0, reach: 1.0, ramp: 0.7, flat: 0.5},
     lever: {length: 4.0, t: 1.5, over: 1.5}, slot: 0.5, grip: {ribs: 2, rib: 0.2, pitch: 0.35, depth: 0.3},
     bend: 1.2,                                                   // the arms' room to bend in, past the rim's inside
     solder: {x0: 9.4, x1: 12.6, y: 8.0, h: 1.0},                // the pogo pins' solder on the board's top
-    // the screws: the two at +x (16.4 mm off the ball's axis, past the shell) countersunk down through the cup's
-    // bosses and the board into the inserts in the spacers; the two at -x (15.3 mm off it, where a driver would hit
-    // the shell) up from under the base, through the spacers, into inserts in the cup's bosses
-    top: {length: 12, clear: 2.3, head: 3.8}, under: {length: 6, clear: 2.3, head: 4.2, sink: 2.0},
+    // the screws: all four (16.4 mm off the ball's axis, past the shell) countersunk down through the cup's bosses
+    // and the board into the inserts in the spacers, as the retainer's
+    top: {length: 12, clear: 2.3, head: 3.8, way: 0.4},
 }
 const HEAD = {d: 4.4, h: 2.0}                    // pockets for the screw heads (M2 pan or DIN 965 heads)
 const STANDOFF = 3.0                             // the skirts keep this far from the holes' centres (standoffs 2.51)
@@ -216,10 +216,11 @@ const main = async () => {
     cut.push(Manifold.sphere(R + CLEAR, SEGMENTS).translate([0, 0, CENTRE]))
     cut.push(Manifold.cube([POCKET.x1 - POCKET.x0, POCKET.y1 - POCKET.y0, BOTTOM + 0.01])
         .translate([POCKET.x0, -POCKET.y1, -0.01]))       // KiCad's y range, flipped
-    cut.push(slab(board(SKIRT.gap), -BOARD.t - SKIRT.gap, 0))   // the board itself, and room round it
+    if (FIX !== 'screws') cut.push(slab(board(SKIRT.gap), -BOARD.t - SKIRT.gap, 0))   // the module board, and room round it
     // the module's screw heads under the plate (tabs), or the cup's own screws through it (screws), or its inserts
-    for (const [x, y] of HOLES) cut.push(FIX === 'tabs' ? near(HEAD.d, x, y, -0.1, HEAD.h)
-        : STYLE === 'seat' ? (FIX === 'cartridge' && x > 0 ? near(0.1, x, y, -0.1, 0) : near(INSERT.hole, x, y, -0.1, INSERT.depth))
+    // (cartridge: the screws' clearance and countersinks below)
+    if (FIX !== 'cartridge') for (const [x, y] of HOLES) cut.push(FIX === 'tabs' ? near(HEAD.d, x, y, -0.1, HEAD.h)
+        : STYLE === 'seat' ? near(INSERT.hole, x, y, -0.1, INSERT.depth)
         : near(BOSS.hole, x, y, -0.1, BOSS.h + 0.1))
     // each support ball's seat: a hole along the line to the ball's centre, from inside the cup down to where the
     // support ball, touching the ball, has its far side
@@ -263,14 +264,15 @@ const main = async () => {
             .translate([0, -LIP.slit / 2, CENTRE - LIP.below]).rotate([0, 0, 30 + 360 * k / LIP.fingers]))
     }
     if (FIX === 'cartridge') {
-        // the bosses: countersunk clearance at +x, inserts from below at -x (the plain insert holes above go too)
+        // the bosses: the screws' clearance, countersunk at the top
         for (const [x, y] of HOLES) {
-            if (x > 0) {
-                cut.push(near(CART.top.clear, x, y, -0.1, SEAT_PLINTH + 0.1))
-                const sink = CART.top.head / 2 + 0.1
-                cut.push(Manifold.cylinder(sink - CART.top.clear / 2 + 0.01, CART.top.clear / 2, sink + 0.01, 48)
-                    .translate([x, -y, SEAT_PLINTH - (sink - CART.top.clear / 2)]))
-            }
+            cut.push(near(CART.top.clear, x, y, -0.1, SEAT_PLINTH + 0.1))
+            const sink = CART.top.head / 2 + 0.1
+            cut.push(Manifold.cylinder(sink - CART.top.clear / 2 + 0.01, CART.top.clear / 2, sink + 0.01, 48)
+                .translate([x, -y, SEAT_PLINTH - (sink - CART.top.clear / 2)]))
+            // and over it a way down for the head and the driver, past the shell's bulge at the equator (the head's
+            // edge 14.5 mm off the axis, the shell's outside 15): a groove up its outside
+            cut.push(near(CART.top.head + CART.top.way, x, y, SEAT_PLINTH, TOP + 1))
         }
         // the pins' solder on the board's top
         cut.push(Manifold.cube([CART.solder.x1 - CART.solder.x0, 2 * CART.solder.y, CART.solder.h + 0.1])
@@ -359,33 +361,24 @@ const cartridge = (wasm, seat) => {
     }
     const frame = Manifold.union([Manifold.union(parts).intersect(rounded(C.courtyard.grown - (C.opening.y - outer.y), C.rim.z0 - 1, holdTop + 0.02)),
                                   cup, ...tabs])
-    // the base: the plate on the keyboard board, open over the contact pads; the spacers under the board's holes:
-    // at +x a spigot into the mount's hole and an insert in the top, at -x a clearance hole up through, its screw's
-    // head sunk in from below
+    // the base: the plate on the keyboard board, open over the contact pads; the spacers under the board's holes,
+    // each with a spigot into the mount's hole and an insert in its top
     const floor = -BOARD.t - C.spacer
     const plate = CrossSection.square([BOARD.x1 - BOARD.x0 - 2 * C.plate.inset - 2 * C.plate.r, 2 * (BOARD.y1 - C.plate.inset - C.plate.r)])
         .translate([BOARD.x0 + C.plate.inset + C.plate.r, -(BOARD.y1 - C.plate.inset - C.plate.r)]).offset(C.plate.r, 'Round', 2, 64)
         .extrude(C.plate.t).translate([0, 0, floor])
         .subtract(box(C.plate.pads.x0, C.plate.pads.x1, -C.plate.pads.y, C.plate.pads.y, floor - 1, floor + C.plate.t + 1))
     const spacers = HOLES.map(([x, y]) => {
-        let s = disc(C.spacerD, x, y, floor, floor + C.spacer)
-        if (x > 0) {
-            s = s.add(disc(C.spigot, x, y, floor - C.spigotH, floor + 0.01))
-                .add(Manifold.cylinder(C.chamfer, C.spigot / 2 - C.chamfer, C.spigot / 2, 48).translate([x, -y, floor - C.spigotH - C.chamfer]))
-                .subtract(disc(C.insert.hole, x, y, floor + C.spacer - C.insert.length - C.insert.extra, floor + C.spacer + 0.01))
-        } else {
-            s = s.subtract(disc(C.under.clear, x, y, floor - 1, floor + C.spacer + 1))
-                .subtract(disc(C.under.head, x, y, floor - 1, floor + C.under.sink))
-        }
-        return s
+        return disc(C.spacerD, x, y, floor, floor + C.spacer)
+            .add(disc(C.spigot, x, y, floor - C.spigotH, floor + 0.01))
+            .add(Manifold.cylinder(C.chamfer, C.spigot / 2 - C.chamfer, C.spigot / 2, 48).translate([x, -y, floor - C.spigotH - C.chamfer]))
+            .subtract(disc(C.insert.hole, x, y, floor + C.spacer - C.insert.length - C.insert.extra, floor + C.spacer + 0.01))
     })
     const base = Manifold.union([plate, ...spacers])
-    const topReach = C.top.length - SEAT_PLINTH - BOARD.t, underReach = C.under.length - (C.spacer - C.under.sink) - BOARD.t
-    if (topReach > C.insert.length) throw new Error(`the top screws reach ${(topReach - C.insert.length).toFixed(1)} mm past their inserts`)
-    if (underReach > INSERT.depth - 0.2) throw new Error(`the under screws reach past their inserts (${underReach.toFixed(1)} mm)`)
+    const topReach = C.top.length - SEAT_PLINTH - BOARD.t
+    if (topReach > C.insert.length) throw new Error(`the screws reach ${(topReach - C.insert.length).toFixed(1)} mm past their inserts`)
     console.log(`cartridge: the board's top ${boardTop.toFixed(1)} over the case's bottom, the hooks ${C.clamp} mm over the ledge at ` +
-                `${ledge.toFixed(1)}; screws M2 x ${C.top.length} countersunk down at +x (${topReach.toFixed(1)} mm into the spacers' inserts), ` +
-                `M2 x ${C.under.length} up from under the base at -x (${underReach.toFixed(1)} mm into the cup's)`)
+                `${ledge.toFixed(1)}; screws M2 x ${C.top.length} countersunk, down (${topReach.toFixed(1)} mm into the spacers' inserts)`)
     return {cup: frame, base}
 }
 
@@ -480,15 +473,13 @@ const partsList = () => [
           (FIX === 'tabs' ? `, supports only under the plate, between the skirts |` : `, flat on the plate: no supports |`),
     FIX === 'tabs'
         ? '| Module fasteners | 4 | M2 screws and 4 mm M2 standoffs | or M2 locating pins and 4 x 2 mm disc magnets: the mount ' +
-          'takes either (ErgoCaiLib Ps4JoystickMount_Pogo); the module is fastened first, then the cup snaps on |'
+          'takes either (ErgoCaiLib Pogo_ModuleMount); the module is fastened first, then the cup snaps on |'
         : FIX === 'cartridge'
-        ? `| Inserts | 4 | M2 heat-set inserts (M2 x 3 x 3.2) | two melted into the cup's -x bosses from below, two into the ` +
-          `base's +x spacers from above |\n` +
-          `| Screws | 2 + 2 | M2 x ${CART.under.length} (pan heads), M2 x ${CART.top.length} countersunk (DIN 965) | the module board ` +
-          `in the frame, on the base: the M2 x ${CART.under.length} up from under the base at -x, through the spacers and the ` +
-          `board into the cup's inserts (their heads sunk in the base's bottom), then the M2 x ${CART.top.length} down through ` +
-          `the cup's +x corners and the board into the spacers' inserts; the base's spigots go into the keyboard board's ` +
-          `mount holes, and the frame's arms snap under the case's top layer: no screws into the keyboard |`
+        ? `| Inserts | 4 | M2 heat-set inserts (M2 x 3 x 3.2) | melted into the base's spacers from above |\n` +
+          `| Screws | 4 | M2 x ${CART.top.length} countersunk (DIN 965 / ISO 7046) | the module board in the frame, on the base: ` +
+          `down through the cup's corners and the board into the spacers' inserts, their heads flush; the base's spigots go ` +
+          `into the keyboard board's mount holes, and the frame's arms snap under the case's top layer: no screws into the ` +
+          `keyboard |`
         : STYLE === 'seat'
         ? `| Cup fasteners | 4 + 4 | M2 heat-set inserts (M2 x 3 x 3.2), M2 x 6 screws (pan heads) | the inserts melted into the ` +
           `bosses from below, the screws up through the keyboard board's holes TB_H1..TB_H4 into them |`

@@ -45,10 +45,10 @@
 //   manifold-3d (npm install in this folder; or MANIFOLD=<a node_modules folder that has it>)
 //
 // What the numbers rest on (the board and its holes: joystick/Alpsalpine-pogo; the case: ErgoCai.ts):
-// - the board: x -13.0..14.5, y -13.0..13.0, 1.6 mm, holes at (-10.85, +-10.85) and (12.35, +-10.85);
+// - the board: x -14.5..14.5, y -13.0..13.0, 1.6 mm, holes at (+-12.35, +-10.85), as the mount (Pogo_ModuleMount);
 // - its top is taken by the stick (its outline, from the footprint's silkscreen, -10.0..8.25 by -11.75..10.0), and
 //   by the pins' solder at x 9.6..12.4, |y| < 7.5: the frame stays outside those, but for the feet;
-// - the case's opening, from the mount's courtyard (-13.1..14.6 by -13.1..13.1) grown by 1.5: -14.6..16.1 by
+// - the case's opening, from the mount's courtyard (-14.6..14.6 by -13.1..13.1) grown by 1.5: -16.1..16.1 by
 //   -14.6..14.6; the top layer 18..21 and the keyboard board's top at 8.0, over the case's bottom;
 // - the pins' force, 6 x about 0.4 N at 3.8 mm, almost all on the feet at the pin end (x 12.35): taken there by
 //   the pin end's hook;
@@ -68,11 +68,11 @@ const BASE_OUT = arg('base-out', path.join(__dirname, 'base.stl'))
 const STEP = arg('step', '')
 const GLB = arg('glb', '')
 
-const BOARD = {x0: -13.0, x1: 14.5, y0: -13.0, y1: 13.0, t: 1.6}
-const HOLES = [[-10.85, -10.85], [-10.85, 10.85], [12.35, -10.85], [12.35, 10.85]]
+const BOARD = {x0: -14.5, x1: 14.5, y0: -13.0, y1: 13.0, t: 1.6}
+const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [12.35, -10.85], [12.35, 10.85]]
 const KEYBOARD = {top: 8.0, t: 1.6}              // the keyboard board, its top over the case's bottom
-const OPENING = {x0: -14.6, x1: 16.1, y: 14.6}   // the top layer's opening
-const COURTYARD = {x0: -13.1, x1: 14.6, y: 13.1, grown: 1.5}   // the mount's, which the case cuts round, grown
+const OPENING = {x0: -16.1, x1: 16.1, y: 14.6}   // the top layer's opening
+const COURTYARD = {x0: -14.6, x1: 14.6, y: 13.1, grown: 1.5}   // the mount's, which the case cuts round, grown
 const BOARD_TOP = KEYBOARD.top + SPACER_H + BOARD.t
 const LEDGE = 18.0 - BOARD_TOP                   // the top layer's underside over the board's top
 const CASE_TOP = 21.0 - BOARD_TOP
