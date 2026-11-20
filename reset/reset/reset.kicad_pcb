@@ -324,6 +324,17 @@
 			(uuid "68257a3d-308b-4346-90f7-c51d30bb176d")
 		)
 		(fp_circle
+			(center 0 0)
+			(end 0 -1.5)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill no)
+			(layer "Dwgs.User")
+			(uuid "824a7c01-244b-4da6-b701-000f51e93266")
+		)
+		(fp_circle
 			(center -3.25 2.55)
 			(end -3.22 2.55)
 			(stroke
