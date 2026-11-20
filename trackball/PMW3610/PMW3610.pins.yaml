@@ -1,0 +1,47 @@
+# Pin functions of trackball/PMW3610's TB_U1, by pad number: a PixArt PMW3610DM-SUDU on the keyboard board itself,
+# on its back, its LM18-LSI lens up through the board's aperture, on 3-wire SPI, with its own 1.8 V LDO (TB_U2). The
+# printed ball cup over it is cup/cup.js --fix screws, held by four M2 screws through TB_H1..TB_H4.
+# For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shield trackball in
+# zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to PMW3610.kicad_sch;
+# kbplacer finds it from the sheet file of the module's footprints.
+# - zmk: the ZMK shield and the west project that has it. central: the trackball is an input device, and that config
+#   does not forward input from a split's peripheral, so the half with it is the central.
+# - pins: by TB_U1 pad, the net, what it does, and its direction seen from the MCU (out, in, power). The sensor's own
+#   nets (its 1.8 V, the VCSEL, the charge pump) are this sheet's (/<name>) and stay off the MCU.
+# - signals: what each signal needs of its MCU pin; kbplacer's SignalAssignor reads this.
+#   needs: fast   not one of the nRF52840's low-frequency pins (10 kHz, standard drive only);
+#          any    any GPIO.
+#   zmk: where the pin goes in the shield's devicetree; kbplacer writes it into zmk-config's config/<half>.overlay.
+#        {node: label, gpios: prop, flags}      prop = <&gpio<port> <pin> flags>
+#        {pinctrl: [nodes], psel: F}            NRF_PSEL(F, port, pin) in group1 of each node; F a list for one pin
+#                                               with two functions (SDIO: SPIM_MOSI and SPIM_MISO)
+zmk:
+  shield: trackball
+  module: {name: zmk-ergo-cai, url: https://github.com/shiqi-614/zmk-ergo-cai, revision: main}
+  central: true
+footprint: TB_U1
+connector: PixArt PMW3610DM-SUDU
+pins:
+  "2": {net: GPIO_TB_SDIO, function: "SDIO, 3-wire SPI data, both ways", dir: in}
+  "3": {net: GPIO_TB_SCLK, function: "SCLK, SPI clock", dir: out}
+  "5": {net: GPIO_TB_NCS, function: "NCS, chip select, active low", dir: out}
+  "6": {net: GPIO_TB_VCC, function: "VDDIO, and the LDO's input (TB_U2): the sensor's supply, from an MCU pin, on while the trackball is used", dir: out}
+  "8": {net: GPIO_TB_MOTION, function: "MOTION, active low", dir: in}
+  "11": {net: GND}
+signals:
+  GPIO_TB_SCLK:
+    needs: fast
+    zmk: {pinctrl: [trackball_spi_default, trackball_spi_sleep], psel: SPIM_SCK}
+  GPIO_TB_SDIO:
+    needs: fast
+    zmk: {pinctrl: [trackball_spi_default, trackball_spi_sleep], psel: [SPIM_MOSI, SPIM_MISO]}
+  # enable-gpios asks for high drive, NRF_GPIO_DRIVE_H0H1, and the low-frequency pins are standard drive only
+  GPIO_TB_VCC:
+    needs: fast
+    zmk: {node: trackball_power, gpios: enable-gpios, flags: "(GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)"}
+  GPIO_TB_NCS:
+    needs: any
+    zmk: {node: trackball_spi, gpios: cs-gpios, flags: GPIO_ACTIVE_LOW}
+  GPIO_TB_MOTION:
+    needs: any
+    zmk: {node: trackball, gpios: motion-gpios, flags: "(GPIO_ACTIVE_LOW | GPIO_PULL_UP)"}
