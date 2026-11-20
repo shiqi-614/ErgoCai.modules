@@ -3485,7 +3485,7 @@
 		(at 119.38 63.5)
 		(uuid "ac224e5e-a4f2-58e5-9566-48ca2fea478d")
 	)
-	(text "PMW3610 trackball on the keyboard board itself: the sensor on its back, its LM18-LSI lens up through the\nboard, a 1.8 V LDO. The MCU drives GPIO_TB_VCC (the LDO's input and VDDIO, on while the trackball is used),\nGPIO_TB_SCLK and GPIO_TB_SDIO (3-wire SPI), GPIO_TB_NCS, and reads GPIO_TB_MOTION. TB_H1..TB_H4 are the\nprinted ball cup's M2 screws (cup/cup.js --fix screws), nuts on the back."
+	(text "PMW3610 trackball on the keyboard board itself: the sensor on its back, its LM18-LSI lens up through the\nboard, a 1.8 V LDO. The MCU drives GPIO_TB_VCC (the LDO's input and VDDIO, on while the trackball is used),\nGPIO_TB_SCLK and GPIO_TB_SDIO (3-wire SPI), GPIO_TB_NCS, and reads GPIO_TB_MOTION. TB_H1..TB_H4 hold the\nprinted ball seat (cup/cup.js --fix screws --style seat): M2 screws up from the back into its inserts."
 		(exclude_from_sim no)
 		(at 30.48 22.86 0)
 		(effects

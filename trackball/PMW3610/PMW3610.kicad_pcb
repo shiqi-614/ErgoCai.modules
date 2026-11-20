@@ -287,6 +287,115 @@
 		)
 		(embedded_fonts no)
 	)
+	(footprint "ErgoCai.pretty:TrackballCup_PMW3610"
+		(layer "F.Cu")
+		(uuid "1f802765-751c-498d-8679-4c8989570137")
+		(at 0 0)
+		(tags "trackball ball cup PMW3610")
+		(property "Reference" "TB_CUP1"
+			(at 0 -20 0)
+			(layer "F.Fab")
+			(uuid "61ac1d88-573e-473d-96e9-1a41c1a53018")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "TrackballCup_PMW3610"
+			(at 0 20 0)
+			(layer "F.Fab")
+			(uuid "f0af9193-af27-41f3-ab7d-70079c840e88")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2beaea40-21aa-4f07-92db-3b4f8d38d1df")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "The ball seat of ErgoCai.modules trackball/PMW3610, the trackball on the keyboard board itself (cup.js --fix screws --style seat --support 2, 3D printed, after htx-studio's One-Handed Keyboard seat): a plinth with four lobes, each a boss with an M2 heat-set insert screwed from under the board (TB_H1..TB_H4), and a shell that follows the ball; three 2 mm balls set half into the wall carry it, three more in vertical holes in three lugs over the equator hold it down. Its Dwgs.User square is the case cut-out over it, round the lugs and the bosses (grown by 1.5 mm by the case); no courtyard, as it sits over its own screw holes. No copper, nothing in the BOM. Origin on the ball's axis, the sensor's optical centre; the model is cup.js --step, with the 25 mm ball and the six small ones, for the lens's reference plane 4.35 mm over a 1.6 mm board."
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8512fee7-b174-4fe7-a60e-178c00a8cf8a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(attr board_only exclude_from_pos_files exclude_from_bom)
+		(fp_rect
+			(start -14.4 -14.4)
+			(end 14.4 14.4)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "Dwgs.User")
+			(uuid "88e4f6e0-89b9-44e2-9edf-0efff8b3fa76")
+		)
+		(fp_rect
+			(start -15 -15.7)
+			(end 15.4 15.7)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "5367c2e3-d137-4f9e-b032-a8360f65ab12")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 12.5 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "2e96cc72-e2b6-4f86-8b32-c80f69d3ceaa")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 14.2 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "e276372f-30b2-4771-afbf-b8be7b583618")
+		)
+		(embedded_fonts no)
+		(model "${ERGOCAI_LIB}/3dmodels/TrackballCup_PMW3610.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
 	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
 		(uuid "718e8ea4-3ed5-4536-98fe-1e030016850f")
@@ -383,115 +492,6 @@
 			(uuid "18643a74-863d-49b0-b96c-1e28c9de1794")
 		)
 		(embedded_fonts no)
-	)
-	(footprint "ErgoCai.pretty:TrackballCup_PMW3610"
-		(layer "F.Cu")
-		(uuid "8169cbd7-eadb-4f07-b124-0010e6a74eef")
-		(at 0 0)
-		(tags "trackball ball cup PMW3610")
-		(property "Reference" "TB_CUP1"
-			(at 0 -20 0)
-			(layer "F.Fab")
-			(uuid "cce7bd44-8ba6-44e4-bd02-5fff22f80835")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "TrackballCup_PMW3610"
-			(at 0 20 0)
-			(layer "F.Fab")
-			(uuid "eb120a7a-dc52-42a0-9622-e04999ca40ed")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "0afd64a0-ebaa-4621-a5e8-74531ee9db58")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "The ball cup of ErgoCai.modules trackball/PMW3610, the trackball on the keyboard board itself (cup.js --fix screws, 3D printed), with its 25 mm ball and three 2.5 mm support balls in place. The cup is 28.4 mm round with a plate over the board, held by four M2 screws through the plate's corners and the board (TB_H1..TB_H4), nuts under it. Its Dwgs.User rectangle is the case cut-out over it: the plate with room for the screw heads, which the case's parts over the board cut (layers: [Dwgs.User], grown by 1.5 mm); no courtyard, as it sits over its own screw holes. No copper, nothing in the BOM. Origin on the ball's axis, the sensor's optical centre; the model is cup.js --fix screws --step, for the lens's reference plane 4.35 mm over a 1.6 mm board."
-			(at 0 0 0)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "047843ba-e726-495c-8c65-19ed7d6509b6")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-			)
-		)
-		(attr board_only exclude_from_pos_files exclude_from_bom)
-		(fp_rect
-			(start -13.1 -13.1)
-			(end 14.6 13.1)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "Dwgs.User")
-			(uuid "0e090b0c-9901-4497-b055-441cd3e63e35")
-		)
-		(fp_rect
-			(start -14.3 -14.3)
-			(end 15.8 14.3)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.Fab")
-			(uuid "7a54ca15-8629-4d94-abb2-359f6d13512f")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 12.5 0)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.Fab")
-			(uuid "39b40841-dccb-4212-83a9-e1564d5cd755")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 14.2 0)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.Fab")
-			(uuid "07acbc36-d963-41a6-b6f1-b94f4f0e3fc8")
-		)
-		(embedded_fonts no)
-		(model "${ERGOCAI_LIB}/3dmodels/TrackballCup_PMW3610.step"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
 	)
 	(footprint "ErgoCai.pretty:MountingHole_2.2mm_M2_DIN965"
 		(layer "F.Cu")
@@ -3530,7 +3530,7 @@
 		(layers "F.Cu" "B.Cu")
 		(locked yes)
 		(net 5)
-		(uuid "7c2364c7-3fc1-42a6-a2ea-7bea5aae4028")
+		(uuid "c498c824-73d1-4180-9aa3-bdfff3970b63")
 	)
 	(segment
 		(start 5.35 9.28)
@@ -3539,7 +3539,7 @@
 		(locked yes)
 		(layer "B.Cu")
 		(net 5)
-		(uuid "dc81dfa6-32c1-44e3-ae55-a46390885bdf")
+		(uuid "0744c1cd-3667-4383-ae81-fded77c525f6")
 	)
 	(via
 		(at 9.5 3.94)
@@ -3548,7 +3548,7 @@
 		(layers "F.Cu" "B.Cu")
 		(locked yes)
 		(net 6)
-		(uuid "f9c125b0-b8e8-44df-8ee7-2164861996a7")
+		(uuid "8b61088f-3ede-46f1-83cb-9bf9ea473e7d")
 	)
 	(segment
 		(start 5.35 3.94)
@@ -3557,7 +3557,7 @@
 		(locked yes)
 		(layer "B.Cu")
 		(net 6)
-		(uuid "137efb9d-819a-44d0-b748-dffb3d00832d")
+		(uuid "71201404-5e57-438f-82eb-e36d0fd46478")
 	)
 	(segment
 		(start 5.35 7.5)
@@ -3582,7 +3582,7 @@
 		(layers "F.Cu" "B.Cu")
 		(locked yes)
 		(net 8)
-		(uuid "526a0db5-1b92-4f7a-a891-698b638fe2bf")
+		(uuid "fb24012e-c13e-4059-a699-8b64aacb9ec2")
 	)
 	(segment
 		(start 5.35 0.38)
@@ -3591,7 +3591,7 @@
 		(locked yes)
 		(layer "B.Cu")
 		(net 8)
-		(uuid "5066c318-3f88-46e7-886d-be7f3665dffc")
+		(uuid "2369ae82-0706-499d-b9c2-d81c7c9288b7")
 	)
 	(via
 		(at 9.5 -1.4)
@@ -3600,7 +3600,7 @@
 		(layers "F.Cu" "B.Cu")
 		(locked yes)
 		(net 9)
-		(uuid "ae3f15d2-8cd9-451c-8d24-3377974153b8")
+		(uuid "5ebcd288-b04a-40d9-bdee-3fe17dc62676")
 	)
 	(segment
 		(start 5.35 -1.4)
@@ -3609,7 +3609,7 @@
 		(locked yes)
 		(layer "B.Cu")
 		(net 9)
-		(uuid "b466736b-7b6b-4b35-bc46-ef1bc0dc3617")
+		(uuid "59f09860-c5b7-45e9-987f-5b7681c38ec8")
 	)
 	(segment
 		(start 8.4551 2.6149)
@@ -3650,7 +3650,7 @@
 		(layers "F.Cu" "B.Cu")
 		(locked yes)
 		(net 10)
-		(uuid "c3b1836c-9a65-47e9-8a7c-2f8d4afe1e49")
+		(uuid "4cf4e599-75d9-4b57-9f8e-5bfed89fbadd")
 	)
 	(segment
 		(start -10.35 -3.4469)
@@ -3902,7 +3902,7 @@
 		(net 0)
 		(net_name "")
 		(layer "B.Cu")
-		(uuid "34ccf2c9-8edc-44f9-8fbc-ab61076f681f")
+		(uuid "0c9cc9df-edef-4d2a-9fe8-65ac03e72cd9")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)
@@ -3934,39 +3934,7 @@
 		(net 0)
 		(net_name "")
 		(layer "B.Cu")
-		(uuid "35097b64-cc4d-4a59-8548-d9c64e13cc20")
-		(hatch edge 0.5)
-		(connect_pads
-			(clearance 0)
-		)
-		(min_thickness 0.25)
-		(filled_areas_thickness no)
-		(keepout
-			(tracks not_allowed)
-			(vias not_allowed)
-			(pads allowed)
-			(copperpour allowed)
-			(footprints allowed)
-		)
-		(placement
-			(enabled no)
-			(sheetname "")
-		)
-		(fill
-			(thermal_gap 0.5)
-			(thermal_bridge_width 0.5)
-		)
-		(polygon
-			(pts
-				(xy -14.4 9.2) (xy -9.2 9.2) (xy -9.2 14.4) (xy -14.4 14.4)
-			)
-		)
-	)
-	(zone
-		(net 0)
-		(net_name "")
-		(layer "B.Cu")
-		(uuid "46add6ab-d97e-449d-994e-e10004d4984c")
+		(uuid "4810e11c-8253-4a79-b0cb-d2c988c3737c")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)
@@ -3998,7 +3966,39 @@
 		(net 0)
 		(net_name "")
 		(layer "B.Cu")
-		(uuid "b6c936b5-e4f0-4871-a200-bdce2ebde36b")
+		(uuid "8166f9fb-bb18-4e8c-8799-dfabbbf96e4d")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.25)
+		(filled_areas_thickness no)
+		(keepout
+			(tracks not_allowed)
+			(vias not_allowed)
+			(pads allowed)
+			(copperpour allowed)
+			(footprints allowed)
+		)
+		(placement
+			(enabled no)
+			(sheetname "")
+		)
+		(fill
+			(thermal_gap 0.5)
+			(thermal_bridge_width 0.5)
+		)
+		(polygon
+			(pts
+				(xy -14.4 9.2) (xy -9.2 9.2) (xy -9.2 14.4) (xy -14.4 14.4)
+			)
+		)
+	)
+	(zone
+		(net 0)
+		(net_name "")
+		(layer "B.Cu")
+		(uuid "a36dab26-4202-4204-88f4-c4ca7fa677e7")
 		(hatch edge 0.5)
 		(connect_pads
 			(clearance 0)

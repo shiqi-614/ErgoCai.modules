@@ -1,14 +1,27 @@
 # Trackball cup: the parts besides the print
 
-Written by cup.js with the cup (cup.stl) and its drawing (sections.svg); run it again after changing a number.
+Written by cup.js --fix cartridge --style seat with the cup (cup.stl), the base (base.stl) and its drawing (sections.svg); run it again after changing a number.
 The module board itself is in the KiCad BOM of PMW3610-pogo.
 
 | Part | Qty | What | Notes |
 |---|---|---|---|
-| Ball | 1 | 25 mm | a mini billiard ball, or a 25 mm replacement trackball ball; pressed in past the rim's fingers (24.4 mm across), pried out to clean |
+| Ball | 1 | 25 mm | a PTFE ball as the seat's makers use, a mini billiard ball, or a 25 mm replacement trackball ball; laid in before the holding balls go in, taken out to clean after they come out |
 | Lens | 1 | PixArt LM18-LSI | the PMW3610's lens, bought with or beside the sensor; clips into the board's aperture from the front, up against the sensor, under the ball (datasheet PMS0039: 5.95 mm from the sensor's pin reference plane to its own) |
-| Support balls | 3 | 2.5 mm, silicon nitride (Si3N4) or zirconia (ZrO2) ceramic, or steel | pressed into the seats from inside the cup (holes 2.45 mm, a press fit: enlarge `SEAT` for a loose printer), then a drop of thin CA glue each, left to cure before the cup goes over the lens (the lens is polycarbonate, which CA attacks); they are static, the ball slides on them |
-| Cup | 1 | cup.stl, printed | PETG (the rim's fingers bend each time the ball goes in or out), 3 or more perimeters (the wall is 1.2 mm at the equator); rim up, supports only under the plate, between the skirts |
-| Module fasteners | 4 | M2 screws and 4 mm M2 standoffs | or M2 locating pins and 4 x 2 mm disc magnets: the mount takes either (ErgoCaiLib Ps4JoystickMount_Pogo); the module is fastened first, then the cup snaps on |
+| Small balls | 7 | 2 mm, PTFE (as the seat's makers use them), or ceramic | three supports pressed half into the wall under the ball (holes 1.95 mm, a press fit), four that hold the ball down dropped into the lugs' holes from above once the ball is in (take them out to take the ball out); no glue: PTFE takes none, and the lens is polycarbonate, which CA attacks |
+| Cup and frame | 1 | cup.stl, printed | PETG (the arms bend as the cartridge snaps under the case's top layer), 3 or more perimeters; the frame's bottom down, supports under the plinth (the rim goes 1.6 mm further down, round the board) and under the arms |
+| Base | 1 | base.stl, printed | PETG or PLA; the plate down, flat: no supports |
+| Inserts | 4 | M2 heat-set inserts (M2 x 3 x 3.2) | two melted into the cup's -x bosses from below, two into the base's +x spacers from above |
+| Screws | 2 + 2 | M2 x 6 (pan heads), M2 x 12 countersunk (DIN 965) | the module board in the frame, on the base: the M2 x 6 up from under the base at -x, through the spacers and the board into the cup's inserts (their heads sunk in the base's bottom), then the M2 x 12 down through the cup's +x corners and the board into the spacers' inserts; the base's spigots go into the keyboard board's mount holes, and the frame's arms snap under the case's top layer: no screws into the keyboard |
 
 The ball's bottom sits 6.75 mm over the board: the lens's reference plane at 4.35 mm plus 2.4 mm, from the lens's datasheet for a 1.6 mm board; for another, or what a caliper says, run `node cup.js --lens <mm>`.
+
+## Printing
+
+- Layers 0.12 to 0.16 mm: the cavity is a sphere, and its wall stands 1.0 mm off the ball, so coarse layers leave steps the ball can touch; 0.4 mm nozzle, 3 or more perimeters, 30 % infill or more.
+- The small balls' holes are 1.95 mm for 2 mm balls, a press fit: print a test cup and try a ball first. Tight: ream with a 2 mm drill by hand (no glue). Loose: make `SEAT` in cup.js smaller. The supports' holes print at an angle and the holding balls' straight down; clear the strings out of both.
+- The inserts' holes are 3.2 mm across and 3.2 mm deep: melt the inserts in square with a soldering iron (about 220 °C for PETG), let them stand proud by no more than 0.1 mm, then file them flush.
+- Cup and frame: frame bottom down, in PETG (PLA is too stiff for the arms and cracks). Supports, touching the build plate only, under the plinth (inside the rim) and under the arms and hooks; tree supports come off cleanest. None in the cavity: its lowest part is the lens pocket, open down.
+- The arms bend along the layers: keep them whole, with no seam on them (seam "rear" or painted onto the frame's ends), and leave out ironing and fuzzy skin.
+- Elephant's foot on the frame bottom makes the rim tight on the board's edge (0.15 mm each side): use the slicer's compensation (0.1 to 0.2 mm), or scrape the first layer's edge inside.
+- The hooks' tops stand 0.1 mm over the case's ledge: if the cartridge will not snap in, file them down a little; if it rattles, raise `clamp` in cup.js and print again.
+- Base: plate down, flat, no supports; PETG or PLA. The spigots at +x go into the keyboard board's mount holes (2.2 mm): 2.15 mm, sand them if they bind.
