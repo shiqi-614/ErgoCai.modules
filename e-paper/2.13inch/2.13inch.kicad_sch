@@ -120,6 +120,351 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Connector_Generic:Conn_01x09"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x09"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x09, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x09_1_1"
+				(rectangle
+					(start -1.27 11.43)
+					(end 1.27 -11.43)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(rectangle
+					(start -1.27 10.287)
+					(end 0 10.033)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 7.747)
+					(end 0 7.493)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 5.207)
+					(end 0 4.953)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 2.667)
+					(end 0 2.413)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -4.953)
+					(end 0 -5.207)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -7.493)
+					(end 0 -7.747)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 -10.033)
+					(end 0 -10.287)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 10.16 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 7.62 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 5.08 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -5.08 0)
+					(length 3.81)
+					(name "Pin_7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -7.62 0)
+					(length 3.81)
+					(name "Pin_8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -10.16 0)
+					(length 3.81)
+					(name "Pin_9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -6929,6 +7274,411 @@
 			)
 		)
 	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x09")
+		(at 213.36 48.26 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(uuid "507b01cf-a99f-47bc-8b22-1aeaacf298a0")
+		(property "Reference" "EP_HDR1"
+			(at 213.36 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x09"
+			(at 213.36 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Vertical"
+			(at 213.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 213.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x09, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 213.36 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "231f9383-d94c-49f2-9224-961d2b6274f7")
+		)
+		(pin "2"
+			(uuid "d57841d8-f238-4ed8-8023-eacf3b364988")
+		)
+		(pin "3"
+			(uuid "6132b745-af25-4520-ad18-ae3e24ea1c6a")
+		)
+		(pin "4"
+			(uuid "aaaeb3b8-998f-4e9e-8a78-e6fae9728e97")
+		)
+		(pin "5"
+			(uuid "505e6d22-219d-4e52-aa6a-6cc5a3d5da87")
+		)
+		(pin "6"
+			(uuid "78c172b2-e3a8-4f7e-b50c-4d55bae862e4")
+		)
+		(pin "7"
+			(uuid "8a766f1d-d6e2-4452-8d82-62eaf1a1647c")
+		)
+		(pin "8"
+			(uuid "a8cf66ad-9da0-468f-9337-9cac3e492f51")
+		)
+		(pin "9"
+			(uuid "681dc18b-deee-4763-b798-b27de4aea4f0")
+		)
+		(instances
+			(project "2.13inch"
+				(path "/1a0b31b7-889a-55b9-9f2e-4708f08eb41c"
+					(reference "EP_HDR1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 38.1) (xy 203.2 38.1))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26a26070-8005-4023-a97c-58804467b578")
+	)
+	(global_label "3.3V"
+		(shape input)
+		(at 203.2 38.1 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e7c86927-7cf5-4f39-adc3-c0c89d5fc5a0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 195.58 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 40.64) (xy 203.2 40.64))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "44a9f2a0-6936-4fb0-a17a-8ae5734dc2cb")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 203.2 40.64 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "73711b85-3eb2-463f-8d0c-3c9601b7ab88")
+		(property "Reference" "#PWR27"
+			(at 203.2 40.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 199.39 40.64 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 203.2 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 203.2 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 203.2 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "554c42b9-7562-42ac-9968-46151ee65b49")
+		)
+		(instances
+			(project "2.13inch"
+				(path "/1a0b31b7-889a-55b9-9f2e-4708f08eb41c"
+					(reference "#PWR27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 43.18) (xy 203.2 43.18))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f895f7ee-2bb5-4b82-bc3f-1bb0e8795baa")
+	)
+	(global_label "EP_DIN"
+		(shape input)
+		(at 203.2 43.18 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fa6fe165-3167-4026-93de-356a10b3c3ab")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 193.04 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 45.72) (xy 203.2 45.72))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da252e54-102c-4ff1-9848-ee511fa3caea")
+	)
+	(global_label "EP_CLK"
+		(shape input)
+		(at 203.2 45.72 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "29bba1e2-6c5b-40e7-9581-c063c6b3b579")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 193.04 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 48.26) (xy 203.2 48.26))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81a3db90-27ba-47a2-82d0-4b95099453f2")
+	)
+	(global_label "EP_CS"
+		(shape input)
+		(at 203.2 48.26 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b32015c8-62a0-4cc9-8858-5e857b2f7e21")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 50.8) (xy 203.2 50.8))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac453ad8-70f6-40e1-a78e-a08a89f6e3be")
+	)
+	(global_label "EP_DC"
+		(shape input)
+		(at 203.2 50.8 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "08641a45-b9fa-45f1-9b7a-f26a11ca93d4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 194.31 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 53.34) (xy 203.2 53.34))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96ab4cbe-08f0-40bd-9146-ed40f885aea3")
+	)
+	(global_label "EP_RST"
+		(shape input)
+		(at 203.2 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ef40029c-06c5-4b48-9af9-6de4bd2fcc60")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 193.04 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 55.88) (xy 203.2 55.88))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ac35227-4a21-42b5-80e3-cc448dbe6a3f")
+	)
+	(global_label "EP_BUSY"
+		(shape output)
+		(at 203.2 55.88 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "21fad18d-fe73-4fff-b9f0-a6c04f6b9188")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 191.77 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(wire
+		(pts (xy 208.28 58.42) (xy 203.2 58.42))
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33c7d345-04d8-40ee-8ae6-a52e72f2bae7")
+	)
+	(global_label "GPIO_DIN"
+		(shape input)
+		(at 203.2 58.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "412a448b-c8e7-499e-90cb-3c6210b6807e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 190.5 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(text "EP_HDR1: test pins for Dupont wires, DNP (note 9)"
+		(exclude_from_sim no)
+		(at 191.77 24.13 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left top)
+		)
+		(uuid "012aabca-5ca0-45da-b6a8-b14bc7a10bf0")
+	)
 	(wire
 		(pts (xy 246.38 35.56) (xy 241.3 35.56))
 		(stroke
@@ -8185,7 +8935,7 @@
 		)
 		(uuid "cdd4cddd-30c2-58bd-bc68-244d8507a30e")
 	)
-	(text "NOTES\n1. GDEY0213B74: SSD1680, 250x122, VCI 2.2-3.7V (3.3V here).\n   BS1 = GND -> 4-wire SPI, so EP_DC is required.\n2. Boost/charge pump = Good Display reference circuit:\n   L1 47uH (Isat >= 0.4A), Q1 Si1308EDL (alt. AO3400A: SOT-23 pads),\n   D1-D3 MBR0530, R1 1M gate pull-down, R2 2.2 ohm RESE sense.\n   (2.2 ohm + 47uH suit SSD ICs; UC ICs use 0.47 ohm + 10uH.)\n3. Caps on PREVGH/PREVGL/VSH/VSL/VCOM must be rated >= 25V\n   (1uF/50V X5R; C8/C9 4.7uF/25V X5R).\n4. Pins 1/4 (NC), 6/7 (TSCL/TSDA), 19 (VPP) are left open.\n5. Stack-up: panel taped to the FRONT, every part on the BACK.\n   The panel FPC wraps 180 deg around the board edge into\n   EP_FPC1, so its gold fingers face AWAY from the PCB:\n   EP_FPC1 must be top- or dual-contact. AFC24-S24FIA-00 is\n   dual-contact, front-insert / rear-flip: the FPC enters on\n   the side opposite the pads, so face that side to the edge.\n   A bottom-contact socket (e.g. AFC01) won't mate.\n   Pad k = panel pin 25-k by AFC24 numbering; the fold keeps order.\n6. EP_FPC2 mates e-paper/2.13inch-socket pin for pin. Upright board:\n   panel FPC fold at the top, EP_FPC2 on the back at the bottom (tail)\n   end, centred, FFC exiting past the 18650: fits both keyboard halves.\n7. Keep the L1/Q1/R2/C8 loop tight; route PREVGH/PREVGL/VCOM\n   short and away from EP_CLK/EP_DIN; solid GND on the back.\n8. EP_RGB1 is on the FRONT, centred below the panel; R3 (data\n   series R, may be 0R) and C11 stay on the back. SK6805: 3.5-5.5V."
+	(text "NOTES\n1. GDEY0213B74: SSD1680, 250x122, VCI 2.2-3.7V (3.3V here).\n   BS1 = GND -> 4-wire SPI, so EP_DC is required.\n2. Boost/charge pump = Good Display reference circuit:\n   L1 47uH (Isat >= 0.4A), Q1 Si1308EDL (alt. AO3400A: SOT-23 pads),\n   D1-D3 MBR0530, R1 1M gate pull-down, R2 2.2 ohm RESE sense.\n   (2.2 ohm + 47uH suit SSD ICs; UC ICs use 0.47 ohm + 10uH.)\n3. Caps on PREVGH/PREVGL/VSH/VSL/VCOM must be rated >= 25V\n   (1uF/50V X5R; C8/C9 4.7uF/25V X5R).\n4. Pins 1/4 (NC), 6/7 (TSCL/TSDA), 19 (VPP) are left open.\n5. Stack-up: panel taped to the FRONT, every part on the BACK.\n   The panel FPC wraps 180 deg around the board edge into\n   EP_FPC1, so its gold fingers face AWAY from the PCB:\n   EP_FPC1 must be top- or dual-contact. AFC24-S24FIA-00 is\n   dual-contact, front-insert / rear-flip: the FPC enters on\n   the side opposite the pads, so face that side to the edge.\n   A bottom-contact socket (e.g. AFC01) won't mate.\n   Pad k = panel pin 25-k by AFC24 numbering; the fold keeps order.\n6. EP_FPC2 mates e-paper/2.13inch-socket pin for pin. Upright board:\n   panel FPC fold at the top, EP_FPC2 on the back at the bottom (tail)\n   end, centred, FFC exiting past the 18650: fits both keyboard halves.\n7. Keep the L1/Q1/R2/C8 loop tight; route PREVGH/PREVGL/VCOM\n   short and away from EP_CLK/EP_DIN; solid GND on the back.\n8. EP_RGB1 is on the FRONT, centred below the panel; R3 (data\n   series R, may be 0R) and C11 stay on the back. SK6805: 3.5-5.5V.\n9. EP_HDR1 (DNP): 2.54 mm test pins for Dupont wires,\n   back, +x edge. Pins 1-8 in DESPI-C02 P2 order (3.3V,\n   GND, SDI, SCLK, CS, D/C, RES, BUSY); 9 = GPIO_DIN.\n   THT, for hand soldering. Fit the header for tests only:\n   it is taller than the standoffs. Cut its tails flush on\n   the front before taping the panel."
 		(exclude_from_sim no)
 		(at 116.84 116.84 0)
 		(effects
