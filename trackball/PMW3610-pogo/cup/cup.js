@@ -11,6 +11,10 @@
 // footprint's 3D model. With --step, also a STEP of the cup with its ball and support balls in place, for the
 // footprint ErgoCaiLib TrackballCup_PMW3610-pogo that shows them on the module board (3D viewer, the module's .glb):
 //   node cup.js --step <ErgoCaiLib>/3dmodels/TrackballCup_PMW3610-pogo.step
+// The trackballs in use are --style seat, on a 20 mm ball (--ball 20), both turned half a turn on the keyboard:
+//   PMW3610-pogo:  node cup.js --fix cartridge --style seat --support 2 --ball 20 --step <...>/TrackballCup_PMW3610-pogo.step
+//   PMW3610:       node cup.js --fix screws --style seat --support 2 --ball 20 --out ../../PMW3610/cup/cup.stl ... 
+//                  --step <...>/TrackballCup_PMW3610.step
 //
 // usage: node cup.js [--lens <mm>] [--ball <mm>] [--support <mm>] [--out <file.stl>] [--step <file.step>]
 //   manifold-3d (npm install in this folder; or MANIFOLD=<a node_modules folder that has it>)
@@ -121,9 +125,9 @@ const PETAL = {gap: 12, below: 2}
 // trackball (it stops the trackball lifting, it does not press on it) and the window it shows in (1.85 mm) is too
 // narrow to let it into the cavity. The lugs `lug` wide; between them the wall comes down to `below` under the equator
 const RETAIN = {elevation: 15, out: 0.3, azimuths: [30, 150, 270], lug: 4.6, over: 0.6, below: 1}
-// --fix cartridge: four, where a lug stays inside the case's opening (its outside under 14.15 mm in y) and clear of
-// the hook arms bending in at the short ends (|y| over 8 there), on thinner lugs
-if (FIX === 'cartridge') Object.assign(RETAIN, {azimuths: [55, 125, 235, 305], lug: 3.4})
+// --fix cartridge: on thinner lugs, clear of the hook arms bending in at the short ends (from x +-11.95) and inside the
+// case's opening (|y| under 14.15); for a ball over 20 mm, four, where a lug stays inside it
+if (FIX === 'cartridge') Object.assign(RETAIN, BALL > 20 ? {azimuths: [55, 125, 235, 305], lug: 3.4} : {lug: 3.4})
 // ... its plinth's top: 1 mm over the ball's bottom, round the lens's pocket
 const SEAT_PLINTH_OVER = 1.0
 // --style seat's bosses: M2 heat-set inserts (M2 x 3 x 3.2) from below, 0.2 mm deeper than they are long

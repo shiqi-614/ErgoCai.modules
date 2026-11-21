@@ -289,13 +289,13 @@
 	)
 	(footprint "ErgoCai.pretty:TrackballCup_PMW3610"
 		(layer "F.Cu")
-		(uuid "1f802765-751c-498d-8679-4c8989570137")
+		(uuid "62e94361-5ea5-4b48-9114-838e0de73494")
 		(at 0 0)
 		(tags "trackball ball cup PMW3610")
 		(property "Reference" "TB_CUP1"
 			(at 0 -20 0)
 			(layer "F.Fab")
-			(uuid "61ac1d88-573e-473d-96e9-1a41c1a53018")
+			(uuid "85f35637-1b11-449d-a85f-ddf8210d4407")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -306,7 +306,7 @@
 		(property "Value" "TrackballCup_PMW3610"
 			(at 0 20 0)
 			(layer "F.Fab")
-			(uuid "f0af9193-af27-41f3-ab7d-70079c840e88")
+			(uuid "f838b3de-f8cf-48f7-93c9-73fde39be2b2")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -318,7 +318,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2beaea40-21aa-4f07-92db-3b4f8d38d1df")
+			(uuid "ab6f2146-af22-422d-8720-ac0601fdae83")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -326,11 +326,11 @@
 				)
 			)
 		)
-		(property "Description" "The ball seat of ErgoCai.modules trackball/PMW3610, the trackball on the keyboard board itself (cup.js --fix screws --style seat --support 2, 3D printed, after htx-studio's One-Handed Keyboard seat): a plinth with four lobes, each a boss with an M2 heat-set insert screwed from under the board (TB_H1..TB_H4), and a shell that follows the ball; three 2 mm balls set half into the wall carry it, three more in vertical holes in three lugs over the equator hold it down. Its Dwgs.User square is the case cut-out over it, round the lugs and the bosses (grown by 1.5 mm by the case); no courtyard, as it sits over its own screw holes. No copper, nothing in the BOM. Origin on the ball's axis, the sensor's optical centre; the model is cup.js --step, with the 25 mm ball and the six small ones, for the lens's reference plane 4.35 mm over a 1.6 mm board."
+		(property "Description" "The ball seat of ErgoCai.modules trackball/PMW3610, the trackball on the keyboard board itself (cup.js --fix screws --style seat --support 2 --ball 20, 3D printed, after htx-studio's One-Handed Keyboard seat): a plinth with four lobes, each a boss with an M2 heat-set insert screwed from under the board (TB_H1..TB_H4), and a shell that follows the ball; three 2 mm balls set half into the wall carry it, three more in vertical holes in three lugs over the equator hold it down. Its Dwgs.User square is the case cut-out over it, round the lugs and the bosses (grown by 1.5 mm by the case); no courtyard, as it sits over its own screw holes. No copper, nothing in the BOM. Origin on the ball's axis, the sensor's optical centre; the model is cup.js --step, with the 20 mm ball and the six small ones, for the lens's reference plane 4.35 mm over a 1.6 mm board."
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "8512fee7-b174-4fe7-a60e-178c00a8cf8a")
+			(uuid "79e324c4-9e63-43eb-ae63-492249d97fc5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -348,7 +348,7 @@
 			)
 			(fill no)
 			(layer "Dwgs.User")
-			(uuid "88e4f6e0-89b9-44e2-9edf-0efff8b3fa76")
+			(uuid "b03e4ab6-e40f-4096-8534-17550ebb370a")
 		)
 		(fp_rect
 			(start -15 -15.7)
@@ -359,7 +359,18 @@
 			)
 			(fill no)
 			(layer "F.Fab")
-			(uuid "5367c2e3-d137-4f9e-b032-a8360f65ab12")
+			(uuid "475f555b-c497-4ee9-afb2-a9f7e4b7e758")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 10 0)
+			(stroke
+				(width 0.1)
+				(type default)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "b3fb2db8-95e8-462d-9855-e0f7330b69e4")
 		)
 		(fp_circle
 			(center 0 0)
@@ -370,18 +381,7 @@
 			)
 			(fill no)
 			(layer "F.Fab")
-			(uuid "2e96cc72-e2b6-4f86-8b32-c80f69d3ceaa")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 14.2 0)
-			(stroke
-				(width 0.1)
-				(type default)
-			)
-			(fill no)
-			(layer "F.Fab")
-			(uuid "e276372f-30b2-4771-afbf-b8be7b583618")
+			(uuid "added2fd-5b98-404d-afa8-92b3a41b9e40")
 		)
 		(embedded_fonts no)
 		(model "${ERGOCAI_LIB}/3dmodels/TrackballCup_PMW3610.step"
