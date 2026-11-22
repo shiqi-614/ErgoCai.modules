@@ -9,7 +9,7 @@
 //   on the board (a shell round the 20 mm ball, up to 2 mm under its equator, which stands 4 mm over the case's top, so
 //   the thumb reaches the ball's side, as on keyball): three 2 mm support balls 30 degrees under the equator (at 0, 135
 //   and 225 degrees: clear of the pogo pins at -x, under the lens) that the ball lies on, held by nothing over it;
-//   two more level with its centre on each side of the lens (+-40 degrees), in posts beamed to the hood, which stop
+//   two more level with its centre on each side of the lens (+-40 degrees), in posts roofed over to the hood, which stop
 //   the thumb's push toward the sensor; open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 15.1 mm over the
 //   case (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
 //   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top
@@ -62,9 +62,10 @@ const SEAT = SUPPORT - 0.05                            // their holes, a press f
 const RIM_UNDER = 2.0                                  // the seat's rim under the ball's equator: its side free for the thumb
 const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward the lens (degrees)
 // the stops: a 2 mm ball on each side of the lens, level with the ball's centre, in a post, that take the thumb's push
-// toward the sensor (the ball is free over the equator on the other sides); a beam from each post's top to the hood,
-// over the lens's window
-const STOP = {azimuths: [40, -40], d: 3.4, top: 18.6, beam: 1.4}
+// toward the sensor (the ball is free over the equator on the other sides); over the lens's window a roof from the
+// posts' tops to the hood, as wide as it, walled down to the case's top at its sides, which keeps light and dust off
+// the lens and the header, open round the ball's axis wide enough for the ball to lift out
+const STOP = {azimuths: [40, -40], d: 3.4, top: 18.6, roof: 1.4, open: 10.5}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
 const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
 const FOOT = {d: 4.0}
@@ -167,11 +168,14 @@ const main = async () => {
         const c = Math.cos(a * Math.PI / 180), s = Math.sin(a * Math.PI / 180), rp = R + CLEAR + STOP.d / 2 - 0.3
         const [px, py] = [C[0] + rp * c, C[1] + rp * s]
         stops.push(Manifold.cylinder(STOP.top, STOP.d / 2, STOP.d / 2, 32).translate([px, py, 0]))
-        stops.push(Manifold.hull([Manifold.cylinder(STOP.beam, STOP.d / 2, STOP.d / 2, 32).translate([px, py, STOP.top - STOP.beam]),
-                                  Manifold.cube([0.5, STOP.d, STOP.beam]).translate([hoodFront, py - STOP.d / 2, STOP.top - STOP.beam])]))
         const start = R - 0.5, reach = R + SUPPORT
         stopHoles.push(Manifold.cylinder(reach - start, SEAT / 2, SEAT / 2, 32).rotate([0, 90, 0]).translate([start, 0, 0]).rotate([0, 0, a]).translate(C))
     }
+    stops.push(box(AXIS.x, hoodFront + 0.5, -hy, hy, STOP.top - STOP.roof, STOP.top)
+        .subtract(Manifold.cylinder(STOP.top + 1, STOP.open, STOP.open, 96).translate([C[0], C[1], 0])))
+    // and a wall down each side of it to the case's top, so no light comes in from the sides either
+    for (const [y0, y1] of [[-hy, -hy + HOOD.wall], [hy - HOOD.wall, hy]])
+        stops.push(box(AXIS.x, hoodFront + 0.5, y0, y1, CASE_TOP - 0.001, STOP.top))
     frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
     const pieces = []
     for (const {A, alongY, face, wallIn, out, dirn, span} of tabs) {
