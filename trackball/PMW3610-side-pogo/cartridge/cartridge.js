@@ -8,8 +8,9 @@
 // - The frame, one print: a rim round the module board's edge, from the board's bottom up to the cover; the ball's seat
 //   on the board (a shell round the 20 mm ball, up to 2 mm under its equator, which stands 4 mm over the case's top, so
 //   the thumb reaches the ball's side, as on keyball): three 2 mm support balls 30 degrees under the equator (at 0, 135
-//   and 225 degrees: clear of the pogo pins at -x, under the lens) that the ball lies on, held by nothing over it, and
-//   open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 15.1 mm over the
+//   and 225 degrees: clear of the pogo pins at -x, under the lens) that the ball lies on, held by nothing over it;
+//   two more level with its centre on each side of the lens (+-40 degrees), in posts beamed to the hood, which stop
+//   the thumb's push toward the sensor; open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 15.1 mm over the
 //   case (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
 //   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top
 //   layer: at the thumb's end (-x, where the pins push up) and on the +y side (the seat's shell overhangs the board's
@@ -60,6 +61,10 @@ const TILT = 30, AZIMUTHS = [0, 135, 225]              // the support balls: und
 const SEAT = SUPPORT - 0.05                            // their holes, a press fit
 const RIM_UNDER = 2.0                                  // the seat's rim under the ball's equator: its side free for the thumb
 const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward the lens (degrees)
+// the stops: a 2 mm ball on each side of the lens, level with the ball's centre, in a post, that take the thumb's push
+// toward the sensor (the ball is free over the equator on the other sides); a beam from each post's top to the hood,
+// over the lens's window
+const STOP = {azimuths: [40, -40], d: 3.4, top: 18.6, beam: 1.4}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
 const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
 const FOOT = {d: 4.0}
@@ -154,6 +159,20 @@ const main = async () => {
         tabs.push({A, alongY, face, wallIn, out, dirn, span})
     }
     let frame = Manifold.union(parts).subtract(Manifold.union(cuts))
+    // the stops (after the window's cut, which they stand in): the posts on the board, carved by the ball's cavity, each
+    // ball's hole along the line to the ball's centre, from inside the cavity
+    const hoodFront = SENSOR.x0 - SLOT.gap - HOOD.wall
+    const stops = [], stopHoles = []
+    for (const a of STOP.azimuths) {
+        const c = Math.cos(a * Math.PI / 180), s = Math.sin(a * Math.PI / 180), rp = R + CLEAR + STOP.d / 2 - 0.3
+        const [px, py] = [C[0] + rp * c, C[1] + rp * s]
+        stops.push(Manifold.cylinder(STOP.top, STOP.d / 2, STOP.d / 2, 32).translate([px, py, 0]))
+        stops.push(Manifold.hull([Manifold.cylinder(STOP.beam, STOP.d / 2, STOP.d / 2, 32).translate([px, py, STOP.top - STOP.beam]),
+                                  Manifold.cube([0.5, STOP.d, STOP.beam]).translate([hoodFront, py - STOP.d / 2, STOP.top - STOP.beam])]))
+        const start = R - 0.5, reach = R + SUPPORT
+        stopHoles.push(Manifold.cylinder(reach - start, SEAT / 2, SEAT / 2, 32).rotate([0, 90, 0]).translate([start, 0, 0]).rotate([0, 0, a]).translate(C))
+    }
+    frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
     const pieces = []
     for (const {A, alongY, face, wallIn, out, dirn, span} of tabs) {
         const lo = Math.min(A.root, A.free), hi = Math.max(A.root, A.free)
@@ -186,6 +205,8 @@ const main = async () => {
         'sensor body': box(SENSOR.x1, SENSOR.body.x1, SENSOR.body.y0, SENSOR.body.y1, SENSOR.body.z0, SENSOR.body.z1),
         header: box(SENSOR.x0 - 3.81 - 0.8, SENSOR.x0, 5.3, 13.0, -0.01, 6.0),
         'pins solder': box(PADS.x0, PADS.x1, -PADS.y, PADS.y, 0, 0.8),
+        // what the sensor sees of the ball and the light to it: the lens's face to the ball, 3 mm round its axis
+        'optical path': box(AXIS.x + R - 1, SENSOR.lens.x0, AXIS.y - 3, AXIS.y + 3, AXIS.z - 3, AXIS.z + 3).subtract(Manifold.sphere(R, 72).translate(C)),
     }
     for (const [name, solid] of Object.entries(keepClear)) {
         const v = frame.intersect(solid).volume()
@@ -203,8 +224,10 @@ const main = async () => {
     const reach = SCREW.length - CASE_TOP - BOARD_T
     if (reach > INSERT.length) throw new Error(`the screws reach ${(reach - INSERT.length).toFixed(1)} mm past their inserts`)
     const ballSolid = Manifold.sphere(R, 72).translate(C)
-    const supports = AZIMUTHS.map(a => { const t = TILT * Math.PI / 180, d = R + SUPPORT / 2
-        return [C[0] + d * Math.cos(t) * Math.cos(a * Math.PI / 180), C[1] + d * Math.cos(t) * Math.sin(a * Math.PI / 180), C[2] - d * Math.sin(t)] })
+    // the small balls: the supports under the equator, the stops level with the ball's centre
+    const d = R + SUPPORT / 2, t = TILT * Math.PI / 180
+    const supports = AZIMUTHS.map(a => [C[0] + d * Math.cos(t) * Math.cos(a * Math.PI / 180), C[1] + d * Math.cos(t) * Math.sin(a * Math.PI / 180), C[2] - d * Math.sin(t)])
+        .concat(STOP.azimuths.map(a => [C[0] + d * Math.cos(a * Math.PI / 180), C[1] + d * Math.sin(a * Math.PI / 180), C[2]]))
     fs.writeFileSync(OUT, stl(frame, 'ErgoCai side-read trackball frame (manifold-3d)'))
     fs.writeFileSync(BASE_OUT, stl(base.translate([0, 0, -floor + SPACER.spigotH]), 'ErgoCai side-read trackball base (manifold-3d)'))
     const models = [{name: 'frame', solid: frame, rgb: [0.93, 0.93, 0.95]}, {name: 'base', solid: base, rgb: [0.3, 0.55, 0.9]},

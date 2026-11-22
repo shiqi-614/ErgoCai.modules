@@ -16,7 +16,8 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
   through the module board's notch: the lens's aperture boxes that row in, and its lines run in the tab.
 - `cartridge/`: the printed frame and base (`cartridge.js`), screwed together through the module board's holes; the
   frame holds the ball's seat (three 2 mm support balls the ball lies on, the seat's rim 2 mm under its equator;
-  nothing holds it down: it lifts out), a hood over the sensor board,
+  nothing holds it down: it lifts out; two more on posts each side of the lens, level with its centre, stop the
+  thumb's push toward the sensor), a hood over the sensor board,
   the cover flush with the case's top, and two hook arms that snap under the case's top layer (at the thumb's end and
   on the +y side). `node cartridge.js --glb cartridge.glb --step <ErgoCaiLib>/3dmodels/TrackballCartridge_PMW3610-side-pogo.step`
 - `PMW3610-side-pogo.glb`: the module in 3D, with the cartridge and the sensor board in place (the board's
@@ -35,7 +36,7 @@ its axes may not run as the trackball read from below: flip them in zmk-config (
 | Part | Qty | What | Notes |
 |---|---|---|---|
 | Ball | 1 | 20 mm | PTFE, or an acrylic ball; it lies in the seat, and falls out with the keyboard upside down |
-| Small balls | 3 | 2 mm PTFE | the supports, pressed into the seat's holes (1.95 mm, a press fit) |
+| Small balls | 5 | 2 mm PTFE | three supports and the two stops, pressed into their holes (1.95 mm, a press fit) from inside the seat |
 | Lens | 1 | PixArt LM18-LSI | clips into the sensor board's aperture from the front |
 | Pin header | 1 | 2x3, 2.54 mm, right angle | on the sensor board's front; trim its pins after soldering into the module board |
 | Pogo pins | 6 | KERUI KTT50003UT01-R | on the module board's back |
