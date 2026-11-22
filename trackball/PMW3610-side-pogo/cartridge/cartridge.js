@@ -10,7 +10,7 @@
 //   the thumb reaches the ball's side, as on keyball): three 2 mm support balls 30 degrees under the equator (at 0, 135
 //   and 225 degrees: clear of the pogo pins at -x, under the lens) that the ball lies on, held by nothing over it;
 //   two more level with its centre on each side of the lens (+-40 degrees), in posts roofed over to the hood, which stop
-//   the thumb's push toward the sensor; open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 15.1 mm over the
+//   the thumb's push toward the sensor; open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 13.6 mm over the
 //   case (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
 //   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top
 //   layer: at the thumb's end (-x, where the pins push up) and on the +y side (the seat's shell overhangs the board's
@@ -38,7 +38,7 @@ const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [24.5, 0]]
 const PADS = {x0: -12.6, x1: -9.4, y: 8.0}           // the mount's contact pads, and the pins' solder on the board's top
 const AXIS = {x: 0, y: -1.5, z: 11.6}                 // the ball's centre (KiCad y): its equator 4 mm over the case's top
 const BALL = 20, SUPPORT = 2, CLEAR = SUPPORT / 2      // the support balls stand out of the wall by half
-const SENSOR = {x0: 16.75, x1: 18.35, y: 13.0, top: 21.5, lens: {x0: 12.4, y0: -13.0, y1: 4.96, z0: 6.9, z1: 16.3},
+const SENSOR = {x0: 16.75, x1: 18.35, y: 13.0, top: 20.0, lens: {x0: 12.4, y0: -13.0, y1: 4.96, z0: 6.9, z1: 16.3},
                 body: {x1: 21.45, y0: -12.59, y1: 3.61, z0: 7.05, z1: 16.15}}
 // the case (ErgoCai.ts): the keyboard board's top over the case's bottom, the spacers, the top layer 18..21
 const KEYBOARD_TOP = 8.0, SPACER_H = 3.8

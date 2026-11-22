@@ -8,10 +8,11 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
 - `PMW3610-side-pogo.kicad_*`: the module board. The six pogo pins (TB_P1..6) where the mount's pads are (pin k on pad
   k: VCC, SDIO, SCLK, NCS, MOTION, GND), no hole for the ball (it lies 1.6 mm over the board, its axis at (0, -1.5)), TB_J1's six holes for the
   sensor board's header, a notch the sensor board's tab goes down into, three mounting holes.
-- `sensor/`: the sensor board, 26 x 21.5 mm, standing upright on the module board, its front (the LM18-LSI lens) toward
+- `sensor/`: the sensor board, 26 x 20 mm, standing upright on the module board, its front (the LM18-LSI lens) toward
   the ball, the lens's face 2.4 mm from it, the sensor's optical centre 11.6 mm over the module board, level with the
-  ball's centre. The PMW3610 on its back, its lens through the board's aperture; the 1.8 V
-  LDO and the capacitors (the same circuit as trackball/PMW3610-pogo). TB_J1, a 2x3 right-angle pin header on its
+  ball's centre. The PMW3610 on its back, its lens through the board's aperture; the charge
+  pump's and VDD's capacitors in a row over its upper pin row; the 1.8 V LDO and its input capacitor beside it, over
+  the header, VDDIO's capacitor and the reset pull-up under its lower pin row (the same circuit as trackball/PMW3610-pogo). TB_J1, a 2x3 right-angle pin header on its
   front, its pins bent down into the module board, soldered on both. A tab under the sensor's lower pin row goes down
   through the module board's notch: the lens's aperture boxes that row in, and its lines run in the tab.
 - `cartridge/`: the printed frame and base (`cartridge.js`), screwed together through the module board's holes; the

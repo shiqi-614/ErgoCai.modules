@@ -74,10 +74,10 @@ s = s.replace(old, '(text "PMW3610 side-read trackball, its sensor board: the se
               'pogo pins on the joystick mount. TB_J1, a 2x3 right-angle header, takes VCC, GND, SDIO, SCLK, NCS and MOTION\\n'
               'down to it. The keyboard keeps VCC on while the trackball is used."')
 
-# TB_C2 in 0402 (to fit under the header's lower row on the board)
-i = s.index('(property "Reference" "TB_C2"'); a = s.rindex('\n\t(symbol\n', 0, i); bnd = block(s, a + 1)
-sym_c2 = s[bnd[0]:bnd[1]]
-new_c2 = re.sub(r'\(property "Footprint" "[^"]*"', '(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"', sym_c2, count=1)
-s = s[:bnd[0]] + new_c2 + s[bnd[1]:]
+# TB_C2 and TB_C1 in 0402 (C2 between the escape lanes under the sensor, C1 by the board's edge)
+for ref in ('TB_C2', 'TB_C1'):
+    i = s.index(f'(property "Reference" "{ref}"'); a = s.rindex('\n\t(symbol\n', 0, i); bnd = block(s, a + 1)
+    sym = s[bnd[0]:bnd[1]]
+    s = s[:bnd[0]] + re.sub(r'\(property "Footprint" "[^"]*"', '(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"', sym, count=1) + s[bnd[1]:]
 open(p, 'w').write(s)
 print('ok', len(re.findall(r'\(global_label "', s)), 'labels')

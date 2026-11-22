@@ -8,7 +8,7 @@ import sys, re, json, pcbnew
 board, sch = sys.argv[1:3]
 M, T = pcbnew.FromMM, pcbnew.ToMM
 V = lambda x, y: pcbnew.VECTOR2I(M(x), M(y))
-W, H = 13.0, 21.5                     # half width, height
+W, H = 13.0, 20.0                     # half width, height
 # the ball's centre 11.6 over the module board: its side over the case's top, for the thumb
 AXIS_X, AXIS_Z = -1.5, 11.6
 b = pcbnew.LoadBoard(board)
@@ -64,16 +64,17 @@ for f in b.GetFootprints():
 if len(sys.argv) > 3:
     for ref, (x, y, r) in json.load(open(sys.argv[3])).items():
         f = fps[ref]; f.SetPosition(V(x, y)); f.SetOrientationDegrees(r)
-# TB_C2 in 0402, to fit under the header's lower row
+# TB_C2 and TB_C1 in 0402: C2 to fit between the escape lanes under the sensor's lower pin row, C1 by the board's edge
 if len(sys.argv) > 3:
-    c2 = fps['TB_C2']
-    small = pcbnew.FootprintLoad('/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/Capacitor_SMD.pretty', 'C_0402_1005Metric')
-    small.SetFPIDAsString('Capacitor_SMD:C_0402_1005Metric'); small.SetReference('TB_C2'); small.SetValue(c2.GetValue())
-    small.SetPath(c2.GetPath()); small.SetSheetfile(c2.GetSheetfile()); small.SetSheetname(c2.GetSheetname())
-    nets = {p.GetNumber(): p.GetNet() for p in c2.Pads()}
-    pos, rot = c2.GetPosition(), c2.GetOrientationDegrees()
-    b.Delete(c2); b.Add(small); small.SetPosition(pos); small.Flip(pos, pcbnew.FLIP_DIRECTION_TOP_BOTTOM); small.SetOrientationDegrees(rot)
-    for p in small.Pads(): p.SetNet(nets[p.GetNumber()])
+    for ref in ('TB_C2', 'TB_C1'):
+        c = fps[ref]
+        small = pcbnew.FootprintLoad('/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/Capacitor_SMD.pretty', 'C_0402_1005Metric')
+        small.SetFPIDAsString('Capacitor_SMD:C_0402_1005Metric'); small.SetReference(ref); small.SetValue(c.GetValue())
+        small.SetPath(c.GetPath()); small.SetSheetfile(c.GetSheetfile()); small.SetSheetname(c.GetSheetname())
+        nets = {p.GetNumber(): p.GetNet() for p in c.Pads()}
+        pos, rot = c.GetPosition(), c.GetOrientationDegrees()
+        b.Delete(c); b.Add(small); small.SetPosition(pos); small.Flip(pos, pcbnew.FLIP_DIRECTION_TOP_BOTTOM); small.SetOrientationDegrees(rot)
+        for p in small.Pads(): p.SetNet(nets[p.GetNumber()])
 # the lower pin row's escape, laid by hand: each pin straight down into the tab, along its lane to the tab's end, up
 # and on to x 5.2, where the router takes over. The leftmost pin's lane is the deepest, so no two lines cross; three
 # lanes on F.Cu, four on B.Cu, 0.4 mm apart
