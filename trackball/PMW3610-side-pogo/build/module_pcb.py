@@ -5,13 +5,13 @@
 # ball, which lies 1.6 mm over the board; a notch the sensor board's tab goes down into; the outline is the mount's
 # User.1 outline less 0.1, the notch cut from its -y edge. Everything else, and all copper, goes.
 # usage: module_pcb.py <board> <schematic>
-import sys, os, re, math, pcbnew
+import sys, os, re, json, pcbnew
 board, sch = sys.argv[1:3]
 M, T = pcbnew.FromMM, pcbnew.ToMM
 V = lambda x, y: pcbnew.VECTOR2I(M(x), M(y))
-NOTCH = (16.55, 18.55, 5.0)          # x from, x to, up to y (from the -y edge)
-OUTLINE = [(-14.5, -13), (NOTCH[0], -13), (NOTCH[0], NOTCH[2]), (NOTCH[1], NOTCH[2]), (NOTCH[1], -13), (22, -13), (22, -4.5),
-           (27, -4.5), (27, 4.5), (21, 4.5), (21, 7), (18.5, 13), (-14.5, 13)]
+# the outline and the header's holes from geometry.json (geometry.py: they follow the ball's size)
+G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
+OUTLINE = [tuple(p) for p in G['outline']]
 b = pcbnew.LoadBoard(board)
 for t in list(b.GetTracks()): b.Delete(t)
 for z in list(b.Zones()): b.Delete(z)
@@ -28,7 +28,7 @@ uid = re.search(r'\(uuid "([0-9a-f-]+)"\)\n\t\t\(property "Reference" "TB_J1"', 
 lib = '/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/Connector_PinHeader_2.54mm.pretty'
 j1 = pcbnew.FootprintLoad(lib, 'PinHeader_2x03_P2.54mm_Vertical')
 j1.SetFPIDAsString('Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical'); j1.SetReference('TB_J1'); j1.SetValue('Conn_02x03')
-b.Add(j1); j1.SetPosition(V(12.94, 6.61))
+b.Add(j1); j1.SetPosition(V(G['j1']['x'], G['j1']['y']))
 j1.SetAttributes(j1.GetAttributes() | pcbnew.FP_EXCLUDE_FROM_BOM)   # holes only: the header is the sensor board's
 j1.SetPath(pcbnew.KIID_PATH(f'/{uid}')); j1.SetSheetfile('PMW3610-side-pogo.kicad_sch'); j1.SetSheetname('/')
 J1 = {'1': 'NCS', '2': 'MOTION', '3': 'SDIO', '4': 'SCLK', '5': 'VCC', '6': 'GND'}
@@ -40,6 +40,13 @@ for p in j1.Pads():
 cart = pcbnew.FootprintLoad(os.path.join(os.environ.get('ERGOCAI_LIB', os.path.expanduser('~/Development/ErgoCaiLib')), 'footprints', 'ErgoCai.pretty'), 'TrackballCartridge_PMW3610-side-pogo')
 cart.SetFPIDAsString('ErgoCai.pretty:TrackballCartridge_PMW3610-side-pogo'); cart.SetReference('TB_CART1')
 cart.SetValue('TrackballCartridge_PMW3610-side-pogo'); b.Add(cart); cart.SetPosition(V(0, 0))
+# the sensor board's model where it stands: its back at x1
+# (Models() hands out copies: the list is put back)
+models = list(cart.Models())
+for m in models:
+    if 'sensor' in m.m_Filename: m.m_Offset = pcbnew.VECTOR3D(G['sensor']['x1'], m.m_Offset.y, m.m_Offset.z)
+cart.Models().clear()
+for m in models: cart.Add3DModel(m)
 for f in b.GetFootprints():
     if f.GetSheetfile() == 'PMW3610-pogo.kicad_sch': f.SetSheetfile('PMW3610-side-pogo.kicad_sch')
 b.Save(board)

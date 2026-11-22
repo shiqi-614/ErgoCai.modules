@@ -20,6 +20,7 @@
 // its -y (KiCad's y points down), z up, the board's top at z = 0, as KiCad places a footprint's 3D model.
 //
 // usage: node cartridge.js [--out <frame.stl>] [--base-out <base.stl>] [--glb <file.glb>] [--step <file.step>]
+//   [--geometry <geometry.json>] [--way]
 //   manifold-3d (MANIFOLD=<a node_modules folder that has it>); ERGOCAI_LIB for the mount's footprint
 const fs = require('fs')
 const path = require('path')
@@ -29,17 +30,17 @@ const OUT = arg('out', path.join(__dirname, 'frame.stl'))
 const BASE_OUT = arg('base-out', path.join(__dirname, 'base.stl'))
 const GLB = arg('glb', ''), STEP = arg('step', '')
 
-// the boards (PMW3610-side-pogo, its sensor/): the module board's outline (KiCad's), its holes, the ball's hole and
-// axis, the notch the sensor board's tab goes down into; the sensor board's place
-const OUTLINE = [[-14.5, -13], [16.55, -13], [16.55, 5.0], [18.55, 5.0], [18.55, -13], [22, -13], [22, -4.5], [27, -4.5],
-                 [27, 4.5], [21, 4.5], [21, 7], [18.5, 13], [-14.5, 13]]
+// the sizes that follow the ball's (build/geometry.py, from params.json): the module board's outline (KiCad's), the
+// ball's size and centre, the sensor board's place, its lens and its body, the stops' height
+const G = JSON.parse(fs.readFileSync(arg('geometry', path.join(__dirname, '..', 'build', 'geometry.json')), 'utf8'))
+for (const w of G.warnings) console.log(`  does not fit: ${w}`)
+const OUTLINE = G.outline
 const BOARD_T = 1.6
 const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [24.5, 0]]
 const PADS = {x0: -12.6, x1: -9.4, y: 8.0}           // the mount's contact pads, and the pins' solder on the board's top
-const AXIS = {x: 0, y: -1.5, z: 11.6}                 // the ball's centre (KiCad y): its equator 4 mm over the case's top
-const BALL = 20, SUPPORT = 2, CLEAR = SUPPORT / 2      // the support balls stand out of the wall by half
-const SENSOR = {x0: 16.75, x1: 18.35, y: 13.0, top: 20.0, lens: {x0: 12.4, y0: -13.0, y1: 4.96, z0: 6.9, z1: 16.3},
-                body: {x1: 21.45, y0: -12.59, y1: 3.61, z0: 7.05, z1: 16.15}}
+const AXIS = G.axis                                    // the ball's centre (KiCad y): its equator over the case's top
+const BALL = G.ball, SUPPORT = 2, CLEAR = SUPPORT / 2  // the support balls stand out of the wall by half
+const SENSOR = G.sensor
 // the case (ErgoCai.ts): the keyboard board's top over the case's bottom, the spacers, the top layer 18..21
 const KEYBOARD_TOP = 8.0, SPACER_H = 3.8
 const BOARD_TOP = KEYBOARD_TOP + SPACER_H + BOARD_T    // 13.4
@@ -65,7 +66,7 @@ const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward 
 // toward the sensor (the ball is free over the equator on the other sides); over the lens's window a roof from the
 // posts' tops to the hood, as wide as it, walled down to the case's top at its sides, which keeps light and dust off
 // the lens and the header, open round the ball's axis wide enough for the ball to lift out
-const STOP = {azimuths: [40, -40], d: 3.4, top: 18.6, roof: 1.4, open: 10.5}
+const STOP = {azimuths: [40, -40], d: 3.4, top: G.stop.top, roof: 1.4, open: G.stop.open}
 // the visor over the ball from the case's top, a shell round it 0.8 mm off, between the sensor and the key matrix (+y
 // in the model, the board's -y), where the fingers don't reach: the cap of the sphere toward azimuth 45, 41 degrees
 // round (cos 41 = 0.75), so up to 41 degrees over the equator there, nothing toward the thumb (-x) or the user (-y).

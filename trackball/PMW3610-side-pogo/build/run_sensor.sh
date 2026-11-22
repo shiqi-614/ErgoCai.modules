@@ -1,8 +1,10 @@
 #!/bin/zsh
 # the sensor board end to end: placement, autorouting, zones, DRC (into /tmp/erc2/side4/route)
 set -e
-B=${0:A:h}; R=/tmp/erc2/side4/route
+B=${0:A:h}; R=${ROUTE:-/tmp/erc2/side4/route}; mkdir -p $R
 D=$B/../sensor
+# the sizes that follow the ball's (params.json)
+python3 -I $B/geometry.py $B/../params.json $B/geometry.json
 PY=/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3
 KC=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 # Freerouting and its headless driver (FrRoute.java, from the kicad-headless-board-design skill), compiled once
@@ -12,6 +14,8 @@ cp $D/../../PMW3610-pogo/PMW3610-pogo.kicad_pcb $D/PMW3610-side-pogo-sensor.kica
 arch -arm64 $PY $B/sensor_pcb.py $D/PMW3610-side-pogo-sensor.kicad_pcb $D/PMW3610-side-pogo-sensor.kicad_sch $B/place.json 2>&1 | grep -v "Debug\|assert\|swig" | head -1
 cp $D/PMW3610-side-pogo-sensor.kicad_pcb $R/s.kicad_pcb; cp $D/PMW3610-side-pogo-sensor.kicad_pro $R/s.kicad_pro
 cd $R
+# ZONES_FIRST=1: the GND zones before the autorouter, which then leaves GND to them as a plane (as the module board's)
+[ -n "$ZONES_FIRST" ] && arch -arm64 $PY $B/sensor_finish.py s.kicad_pcb - > /dev/null 2>&1
 arch -arm64 $PY -c 'import pcbnew,sys; pcbnew.ExportSpecctraDSN(pcbnew.LoadBoard(sys.argv[1]), sys.argv[2])' s.kicad_pcb s.dsn 2>&1 | grep -v "Debug\|assert\|swig" || true
 python3 -I $B/inset.py s.dsn 0.35 > /dev/null
 nice -n 19 java -cp $JAR:/tmp/erc2/fr FrRoute s.dsn s.ses ${PASSES:-40} > fr.log 2>&1

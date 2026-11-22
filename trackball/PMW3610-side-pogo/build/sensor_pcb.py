@@ -4,13 +4,15 @@
 # optical centre at (AXIS_X, -AXIS_Z), the lens's long side to -x; TB_J1, the 2x3 right-angle header, on the front at
 # +x, its pins bent down past the bottom edge into the module board; the LDO and the capacitors on the back.
 # usage: sensor_pcb.py <board> <schematic> [place.json]
-import sys, re, json, pcbnew
+import sys, os, re, json, pcbnew
 board, sch = sys.argv[1:3]
 M, T = pcbnew.FromMM, pcbnew.ToMM
 V = lambda x, y: pcbnew.VECTOR2I(M(x), M(y))
-W, H = 13.0, 20.0                     # half width, height
-# the ball's centre 11.6 over the module board: its side over the case's top, for the thumb
-AXIS_X, AXIS_Z = -1.5, 11.6
+# the board's half width; its height and the sensor's optical centre's over its bottom edge (level with the ball's
+# centre: its side over the case's top, for the thumb) from geometry.json (geometry.py: they follow the ball's size)
+G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
+W, H = 13.0, G['sensor_board']['h']
+AXIS_X, AXIS_Z = -1.5, G['sensor_board']['axis_z']
 b = pcbnew.LoadBoard(board)
 for t in list(b.GetTracks()): b.Delete(t)
 for z in list(b.Zones()): b.Delete(z)
@@ -60,10 +62,11 @@ NETS = {'1': 'VCC', '2': 'GND', '3': 'SDIO', '4': 'SCLK', '5': 'NCS', '6': 'MOTI
 for p in j1.Pads(): p.SetNet(b.FindNet(NETS[p.GetNumber()]))
 for f in b.GetFootprints():
     if f.GetSheetfile() == 'PMW3610-pogo.kicad_sch': f.SetSheetfile('PMW3610-side-pogo-sensor.kicad_sch')
-# the rest from place.json: ref -> [x, y, rot] (all on the back, as they were)
+# the rest from place.json: ref -> [x, y, rot] or [x, y, rot, "axis"] (y from the sensor's optical centre, for the
+# parts round it, which move with it), all on the back, as they were
 if len(sys.argv) > 3:
-    for ref, (x, y, r) in json.load(open(sys.argv[3])).items():
-        f = fps[ref]; f.SetPosition(V(x, y)); f.SetOrientationDegrees(r)
+    for ref, (x, y, r, *frm) in json.load(open(sys.argv[3])).items():
+        f = fps[ref]; f.SetPosition(V(x, y - AXIS_Z if frm == ['axis'] else y)); f.SetOrientationDegrees(r)
 # TB_C2 and TB_C1 in 0402: C2 to fit between the escape lanes under the sensor's lower pin row, C1 by the board's edge
 if len(sys.argv) > 3:
     for ref in ('TB_C2', 'TB_C1'):

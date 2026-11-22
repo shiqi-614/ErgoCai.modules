@@ -30,6 +30,16 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
   hand, Freerouting, zones), `run_module.sh` and `run_sensor.sh`. Freerouting's result differs from run to run: the
   sensor board took a few runs to route all of it.
 
+## Another ball size
+
+`params.json` has the ball's diameter. `build/geometry.py` works out from it what follows the ball (its centre's height,
+the sensor board's place and height, the header's holes, the module board's +x side, the stops' height) into
+`build/geometry.json`, which the build scripts and `cartridge.js` read; then `build/run_module.sh`, `build/run_sensor.sh`
+(the sensor board's routing may take a few runs, or a part moved in `build/place.json`) and `cartridge.js --way`, and
+the boards' STEP and GLB exported again. What the keyboard's board fixes (the pogo pads, the mount's holes, the case's
+opening, User.1 in ErgoCaiLib's mount) does not move: `geometry.py` and `cartridge.js` say what no longer fits, and
+`--way` whether the ball still has a way into its seat past the visor.
+
 The firmware is the trackball's (zmk-ergo-cai shield trackball; pogo_detect finds it as a trackball). Read from the side,
 its axes may not run as the trackball read from below: flip them in zmk-config (`&trackball { invert-x; };`, or
 `invert-y`) once it is built.

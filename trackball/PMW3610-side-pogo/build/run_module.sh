@@ -1,8 +1,10 @@
 #!/bin/zsh
 # the module board end to end: placement, autorouting, zones, DRC (into /tmp/erc2/side4/mroute)
 set -e
-B=${0:A:h}; R=/tmp/erc2/side4/mroute; mkdir -p $R
+B=${0:A:h}; R=${ROUTE:-/tmp/erc2/side4/mroute}; mkdir -p $R
 D=$B/..
+# the sizes that follow the ball's (params.json)
+python3 -I $B/geometry.py $D/params.json $B/geometry.json
 PY=/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3
 KC=/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 # Freerouting and its headless driver (FrRoute.java, from the kicad-headless-board-design skill), compiled once
@@ -15,7 +17,7 @@ cd $R
 # the GND zones first: the autorouter leaves GND to them (a plane), instead of a track through the narrow places
 arch -arm64 $PY $B/module_finish.py m.kicad_pcb - > /dev/null 2>&1
 arch -arm64 $PY -c 'import pcbnew,sys; pcbnew.ExportSpecctraDSN(pcbnew.LoadBoard(sys.argv[1]), sys.argv[2])' m.kicad_pcb m.dsn > /dev/null 2>&1 || true
-python3 -I $B/inset_poly.py m.dsn 0.35 -14.5,-13 16.55,-13 16.55,5.0 18.55,5.0 18.55,-13 22,-13 22,-4.5 27,-4.5 27,4.5 21,4.5 21,7 18.5,13 -14.5,13
+python3 -I $B/inset_poly.py m.dsn 0.35 $(python3 -c "import json,sys; print(' '.join(f'{x},{y}' for x, y in json.load(open(sys.argv[1]))['outline']))" $B/geometry.json)
 nice -n 19 java -cp $JAR:/tmp/erc2/fr FrRoute m.dsn m.ses ${PASSES:-40} > fr.log 2>&1
 arch -arm64 $PY $B/module_finish.py m.kicad_pcb m.ses 2>&1 | grep -v "Debug\|assert\|swig"
 cp m.kicad_pcb $D/PMW3610-side-pogo.kicad_pcb
