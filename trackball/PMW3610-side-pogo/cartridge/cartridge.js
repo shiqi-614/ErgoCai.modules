@@ -9,9 +9,9 @@
 //   on the board (a shell round the 20 mm ball, which hangs down through the board's hole): three 2 mm support balls 30
 //   degrees under the equator (at 0, 135 and 225 degrees: clear of the pogo pins at -x, under the lens), three that
 //   hold it down in lugs over the equator (90, 180, 270), the shell cut down to the equator between the lugs, and open
-//   toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 8.9 mm over the case; a
-//   cover over it all flush with the case's top; a column on each hole, an M2 x 12 countersunk screw down each into
-//   the base's inserts. Two hook arms snap under the case's top layer: at the thumb's end (-x, where the pins push
+//   toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 8.9 mm over the case
+//   (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
+//   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top layer: at the thumb's end (-x, where the pins push
 //   up) and on the +y side (the seat's shell overhangs the board's -y edge, so nothing goes there).
 //
 // The frame of reference is the module board's (the mount's: the module goes on it as it is): x as the board's x, y as
@@ -111,7 +111,10 @@ const main = async () => {
     // the hood over the sensor board: round its back and over its top, open toward the ball (the lens looks out)
     const hy = SENSOR.y + SLOT.gap + HOOD.wall
     const hood = box(SENSOR.x0 - SLOT.gap - HOOD.wall, SENSOR.body.x1 + SLOT.gap + HOOD.wall, -hy, hy, coverZ0, SENSOR.top + SLOT.gap + HOOD.over)
-    parts.push(hood)
+    // in the case's top layer no wider than the cover, so it goes through the opening (thinner at the +y corner, which
+    // the outline cuts back); over the case's top all of it
+    const hoodIn = grown(opening, coverOut, coverZ0 - 1, CASE_TOP)
+    parts.push(hood.intersect(hoodIn), hood.intersect(box(-50, 50, -50, 50, CASE_TOP - 0.001, CASE_TOP + 50)))
     // the cavity, the support balls' seats, the holding balls' holes (above), the window toward the lens, the cuts
     // between the lugs down to under the equator
     cuts.push(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C))
