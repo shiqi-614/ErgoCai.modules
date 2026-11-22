@@ -87,6 +87,10 @@ const VISOR = {azimuth: Number(process.env.VISOR_AZ || 45), k: process.env.VISOR
 // (inside the 12.90 mm body whichever end the centre is nearer, 3.70 + 1.3 or the rest); down to the module board
 // and up to the roof. The optics between the strips stay open
 const LENS = {across: 8.25, lip: 1.0, t: 1.0, half: 4.5}
+// the edges a hand meets, rounded: the hood's block (the hood, the roof over the lens, its walls, the posts), as one:
+// its corners seen from above `plan` round, the edge of its top `top`; the seat's rim a half-round bead; the hooks'
+// levers over the case's top `lever` round
+const ROUND = {plan: 0.6, top: 1.0, lever: 0.5}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
 const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
 const FOOT = {d: 4.0}
@@ -108,6 +112,9 @@ const main = async () => {
     const wasm = await (await import(pathToFileURL(entry).href)).default(); wasm.setup()
     const {Manifold, CrossSection} = wasm
     const box = (x0, x1, y0, y1, z0, z1) => Manifold.cube([x1 - x0, y1 - y0, z1 - z0]).translate([x0, -y1, z0])   // KiCad y
+    // a box with every edge r round: the hull of a ball in each corner
+    const rbox = (x0, x1, y0, y1, z0, z1, r) => Manifold.hull([x0 + r, x1 - r].flatMap(x => [y0 + r, y1 - r].flatMap(y => [z0 + r, z1 - r]
+        .map(z => Manifold.sphere(r, 16).translate([x, -y, z])))))
     const disc = (d, x, y, z0, z1) => Manifold.cylinder(z1 - z0, d / 2, d / 2, 48).translate([x, -y, z0])
     const ccw = pts => pts.reduce((s, [x, y], i) => { const [u, v] = pts[(i + 1) % pts.length]; return s + x * v - u * y }, 0) > 0 ? pts : [...pts].reverse()
     const board = new CrossSection([ccw(OUTLINE.map(([x, y]) => [x, -y]))])
@@ -242,8 +249,8 @@ const main = async () => {
         pieces.push(Manifold.hull(across.flatMap(([c, z]) => alongY ? [[c, -h0, z], [c, -h1, z]] : [[h0, -c, z], [h1, -c, z]])))
         const l0 = Math.min(A.free, A.free - dirn * LEVER.length), l1 = Math.max(A.free, A.free - dirn * LEVER.length)
         const t0 = out > 0 ? face - LEVER.t : face, t1 = out > 0 ? face : face + LEVER.t
-        pieces.push(alongY ? box(Math.min(t0, t1), Math.max(t0, t1), l0, l1, ARM.z0, CASE_TOP + LEVER.over)
-                           : box(l0, l1, Math.min(t0, t1), Math.max(t0, t1), ARM.z0, CASE_TOP + LEVER.over))
+        pieces.push(alongY ? rbox(Math.min(t0, t1), Math.max(t0, t1), l0, l1, ARM.z0, CASE_TOP + LEVER.over, ROUND.lever)
+                           : rbox(l0, l1, Math.min(t0, t1), Math.max(t0, t1), ARM.z0, CASE_TOP + LEVER.over, ROUND.lever))
         // its room in the cover, and the seat's and the frame's clear of the arm bending in
         const room = alongY ? box(Math.min(face, wallIn) - 0.5, Math.max(face, wallIn) + LEVER.t + BEND, l0 - 0.4, l1 + 0.4, coverZ0 - 1, CASE_TOP + 1)
                             : box(l0 - 0.4, l1 + 0.4, Math.min(face, wallIn) - LEVER.t - BEND, Math.max(face, wallIn) + 0.5, coverZ0 - 1, CASE_TOP + 1)
@@ -253,6 +260,26 @@ const main = async () => {
         frame = frame.subtract(bend)
     }
     frame = Manifold.union([frame, ...pieces])
+    // the hood's block rounded: its outline at the top (everything that reaches TOP), its convex corners ROUND.plan round
+    // and its top's edge ROUND.top round, as an envelope; what of the block's prism lies outside it goes. Only that
+    // skin: the rooms inside, and what stands outside the outline (the visor, the seat), stay
+    {
+        const P = frame.slice(TOP - 0.05), Pr = P.offset(-ROUND.plan, 'Round', 2, 32).offset(ROUND.plan, 'Round', 2, 32)
+        const r = ROUND.top, steps = 16, layers = [Pr.extrude(TOP - r - CASE_TOP + 0.01).translate([0, 0, CASE_TOP - 0.01])]
+        for (let k = 0; k < steps; k++) {
+            const z0 = TOP - r + r * k / steps, z1 = TOP - r + r * (k + 1) / steps, dz = (z0 + z1) / 2 - (TOP - r)
+            layers.push(Pr.offset(-(r - Math.sqrt(r * r - dz * dz)), 'Round', 2, 32).extrude(z1 - z0 + 0.001).translate([0, 0, z0]))
+        }
+        frame = frame.subtract(P.extrude(TOP + 1 - CASE_TOP).translate([0, 0, CASE_TOP]).subtract(Manifold.union(layers)))
+    }
+    // the seat's rim: a half-round bead on its flat top, clear of the cavity and the lens's window
+    {
+        const zr = AXIS.z - RIM_UNDER, dz = AXIS.z - zr
+        const rin = Math.sqrt((R + CLEAR) ** 2 - dz * dz), rout = Math.sqrt((R + CLEAR + SHELL) ** 2 - dz * dz)
+        const ring = CrossSection.circle((rout - rin) / 2, 24).translate([(rin + rout) / 2, 0]).revolve(96).translate([C[0], C[1], zr])
+        frame = frame.add(ring.subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C))
+            .subtract(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8)))
+    }
     // the ball's way into its seat (and out): a search on a grid, its centre in the upright plane toward each open
     // side, 0.2 mm to spare round it for the print; by azimuth, the way or null
     const ways = solid => {
@@ -440,12 +467,20 @@ const step = (parts, title) => {
         const count = v.length / numProp
         const triple = (i, at) => `(${[0, 1, 2].map(k => num(v[i * numProp + at + k])).join(',')})`
         const points = [], normals = []
+        // a point's normal must not be (0, 0, 0): KiCad's STEP reader drops the whole solid over one. The rounding's
+        // booleans leave points only on slivers of no area, which calculateNormals gives none; any unit vector does
         for (let i = 0; i < count; i++) {
             points.push(triple(i, 0))
-            normals.push(triple(i, 3))
+            const n = [3, 4, 5].map(k => v[i * numProp + k])
+            normals.push(Math.hypot(...n) > 1e-6 ? triple(i, 3) : '(0.,0.,1.)')
         }
-        const triangles = []
-        for (let i = 0; i < t.length; i += 3) triangles.push(`(${t[i] + 1},${t[i + 1] + 1},${t[i + 2] + 1})`)
+        // and the triangles with an area only (the slivers change nothing of the shape)
+        const triangles = [], at = (i, k) => v[i * numProp + k]
+        for (let i = 0; i < t.length; i += 3) {
+            const [a, b, c] = [t[i], t[i + 1], t[i + 2]], u = [0, 1, 2].map(k => at(b, k) - at(a, k)), w = [0, 1, 2].map(k => at(c, k) - at(a, k))
+            if (Math.hypot(u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]) < 1e-9) continue
+            triangles.push(`(${a + 1},${b + 1},${c + 1})`)
+        }
         const coordinates = e(`COORDINATES_LIST('',${count},(${points.join(',')}))`)
         const face = e(`TRIANGULATED_FACE('',${coordinates},${count},(${normals.join(',')}),$,(),(${triangles.join(',')}))`)
         const item = e(`TESSELLATED_SOLID('${name}',(${face}),$)`)
