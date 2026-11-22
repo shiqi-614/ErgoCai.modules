@@ -38,6 +38,10 @@ for (const w of G.warnings) console.log(`  note: ${w}`)
 const OUTLINE = G.outline
 const BOARD_T = 1.6
 const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [24.5, 0]]
+// the holes with a screw down from the top; on the others (the third, which the hood's back half covers from over it) a
+// peg down from the frame's column through the board into its spacer's top, a press fit
+const SCREWED = HOLES.slice(0, 2), PEGGED = HOLES.slice(2)
+const PEG = {d: 2.0, hole: 1.9, depth: 2.5, chamfer: 0.3}
 const PADS = {x0: -12.6, x1: -9.4, y: 8.0}           // the mount's contact pads, and the pins' solder on the board's top
 const AXIS = G.axis                                    // the ball's centre (KiCad y): its equator over the case's top
 const BALL = G.ball, SUPPORT = 2, CLEAR = SUPPORT / 2  // the support balls stand out of the wall by half
@@ -61,7 +65,7 @@ const OPENING = (() => {
 const GROWN = 1.5
 const RIM = {gap: 0.15, wall: 1.0, z0: -BOARD_T}
 const COVER = {t: 1.2, clear: 0.3, edge: 0.4}
-const SHELL = 1.5                                      // the seat's wall over the cavity
+const SHELL = 1.0                                      // the seat's wall over the cavity
 const TILT = 30, AZIMUTHS = [0, 135, 225]              // the support balls: under the equator, round the axis
 const SEAT = SUPPORT - 0.05                            // their holes, a press fit
 const RIM_UNDER = 2.0                                  // the seat's rim under the ball's equator: its side free for the thumb
@@ -103,7 +107,7 @@ const INSERT = {length: 3.0, hole: 3.2, extra: 0.2}
 const PLATE = {t: 1.0, inset: 0.3}
 // the hook arm: the thumb's end (-x, along y): from the root to the free end, the arm's
 // height and root post; the hook; the lever at the free end
-const ARMS = [{side: '-x', root: 8.0, free: -8.0}]
+const ARMS = [{side: '-x', root: -8.0, free: 8.0}]
 const ARM = {z0: 0.4, post: 1.5}, HOOK = {length: 4.0, reach: 1.0, ramp: 0.7, flat: 0.5}
 const LEVER = {length: 4.0, t: 1.5, over: 1.5}, GAP = 0.5, BEND = 1.2
 // the tongue at the +x end: from the rim's face to `under` past the case's opening under its top layer, `half` each
@@ -150,6 +154,12 @@ const main = async () => {
         parts.push(grown(opening, coverOut - COVER.edge * (k + 1) / steps, CASE_TOP - COVER.edge + COVER.edge * k / steps - 0.001, CASE_TOP - COVER.edge + COVER.edge * (k + 1) / steps))
     // the columns on the holes, the board's top to the cover
     for (const [x, y] of HOLES) parts.push(disc(FOOT.d, x, y, 0, coverZ0 + 0.01))
+    // and the pegs under the columns that have no screw, the tip chamfered
+    for (const [x, y] of PEGGED) {
+        const z0 = -BOARD_T - PEG.depth
+        parts.push(disc(PEG.d, x, y, z0 + PEG.chamfer, 0.01),
+                   Manifold.cylinder(PEG.chamfer, PEG.d / 2 - PEG.chamfer, PEG.d / 2, 32).translate([x, -y, z0]))
+    }
     // the seat: a shell round the ball on the board (its cavity cut below), up to RIM_UNDER under the equator; the ball
     // lies in it on the support balls, held by nothing over it (as keyball's): it lifts out
     const outer = R + CLEAR + SHELL
@@ -183,7 +193,7 @@ const main = async () => {
     // the pins' solder on the board's top, the screws' clearance and countersinks
     cuts.push(box(PADS.x0, PADS.x1, -PADS.y, PADS.y, -0.1, 1.0))
     const sink = SCREW.head / 2 + 0.1
-    for (const [x, y] of HOLES) {
+    for (const [x, y] of SCREWED) {
         cuts.push(disc(SCREW.clear, x, y, -1, CASE_TOP + 1))
         cuts.push(Manifold.cylinder(sink - SCREW.clear / 2 + 0.01, SCREW.clear / 2, sink + 0.01, 48).translate([x, -y, CASE_TOP - (sink - SCREW.clear / 2)]))
     }
@@ -324,6 +334,9 @@ const main = async () => {
         frame = frame.add(ring.subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C))
             .subtract(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8)))
     }
+    // over each screw a way down for it and the screwdriver, through the seat's shell and rim where they overhang it
+    // (the hole nearer the ball, 14.5 from the axis, is under the shell however thin)
+    for (const [x, y] of SCREWED) frame = frame.subtract(disc(SCREW.head + 0.4, x, y, CASE_TOP - 0.01, 50))
     // the ball's way into its seat (and out): a search on a grid, its centre in the upright plane toward each open
     // side, 0.2 mm to spare round it for the print; by azimuth, the way or null
     const ways = solid => {
@@ -404,7 +417,9 @@ const main = async () => {
         base = base.add(disc(SPACER.d, x, y, floor, floor + SPACER_H))
             .add(disc(SPACER.spigot, x, y, floor - SPACER.spigotH, floor + 0.01))
             .add(Manifold.cylinder(SPACER.chamfer, SPACER.spigot / 2 - SPACER.chamfer, SPACER.spigot / 2, 48).translate([x, -y, floor - SPACER.spigotH - SPACER.chamfer]))
-            .subtract(disc(INSERT.hole, x, y, floor + SPACER_H - INSERT.length - INSERT.extra, floor + SPACER_H + 0.01))
+        base = PEGGED.some(([u, v]) => u === x && v === y)
+            ? base.subtract(disc(PEG.hole, x, y, floor + SPACER_H - PEG.depth - 0.2, floor + SPACER_H + 0.01))
+            : base.subtract(disc(INSERT.hole, x, y, floor + SPACER_H - INSERT.length - INSERT.extra, floor + SPACER_H + 0.01))
     }
     const reach = SCREW.length - CASE_TOP - BOARD_T
     if (reach > INSERT.length) throw new Error(`the screws reach ${(reach - INSERT.length).toFixed(1)} mm past their inserts`)
