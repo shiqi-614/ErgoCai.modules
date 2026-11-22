@@ -90,9 +90,9 @@ const LENS = {across: 8.25, lip: 1.0, t: 1.0, half: 4.5}
 // the edges a hand meets, rounded: the hood's block (the hood, the roof over the lens, its walls, the posts), as one:
 // its corners seen from above `plan` round, the edge of its top `top`; the seat's rim a half-round bead; the hooks'
 // levers over the case's top `lever` round
-const ROUND = {plan: 0.6, top: 1.0, lever: 0.5}
+const ROUND = {plan: 0.75, top: 2.5, lever: 0.5}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
-const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
+const HOOD = {wall: 1.6, over: 1.6}                    // over the sensor board's top, round its back
 const FOOT = {d: 4.0}
 const SCREW = {length: 12, clear: 2.3, head: 3.8}
 const SPACER = {d: 5.2, spigot: 2.15, spigotH: 1.2, chamfer: 0.2}
