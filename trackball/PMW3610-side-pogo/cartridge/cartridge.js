@@ -129,8 +129,6 @@ const main = async () => {
     // the window toward the lens: the lens's box, a little round it, out from the cavity
     const L = SENSOR.lens
     cuts.push(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
-    // the board's hole for the ball, under the seat: the cavity goes on down
-    cuts.push(Manifold.cylinder(BOARD_T + 2, R + CLEAR, R + CLEAR, SEGMENTS).translate([C[0], C[1], -BOARD_T - 1]))
     // the sensor board's slot (its tab too, down the board's notch), its parts and header room behind and in front
     cuts.push(box(SENSOR.x0 - SLOT.gap, SENSOR.x1 + SLOT.gap, -SENSOR.y - SLOT.gap, SENSOR.y + SLOT.gap, RIM.z0 - 1, SENSOR.top + SLOT.gap))
     const B = SENSOR.body
