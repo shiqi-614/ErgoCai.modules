@@ -19,7 +19,7 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
   frame holds the ball's seat (three 2 mm support balls the ball lies on, the seat's rim 2 mm under its equator;
   nothing holds it down: it lifts out; two more on posts each side of the lens, level with its centre, stop the
   thumb's push toward the sensor; a roof over the lens from the posts to the hood, walled at its sides, keeps light
-  and dust off the lens (all one height with the hood's top; on the user's side the wall only over the header); a small visor over the ball between the sensor and the key matrix, no bigger than leaves
+  and dust off the lens; two strips on the lens's long edges press it back against the sensor, as a mouse's base plate does (all one height with the hood's top; on the user's side the wall only over the header); a small visor over the ball between the sensor and the key matrix, no bigger than leaves
   the ball a way in, `node cartridge.js --way` to check), a hood over the sensor board,
   the cover flush with the case's top, and two hook arms that snap under the case's top layer (at the thumb's end and
   on the +y side). `node cartridge.js --glb cartridge.glb --step <ErgoCaiLib>/3dmodels/TrackballCartridge_PMW3610-side-pogo.step`
@@ -50,7 +50,7 @@ its axes may not run as the trackball read from below: flip them in zmk-config (
 |---|---|---|---|
 | Ball | 1 | 20 mm | PTFE, or an acrylic ball; it lies in the seat, and falls out with the keyboard upside down |
 | Small balls | 5 | 2 mm PTFE | three supports and the two stops, pressed into their holes (1.95 mm, a press fit) from inside the seat |
-| Lens | 1 | PixArt LM18-LSI | clips into the sensor board's aperture from the front |
+| Lens | 1 | PixArt LM18-LSI | into the sensor board's aperture from the front, its posts in the sensor; the frame's two strips hold it there (no CA glue: it is polycarbonate) |
 | Pin header | 1 | 2x3, 2.54 mm, right angle | on the sensor board's front; trim its pins after soldering into the module board |
 | Pogo pins | 6 | KERUI KTT50003UT01-R | on the module board's back |
 | Inserts | 3 | M2 x 3 x 3.2 heat-set | into the base's spacers |

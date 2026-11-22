@@ -76,6 +76,13 @@ const STOP = {azimuths: [40, -40], d: 3.4, roof: 1.4, open: G.stop.open, user: 4
 // No bigger: the ball goes in (and out) only by rising steeply over the seat's rim, toward the thumb, and a bigger
 // visor, or one further toward the matrix, closes that way (node cartridge.js --way searches it, 0.2 mm to spare)
 const VISOR = {azimuth: Number(process.env.VISOR_AZ || 45), k: Number(process.env.VISOR_K || 0.75), gap: 0.8, t: 1.5}
+// the lens's retainer, the base plate a mouse has under it (LM18-LSI datasheet, figure 2): the lens hangs on its two
+// posts in the sensor, nothing else holds it toward the ball, and its reference plane must stay 2.4 mm from the ball.
+// A strip on each of its long edges (its body 8.25 mm across, the optical centre on its middle line) presses its
+// reference plane back against the sensor, `lip` of it, `t` thick, `half` each way along it from the optical centre
+// (inside the 12.90 mm body whichever end the centre is nearer, 3.70 + 1.3 or the rest); down to the module board
+// and up to the roof. The optics between the strips stay open
+const LENS = {across: 8.25, lip: 1.0, t: 1.0, half: 4.5}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
 const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
 const FOOT = {d: 4.0}
@@ -201,6 +208,13 @@ const main = async () => {
         .intersect(cap).intersect(box(-50, 50, -50, 50, CASE_TOP, CASE_TOP + 50))
         .subtract(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
     frame = frame.add(visor)
+    // the lens's retainer: the two strips on its reference plane, down to the board and up to the roof
+    const lx1 = SENSOR.lens.x0, lx0 = lx1 - LENS.t, ly0 = AXIS.y - LENS.half, ly1 = AXIS.y + LENS.half
+    const zLow = AXIS.z - LENS.across / 2, zHigh = AXIS.z + LENS.across / 2
+    // (the lower strip held also by a bar over the case's top to the matrix's side's wall)
+    frame = frame.add(Manifold.union([box(lx0, lx1, ly0, ly1, 0, zLow + LENS.lip), box(lx0, lx1, ly0, ly1, zHigh - LENS.lip, TOP),
+                                      box(lx0, lx1, -hy, ly0 + 0.01, CASE_TOP, zLow + LENS.lip)])
+        .subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)))
     const pieces = []
     for (const {A, alongY, face, wallIn, out, dirn, span} of tabs) {
         const lo = Math.min(A.root, A.free), hi = Math.max(A.root, A.free)
