@@ -32,13 +32,18 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
 
 ## Another ball size
 
-`params.json` has the ball's diameter. `build/geometry.py` works out from it what follows the ball (its centre's height,
-the sensor board's place and height, the header's holes, the module board's +x side, the stops' height) into
-`build/geometry.json`, which the build scripts and `cartridge.js` read; then `build/run_module.sh`, `build/run_sensor.sh`
-(the sensor board's routing may take a few runs, or a part moved in `build/place.json`) and `cartridge.js --way`, and
-the boards' STEP and GLB exported again. What the keyboard's board fixes (the pogo pads, the mount's holes, the case's
-opening, User.1 in ErgoCaiLib's mount) does not move: `geometry.py` and `cartridge.js` say what no longer fits, and
-`--way` whether the ball still has a way into its seat past the visor.
+Set the ball's diameter in `params.json` and run `build/run_all.sh` (MANIFOLD=<a node_modules with manifold-3d>,
+ERGOCAI_LIB if ErgoCaiLib is not beside ErgoCai.modules). It works out what follows the ball (`build/geometry.py`
+into `build/geometry.json`: the ball's centre's height, the sensor board's place and height, the header's holes, the
+module board's +x side), makes the module board, the sensor board (its routing a few runs for each of the placements
+`build/place.json` lists for a part, until it is clean), the cartridge, and the 3D models (the cartridge's and the
+sensor board's STEP into ErgoCaiLib, the module's GLB). What the keyboard's board fixes stays: the pogo pads and the
+mount's holes. So past the 20 mm ball the sensor board comes out only as far as the fifth hole's screw leaves room,
+and the ball's axis moves to -x instead; the case's opening (the mount's User.1, in ErgoCaiLib and in
+joystick-mount-pogo) grows to the module board and the ball's seat when it must (`build/opening.json`, then
+`build/mount_outline.py`), and the keyboard's case follows it; the visor is the biggest that leaves the ball a way into
+its seat. Tried: 20 mm (this) and 25 mm (the axis at x -1.3, the visor 46 degrees round, the ball's top 40 mm over the
+case's bottom).
 
 The firmware is the trackball's (zmk-ergo-cai shield trackball; pogo_detect finds it as a trackball). Read from the side,
 its axes may not run as the trackball read from below: flip them in zmk-config (`&trackball { invert-x; };`, or

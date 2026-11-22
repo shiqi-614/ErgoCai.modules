@@ -33,7 +33,7 @@ const GLB = arg('glb', ''), STEP = arg('step', '')
 // the sizes that follow the ball's (build/geometry.py, from params.json): the module board's outline (KiCad's), the
 // ball's size and centre, the sensor board's place, its lens and its body, the stops' height
 const G = JSON.parse(fs.readFileSync(arg('geometry', path.join(__dirname, '..', 'build', 'geometry.json')), 'utf8'))
-for (const w of G.warnings) console.log(`  does not fit: ${w}`)
+for (const w of G.warnings) console.log(`  note: ${w}`)
 const OUTLINE = G.outline
 const BOARD_T = 1.6
 const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [24.5, 0]]
@@ -46,7 +46,10 @@ const KEYBOARD_TOP = 8.0, SPACER_H = 3.8
 const BOARD_TOP = KEYBOARD_TOP + SPACER_H + BOARD_T    // 13.4
 const LEDGE = 18.0 - BOARD_TOP, CASE_TOP = 21.0 - BOARD_TOP, CLAMP = 0.1
 // the mount's outline (ErgoCaiLib Pogo_ModuleMount_1x6_P2.54mm, User.1: the side-read module's), which the case opens
-// round grown by 1.5; as points in the model's frame (y up)
+// round grown by 1.5; as points in the model's frame (y up). It must hold the module board's outline (0.1 out) and
+// the ball's seat where it passes the case's top layer (0.2 inside the case's opening): when it does not (a bigger
+// ball), the outline that does goes to build/opening.json, for build/mount_outline.py to put into the mount, and the
+// cartridge is made round it
 const MOUNT = path.join(process.env.ERGOCAI_LIB || path.join(__dirname, '..', '..', '..', '..', 'ErgoCaiLib'),
                         'footprints', 'ErgoCai.pretty', 'Pogo_ModuleMount_1x6_P2.54mm.kicad_mod')
 const OPENING = (() => {
@@ -71,11 +74,12 @@ const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward 
 // side's post
 const STOP = {azimuths: [40, -40], d: 3.4, roof: 1.4, open: G.stop.open, user: 4.8}
 // the visor over the ball from the case's top, a shell round it 0.8 mm off, between the sensor and the key matrix (+y
-// in the model, the board's -y), where the fingers don't reach: the cap of the sphere toward azimuth 45, 41 degrees
-// round (cos 41 = 0.75), so up to 41 degrees over the equator there, nothing toward the thumb (-x) or the user (-y).
-// No bigger: the ball goes in (and out) only by rising steeply over the seat's rim, toward the thumb, and a bigger
-// visor, or one further toward the matrix, closes that way (node cartridge.js --way searches it, 0.2 mm to spare)
-const VISOR = {azimuth: Number(process.env.VISOR_AZ || 45), k: Number(process.env.VISOR_K || 0.75), gap: 0.8, t: 1.5}
+// in the model, the board's -y), where the fingers don't reach: the cap of the sphere toward azimuth 45, k its edge's
+// distance from the centre (cos of its angle round), nothing toward the thumb (-x) or the user (-y). The ball goes in
+// (and out) only by rising steeply over the seat's rim, toward the user's side and the thumb, and too big a visor
+// closes that way: k 'auto' takes the biggest (k from 0.5 up by 0.05) that leaves it one (the search --way prints;
+// 0.2 mm to spare); VISOR_K sets it, VISOR_AZ the azimuth
+const VISOR = {azimuth: Number(process.env.VISOR_AZ || 45), k: process.env.VISOR_K ? Number(process.env.VISOR_K) : 'auto', gap: 0.8, t: 1.5}
 // the lens's retainer, the base plate a mouse has under it (LM18-LSI datasheet, figure 2): the lens hangs on its two
 // posts in the sensor, nothing else holds it toward the ball, and its reference plane must stay 2.4 mm from the ball.
 // A strip on each of its long edges (its body 8.25 mm across, the optical centre on its middle line) presses its
@@ -106,10 +110,21 @@ const main = async () => {
     const box = (x0, x1, y0, y1, z0, z1) => Manifold.cube([x1 - x0, y1 - y0, z1 - z0]).translate([x0, -y1, z0])   // KiCad y
     const disc = (d, x, y, z0, z1) => Manifold.cylinder(z1 - z0, d / 2, d / 2, 48).translate([x, -y, z0])
     const ccw = pts => pts.reduce((s, [x, y], i) => { const [u, v] = pts[(i + 1) % pts.length]; return s + x * v - u * y }, 0) > 0 ? pts : [...pts].reverse()
-    const opening = new CrossSection([ccw(OPENING)])
     const board = new CrossSection([ccw(OUTLINE.map(([x, y]) => [x, -y]))])
     const grown = (cs, by, z0, z1) => cs.offset(by, 'Round', 2, 64).extrude(z1 - z0).translate([0, 0, z0])
     const R = BALL / 2, C = [AXIS.x, -AXIS.y, AXIS.z]
+    // the opening: the mount's, or one that holds the board and the seat
+    const seatR = Math.sqrt((R + CLEAR + SHELL) ** 2 - Math.max(0, AXIS.z - CASE_TOP) ** 2)
+    const needed = CrossSection.union([board.offset(0.1, 'Miter', 2),
+                                       CrossSection.circle(seatR + 0.2 - GROWN, 96).translate([C[0], C[1]])])
+    let opening = new CrossSection([ccw(OPENING)])
+    if (needed.subtract(opening).area() > 0.05) {
+        opening = needed.simplify(0.01)
+        const pts = opening.toPolygons()[0].map(([x, y]) => [Number(x.toFixed(3)), Number((-y).toFixed(3))])
+        fs.writeFileSync(path.join(__dirname, '..', 'build', 'opening.json'), JSON.stringify({user1: pts}, null, 1))
+        console.log(`  note: the mount's User.1 is too small for this module (the seat ${seatR.toFixed(2)} round at the case's top): ` +
+                    `the outline that fits is in build/opening.json; run build/mount_outline.py to put it into the mount`)
+    }
     const holdTop = LEDGE + CLAMP, coverZ0 = CASE_TOP - COVER.t
     const parts = [], cuts = [], tabs = []
 
@@ -202,12 +217,12 @@ const main = async () => {
     stops.push(box(userX, userX + HOOD.wall, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
     frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
     // the visor: the shell, cut to its cap and to over the case's top, clear of the lens's window
+    // (added last, its size the biggest that leaves the ball a way in, unless VISOR.k says)
     const vIn = R + VISOR.gap, vOut = vIn + VISOR.t
-    const cap = Manifold.cube([100, 100, 100]).translate([VISOR.k * vIn, -50, -50]).rotate([0, 0, VISOR.azimuth]).translate(C)
-    const visor = Manifold.sphere(vOut, SEGMENTS * 2).subtract(Manifold.sphere(vIn, SEGMENTS * 2)).translate(C)
-        .intersect(cap).intersect(box(-50, 50, -50, 50, CASE_TOP, CASE_TOP + 50))
+    const visorOf = k => Manifold.sphere(vOut, SEGMENTS * 2).subtract(Manifold.sphere(vIn, SEGMENTS * 2)).translate(C)
+        .intersect(Manifold.cube([100, 100, 100]).translate([k * vIn, -50, -50]).rotate([0, 0, VISOR.azimuth]).translate(C))
+        .intersect(box(-50, 50, -50, 50, CASE_TOP, CASE_TOP + 50))
         .subtract(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
-    frame = frame.add(visor)
     // the lens's retainer: the two strips on its reference plane, down to the board and up to the roof
     const lx1 = SENSOR.lens.x0, lx0 = lx1 - LENS.t, ly0 = AXIS.y - LENS.half, ly1 = AXIS.y + LENS.half
     const zLow = AXIS.z - LENS.across / 2, zHigh = AXIS.z + LENS.across / 2
@@ -238,6 +253,45 @@ const main = async () => {
         frame = frame.subtract(bend)
     }
     frame = Manifold.union([frame, ...pieces])
+    // the ball's way into its seat (and out): a search on a grid, its centre in the upright plane toward each open
+    // side, 0.2 mm to spare round it for the print; by azimuth, the way or null
+    const ways = solid => {
+        const near = solid.intersect(box(C[0] - 30, C[0] + 30, AXIS.y - 30, AXIS.y + 30, 0, 50))
+        const hits = (x, y, z) => near.intersect(Manifold.sphere(R + 0.2, 40).translate([x, y, z])).volume() > 0.01
+        const STEP = 0.25, found = {}
+        for (const az of [180, -150, -135]) {
+            const [dx, dy] = [Math.cos(az * Math.PI / 180), Math.sin(az * Math.PI / 180)]
+            const seen = new Map(), queue = [[0, 0]]; seen.set('0,0', null); let out = null
+            while (queue.length && !out) {
+                const [i, j] = queue.shift()
+                for (const [di, dj] of [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1]]) {
+                    const a = i + di, b = j + dj, key = `${a},${b}`
+                    if (a < 0 || b < 0 || a > 80 || b > 60 || seen.has(key)) continue
+                    seen.set(key, `${i},${j}`)
+                    if (hits(C[0] + a * STEP * dx, C[1] + a * STEP * dy, C[2] + b * STEP)) continue
+                    // out: beside the frame, over the case's top
+                    if (a * STEP >= 14 + R - 10 && C[2] + b * STEP - R >= CASE_TOP) { out = key; break }
+                    queue.push([a, b])
+                }
+            }
+            let path = [], k = out
+            while (k) { path.unshift(k.split(',').map(v => Number(v) * STEP)); k = seen.get(k) }
+            found[az] = out ? path : null
+        }
+        return found
+    }
+    const open = w => Object.values(w).some(p => p)
+    let visorK = VISOR.k
+    if (visorK === 'auto') {
+        visorK = null
+        for (let k = 0.5; k <= 0.951; k += 0.05)
+            if (open(ways(frame.add(visorOf(k))))) { visorK = Number(k.toFixed(2)); break }
+        console.log(visorK === null ? '  note: no visor leaves the ball a way in: none' :
+                    `  the visor: ${(Math.acos(visorK) * 180 / Math.PI).toFixed(0)} degrees round (k ${visorK}), the biggest that leaves the ball a way in`)
+    }
+    if (visorK !== null) frame = frame.add(visorOf(visorK))
+    // slivers the booleans leave (no volume) out
+    { const pieces = frame.decompose(); if (pieces.length > 1) frame = Manifold.union(pieces.filter(p => p.volume() > 0.01)) }
     // what the frame must keep clear of, checked: the ball (and 0.3 round it), the sensor board, its lens and its body,
     // the header in front of it (body and pins), the pogo pins' solder
     const keepClear = {
@@ -250,31 +304,9 @@ const main = async () => {
         // what the sensor sees of the ball and the light to it: the lens's face to the ball, 3 mm round its axis
         'optical path': box(AXIS.x + R - 1, SENSOR.lens.x0, AXIS.y - 3, AXIS.y + 3, AXIS.z - 3, AXIS.z + 3).subtract(Manifold.sphere(R, 72).translate(C)),
     }
-    if (process.argv.includes('--way')) {
-        const near = frame.intersect(box(C[0] - 30, C[0] + 30, AXIS.y - 30, AXIS.y + 30, 0, 50))
-        // 0.2 mm to spare round the ball, for the print
-        const hits = (x, y, z) => near.intersect(Manifold.sphere(R + 0.2, 40).translate([x, y, z])).volume() > 0.01
-        const STEP = 0.25
-        for (const az of [180, -150, -135]) {
-            const [dx, dy] = [Math.cos(az * Math.PI / 180), Math.sin(az * Math.PI / 180)]
-            const seen = new Map(), queue = [[0, 0]]; seen.set('0,0', null); let out = null
-            while (queue.length && !out) {
-                const [i, j] = queue.shift()
-                for (const [di, dj] of [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1]]) {
-                    const a = i + di, b = j + dj, key = `${a},${b}`
-                    if (a < 0 || b < 0 || a > 80 || b > 60 || seen.has(key)) continue
-                    seen.set(key, `${i},${j}`)
-                    if (hits(C[0] + a * STEP * dx, C[1] + a * STEP * dy, C[2] + b * STEP)) continue
-                    // out: beside the frame, over the case's top
-                    if (a * STEP >= 14 && C[2] + b * STEP - R >= CASE_TOP) { out = key; break }
-                    queue.push([a, b])
-                }
-            }
-            let path = [], k = out
-            while (k) { path.unshift(k.split(',').map(v => Number(v) * STEP)); k = seen.get(k) }
-            console.log(`  the ball's way out toward azimuth ${az}: ${out ? path.filter((p, i) => i % 4 === 0 || i === path.length - 1).map(([a, b]) => `(${a}, +${b})`).join(' ') : 'none'}`)
-        }
-    }
+    if (process.argv.includes('--way'))
+        for (const [az, path] of Object.entries(ways(frame)))
+            console.log(`  the ball's way out toward azimuth ${az}: ${path ? path.filter((p, i) => i % 4 === 0 || i === path.length - 1).map(([a, b]) => `(${a}, +${b})`).join(' ') : 'none'}`)
     for (const [name, solid] of Object.entries(keepClear)) {
         const v = frame.intersect(solid).volume()
         if (v > 0.01) console.log(`  the frame meets the ${name}: ${v.toFixed(2)} mm3`)

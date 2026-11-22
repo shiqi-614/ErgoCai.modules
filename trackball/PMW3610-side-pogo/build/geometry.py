@@ -6,8 +6,9 @@
 # - the sensor board stands on the module board; the PMW3610's optical centre at the ball's centre's height, its upper
 #   pin row 5.35 over that and the capacitors' row over it, so the board's top TOP over the centre;
 # - everything at +x (the sensor board, its notch, the module board's lobe round the fifth hole) moves out with the
-#   sensor board; the ball's axis, the pogo pins, the holes and everything at -x stay.
-# What does not fit is reported, not fixed: the mount's holes and pads are in the keyboard's board.
+#   sensor board, but only as far as the room behind it leaves the fifth hole's screw a wall (the hole, like the
+#   mount's others and its pads, is in the keyboard's board): past that the ball's axis moves to -x instead;
+# - the case's opening (the mount's User.1) is cartridge.js's: the module board's outline and the ball's seat.
 import json, os, sys
 B = os.path.dirname(os.path.abspath(__file__))
 src = sys.argv[1] if len(sys.argv) > 1 else os.path.join(B, '..', 'params.json')
@@ -16,8 +17,12 @@ ball = float(json.load(open(src))['ball'])
 R = ball / 2
 FLOOR, LENS_GAP, LENS_DEPTH, TOP = 1.6, 2.4, 4.35, 8.4
 SENSOR_T, BODY = 1.6, 3.1                      # the sensor board's thickness, the PMW3610's depth behind it
-AXIS = {'x': 0.0, 'y': -1.5, 'z': R + FLOOR}
-x0 = AXIS['x'] + R + LENS_GAP + LENS_DEPTH
+# the fifth hole (24.5, 0) and its screw (2.3 mm), 0.5 mm of wall from the room behind the sensor board (its body and
+# 0.2 round it): how far out the sensor board's front may come
+HOLE3, SCREW, WALL = (24.5, 0.0), 2.3, 0.5
+X0_MAX = HOLE3[0] - SCREW / 2 - WALL - 0.2 - BODY - SENSOR_T
+x0 = min(R + LENS_GAP + LENS_DEPTH, X0_MAX)
+AXIS = {'x': x0 - (R + LENS_GAP + LENS_DEPTH), 'y': -1.5, 'z': R + FLOOR}
 dx = x0 - 16.75                                # how far the +x side moves from the 20 mm ball's
 z = AXIS['z']
 # the module board's outline (KiCad, y down), the 20 mm ball's with its +x side moved: the notch the sensor board's tab
@@ -41,15 +46,11 @@ g = {
     'stop': {'open': R + 0.5},
 }
 # what the fixed parts leave no room for
-HOLE3, MOUNT_X = (24.5, 0.0), 27.1             # the fifth hole; the mount's User.1 outline's +x end
 warn = []
-# the room behind the sensor board (its body, 0.2 round it) and the fifth hole's screw (2.3 mm), 0.5 mm of wall between
-if g['sensor']['body']['x1'] + 0.2 + 0.5 > HOLE3[0] - 2.3 / 2:
-    warn.append(f"the room behind the sensor (to x {g['sensor']['body']['x1'] + 0.2:.2f}) runs into the fifth hole's screw (x {HOLE3[0] - 1.15:.2f}..)")
-if 27 + dx > MOUNT_X - 0.1:
-    warn.append(f"the module board reaches x {27 + dx:.2f}, past the mount's User.1 outline ({MOUNT_X}): the case's opening must grow")
+if AXIS['x'] < 0:
+    warn.append(f"the ball's axis moves to x {AXIS['x']:.2f}, the sensor board as far out as the fifth hole leaves it")
 g['warnings'] = warn
 rounded = lambda v: {k: rounded(w) for k, w in v.items()} if isinstance(v, dict) else [rounded(w) for w in v] if isinstance(v, list) else round(v, 3) if isinstance(v, float) else v
 json.dump(rounded(g), open(dst, 'w'), indent=1)
 print(f'ball {ball}: centre {z:.2f} over the module board, sensor board x {x0:.2f}..{x0 + SENSOR_T:.2f}, {z + TOP:.2f} tall')
-for w in warn: print('  does not fit:', w)
+for w in warn: print('  note:', w)

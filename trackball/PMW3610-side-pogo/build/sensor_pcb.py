@@ -63,9 +63,13 @@ for p in j1.Pads(): p.SetNet(b.FindNet(NETS[p.GetNumber()]))
 for f in b.GetFootprints():
     if f.GetSheetfile() == 'PMW3610-pogo.kicad_sch': f.SetSheetfile('PMW3610-side-pogo-sensor.kicad_sch')
 # the rest from place.json: ref -> [x, y, rot] or [x, y, rot, "axis"] (y from the sensor's optical centre, for the
-# parts round it, which move with it), all on the back, as they were
+# parts round it, which move with it), all on the back, as they were; or a list of such places to try in turn, the
+# one PLACE_ALT picks (run_all.sh tries them until the board routes)
 if len(sys.argv) > 3:
-    for ref, (x, y, r, *frm) in json.load(open(sys.argv[3])).items():
+    alt = int(os.environ.get('PLACE_ALT', '0'))
+    for ref, place in json.load(open(sys.argv[3])).items():
+        if isinstance(place[0], list): place = place[alt % len(place)]
+        x, y, r, *frm = place
         f = fps[ref]; f.SetPosition(V(x, y - AXIS_Z if frm == ['axis'] else y)); f.SetOrientationDegrees(r)
 # TB_C2 and TB_C1 in 0402: C2 to fit between the escape lanes under the sensor's lower pin row, C1 by the board's edge
 if len(sys.argv) > 3:
