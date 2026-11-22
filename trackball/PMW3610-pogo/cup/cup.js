@@ -135,6 +135,13 @@ const INSERT = {d: 6.0, h: 4.5, hole: 3.2, depth: 3.2}
 // the pocket: the lens (the board's x -4.7..4.7, y -6.46..11.5 in KiCad's frame, the sensor turned 90) and the leads
 // (x +-5.35), 1 mm round them
 const POCKET = {x0: -6.4, x1: 6.4, y0: -7.5, y1: 12.5}
+// --style seat: the lens's retainer, the base plate a mouse has over it (LM18-LSI datasheet, figure 2): the lens sits
+// on its two posts in the sensor and nothing else holds it, upside down it falls back from the sensor. A strip on each
+// of its long edges (its body 8.25 mm across, along the board's x, the optical centre on its middle line) holds its
+// reference plane down: `lip` of it, `t` thick, `half` each way along it from the optical centre (inside the 12.90 mm
+// body whichever end the centre is nearer), from the pocket's sides; under each a 45 degree slope down to the side, so
+// it prints without supports, clear of the lens's side (`clear`) and the sensor's leads
+const LENS_HOLD = {across: 8.25, lip: 1.0, t: 1.0, half: 4.5, clear: 0.2}
 
 const R = BALL / 2
 const BOTTOM = LENS + Z_GAP                      // the ball's lowest point
@@ -283,6 +290,16 @@ const main = async () => {
             .translate([CART.solder.x0, -CART.solder.y, -0.1]))
     }
     cup = cup.subtract(Manifold.union(cut))
+    if (STYLE === 'seat') {
+        const H = LENS_HOLD, inner = H.across / 2 - H.lip, side = H.across / 2 + H.clear, wall = POCKET.x1 + 0.05
+        const strips = [1, -1].map(s => {
+            const section = new CrossSection([[[inner, LENS], [side, LENS], [wall, LENS - (wall - side)], [wall, LENS + H.t], [inner, LENS + H.t]]
+                .map(([x, z]) => [s * x, z])], 'NonZero')     // either winding: one strip is the other mirrored
+            // the section in x and z, extruded along y
+            return section.extrude(2 * H.half).translate([0, 0, -H.half]).rotate([90, 0, 0])
+        })
+        cup = cup.add(Manifold.union(strips).subtract(Manifold.sphere(R + CLEAR, SEGMENTS).translate([0, 0, CENTRE])))
+    }
     let base = null
     if (FIX === 'cartridge') ({cup, base} = cartridge(wasm, cup))
 
@@ -453,9 +470,10 @@ const partsList = () => [
           `trackball ball; laid in before the holding balls go in, taken out to clean after they come out |`
         : `| Ball | 1 | ${BALL} mm | a mini billiard ball, or a ${BALL} mm replacement trackball ball; pressed in past the ` +
           `rim's fingers (${(2 * LIP.mouth).toFixed(1)} mm across), pried out to clean |`,
-    '| Lens | 1 | PixArt LM18-LSI | the PMW3610\'s lens, bought with or beside the sensor; clips into the board\'s ' +
-        'aperture from the front, up against the sensor, under the ball (datasheet PMS0039: 5.95 mm from the ' +
-        'sensor\'s pin reference plane to its own) |',
+    '| Lens | 1 | PixArt LM18-LSI | the PMW3610\'s lens, bought with or beside the sensor; into the board\'s ' +
+        'aperture from the front, its posts in the sensor, under the ball (datasheet PMS0039: 5.95 mm from the ' +
+        'sensor\'s pin reference plane to its own); the cup\'s two strips hold it down on its long edges, so it stays ' +
+        'when the keyboard is upside down (no CA glue: it is polycarbonate) |',
     STYLE === 'seat'
         ? `| Small balls | ${3 + RETAIN.azimuths.length} | ${SUPPORT} mm, PTFE (as the seat's makers use them), or ceramic | three supports pressed half into ` +
           `the wall under the ball (holes ${SEAT.toFixed(2)} mm, a press fit), ${RETAIN.azimuths.length === 3 ? 'three' : 'four'} that hold the ball down dropped into ` +

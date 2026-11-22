@@ -6,7 +6,7 @@ The sensor, its lens and the LDO are on the keyboard board, in its KiCad BOM (tr
 | Part | Qty | What | Notes |
 |---|---|---|---|
 | Ball | 1 | 20 mm | a PTFE ball as the seat's makers use, a mini billiard ball, or a 20 mm replacement trackball ball; laid in before the holding balls go in, taken out to clean after they come out |
-| Lens | 1 | PixArt LM18-LSI | the PMW3610's lens, bought with or beside the sensor; clips into the board's aperture from the front, up against the sensor, under the ball (datasheet PMS0039: 5.95 mm from the sensor's pin reference plane to its own) |
+| Lens | 1 | PixArt LM18-LSI | the PMW3610's lens, bought with or beside the sensor; into the board's aperture from the front, its posts in the sensor, under the ball (datasheet PMS0039: 5.95 mm from the sensor's pin reference plane to its own); the cup's two strips hold it down on its long edges, so it stays when the keyboard is upside down (no CA glue: it is polycarbonate) |
 | Small balls | 6 | 2 mm, PTFE (as the seat's makers use them), or ceramic | three supports pressed half into the wall under the ball (holes 1.95 mm, a press fit), three that hold the ball down dropped into the lugs' holes from above once the ball is in (take them out to take the ball out); no glue: PTFE takes none, and the lens is polycarbonate, which CA attacks |
 | Cup | 1 | cup.stl, printed | PETG or PLA (nothing in it bends), 3 or more perimeters (the wall is 1.5 mm at the equator); the plinth down, flat: no supports |
 | Cup fasteners | 4 + 4 | M2 heat-set inserts (M2 x 3 x 3.2), M2 x 6 screws (pan heads) | the inserts melted into the bosses from below, the screws up through the keyboard board's holes TB_H1..TB_H4 into them |
