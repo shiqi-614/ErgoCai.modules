@@ -9,7 +9,7 @@ for j in range(i, len(s)):
     elif s[j] == ')':
         depth -= 1
         if depth == 0: break
-W, H, TAB = 13.0, 16.5, (-11.8, 4.8, 1.6)
+W, H, TAB = 13.0, 21.5, (-11.8, 4.8, 1.6)
 poly = [(-W, -H), (W, -H), (W, 0), (TAB[1], 0), (TAB[1], TAB[2]), (TAB[0], TAB[2]), (TAB[0], 0), (-W, 0)]   # KiCad, y down
 pts = [(x, -y) for x, y in poly]                       # y up
 area = sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]))

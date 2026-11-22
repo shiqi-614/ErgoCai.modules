@@ -12,14 +12,18 @@ for t in list(b.GetTracks()):
         if any(abs(x - a) < 0.01 and abs(y - c) < 0.01 for a, c in drop): b.Delete(t); print('via out', round(x, 2), round(y, 2))
 for z in list(b.Zones()):
     if not z.GetIsRuleArea(): b.Delete(z)
-W, H, TAB = 13.0, 16.5, (-11.8, 4.8, 1.6)
+W, H, TAB = 13.0, 21.5, (-11.8, 4.8, 1.6)
 poly = [(-W, -H), (W, -H), (W, 0), (TAB[1], 0), (TAB[1], TAB[2]), (TAB[0], TAB[2]), (TAB[0], 0), (-W, 0)]
 gnd = b.FindNet('GND')
+# the sensor's GND hole (pad 11) solid to the zones: its thermal spokes come out starved between the lines round it; the
+# SMD pads solid too (THT_THERMAL), as the capacitors' GND pads were starved
+for p in b.FindFootprintByReference('TB_U1').Pads():
+    if p.GetNumber() == '11': p.SetLocalZoneConnection(pcbnew.ZONE_CONNECTION_FULL)
 for layer in (pcbnew.F_Cu, pcbnew.B_Cu):
     z = pcbnew.ZONE(b); z.SetLayer(layer); z.SetNet(gnd)
     o = z.Outline(); o.NewOutline()
     for x, y in poly: o.Append(M(x), M(y))
-    z.SetMinThickness(M(0.2)); z.SetLocalClearance(M(0.25)); z.SetPadConnection(pcbnew.ZONE_CONNECTION_THERMAL)
+    z.SetMinThickness(M(0.2)); z.SetLocalClearance(M(0.25)); z.SetPadConnection(pcbnew.ZONE_CONNECTION_THT_THERMAL)
     b.Add(z)
 pcbnew.ZONE_FILLER(b).Fill(b.Zones())
 pcbnew.SaveBoard(sys.argv[1], b)

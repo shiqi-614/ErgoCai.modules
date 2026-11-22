@@ -6,13 +6,14 @@
 //   (x -12.6..-9.4, |y| < 8); on it a spacer under each of the three holes, 3.8 mm (the pogo pins at 3.8 mm), a spigot
 //   under each into the mount's hole, an M2 x 3 x 3.2 insert in each top. It prints upside down, on the spacers' tops.
 // - The frame, one print: a rim round the module board's edge, from the board's bottom up to the cover; the ball's seat
-//   on the board (a shell round the 20 mm ball, which hangs down through the board's hole): three 2 mm support balls 30
-//   degrees under the equator (at 0, 135 and 225 degrees: clear of the pogo pins at -x, under the lens), three that
-//   hold it down in lugs over the equator (90, 180, 270), the shell cut down to the equator between the lugs, and open
-//   toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 8.9 mm over the case
-//   (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
-//   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top layer: at the thumb's end (-x, where the pins push
-//   up) and on the +y side (the seat's shell overhangs the board's -y edge, so nothing goes there).
+//   on the board (a shell round the 20 mm ball, up to 2 mm under its equator, which stands 4 mm over the case's top, so
+//   the thumb reaches the ball's side, as on keyball): three 2 mm support balls 30 degrees under the equator (at 0, 135
+//   and 225 degrees: clear of the pogo pins at -x, under the lens) that the ball lies on, held by nothing over it, and
+//   open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 15.1 mm over the
+//   case (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
+//   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top
+//   layer: at the thumb's end (-x, where the pins push up) and on the +y side (the seat's shell overhangs the board's
+//   -y edge, so nothing goes there).
 //
 // The frame of reference is the module board's (the mount's: the module goes on it as it is): x as the board's x, y as
 // its -y (KiCad's y points down), z up, the board's top at z = 0, as KiCad places a footprint's 3D model.
@@ -34,10 +35,10 @@ const OUTLINE = [[-14.5, -13], [16.55, -13], [16.55, 5.0], [18.55, 5.0], [18.55,
 const BOARD_T = 1.6
 const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [24.5, 0]]
 const PADS = {x0: -12.6, x1: -9.4, y: 8.0}           // the mount's contact pads, and the pins' solder on the board's top
-const AXIS = {x: 0, y: -1.5, z: 6.6}                  // the ball's centre (KiCad y)
+const AXIS = {x: 0, y: -1.5, z: 11.6}                 // the ball's centre (KiCad y): its equator 4 mm over the case's top
 const BALL = 20, SUPPORT = 2, CLEAR = SUPPORT / 2      // the support balls stand out of the wall by half
-const SENSOR = {x0: 16.75, x1: 18.35, y: 13.0, top: 16.5, lens: {x0: 12.4, y0: -13.0, y1: 4.96, z0: 1.9, z1: 11.3},
-                body: {x1: 21.45, y0: -12.59, y1: 3.61, z0: 2.05, z1: 11.15}}
+const SENSOR = {x0: 16.75, x1: 18.35, y: 13.0, top: 21.5, lens: {x0: 12.4, y0: -13.0, y1: 4.96, z0: 6.9, z1: 16.3},
+                body: {x1: 21.45, y0: -12.59, y1: 3.61, z0: 7.05, z1: 16.15}}
 // the case (ErgoCai.ts): the keyboard board's top over the case's bottom, the spacers, the top layer 18..21
 const KEYBOARD_TOP = 8.0, SPACER_H = 3.8
 const BOARD_TOP = KEYBOARD_TOP + SPACER_H + BOARD_T    // 13.4
@@ -57,7 +58,7 @@ const COVER = {t: 1.2, clear: 0.3, edge: 0.4}
 const SHELL = 1.5                                      // the seat's wall over the cavity
 const TILT = 30, AZIMUTHS = [0, 135, 225]              // the support balls: under the equator, round the axis
 const SEAT = SUPPORT - 0.05                            // their holes, a press fit
-const HOLD = {elevation: 15, out: 0.3, azimuths: [90, 180, 270], lug: 4.0, over: 0.6, below: 1}
+const RIM_UNDER = 2.0                                  // the seat's rim under the ball's equator: its side free for the thumb
 const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward the lens (degrees)
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
 const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
@@ -97,17 +98,11 @@ const main = async () => {
         parts.push(grown(opening, coverOut - COVER.edge * (k + 1) / steps, CASE_TOP - COVER.edge + COVER.edge * k / steps - 0.001, CASE_TOP - COVER.edge + COVER.edge * (k + 1) / steps))
     // the columns on the holes, the board's top to the cover
     for (const [x, y] of HOLES) parts.push(disc(FOOT.d, x, y, 0, coverZ0 + 0.01))
-    // the seat: a shell round the ball on the board (its cavity cut below), lugs for the holding balls
+    // the seat: a shell round the ball on the board (its cavity cut below), up to RIM_UNDER under the equator; the ball
+    // lies in it on the support balls, held by nothing over it (as keyball's): it lifts out
     const outer = R + CLEAR + SHELL
-    const holdZ = AXIS.z + (R + CLEAR) * Math.sin(HOLD.elevation * Math.PI / 180)
-    const top = holdZ + SUPPORT / 2 + HOLD.over
+    const top = AXIS.z - RIM_UNDER
     parts.push(Manifold.sphere(outer, SEGMENTS * 2).translate(C).intersect(Manifold.cube([60, 60, top]).translate([-30 + C[0], -30 + C[1], 0])))
-    const holdR = (R + CLEAR) * Math.cos(HOLD.elevation * Math.PI / 180) + HOLD.out
-    for (const a of HOLD.azimuths) {
-        const x = C[0] + holdR * Math.cos(a * Math.PI / 180), y = C[1] + holdR * Math.sin(a * Math.PI / 180)
-        parts.push(Manifold.cylinder(top - (holdZ - 3), HOLD.lug / 2, HOLD.lug / 2, 48).translate([x, y, holdZ - 3]))
-        cuts.push(Manifold.cylinder(top - holdZ + SUPPORT / 2 + 1, SEAT / 2, SEAT / 2, 32).translate([x, y, holdZ - SUPPORT / 2]))
-    }
     // the hood over the sensor board: round its back and over its top, open toward the ball (the lens looks out)
     const hy = SENSOR.y + SLOT.gap + HOOD.wall
     const hood = box(SENSOR.x0 - SLOT.gap - HOOD.wall, SENSOR.body.x1 + SLOT.gap + HOOD.wall, -hy, hy, coverZ0, SENSOR.top + SLOT.gap + HOOD.over)
@@ -115,8 +110,7 @@ const main = async () => {
     // the outline cuts back); over the case's top all of it
     const hoodIn = grown(opening, coverOut, coverZ0 - 1, CASE_TOP)
     parts.push(hood.intersect(hoodIn), hood.intersect(box(-50, 50, -50, 50, CASE_TOP - 0.001, CASE_TOP + 50)))
-    // the cavity, the support balls' seats, the holding balls' holes (above), the window toward the lens, the cuts
-    // between the lugs down to under the equator
+    // the cavity, the support balls' seats, the window toward the lens
     cuts.push(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C))
     // each support ball's seat: a hole along the line to the ball's centre, from inside the cavity out to where the
     // support ball, touching the ball, has its far side (as cup.js; OFF degrees off the ball's bottom)
@@ -126,13 +120,6 @@ const main = async () => {
         cuts.push(Manifold.cylinder(reach - start, SEAT / 2, SEAT / 2, 32).rotate([0, 180 - OFF, 0])
             .translate([start * Math.sin(OFF * Math.PI / 180), 0, -start * Math.cos(OFF * Math.PI / 180)]).rotate([0, 0, a]).translate(C))
     }
-    const lugs = [...HOLD.azimuths].sort((p, q) => p - q)
-    lugs.forEach((a, i) => {
-        const next = i + 1 < lugs.length ? lugs[i + 1] : lugs[0] + 360, gap = next - a
-        const width = 2 * (R + CLEAR) * Math.sin(gap * Math.PI / 360) - HOLD.lug - 1.4, r = width / 2, z0 = AXIS.z - HOLD.below
-        cuts.push(Manifold.union([Manifold.cylinder(outer + 3, r, r, 64).rotate([0, 90, 0]).translate([0, 0, z0 + r]),
-            Manifold.cube([outer + 3, width, top - z0 + 1]).translate([0, -r, z0 + r])]).rotate([0, 0, a + gap / 2]).translate([C[0], C[1], 0]))
-    })
     // the window toward the lens: the lens's box, a little round it, out from the cavity
     const L = SENSOR.lens
     cuts.push(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
@@ -218,7 +205,6 @@ const main = async () => {
     const ballSolid = Manifold.sphere(R, 72).translate(C)
     const supports = AZIMUTHS.map(a => { const t = TILT * Math.PI / 180, d = R + SUPPORT / 2
         return [C[0] + d * Math.cos(t) * Math.cos(a * Math.PI / 180), C[1] + d * Math.cos(t) * Math.sin(a * Math.PI / 180), C[2] - d * Math.sin(t)] })
-        .concat(HOLD.azimuths.map(a => [C[0] + holdR * Math.cos(a * Math.PI / 180), C[1] + holdR * Math.sin(a * Math.PI / 180), holdZ]))
     fs.writeFileSync(OUT, stl(frame, 'ErgoCai side-read trackball frame (manifold-3d)'))
     fs.writeFileSync(BASE_OUT, stl(base.translate([0, 0, -floor + SPACER.spigotH]), 'ErgoCai side-read trackball base (manifold-3d)'))
     const models = [{name: 'frame', solid: frame, rgb: [0.93, 0.93, 0.95]}, {name: 'base', solid: base, rgb: [0.3, 0.55, 0.9]},

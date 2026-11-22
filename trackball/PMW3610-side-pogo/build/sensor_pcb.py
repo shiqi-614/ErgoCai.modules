@@ -8,8 +8,9 @@ import sys, re, json, pcbnew
 board, sch = sys.argv[1:3]
 M, T = pcbnew.FromMM, pcbnew.ToMM
 V = lambda x, y: pcbnew.VECTOR2I(M(x), M(y))
-W, H = 13.0, 16.5                     # half width, height
-AXIS_X, AXIS_Z = -1.5, 6.6
+W, H = 13.0, 21.5                     # half width, height
+# the ball's centre 11.6 over the module board: its side over the case's top, for the thumb
+AXIS_X, AXIS_Z = -1.5, 11.6
 b = pcbnew.LoadBoard(board)
 for t in list(b.GetTracks()): b.Delete(t)
 for z in list(b.Zones()): b.Delete(z)
