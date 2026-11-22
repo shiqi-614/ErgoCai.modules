@@ -220,14 +220,19 @@ const main = async () => {
     // the matrix's side's wall, and the roof over it, start where the ball's cavity leaves the wall 1.2 mm: nearer the
     // axis the cavity hollows the wall to a thin skin (the 25 mm ball's cavity reaches past the wall's face)
     const wallM = AXIS.x + Math.sqrt(Math.max(0, (R + CLEAR + 1.2) ** 2 - (hy + AXIS.y) ** 2))
+    // the opening round the ball, through the roof and the user's side's block: no nearer than the ball's cavity
+    const openR = Math.max(STOP.open, R + CLEAR)
     stops.push(Manifold.union([box(wallM, hoodFront + 0.5, -hy, ySplit, TOP - STOP.roof, TOP),
                                box(userX, hoodFront + 0.5, ySplit - 0.01, hy, TOP - STOP.roof, TOP)])
-        .subtract(Manifold.cylinder(TOP + 1, STOP.open, STOP.open, 96).translate([C[0], C[1], 0])))
+        .subtract(Manifold.cylinder(TOP + 1, openR, openR, 96).translate([C[0], C[1], 0])))
     // on the user's side, from that side's post back to the hood, solid over the case's top (beside the lens, over the
     // header), so the post joins the block with no thin roof over nothing
     // (out to where the post's outside was: one block, the ball's hole in its face toward the ball, no half post standing
     // out of it; the post is all on that side of the lens's window)
-    stops.push(box(ux - STOP.d / 2, hoodFront + 0.5, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
+    // (its face toward the ball the roof's opening, an upright cylinder no nearer the axis than the cavity: the cavity's
+    // sphere alone cut its corner to a knife edge, up its whole height)
+    stops.push(box(ux - STOP.d / 2, hoodFront + 0.5, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP)
+        .subtract(Manifold.cylinder(TOP + 1, openR, openR, 96).translate([C[0], C[1], 0])))
     // and a wall down each side of it to the case's top, so no light comes in from the sides either
     // (on the matrix's side the thick part stops short of the lens, which reaches to that side's edge)
     stops.push(box(wallM, SENSOR.lens.x0 - SLOT.gap, -hy, -hy + HOOD.side, CASE_TOP - 0.001, TOP))
@@ -281,7 +286,7 @@ const main = async () => {
         // the outline rounded is the block's with the room round the ball filled in (between the walls, from where they
         // start): so the roof's edge round the ball, which no hand reaches, is no edge of it and stays sharp
         const P = frame.slice(TOP - 0.05)
-        const ballRoom = CrossSection.circle(STOP.open + 0.05, 96).translate([C[0], C[1]])
+        const ballRoom = CrossSection.circle(openR + 0.05, 96).translate([C[0], C[1]])
             .intersect(CrossSection.square([hoodFront + 0.5 - AXIS.x, 2 * (hy - HOOD.side)]).translate([AXIS.x, -(hy - HOOD.side)]))
         // (0.01 out, so its straight sides do not lie on the walls' faces, which left faces of no thickness there)
         const Pr = P.add(ballRoom).offset(-ROUND.plan, 'Round', 2, 32).offset(ROUND.plan + 0.01, 'Round', 2, 32)
@@ -290,7 +295,12 @@ const main = async () => {
             const z0 = TOP - r + r * k / steps, z1 = TOP - r + r * (k + 1) / steps, dz = (z0 + z1) / 2 - (TOP - r)
             layers.push(Pr.offset(-(r - Math.sqrt(r * r - dz * dz)), 'Round', 2, 32).extrude(z1 - z0 + 0.001).translate([0, 0, z0]))
         }
-        skin = P.extrude(TOP + 1 - CASE_TOP).translate([0, 0, CASE_TOP]).subtract(Manifold.union(layers))
+        // (the prism 0.05 out past the outline's outsides, its rooms as they are: on the outline itself the cut left
+        // sheets of no thickness standing on the block's faces, which a renderer draws as stray triangles)
+        const area = p => p.reduce((s, q, i) => s + q[0] * p[(i + 1) % p.length][1] - p[(i + 1) % p.length][0] * q[1], 0)
+        const outside = new CrossSection(P.toPolygons().filter(p => area(p) > 0))
+        skin = P.add(outside.offset(0.05, 'Miter').subtract(outside)).extrude(TOP + 1 - CASE_TOP).translate([0, 0, CASE_TOP])
+            .subtract(Manifold.union(layers))
         frame = frame.subtract(skin)
     }
     // the seat's rim: a half-round bead on its flat top, clear of the cavity and the lens's window
