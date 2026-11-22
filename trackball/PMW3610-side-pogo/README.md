@@ -1,15 +1,16 @@
 # trackball/PMW3610-side-pogo: the trackball read from the side, on the pogo mount
 
-A 20 mm ball beside a PixArt PMW3610DM-SUDU that reads it from the side. The ball stands high, as keyball's: its
-equator 4 mm over the case's top, so the thumb (from -x) reaches its side; its top 27 mm over the keyboard board. It goes on the joystick mount (joystick/joystick-mount-pogo) as
+A 25 mm ball (params.json; see "Another ball size") beside a PixArt PMW3610DM-SUDU that reads it from the side. The
+ball stands high, as keyball's: its equator 6.5 mm over the case's top, so the thumb (from -x) reaches its side; its
+top 32 mm over the keyboard board, 40 mm over the case's bottom, the hood's top 37 mm. It goes on the joystick mount (joystick/joystick-mount-pogo) as
 it is (not turned), on the mount's holes at x -12.35 and its fifth hole at (24.5, 0), and needs a case of its own that
 opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `layers: [User.1]`, `cut: outline`).
 
 - `PMW3610-side-pogo.kicad_*`: the module board. The six pogo pins (TB_P1..6) where the mount's pads are (pin k on pad
   k: VCC, SDIO, SCLK, NCS, MOTION, GND), no hole for the ball (it lies 1.6 mm over the board, its axis at (0, -1.5)), TB_J1's six holes for the
   sensor board's header, a notch the sensor board's tab goes down into, three mounting holes.
-- `sensor/`: the sensor board, 26 x 20 mm, standing upright on the module board, its front (the LM18-LSI lens) toward
-  the ball, the lens's face 2.4 mm from it, the sensor's optical centre 11.6 mm over the module board, level with the
+- `sensor/`: the sensor board, 26 x 22.5 mm, standing upright on the module board, its front (the LM18-LSI lens) toward
+  the ball, the lens's face 2.4 mm from it, the sensor's optical centre 14.1 mm over the module board, level with the
   ball's centre. The PMW3610 on its back, its lens through the board's aperture; the charge
   pump's and VDD's capacitors in a row over its upper pin row; the 1.8 V LDO and its input capacitor beside it, over
   the header, VDDIO's capacitor and the reset pull-up under its lower pin row (the same circuit as trackball/PMW3610-pogo). TB_J1, a 2x3 right-angle pin header on its
@@ -42,8 +43,8 @@ mount's holes. So past the 20 mm ball the sensor board comes out only as far as 
 and the ball's axis moves to -x instead; the case's opening (the mount's User.1, in ErgoCaiLib and in
 joystick-mount-pogo) grows to the module board and the ball's seat when it must (`build/opening.json`, then
 `build/mount_outline.py`), and the keyboard's case follows it; the visor is the biggest that leaves the ball a way into
-its seat. Tried: 20 mm (this) and 25 mm (the axis at x -1.3, the visor 46 degrees round, the ball's top 40 mm over the
-case's bottom).
+its seat. Tried: 25 mm (this: the axis at x -1.3, the visor 46 degrees round, the ball's top 40 mm over the case's
+bottom) and 20 mm (the axis at 0, the visor 49 degrees round, the ball's top 35 mm).
 
 The firmware is the trackball's (zmk-ergo-cai shield trackball; pogo_detect finds it as a trackball). Read from the side,
 its axes may not run as the trackball read from below: flip them in zmk-config (`&trackball { invert-x; };`, or
@@ -53,7 +54,7 @@ its axes may not run as the trackball read from below: flip them in zmk-config (
 
 | Part | Qty | What | Notes |
 |---|---|---|---|
-| Ball | 1 | 20 mm | PTFE, or an acrylic ball; it lies in the seat, and falls out with the keyboard upside down |
+| Ball | 1 | 25 mm (what params.json says) | PTFE, or an acrylic ball; it lies in the seat, and falls out with the keyboard upside down |
 | Small balls | 5 | 2 mm PTFE | three supports and the two stops, pressed into their holes (1.95 mm, a press fit) from inside the seat |
 | Lens | 1 | PixArt LM18-LSI | into the sensor board's aperture from the front, its posts in the sensor; the frame's two strips hold it there (no CA glue: it is polycarbonate) |
 | Pin header | 1 | 2x3, 2.54 mm, right angle | on the sensor board's front; trim its pins after soldering into the module board |
