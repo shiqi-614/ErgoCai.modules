@@ -1895,7 +1895,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "ErgoCai:SK6805-EC20"
+		(symbol "LED:WS2812B"
 			(pin_names
 				(offset 0.254)
 			)
@@ -1911,7 +1911,7 @@
 					(justify right bottom)
 				)
 			)
-			(property "Value" "SK6805-EC20"
+			(property "Value" "WS2812B"
 				(at 1.27 -5.715 0)
 				(effects
 					(font
@@ -1920,7 +1920,7 @@
 					(justify left top)
 				)
 			)
-			(property "Footprint" "ErgoCai.pretty:LED_SK6805-EC20_2.0x2.0mm"
+			(property "Footprint" "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
 				(at 1.27 -7.62 0)
 				(effects
 					(font
@@ -1930,7 +1930,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.lcsc.com/product-detail/C2890036.html"
+			(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
 				(at 2.54 -9.525 0)
 				(effects
 					(font
@@ -1940,7 +1940,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "OPSCO SK6805-EC20 addressable RGB LED, 2.0x2.0x0.65mm, 1=GND 2=DIN 3=VDD 4=DOUT"
+			(property "Description" "RGB LED with integrated controller"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1958,7 +1958,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "LED*SK6805*2.0x2.0*"
+			(property "ki_fp_filters" "LED*WS2812*PLCC*5.0x5.0mm*P3.2mm*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1967,16 +1967,7 @@
 					(hide yes)
 				)
 			)
-			(property "LCSC Part" "C2890036"
-				(at 0 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SK6805-EC20_0_0"
+			(symbol "WS2812B_0_0"
 				(text "RGB"
 					(at 2.286 -4.191 0)
 					(effects
@@ -1986,9 +1977,11 @@
 					)
 				)
 			)
-			(symbol "SK6805-EC20_0_1"
+			(symbol "WS2812B_0_1"
 				(polyline
-					(pts (xy 1.27 -2.54) (xy 1.778 -2.54))
+					(pts
+						(xy 1.27 -2.54) (xy 1.778 -2.54)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -1998,7 +1991,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 1.27 -3.556) (xy 1.778 -3.556))
+					(pts
+						(xy 1.27 -3.556) (xy 1.778 -3.556)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2008,7 +2003,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 2.286 -1.524) (xy 1.27 -2.54) (xy 1.27 -2.032))
+					(pts
+						(xy 2.286 -1.524) (xy 1.27 -2.54) (xy 1.27 -2.032)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2018,7 +2015,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 2.286 -2.54) (xy 1.27 -3.556) (xy 1.27 -3.048))
+					(pts
+						(xy 2.286 -2.54) (xy 1.27 -3.556) (xy 1.27 -3.048)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2028,7 +2027,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 3.683 -1.016) (xy 3.683 -3.556) (xy 3.683 -4.064))
+					(pts
+						(xy 3.683 -1.016) (xy 3.683 -3.556) (xy 3.683 -4.064)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2038,7 +2039,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 4.699 -1.524) (xy 2.667 -1.524) (xy 3.683 -3.556) (xy 4.699 -1.524))
+					(pts
+						(xy 4.699 -1.524) (xy 2.667 -1.524) (xy 3.683 -3.556) (xy 4.699 -1.524)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2048,7 +2051,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 4.699 -3.556) (xy 2.667 -3.556))
+					(pts
+						(xy 4.699 -3.556) (xy 2.667 -3.556)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2069,7 +2074,7 @@
 					)
 				)
 			)
-			(symbol "SK6805-EC20_1_1"
+			(symbol "WS2812B_1_1"
 				(pin input line
 					(at -7.62 0 0)
 					(length 2.54)
@@ -2080,7 +2085,7 @@
 							)
 						)
 					)
-					(number "2"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2098,7 +2103,7 @@
 							)
 						)
 					)
-					(number "3"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2109,14 +2114,14 @@
 				(pin power_in line
 					(at 0 -7.62 90)
 					(length 2.54)
-					(name "GND"
+					(name "VSS"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2134,7 +2139,7 @@
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -8212,7 +8217,7 @@
 		)
 		(uuid "e50eaf30-c77a-5260-bec9-982e12aa2071")
 	)
-	(text "EP_RGB1: status LED, front, centred below the panel (SK6805-EC20)"
+	(text "EP_RGB1: status LED, front, centred below the panel (WS2812B-Mini-V6)"
 		(exclude_from_sim no)
 		(at 191.77 92.71 0)
 		(effects
@@ -8225,7 +8230,7 @@
 		(uuid "7c135fcd-025f-5292-983a-f863c3e50d2a")
 	)
 	(symbol
-		(lib_id "ErgoCai:SK6805-EC20")
+		(lib_id "LED:WS2812B")
 		(at 243.84 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8242,7 +8247,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SK6805-EC20"
+		(property "Value" "WS2812B-Mini-V6"
 			(at 253.365 130.81 0)
 			(effects
 				(font
@@ -8251,7 +8256,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:LED_SK6805-EC20_2.0x2.0mm"
+		(property "Footprint" "LED_SMD:LED_WS2812B-Mini_PLCC4_3.5x3.5mm"
 			(at 243.84 121.92 0)
 			(effects
 				(font
@@ -8260,7 +8265,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/product-detail/C2890036.html"
+		(property "Datasheet" "https://www.lcsc.com/product-detail/C52941386.html"
 			(at 243.84 121.92 0)
 			(effects
 				(font
@@ -8269,7 +8274,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "OPSCO SK6805-EC20 addressable RGB LED, 2.0x2.0x0.65mm, 1=GND 2=DIN 3=VDD 4=DOUT"
+		(property "Description" "Worldsemi WS2812B-Mini-V6 addressable RGB LED, 3.5x3.5x1.9mm, J-leads, VDD 3.3-5.3V, 1=VDD 2=DOUT 3=VSS 4=DIN"
 			(at 243.84 121.92 0)
 			(effects
 				(font
@@ -8278,7 +8283,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part" "C2890036"
+		(property "LCSC Part" "C52941386"
 			(at 243.84 121.92 0)
 			(effects
 				(font
@@ -8287,17 +8292,17 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "23d05113-af15-5ec5-bb40-3050915047a4")
-		)
-		(pin "3"
-			(uuid "1ddb1053-9201-5798-8f15-cc2e44e08e6b")
+		(pin "4"
+			(uuid "4f0f65ee-a61a-55af-8ac0-c8b4ac2bfaf1")
 		)
 		(pin "1"
 			(uuid "211f0d11-596d-5f8c-8c1c-180c881ba7bc")
 		)
-		(pin "4"
-			(uuid "4f0f65ee-a61a-55af-8ac0-c8b4ac2bfaf1")
+		(pin "3"
+			(uuid "1ddb1053-9201-5798-8f15-cc2e44e08e6b")
+		)
+		(pin "2"
+			(uuid "23d05113-af15-5ec5-bb40-3050915047a4")
 		)
 		(instances
 			(project "2.13inch"
@@ -8935,7 +8940,7 @@
 		)
 		(uuid "cdd4cddd-30c2-58bd-bc68-244d8507a30e")
 	)
-	(text "NOTES\n1. GDEY0213B74: SSD1680, 250x122, VCI 2.2-3.7V (3.3V here).\n   BS1 = GND -> 4-wire SPI, so EP_DC is required.\n2. Boost/charge pump = Good Display reference circuit:\n   L1 47uH (Isat >= 0.4A), Q1 Si1308EDL (alt. AO3400A: SOT-23 pads),\n   D1-D3 MBR0530, R1 1M gate pull-down, R2 2.2 ohm RESE sense.\n   (2.2 ohm + 47uH suit SSD ICs; UC ICs use 0.47 ohm + 10uH.)\n3. Caps on PREVGH/PREVGL/VSH/VSL/VCOM must be rated >= 25V\n   (1uF/50V X5R; C8/C9 4.7uF/25V X5R).\n4. Pins 1/4 (NC), 6/7 (TSCL/TSDA), 19 (VPP) are left open.\n5. Stack-up: panel taped to the FRONT, every part on the BACK.\n   The panel FPC wraps 180 deg around the board edge into\n   EP_FPC1, so its gold fingers face AWAY from the PCB:\n   EP_FPC1 must be top- or dual-contact. AFC24-S24FIA-00 is\n   dual-contact, front-insert / rear-flip: the FPC enters on\n   the side opposite the pads, so face that side to the edge.\n   A bottom-contact socket (e.g. AFC01) won't mate.\n   Pad k = panel pin 25-k by AFC24 numbering; the fold keeps order.\n6. EP_FPC2 mates e-paper/2.13inch-socket pin for pin. Upright board:\n   panel FPC fold at the top, EP_FPC2 on the back at the bottom (tail)\n   end, centred, FFC exiting past the 18650: fits both keyboard halves.\n7. Keep the L1/Q1/R2/C8 loop tight; route PREVGH/PREVGL/VCOM\n   short and away from EP_CLK/EP_DIN; solid GND on the back.\n8. EP_RGB1 is on the FRONT, centred below the panel; R3 (data\n   series R, may be 0R) and C11 stay on the back. SK6805: 3.5-5.5V.\n9. EP_HDR1 (DNP): 2.54 mm test pins for Dupont wires,\n   back, +x edge. Pins 1-8 in DESPI-C02 P2 order (3.3V,\n   GND, SDI, SCLK, CS, D/C, RES, BUSY); 9 = GPIO_DIN.\n   THT, for hand soldering. Fit the header for tests only:\n   it is taller than the standoffs. Cut its tails flush on\n   the front before taping the panel."
+	(text "NOTES\n1. GDEY0213B74: SSD1680, 250x122, VCI 2.2-3.7V (3.3V here).\n   BS1 = GND -> 4-wire SPI, so EP_DC is required.\n2. Boost/charge pump = Good Display reference circuit:\n   L1 47uH (Isat >= 0.4A), Q1 Si1308EDL (alt. AO3400A: SOT-23 pads),\n   D1-D3 MBR0530, R1 1M gate pull-down, R2 2.2 ohm RESE sense.\n   (2.2 ohm + 47uH suit SSD ICs; UC ICs use 0.47 ohm + 10uH.)\n3. Caps on PREVGH/PREVGL/VSH/VSL/VCOM must be rated >= 25V\n   (1uF/50V X5R; C8/C9 4.7uF/25V X5R).\n4. Pins 1/4 (NC), 6/7 (TSCL/TSDA), 19 (VPP) are left open.\n5. Stack-up: panel taped to the FRONT, every part on the BACK.\n   The panel FPC wraps 180 deg around the board edge into\n   EP_FPC1, so its gold fingers face AWAY from the PCB:\n   EP_FPC1 must be top- or dual-contact. AFC24-S24FIA-00 is\n   dual-contact, front-insert / rear-flip: the FPC enters on\n   the side opposite the pads, so face that side to the edge.\n   A bottom-contact socket (e.g. AFC01) won't mate.\n   Pad k = panel pin 25-k by AFC24 numbering; the fold keeps order.\n6. EP_FPC2 mates e-paper/2.13inch-socket pin for pin. Upright board:\n   panel FPC fold at the top, EP_FPC2 on the back at the bottom (tail)\n   end, centred, FFC exiting past the 18650: fits both keyboard halves.\n7. Keep the L1/Q1/R2/C8 loop tight; route PREVGH/PREVGL/VCOM\n   short and away from EP_CLK/EP_DIN; solid GND on the back.\n8. EP_RGB1 is on the FRONT, centred below the panel; R3 (data\n   series R, may be 0R) and C11 stay on the back.\n   WS2812B-Mini-V6: 3535 with J-leads, VDD 3.3-5.3V,\n   1.9 mm tall. Soldered by hand, so it is out of the\n   position file: only the back is assembled.\n9. EP_HDR1 (DNP): 2.54 mm test pins for Dupont wires,\n   back, +x edge. Pins 1-8 in DESPI-C02 P2 order (3.3V,\n   GND, SDI, SCLK, CS, D/C, RES, BUSY); 9 = GPIO_DIN.\n   THT, for hand soldering. Fit the header for tests only:\n   it is taller than the standoffs. Cut its tails flush on\n   the front before taping the panel."
 		(exclude_from_sim no)
 		(at 116.84 116.84 0)
 		(effects
