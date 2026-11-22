@@ -208,7 +208,8 @@ const main = async () => {
         const c = Math.cos(a * Math.PI / 180), s = Math.sin(a * Math.PI / 180), rp = R + CLEAR + STOP.d / 2 - 0.3
         const [px, py] = [C[0] + rp * c, C[1] + rp * s]
         posts[a] = [px, py]
-        stops.push(Manifold.cylinder(TOP, STOP.d / 2, STOP.d / 2, 32).translate([px, py, 0]))
+        // (the user's side's post only up to the case's top: over it the solid block there holds that ball)
+        stops.push(Manifold.cylinder(a < 0 ? CASE_TOP + 0.01 : TOP, STOP.d / 2, STOP.d / 2, 32).translate([px, py, 0]))
         const start = R - 0.5, reach = R + SUPPORT
         stopHoles.push(Manifold.cylinder(reach - start, SEAT / 2, SEAT / 2, 32).rotate([0, 90, 0]).translate([start, 0, 0]).rotate([0, 0, a]).translate(C))
     }
@@ -224,7 +225,9 @@ const main = async () => {
         .subtract(Manifold.cylinder(TOP + 1, STOP.open, STOP.open, 96).translate([C[0], C[1], 0])))
     // on the user's side, from that side's post back to the hood, solid over the case's top (beside the lens, over the
     // header), so the post joins the block with no thin roof over nothing
-    stops.push(box(Math.min(userX, ux), hoodFront + 0.5, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
+    // (out to where the post's outside was: one block, the ball's hole in its face toward the ball, no half post standing
+    // out of it; the post is all on that side of the lens's window)
+    stops.push(box(ux - STOP.d / 2, hoodFront + 0.5, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
     // and a wall down each side of it to the case's top, so no light comes in from the sides either
     // (on the matrix's side the thick part stops short of the lens, which reaches to that side's edge)
     stops.push(box(wallM, SENSOR.lens.x0 - SLOT.gap, -hy, -hy + HOOD.side, CASE_TOP - 0.001, TOP))
