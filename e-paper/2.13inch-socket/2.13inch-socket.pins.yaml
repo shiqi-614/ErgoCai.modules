@@ -1,5 +1,6 @@
 # Pin functions of 2.13inch-socket's EPM_FPC1, by pad number: the keyboard end of the 2.13inch e-paper module's FFC
-# (JUSHUO AFD01-S10FCA-00, 10P 0.5 mm; it meets the module's EP_FPC2 pin k to pin k). Panel: GDEY0213B74 (SSD1680,
+# (JUSHUO AFD01-S10FCA-00, 10P 0.5 mm, on the keyboard's back; turned over, its pin k meets the module's EP_FPC2
+# pin 11-k). Panel: GDEY0213B74 (SSD1680,
 # 4-wire SPI with BS1 to GND); LED: the module's WS2812B-Mini-V6.
 # For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shield
 # epaper_gdey0213b74 in zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to
@@ -25,14 +26,14 @@ footprint: EPM_FPC1
 connector: JUSHUO AFD01-S10FCA-00
 pins:
   "1": {net: GND}
-  "2": {net: GPIO_DIN, function: "data in of the module's WS2812B-Mini-V6 status LED (WS2812 timing, 800 kbit/s)", dir: out}
-  "3": {net: EP_BUSY, function: "panel BUSY: high while the panel is busy", dir: in}
-  "4": {net: EP_RST, function: "panel RES#: reset, active low", dir: out}
-  "5": {net: EP_DC, function: "panel D/C#: data high, command low", dir: out}
-  "6": {net: EP_CS, function: "panel CS#: SPI chip select, active low", dir: out}
-  "7": {net: EP_CLK, function: "panel SCL: SPI clock", dir: out}
-  "8": {net: EP_DIN, function: "panel SDA: SPI data to the panel (MOSI)", dir: out}
-  "9": {net: 3.3V, function: "supply of the panel and the LED", dir: power}
+  "2": {net: 3.3V, function: "supply of the panel and the LED", dir: power}
+  "3": {net: EP_DIN, function: "panel SDA: SPI data to the panel (MOSI)", dir: out}
+  "4": {net: EP_CLK, function: "panel SCL: SPI clock", dir: out}
+  "5": {net: EP_CS, function: "panel CS#: SPI chip select, active low", dir: out}
+  "6": {net: EP_DC, function: "panel D/C#: data high, command low", dir: out}
+  "7": {net: EP_RST, function: "panel RES#: reset, active low", dir: out}
+  "8": {net: EP_BUSY, function: "panel BUSY: high while the panel is busy", dir: in}
+  "9": {net: GPIO_DIN, function: "data in of the module's WS2812B-Mini-V6 status LED (WS2812 timing, 800 kbit/s)", dir: out}
   "10": {net: GND}
   "11": {net: GND, function: "mounting pad"}
   "12": {net: GND, function: "mounting pad"}

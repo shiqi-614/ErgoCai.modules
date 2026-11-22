@@ -486,7 +486,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(global_label "3.3V"
+	(global_label "GPIO_DIN"
 		(shape input)
 		(at 153.67 129.54 180)
 		(fields_autoplaced yes)
@@ -508,7 +508,7 @@
 			)
 		)
 	)
-	(global_label "EP_BUSY"
+	(global_label "EP_DIN"
 		(shape input)
 		(at 153.67 114.3 180)
 		(fields_autoplaced yes)
@@ -530,7 +530,7 @@
 			)
 		)
 	)
-	(global_label "EP_DIN"
+	(global_label "EP_BUSY"
 		(shape input)
 		(at 153.67 127 180)
 		(fields_autoplaced yes)
@@ -552,7 +552,7 @@
 			)
 		)
 	)
-	(global_label "GPIO_DIN"
+	(global_label "3.3V"
 		(shape input)
 		(at 153.67 111.76 180)
 		(fields_autoplaced yes)
@@ -574,7 +574,7 @@
 			)
 		)
 	)
-	(global_label "EP_CS"
+	(global_label "EP_DC"
 		(shape input)
 		(at 153.67 121.92 180)
 		(fields_autoplaced yes)
@@ -596,7 +596,7 @@
 			)
 		)
 	)
-	(global_label "EP_CLK"
+	(global_label "EP_RST"
 		(shape input)
 		(at 153.67 124.46 180)
 		(fields_autoplaced yes)
@@ -618,7 +618,7 @@
 			)
 		)
 	)
-	(global_label "EP_DC"
+	(global_label "EP_CS"
 		(shape input)
 		(at 153.67 119.38 180)
 		(fields_autoplaced yes)
@@ -640,7 +640,7 @@
 			)
 		)
 	)
-	(global_label "EP_RST"
+	(global_label "EP_CLK"
 		(shape input)
 		(at 153.67 116.84 180)
 		(fields_autoplaced yes)
@@ -885,7 +885,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ErgoCai.pretty:FPC-SMD_10P-P0.50_JS_AFD01-S10FCA-00"
+		(property "Footprint" "ErgoCai.pretty:FPC-SMD_10P-P0.50_JS_AFD01-S10FCA-00_Slot"
 			(at 158.75 144.78 0)
 			(effects
 				(font
@@ -1357,7 +1357,7 @@
 			)
 		)
 	)
-	(text "Keyboard-side socket for e-paper/2.13inch (GDEY0213B74 module, mounted upright on M2 standoffs over the 18650).\nEPM_FPC1 sits on the keyboard FRONT, beyond the 18650 tail, facing the module: the 10P 0.5mm FFC leaves the\nmodule's tail and drops in an S-shape into it, so pins run straight through (pin k = module EP_FPC2 pin k).\nAFD01 is bottom-contact on both boards -> use an opposite-side-contact (reverse, Type B) FFC."
+	(text "Keyboard-side socket for e-paper/2.13inch (GDEY0213B74 module, mounted upright on M2 standoffs over the 18650).\nEPM_FPC1 sits on the keyboard BACK, beyond the 18650 tail, facing the module: the 10P 0.5mm FFC leaves the module's\ntail, comes down through the slot in front of the entry and turns into it. Turned over, its pads are numbered the\nother way, so pin k meets module EP_FPC2 pin 11-k, and its labels are in reverse: each pad position keeps its net.\nAFD01 is bottom-contact on both boards -> use a same-side-contact (Type A) FFC."
 		(exclude_from_sim no)
 		(at 80.01 146.05 0)
 		(effects
