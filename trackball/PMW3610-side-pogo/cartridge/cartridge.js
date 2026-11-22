@@ -325,6 +325,9 @@ const main = async () => {
                     `  the visor: ${(Math.acos(visorK) * 180 / Math.PI).toFixed(0)} degrees round (k ${visorK}), the biggest that leaves the ball a way in`)
     }
     if (visorK !== null) frame = frame.add(visorOf(visorK))
+    // on the matrix's side, from where the roof's wall starts, nothing over the case's top beyond the wall's face: the
+    // seat's bowl and the visor are rounder than the wall is far out, and stood out of it in a thin crescent
+    frame = frame.subtract(box(AXIS.x, 100, -100, -hy, CASE_TOP, 50))
     // slivers the booleans leave (no volume) out
     { const pieces = frame.decompose(); if (pieces.length > 1) frame = Manifold.union(pieces.filter(p => p.volume() > 0.01)) }
     // what the frame must keep clear of, checked: the ball (and 0.3 round it), the sensor board, its lens and its body,
