@@ -1,0 +1,11 @@
+{
+  "name": "pmw3610-side-pogo-cartridge",
+  "private": true,
+  "description": "The side-read trackball module's cartridge (frame and base), written as STL by cartridge.js",
+  "scripts": {
+    "build": "node cartridge.js"
+  },
+  "dependencies": {
+    "manifold-3d": "^3.5.5"
+  }
+}

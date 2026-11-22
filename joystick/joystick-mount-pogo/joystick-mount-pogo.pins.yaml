@@ -1,9 +1,12 @@
 # Pin functions of joystick-mount-pogo's JOYSTICK_P1, by pad number: bare gold contact pads, a column at the module's
-# right edge, for the six pogo pins on the back of the module that sits on the mount (KERUI KTT50003UT01-R, LCSC
+# -x edge (by the thumb), for the six pogo pins on the back of the module that sits on the mount (KERUI KTT50003UT01-R, LCSC
 # C56282211), pin k on pad k. The mount takes one module at a time:
 # - joystick (joystick/Alpsalpine-pogo): Alps Alpine RKJXV122400R, two potentiometers and a push switch;
 # - trackball (trackball/PMW3610-pogo): a PixArt PMW3610DM-SUDU on 3-wire SPI, with its own 1.8 V LDO.
-# Both use the same lines: the stick's wipers are the sensor's SPI clock and data, its switch the sensor's motion
+# - side trackball (trackball/PMW3610-side-pogo): the same sensor, reading a 20 mm ball from the side; it also
+#   uses the mount's fifth hole and needs a case of its own (the mount's User.1 outline). Its firmware is the
+#   trackball's.
+# All use the same lines: the stick's wipers are the sensor's SPI clock and data, its switch the sensor's motion
 # line, and the pin the stick leaves free (4) the sensor's chip select.
 # For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shields joystick and
 # trackball in zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to
