@@ -66,6 +66,12 @@ const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward 
 // posts' tops to the hood, as wide as it, walled down to the case's top at its sides, which keeps light and dust off
 // the lens and the header, open round the ball's axis wide enough for the ball to lift out
 const STOP = {azimuths: [40, -40], d: 3.4, top: 18.6, roof: 1.4, open: 10.5}
+// the visor over the ball from the case's top, a shell round it 0.8 mm off, between the sensor and the key matrix (+y
+// in the model, the board's -y), where the fingers don't reach: the cap of the sphere toward azimuth 45, 41 degrees
+// round (cos 41 = 0.75), so up to 41 degrees over the equator there, nothing toward the thumb (-x) or the user (-y).
+// No bigger: the ball goes in (and out) only by rising steeply over the seat's rim, toward the thumb, and a bigger
+// visor, or one further toward the matrix, closes that way (node cartridge.js --way searches it, 0.2 mm to spare)
+const VISOR = {azimuth: Number(process.env.VISOR_AZ || 45), k: Number(process.env.VISOR_K || 0.75), gap: 0.8, t: 1.5}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
 const HOOD = {wall: 1.2, over: 1.0}                    // over the sensor board's top, round its back
 const FOOT = {d: 4.0}
@@ -175,6 +181,13 @@ const main = async () => {
     for (const [y0, y1] of [[-hy, -hy + HOOD.wall], [hy - HOOD.wall, hy]])
         stops.push(box(AXIS.x, hoodFront + 0.5, y0, y1, CASE_TOP - 0.001, STOP.top))
     frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
+    // the visor: the shell, cut to its cap and to over the case's top, clear of the lens's window
+    const vIn = R + VISOR.gap, vOut = vIn + VISOR.t
+    const cap = Manifold.cube([100, 100, 100]).translate([VISOR.k * vIn, -50, -50]).rotate([0, 0, VISOR.azimuth]).translate(C)
+    const visor = Manifold.sphere(vOut, SEGMENTS * 2).subtract(Manifold.sphere(vIn, SEGMENTS * 2)).translate(C)
+        .intersect(cap).intersect(box(-50, 50, -50, 50, CASE_TOP, CASE_TOP + 50))
+        .subtract(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
+    frame = frame.add(visor)
     const pieces = []
     for (const {A, alongY, face, wallIn, out, dirn, span} of tabs) {
         const lo = Math.min(A.root, A.free), hi = Math.max(A.root, A.free)
@@ -209,6 +222,31 @@ const main = async () => {
         'pins solder': box(PADS.x0, PADS.x1, -PADS.y, PADS.y, 0, 0.8),
         // what the sensor sees of the ball and the light to it: the lens's face to the ball, 3 mm round its axis
         'optical path': box(AXIS.x + R - 1, SENSOR.lens.x0, AXIS.y - 3, AXIS.y + 3, AXIS.z - 3, AXIS.z + 3).subtract(Manifold.sphere(R, 72).translate(C)),
+    }
+    if (process.argv.includes('--way')) {
+        const near = frame.intersect(box(C[0] - 30, C[0] + 30, AXIS.y - 30, AXIS.y + 30, 0, 50))
+        // 0.2 mm to spare round the ball, for the print
+        const hits = (x, y, z) => near.intersect(Manifold.sphere(R + 0.2, 40).translate([x, y, z])).volume() > 0.01
+        const STEP = 0.25
+        for (const az of [180, -150, -135]) {
+            const [dx, dy] = [Math.cos(az * Math.PI / 180), Math.sin(az * Math.PI / 180)]
+            const seen = new Map(), queue = [[0, 0]]; seen.set('0,0', null); let out = null
+            while (queue.length && !out) {
+                const [i, j] = queue.shift()
+                for (const [di, dj] of [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, 1]]) {
+                    const a = i + di, b = j + dj, key = `${a},${b}`
+                    if (a < 0 || b < 0 || a > 80 || b > 60 || seen.has(key)) continue
+                    seen.set(key, `${i},${j}`)
+                    if (hits(C[0] + a * STEP * dx, C[1] + a * STEP * dy, C[2] + b * STEP)) continue
+                    // out: beside the frame, over the case's top
+                    if (a * STEP >= 14 && C[2] + b * STEP - R >= CASE_TOP) { out = key; break }
+                    queue.push([a, b])
+                }
+            }
+            let path = [], k = out
+            while (k) { path.unshift(k.split(',').map(v => Number(v) * STEP)); k = seen.get(k) }
+            console.log(`  the ball's way out toward azimuth ${az}: ${out ? path.filter((p, i) => i % 4 === 0 || i === path.length - 1).map(([a, b]) => `(${a}, +${b})`).join(' ') : 'none'}`)
+        }
     }
     for (const [name, solid] of Object.entries(keepClear)) {
         const v = frame.intersect(solid).volume()

@@ -19,7 +19,8 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
   frame holds the ball's seat (three 2 mm support balls the ball lies on, the seat's rim 2 mm under its equator;
   nothing holds it down: it lifts out; two more on posts each side of the lens, level with its centre, stop the
   thumb's push toward the sensor; a roof over the lens from the posts to the hood, walled at its sides, keeps light
-  and dust off the lens), a hood over the sensor board,
+  and dust off the lens; a small visor over the ball between the sensor and the key matrix, no bigger than leaves
+  the ball a way in, `node cartridge.js --way` to check), a hood over the sensor board,
   the cover flush with the case's top, and two hook arms that snap under the case's top layer (at the thumb's end and
   on the +y side). `node cartridge.js --glb cartridge.glb --step <ErgoCaiLib>/3dmodels/TrackballCartridge_PMW3610-side-pogo.step`
 - `PMW3610-side-pogo.glb`: the module in 3D, with the cartridge and the sensor board in place (the board's
