@@ -66,7 +66,10 @@ const WINDOW = {az0: -48, az1: 33, el: 24}             // the shell open toward 
 // toward the sensor (the ball is free over the equator on the other sides); over the lens's window a roof from the
 // posts' tops to the hood, as wide as it, walled down to the case's top at its sides, which keeps light and dust off
 // the lens and the header, open round the ball's axis wide enough for the ball to lift out
-const STOP = {azimuths: [40, -40], d: 3.4, top: G.stop.top, roof: 1.4, open: G.stop.open}
+// On the user's side (-y in the model, the board's +y), which the fingers reach, the roof and its wall only over the
+// header (from `user` in front of the sensor board), not beside the ball, and that side's post only up to `low` over
+// its ball
+const STOP = {azimuths: [40, -40], d: 3.4, top: G.stop.top, roof: 1.4, open: G.stop.open, user: 4.8, low: 2.5}
 // the visor over the ball from the case's top, a shell round it 0.8 mm off, between the sensor and the key matrix (+y
 // in the model, the board's -y), where the fingers don't reach: the cap of the sphere toward azimuth 45, 41 degrees
 // round (cos 41 = 0.75), so up to 41 degrees over the equator there, nothing toward the thumb (-x) or the user (-y).
@@ -172,15 +175,22 @@ const main = async () => {
     for (const a of STOP.azimuths) {
         const c = Math.cos(a * Math.PI / 180), s = Math.sin(a * Math.PI / 180), rp = R + CLEAR + STOP.d / 2 - 0.3
         const [px, py] = [C[0] + rp * c, C[1] + rp * s]
-        stops.push(Manifold.cylinder(STOP.top, STOP.d / 2, STOP.d / 2, 32).translate([px, py, 0]))
+        const postTop = a < 0 ? AXIS.z + STOP.low : STOP.top
+        stops.push(Manifold.cylinder(postTop, STOP.d / 2, STOP.d / 2, 32).translate([px, py, 0]))
         const start = R - 0.5, reach = R + SUPPORT
         stopHoles.push(Manifold.cylinder(reach - start, SEAT / 2, SEAT / 2, 32).rotate([0, 90, 0]).translate([start, 0, 0]).rotate([0, 0, a]).translate(C))
     }
-    stops.push(box(AXIS.x, hoodFront + 0.5, -hy, hy, STOP.top - STOP.roof, STOP.top)
+    // the roof: on the matrix's side (the board's -y) from the ball's axis, over the lens's window; on the user's side
+    // only over the header
+    const ySplit = L.y1 + 0.5, userX = SENSOR.x0 - STOP.user
+    stops.push(Manifold.union([box(AXIS.x, hoodFront + 0.5, -hy, ySplit, STOP.top - STOP.roof, STOP.top),
+                               box(userX, hoodFront + 0.5, ySplit - 0.01, hy, STOP.top - STOP.roof, STOP.top)])
         .subtract(Manifold.cylinder(STOP.top + 1, STOP.open, STOP.open, 96).translate([C[0], C[1], 0])))
     // and a wall down each side of it to the case's top, so no light comes in from the sides either
-    for (const [y0, y1] of [[-hy, -hy + HOOD.wall], [hy - HOOD.wall, hy]])
-        stops.push(box(AXIS.x, hoodFront + 0.5, y0, y1, CASE_TOP - 0.001, STOP.top))
+    stops.push(box(AXIS.x, hoodFront + 0.5, -hy, -hy + HOOD.wall, CASE_TOP - 0.001, STOP.top))
+    stops.push(box(userX, hoodFront + 0.5, hy - HOOD.wall, hy, CASE_TOP - 0.001, STOP.top))
+    // and across the user's side's end of the roof, down to the case's top
+    stops.push(box(userX, userX + HOOD.wall, ySplit - 0.01, hy, CASE_TOP - 0.001, STOP.top))
     frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
     // the visor: the shell, cut to its cap and to over the case's top, clear of the lens's window
     const vIn = R + VISOR.gap, vOut = vIn + VISOR.t
