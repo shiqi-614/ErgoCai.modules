@@ -22,8 +22,9 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
   thumb's push toward the sensor; a roof over the lens from the posts to the hood, walled at its sides, keeps light
   and dust off the lens; two strips on the lens's long edges press it back against the sensor, as a mouse's base plate does (all one height with the hood's top; on the user's side the wall only over the header); a small visor over the ball between the sensor and the key matrix, no bigger than leaves
   the ball a way in, `node cartridge.js --way` to check), a hood over the sensor board,
-  the cover flush with the case's top, and two hook arms that snap under the case's top layer (at the thumb's end and
-  on the +y side). `node cartridge.js --glb cartridge.glb --step <ErgoCaiLib>/3dmodels/TrackballCartridge_PMW3610-side-pogo.step`
+  the cover flush with the case's top, a tongue at the +x end and a hook arm at the thumb's end under the case's top
+  layer (in tongue first, the cartridge tilted; then the thumb's end down until the hook snaps; out by pressing its
+  lever). `node cartridge.js --glb cartridge.glb --step <ErgoCaiLib>/3dmodels/TrackballCartridge_PMW3610-side-pogo.step`
 - `PMW3610-side-pogo.glb`: the module in 3D, with the cartridge and the sensor board in place (the board's
   TB_CART1, ErgoCaiLib TrackballCartridge_PMW3610-side-pogo), for ergogen-gui's assembly: at_module joystick,
   z 11.8 (the module board's bottom).

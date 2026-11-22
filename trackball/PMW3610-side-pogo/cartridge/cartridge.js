@@ -12,9 +12,10 @@
 //   two more level with its centre on each side of the lens (+-40 degrees), in posts up to the hood's top and roofed over to it, which stop
 //   the thumb's push toward the sensor; open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 13.6 mm over the
 //   case (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
-//   hole, an M2 x 12 countersunk screw down each into the base's inserts. Two hook arms snap under the case's top
-//   layer: at the thumb's end (-x, where the pins push up) and on the +y side (the seat's shell overhangs the board's
-//   -y edge, so nothing goes there).
+//   hole, an M2 x 12 countersunk screw down each into the base's inserts. It holds under the case's top layer at both
+//   ends: a tongue at the +x end (on the third hole's tab), which goes in first, the cartridge tilted, and a hook arm
+//   at the thumb's end (-x, where the pins push up), which snaps as that end goes down. (No hook on a long side: the
+//   25 mm ball's seat covers the +y edge, leaving its lever no room to be pressed, and overhangs the -y edge.)
 //
 // The frame of reference is the module board's (the mount's: the module goes on it as it is): x as the board's x, y as
 // its -y (KiCad's y points down), z up, the board's top at z = 0, as KiCad places a footprint's 3D model.
@@ -100,11 +101,15 @@ const SCREW = {length: 12, clear: 2.3, head: 3.8}
 const SPACER = {d: 5.2, spigot: 2.15, spigotH: 1.2, chamfer: 0.2}
 const INSERT = {length: 3.0, hole: 3.2, extra: 0.2}
 const PLATE = {t: 1.0, inset: 0.3}
-// the hook arms: the thumb's end (-x, along y) and the +y side (along x): from the root to the free end, the arm's
+// the hook arm: the thumb's end (-x, along y): from the root to the free end, the arm's
 // height and root post; the hook; the lever at the free end
-const ARMS = [{side: '-x', root: 8.0, free: -8.0}, {side: '+y', root: -8.0, free: 6.0}]
+const ARMS = [{side: '-x', root: 8.0, free: -8.0}]
 const ARM = {z0: 0.4, post: 1.5}, HOOK = {length: 4.0, reach: 1.0, ramp: 0.7, flat: 0.5}
 const LEVER = {length: 4.0, t: 1.5, over: 1.5}, GAP = 0.5, BEND = 1.2
+// the tongue at the +x end: from the rim's face to `under` past the case's opening under its top layer, `half` each
+// way along y, `t` thick, its top on the layer's underside, the lower outer edge chamfered; the cover over it `clear`
+// back from the opening's edge (0.3 elsewhere), so the cartridge tilts on the tongue going in (15 degrees or so)
+const TONGUE = {under: 1.0, half: 3.0, t: 1.2, chamfer: 0.5, clear: 0.8}
 const SEGMENTS = 64
 
 const main = async () => {
@@ -276,6 +281,14 @@ const main = async () => {
         const bend = alongY ? box(wallIn, wallIn + BEND, lo - GAP, hi + GAP, -0.1, holdTop + GAP)
                             : box(lo - GAP, hi + GAP, wallIn - BEND, wallIn, -0.1, holdTop + GAP)
         frame = frame.subtract(bend)
+    }
+    // the tongue at the +x end, and the cover there back from the opening's edge
+    {
+        const face = OUTLINE.reduce((m, [x]) => Math.max(m, x), 0) + RIM.gap + RIM.wall, edge = opening.bounds().max[0] + GROWN
+        const tip = edge + TONGUE.under, z1 = LEDGE, z0 = LEDGE - TONGUE.t
+        const across = [[face - 0.01, z0], [face - 0.01, z1], [tip, z1], [tip, z0 + TONGUE.chamfer], [tip - TONGUE.chamfer, z0]]
+        pieces.push(Manifold.hull(across.flatMap(([x, z]) => [[x, -TONGUE.half, z], [x, TONGUE.half, z]])))
+        frame = frame.subtract(box(edge - TONGUE.clear, 100, -50, 50, coverZ0 - 0.01, CASE_TOP + 0.01))
     }
     frame = Manifold.union([frame, ...pieces])
     let skin = null
