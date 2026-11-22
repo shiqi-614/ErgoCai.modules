@@ -87,12 +87,14 @@ const VISOR = {azimuth: Number(process.env.VISOR_AZ || 45), k: process.env.VISOR
 // (inside the 12.90 mm body whichever end the centre is nearer, 3.70 + 1.3 or the rest); down to the module board
 // and up to the roof. The optics between the strips stay open
 const LENS = {across: 8.25, lip: 1.0, t: 1.0, half: 4.5}
-// the edges a hand meets, rounded: the hood's block (the hood, the roof over the lens, its walls, the posts), as one:
+// the edges a hand meets, rounded (not those toward the ball): the hood's block (the hood, the roof over the lens, its
+// walls, the posts), as one:
 // its corners seen from above `plan` round, the edge of its top `top`; the seat's rim a half-round bead; the hooks'
 // levers over the case's top `lever` round
-const ROUND = {plan: 0.75, top: 2.5, lever: 0.5}
+const ROUND = {plan: 2.0, top: 2.5, lever: 0.5}
 const SLOT = {gap: 0.2}                                // round the sensor board in the frame
-const HOOD = {wall: 1.6, over: 1.6}                    // over the sensor board's top, round its back
+// the hood round the sensor board's back and over its top (wall, over); side: the roof's walls, thicker inward
+const HOOD = {wall: 1.6, over: 1.6, side: 2.4}
 const FOOT = {d: 4.0}
 const SCREW = {length: 12, clear: 2.3, head: 3.8}
 const SPACER = {d: 5.2, spigot: 2.15, spigotH: 1.2, chamfer: 0.2}
@@ -218,10 +220,12 @@ const main = async () => {
                                box(Math.min(userX, ux), hoodFront + 0.5, ySplit - 0.01, hy, TOP - STOP.roof, TOP)])
         .subtract(Manifold.cylinder(TOP + 1, STOP.open, STOP.open, 96).translate([C[0], C[1], 0])))
     // and a wall down each side of it to the case's top, so no light comes in from the sides either
+    // (on the matrix's side the thick part stops short of the lens, which reaches to that side's edge)
+    stops.push(box(AXIS.x, SENSOR.lens.x0 - SLOT.gap, -hy, -hy + HOOD.side, CASE_TOP - 0.001, TOP))
     stops.push(box(AXIS.x, hoodFront + 0.5, -hy, -hy + HOOD.wall, CASE_TOP - 0.001, TOP))
-    stops.push(box(userX, hoodFront + 0.5, hy - HOOD.wall, hy, CASE_TOP - 0.001, TOP))
+    stops.push(box(userX, hoodFront + 0.5, hy - HOOD.side, hy, CASE_TOP - 0.001, TOP))
     // and across the user's side's end of it, down to the case's top
-    stops.push(box(userX, userX + HOOD.wall, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
+    stops.push(box(userX, userX + HOOD.side, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
     frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
     // the visor: the shell, cut to its cap and to over the case's top, clear of the lens's window
     // (added last, its size the biggest that leaves the ball a way in, unless VISOR.k says)
@@ -270,7 +274,11 @@ const main = async () => {
             const z0 = TOP - r + r * k / steps, z1 = TOP - r + r * (k + 1) / steps, dz = (z0 + z1) / 2 - (TOP - r)
             layers.push(Pr.offset(-(r - Math.sqrt(r * r - dz * dz)), 'Round', 2, 32).extrude(z1 - z0 + 0.001).translate([0, 0, z0]))
         }
-        frame = frame.subtract(P.extrude(TOP + 1 - CASE_TOP).translate([0, 0, CASE_TOP]).subtract(Manifold.union(layers)))
+        // not on the side toward the ball, which no hand reaches: the roof's edge round the ball stays sharp (a ring
+        // round the axis, on the sensor's side of the walls' ends, whose edges toward the thumb are rounded)
+        const ballSide = Manifold.cylinder(TOP + 2, STOP.open + r + 0.1, STOP.open + r + 0.1, 96).translate([C[0], C[1], 0])
+            .intersect(box(AXIS.x + r + 0.1, 100, -100, 100, 0, TOP + 2))
+        frame = frame.subtract(P.extrude(TOP + 1 - CASE_TOP).translate([0, 0, CASE_TOP]).subtract(Manifold.union(layers)).subtract(ballSide))
     }
     // the seat's rim: a half-round bead on its flat top, clear of the cavity and the lens's window
     {
@@ -334,6 +342,12 @@ const main = async () => {
     if (process.argv.includes('--way'))
         for (const [az, path] of Object.entries(ways(frame)))
             console.log(`  the ball's way out toward azimuth ${az}: ${path ? path.filter((p, i) => i % 4 === 0 || i === path.length - 1).map(([a, b]) => `(${a}, +${b})`).join(' ') : 'none'}`)
+    {
+        const zc = SENSOR.top + SLOT.gap + 0.3, room = CrossSection.square([SENSOR.body.x1 + SLOT.gap - (SENSOR.x0 - SLOT.gap), 2 * (SENSOR.y + SLOT.gap)])
+            .translate([SENSOR.x0 - SLOT.gap, -(SENSOR.y + SLOT.gap)])
+        const open = room.subtract(frame.slice(zc)).area()
+        if (open > 0.01) console.log(`  the hood's top is open over the rooms inside it: ${open.toFixed(2)} mm2`)
+    }
     for (const [name, solid] of Object.entries(keepClear)) {
         const v = frame.intersect(solid).volume()
         if (v > 0.01) console.log(`  the frame meets the ${name}: ${v.toFixed(2)} mm3`)
