@@ -37,8 +37,8 @@ g = {
     # the sensor board in its own frame (x along it, y down from its top, its bottom edge at y 0): the sensor's
     # optical centre's height over the bottom edge, the board's height
     'sensor_board': {'axis_z': z, 'h': round(z + TOP, 3)},
-    # the stops' posts and the roof over the lens
-    'stop': {'top': z + 7.0, 'open': R + 0.5},
+    # the roof over the lens: open round the ball's axis, wide enough for the ball to lift out
+    'stop': {'open': R + 0.5},
 }
 # what the fixed parts leave no room for
 HOLE3, MOUNT_X = (24.5, 0.0), 27.1             # the fifth hole; the mount's User.1 outline's +x end
