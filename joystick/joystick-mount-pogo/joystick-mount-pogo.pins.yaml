@@ -32,8 +32,10 @@
 #        {key: direct, flags, binding, at}      a key of its own (zmk,kscan-gpio-direct), after the matrix keys; binding
 #                                               is what it does in the first keymap kbplacer writes (the joystick
 #                                               scrolls on layer 1), at the footprint ZMK Studio draws it at (the mount).
-# - layer_keys: the keys kbplacer puts on layer 1 of the first keymap, on the half's first keys: the pointer
-#   settings (zmk-ergo-cai src/pointer_config.c: flip x, flip y, swap, faster, slower, reset), kept over
+# - layer_keys: the keys kbplacer puts on the base layer (0) of the first keymap, on the half's first keys, so
+#   that they work on every layer the keys are transparent on (all the others there): the pointer
+#   settings (zmk-ergo-cai src/pointer_config.c: flip x, flip y, swap, faster, slower, reset, and move or
+#   scroll on the highest active layer), kept over
 #   power-off; ZMK Studio offers the same as "Trackball" and "Joystick".
 zmk:
   module: {name: zmk-ergo-cai, url: https://github.com/shiqi-614/zmk-ergo-cai, revision: main}
@@ -41,8 +43,8 @@ zmk:
   shields: [joystick, trackball]
   detect: pogo_detect
   layer_keys:
-    trackball: {layer: 1, include: dt-bindings/zmk/pointer_config.h, bindings: ["&tb_cfg PTR_INVERT_X", "&tb_cfg PTR_INVERT_Y", "&tb_cfg PTR_SWAP_XY", "&tb_cfg PTR_FASTER", "&tb_cfg PTR_SLOWER", "&tb_cfg PTR_RESET"]}
-    joystick: {layer: 1, include: dt-bindings/zmk/pointer_config.h, bindings: ["&js_cfg PTR_INVERT_X", "&js_cfg PTR_INVERT_Y", "&js_cfg PTR_SWAP_XY", "&js_cfg PTR_FASTER", "&js_cfg PTR_SLOWER", "&js_cfg PTR_RESET"]}
+    trackball: {layer: 0, include: dt-bindings/zmk/pointer_config.h, bindings: ["&tb_cfg PTR_INVERT_X", "&tb_cfg PTR_INVERT_Y", "&tb_cfg PTR_SWAP_XY", "&tb_cfg PTR_FASTER", "&tb_cfg PTR_SLOWER", "&tb_cfg PTR_RESET", "&tb_cfg PTR_MOVE_HERE", "&tb_cfg PTR_SCROLL_HERE"]}
+    joystick: {layer: 0, include: dt-bindings/zmk/pointer_config.h, bindings: ["&js_cfg PTR_INVERT_X", "&js_cfg PTR_INVERT_Y", "&js_cfg PTR_SWAP_XY", "&js_cfg PTR_FASTER", "&js_cfg PTR_SLOWER", "&js_cfg PTR_RESET", "&js_cfg PTR_MOVE_HERE", "&js_cfg PTR_SCROLL_HERE"]}
 footprint: JOYSTICK_P1
 connector: Pogo_Target_1x6_P2.54mm
 pins:
