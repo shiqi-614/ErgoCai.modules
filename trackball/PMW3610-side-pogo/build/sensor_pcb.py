@@ -8,10 +8,10 @@ import sys, os, re, json, pcbnew
 board, sch = sys.argv[1:3]
 M, T = pcbnew.FromMM, pcbnew.ToMM
 V = lambda x, y: pcbnew.VECTOR2I(M(x), M(y))
-# the board's half width; its height and the sensor's optical centre's over its bottom edge (level with the ball's
+# the board's ends; its height and the sensor's optical centre's over its bottom edge (level with the ball's
 # centre: its side over the case's top, for the thumb) from geometry.json (geometry.py: they follow the ball's size)
 G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
-W, H = 13.0, G['sensor_board']['h']
+W0, W1, H = G['sensor']['y0'], G['sensor']['y1'], G['sensor_board']['h']     # its ends (the module's y), its height
 AXIS_X, AXIS_Z = -1.5, G['sensor_board']['axis_z']
 b = pcbnew.LoadBoard(board)
 for t in list(b.GetTracks()): b.Delete(t)
@@ -21,7 +21,7 @@ fps = {f.GetReference(): f for f in b.GetFootprints()}
 for ref in list(fps):
     if ref.startswith('TB_P') or re.match(r'H\d', ref) or ref == 'TB_CUP1': b.Delete(fps.pop(ref))
 # the outline: the board's whole bottom edge stands on the module board
-pts = [V(-W, -H), V(W, -H), V(W, 0), V(-W, 0)]
+pts = [V(W0, -H), V(W1, -H), V(W1, 0), V(W0, 0)]
 for a, c in zip(pts, pts[1:] + pts[:1]):
     e = pcbnew.PCB_SHAPE(b, pcbnew.SHAPE_T_SEGMENT); e.SetLayer(pcbnew.Edge_Cuts); e.SetWidth(M(0.05)); e.SetStart(a); e.SetEnd(c); b.Add(e)
 # the sensor: on the back, the lens's long side to -x

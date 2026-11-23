@@ -9,8 +9,9 @@ for j in range(i, len(s)):
     elif s[j] == ')':
         depth -= 1
         if depth == 0: break
-W, H = 13.0, json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))['sensor_board']['h']
-poly = [(-W, -H), (W, -H), (W, 0), (-W, 0)]   # KiCad, y down
+G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
+W0, W1, H = G['sensor']['y0'], G['sensor']['y1'], G['sensor_board']['h']     # its ends (the module's y), its height
+poly = [(W0, -H), (W1, -H), (W1, 0), (W0, 0)]   # KiCad, y down
 pts = [(x, -y) for x, y in poly]                       # y up
 area = sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]))
 if area < 0: pts = pts[::-1]                           # counter-clockwise: the inside on the left of each edge

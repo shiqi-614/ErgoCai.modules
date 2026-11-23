@@ -12,8 +12,9 @@ for t in list(b.GetTracks()):
         if any(abs(x - a) < 0.01 and abs(y - c) < 0.01 for a, c in drop): b.Delete(t); print('via out', round(x, 2), round(y, 2))
 for z in list(b.Zones()):
     if not z.GetIsRuleArea(): b.Delete(z)
-W, H = 13.0, json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))['sensor_board']['h']
-poly = [(-W, -H), (W, -H), (W, 0), (-W, 0)]
+G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
+W0, W1, H = G['sensor']['y0'], G['sensor']['y1'], G['sensor_board']['h']     # its ends (the module's y), its height
+poly = [(W0, -H), (W1, -H), (W1, 0), (W0, 0)]
 gnd = b.FindNet('GND')
 # the sensor's GND hole (pad 11) solid to the zones: its thermal spokes come out starved between the lines round it; the
 # SMD pads solid too (THT_THERMAL), as the capacitors' GND pads were starved

@@ -9,7 +9,7 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
 - `PMW3610-side-pogo.kicad_*`: the module board. The six pogo pins (TB_P1..6) where the mount's pads are (pin k on pad
   k: VCC, SDIO, SCLK, NCS, MOTION, GND), no hole for the ball (it lies 1.6 mm over the board, its axis at (0, -1.5)), TB_J1's six holes in a row for the
   sensor board's header, 1.27 mm behind the sensor board, its pins in the pogo pins' order along y (GND, MOTION, NCS, SCLK, SDIO, VCC), two mounting holes.
-- `sensor/`: the sensor board, 26 x 22.5 mm, standing upright on the module board, its front (the LM18-LSI lens) toward
+- `sensor/`: the sensor board, 23.5 x 22.5 mm (its +y end, the user's, 0.8 past the LDO), standing upright on the module board, its front (the LM18-LSI lens) toward
   the ball, the lens's face 2.4 mm from it, the sensor's optical centre 14.1 mm over the module board, level with the
   ball's centre. The PMW3610 on its back, its lens through the board's aperture; the charge
   pump's and VDD's capacitors in a row over its upper pin row; the 1.8 V LDO and its input capacitor beside it, over

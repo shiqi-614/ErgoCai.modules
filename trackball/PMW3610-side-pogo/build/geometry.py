@@ -42,7 +42,8 @@ g = {
     'ball': ball, 'R': R, 'axis': AXIS, 'dx': round(dx, 3),
     'outline': [[round(x, 3), round(y, 3)] for x, y in outline],
     # the sensor board in the module's frame, and its lens and body (y KiCad's, z over the module board's top)
-    'sensor': {'x0': x0, 'x1': x0 + SENSOR_T, 'y': 13.0, 'top': z + TOP,
+    # (its ends: at -y the lens's end; at +y, the user's side, 0.8 past the LDO's courtyard)
+    'sensor': {'x0': x0, 'x1': x0 + SENSOR_T, 'y0': -13.0, 'y1': 10.5, 'top': z + TOP,
                'lens': {'x0': x0 - LENS_DEPTH, 'y0': -13.0, 'y1': 4.96, 'z0': z - 4.7, 'z1': z + 4.7},
                'body': {'x1': x0 + SENSOR_T + BODY, 'y0': -12.59, 'y1': 3.61, 'z0': z - 4.55, 'z1': z + 4.55}},
     # the header: its pins' holes in the module board (x; pin 1's y, the rest along +y), its pads on the sensor board

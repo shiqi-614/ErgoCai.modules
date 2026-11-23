@@ -159,8 +159,9 @@ const main = async () => {
     const top = AXIS.z - RIM_UNDER
     parts.push(Manifold.sphere(outer, SEGMENTS * 2).translate(C).intersect(Manifold.cube([60, 60, top]).translate([-30 + C[0], -30 + C[1], 0])))
     // the hood over the sensor board: round its back and over its top, open toward the ball (the lens looks out)
-    const hy = SENSOR.y + SLOT.gap + HOOD.wall
-    const hood = box(SENSOR.x0 - SLOT.gap - HOOD.wall, SENSOR.body.x1 + SLOT.gap + HOOD.wall, -hy, hy, coverZ0, SENSOR.top + SLOT.gap + HOOD.over)
+    // (its sides: hyM the matrix's (the board's -y), hyU the user's, the sensor board's ends that far out)
+    const hyM = -SENSOR.y0 + SLOT.gap + HOOD.wall, hyU = SENSOR.y1 + SLOT.gap + HOOD.wall
+    const hood = box(SENSOR.x0 - SLOT.gap - HOOD.wall, SENSOR.body.x1 + SLOT.gap + HOOD.wall, -hyM, hyU, coverZ0, SENSOR.top + SLOT.gap + HOOD.over)
     // in the case's top layer no wider than the cover, so it goes through the opening (thinner at the +y corner, which
     // the outline cuts back); over the case's top all of it
     const hoodIn = grown(opening, coverOut, coverZ0 - 1, CASE_TOP)
@@ -179,9 +180,9 @@ const main = async () => {
     const L = SENSOR.lens
     cuts.push(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
     // the sensor board's slot (it stands on the module board), its parts and the header room behind it
-    cuts.push(box(SENSOR.x0 - SLOT.gap, SENSOR.x1 + SLOT.gap, -SENSOR.y - SLOT.gap, SENSOR.y + SLOT.gap, -0.01, SENSOR.top + SLOT.gap))
+    cuts.push(box(SENSOR.x0 - SLOT.gap, SENSOR.x1 + SLOT.gap, SENSOR.y0 - SLOT.gap, SENSOR.y1 + SLOT.gap, -0.01, SENSOR.top + SLOT.gap))
     const B = SENSOR.body
-    cuts.push(box(SENSOR.x1, B.x1 + SLOT.gap, -SENSOR.y - SLOT.gap, SENSOR.y + SLOT.gap, 0, SENSOR.top + SLOT.gap))          // its back, the sensor and parts
+    cuts.push(box(SENSOR.x1, B.x1 + SLOT.gap, SENSOR.y0 - SLOT.gap, SENSOR.y1 + SLOT.gap, 0, SENSOR.top + SLOT.gap))          // its back, the sensor and parts
     // the pins' solder on the board's top, the screws' clearance and countersinks
     cuts.push(box(PADS.x0, PADS.x1, -PADS.y, PADS.y, -0.1, 1.0))
     const sink = SCREW.head / 2 + 0.1
@@ -226,11 +227,11 @@ const main = async () => {
     const [ux, uy] = posts[Math.min(...STOP.azimuths)]          // the user's side's post (model y up)
     // the matrix's side's wall, and the roof over it, start where the ball's cavity leaves the wall 1.2 mm: nearer the
     // axis the cavity hollows the wall to a thin skin (the 25 mm ball's cavity reaches past the wall's face)
-    const wallM = AXIS.x + Math.sqrt(Math.max(0, (R + CLEAR + 1.2) ** 2 - (hy + AXIS.y) ** 2))
+    const wallM = AXIS.x + Math.sqrt(Math.max(0, (R + CLEAR + 1.2) ** 2 - (hyM + AXIS.y) ** 2))
     // the opening round the ball, through the roof and the user's side's block: no nearer than the ball's cavity
     const openR = Math.max(STOP.open, R + CLEAR)
-    stops.push(Manifold.union([box(wallM, hoodFront + 0.5, -hy, ySplit, TOP - STOP.roof, TOP),
-                               box(userX, hoodFront + 0.5, ySplit - 0.01, hy, TOP - STOP.roof, TOP)])
+    stops.push(Manifold.union([box(wallM, hoodFront + 0.5, -hyM, ySplit, TOP - STOP.roof, TOP),
+                               box(userX, hoodFront + 0.5, ySplit - 0.01, hyU, TOP - STOP.roof, TOP)])
         .subtract(Manifold.cylinder(TOP + 1, openR, openR, 96).translate([C[0], C[1], 0])))
     // on the user's side, from that side's post back to the hood, solid over the case's top (beside the lens, over the
     // header), so the post joins the block with no thin roof over nothing
@@ -238,15 +239,15 @@ const main = async () => {
     // out of it; the post is all on that side of the lens's window)
     // (its face toward the ball the roof's opening, an upright cylinder no nearer the axis than the cavity: the cavity's
     // sphere alone cut its corner to a knife edge, up its whole height)
-    stops.push(box(ux - STOP.d / 2, hoodFront + 0.5, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP)
+    stops.push(box(ux - STOP.d / 2, hoodFront + 0.5, ySplit - 0.01, hyU, CASE_TOP - 0.001, TOP)
         .subtract(Manifold.cylinder(TOP + 1, openR, openR, 96).translate([C[0], C[1], 0])))
     // and a wall down each side of it to the case's top, so no light comes in from the sides either
     // (on the matrix's side the thick part stops short of the lens, which reaches to that side's edge)
-    stops.push(box(wallM, SENSOR.lens.x0 - SLOT.gap, -hy, -hy + HOOD.side, CASE_TOP - 0.001, TOP))
-    stops.push(box(wallM, hoodFront + 0.5, -hy, -hy + HOOD.wall, CASE_TOP - 0.001, TOP))
-    stops.push(box(userX, hoodFront + 0.5, hy - HOOD.side, hy, CASE_TOP - 0.001, TOP))
+    stops.push(box(wallM, SENSOR.lens.x0 - SLOT.gap, -hyM, -hyM + HOOD.side, CASE_TOP - 0.001, TOP))
+    stops.push(box(wallM, hoodFront + 0.5, -hyM, -hyM + HOOD.wall, CASE_TOP - 0.001, TOP))
+    stops.push(box(userX, hoodFront + 0.5, hyU - HOOD.side, hyU, CASE_TOP - 0.001, TOP))
     // and across the user's side's end of it, down to the case's top
-    stops.push(box(userX, userX + HOOD.side, ySplit - 0.01, hy, CASE_TOP - 0.001, TOP))
+    stops.push(box(userX, userX + HOOD.side, ySplit - 0.01, hyU, CASE_TOP - 0.001, TOP))
     frame = frame.add(Manifold.union(stops).subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)).subtract(Manifold.union(stopHoles)))
     // the visor: the shell, cut to its cap and to over the case's top, clear of the lens's window
     // (added last, its size the biggest that leaves the ball a way in, unless VISOR.k says)
@@ -260,7 +261,7 @@ const main = async () => {
     const zLow = AXIS.z - LENS.across / 2, zHigh = AXIS.z + LENS.across / 2
     // (the lower strip held also by a bar over the case's top to the matrix's side's wall)
     frame = frame.add(Manifold.union([box(lx0, lx1, ly0, ly1, 0, zLow + LENS.lip), box(lx0, lx1, ly0, ly1, zHigh - LENS.lip, TOP),
-                                      box(lx0, lx1, -hy, ly0 + 0.01, CASE_TOP, zLow + LENS.lip)])
+                                      box(lx0, lx1, -hyM, ly0 + 0.01, CASE_TOP, zLow + LENS.lip)])
         .subtract(Manifold.sphere(R + CLEAR, SEGMENTS * 2).translate(C)))
     const pieces = []
     for (const {A, alongY, face, wallIn, out, dirn, span} of tabs) {
@@ -302,7 +303,7 @@ const main = async () => {
         // start): so the roof's edge round the ball, which no hand reaches, is no edge of it and stays sharp
         const P = frame.slice(TOP - 0.05)
         const ballRoom = CrossSection.circle(openR + 0.05, 96).translate([C[0], C[1]])
-            .intersect(CrossSection.square([hoodFront + 0.5 - AXIS.x, 2 * (hy - HOOD.side)]).translate([AXIS.x, -(hy - HOOD.side)]))
+            .intersect(CrossSection.square([hoodFront + 0.5 - AXIS.x, hyM + hyU - 2 * HOOD.side]).translate([AXIS.x, -(hyU - HOOD.side)]))
         // (0.01 out, so its straight sides do not lie on the walls' faces, which left faces of no thickness there)
         const Pr = P.add(ballRoom).offset(-ROUND.plan, 'Round', 2, 32).offset(ROUND.plan + 0.01, 'Round', 2, 32)
         const r = ROUND.top, steps = 16, layers = [Pr.extrude(TOP - r - CASE_TOP + 0.01).translate([0, 0, CASE_TOP - 0.01])]
@@ -368,11 +369,11 @@ const main = async () => {
     if (visorK !== null) frame = frame.add(visorOf(visorK))
     // on the matrix's side, where the roof's wall is, nothing over the case's top beyond the wall's face: the
     // seat's bowl and the visor are rounder than the wall is far out, and stood out of it in a thin crescent
-    frame = frame.subtract(box(wallM, 100, -100, -hy - 0.01, CASE_TOP, 50))
+    frame = frame.subtract(box(wallM, 100, -100, -hyM - 0.01, CASE_TOP, 50))
     // and the block's rounded skin off again, the visor's edge in it too
     frame = frame.subtract(skin)
     // and the walls' faces 0.002 mm in: the booleans on them left sheets of no thickness standing in their planes
-    frame = frame.subtract(Manifold.union([box(wallM, 100, -100, -hy + 0.002, CASE_TOP, 50), box(userX, 100, hy - 0.002, 100, CASE_TOP, 50)]))
+    frame = frame.subtract(Manifold.union([box(wallM, 100, -100, -hyM + 0.002, CASE_TOP, 50), box(userX, 100, hyU - 0.002, 100, CASE_TOP, 50)]))
     // points closer than 0.001 mm merged: the booleans round the posts leave edges of no length
     frame = frame.simplify(0.001)
     // slivers the booleans leave (no volume) out
@@ -381,7 +382,7 @@ const main = async () => {
     // the header in front of it (body and pins), the pogo pins' solder
     const keepClear = {
         ball: Manifold.sphere(R + 0.3, 96).translate(C),
-        'sensor board': box(SENSOR.x0, SENSOR.x1, -SENSOR.y, SENSOR.y, -BOARD_T, SENSOR.top),
+        'sensor board': box(SENSOR.x0, SENSOR.x1, SENSOR.y0, SENSOR.y1, -BOARD_T, SENSOR.top),
         lens: box(SENSOR.lens.x0, SENSOR.x0, SENSOR.lens.y0, SENSOR.lens.y1, SENSOR.lens.z0, SENSOR.lens.z1),
         'sensor body': box(SENSOR.x1, SENSOR.body.x1, SENSOR.body.y0, SENSOR.body.y1, SENSOR.body.z0, SENSOR.body.z1),
         header: box(SENSOR.x0 - 3.81 - 0.8, SENSOR.x0, 5.3, 13.0, -0.01, 6.0),
@@ -393,8 +394,8 @@ const main = async () => {
         for (const [az, path] of Object.entries(ways(frame)))
             console.log(`  the ball's way out toward azimuth ${az}: ${path ? path.filter((p, i) => i % 4 === 0 || i === path.length - 1).map(([a, b]) => `(${a}, +${b})`).join(' ') : 'none'}`)
     {
-        const zc = SENSOR.top + SLOT.gap + 0.3, room = CrossSection.square([SENSOR.body.x1 + SLOT.gap - (SENSOR.x0 - SLOT.gap), 2 * (SENSOR.y + SLOT.gap)])
-            .translate([SENSOR.x0 - SLOT.gap, -(SENSOR.y + SLOT.gap)])
+        const zc = SENSOR.top + SLOT.gap + 0.3, room = CrossSection.square([SENSOR.body.x1 + SLOT.gap - (SENSOR.x0 - SLOT.gap), SENSOR.y1 - SENSOR.y0 + 2 * SLOT.gap])
+            .translate([SENSOR.x0 - SLOT.gap, -(SENSOR.y1 + SLOT.gap)])
         const open = room.subtract(frame.slice(zc)).area()
         if (open > 0.01) console.log(`  the hood's top is open over the rooms inside it: ${open.toFixed(2)} mm2`)
     }
