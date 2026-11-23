@@ -13,7 +13,7 @@ opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `l
   the ball, the lens's face 2.4 mm from it, the sensor's optical centre 14.1 mm over the module board, level with the
   ball's centre. The PMW3610 on its back, its lens through the board's aperture; the charge
   pump's and VDD's capacitors in a row over its upper pin row; the 1.8 V LDO and its input capacitor beside it, over
-  the upper pin row's end, VDDIO's capacitor and the reset pull-up beside the header (the same circuit as trackball/PMW3610-pogo). TB_J1, a 1x6 right-angle pin header on its
+  the upper pin row's end, VDDIO's capacitor under its lower pin row by its pin, the reset pull-up by the board's end (VCSEL_P and VCP laid by hand on the front, over the upper row) (the same circuit as trackball/PMW3610-pogo). TB_J1, a 1x6 right-angle pin header on its
   back right under the sensor, its body on the module board, its pins bent down into the module board, soldered on both. The board's whole
   bottom edge stands on the module board.
 - `cartridge/`: the printed frame and base (`cartridge.js`), screwed together through the module board's two holes at -x; the
