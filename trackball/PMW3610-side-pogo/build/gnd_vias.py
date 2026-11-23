@@ -21,7 +21,8 @@ for t in b.GetTracks():
     else: others.append(('s', (t.GetStart(), t.GetEnd()), t.GetWidth() / 2))
 for f in b.GetFootprints():
     for p in f.Pads():
-        if p.GetNetCode() != gnd.GetNetCode() or p.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH:
+        # (GND's through-hole pads too: their holes keep the vias' holes off)
+        if p.GetNetCode() != gnd.GetNetCode() or p.GetAttribute() in (pcbnew.PAD_ATTRIB_NPTH, pcbnew.PAD_ATTRIB_PTH):
             others.append(('b', p.GetBoundingBox(), 0))
 edges = [(d.GetStart(), d.GetEnd()) for d in b.GetDrawings() if d.GetLayer() == pcbnew.Edge_Cuts]
 for f in b.GetFootprints():

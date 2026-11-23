@@ -5,7 +5,7 @@
 #   LENS_GAP from it, the sensor board's front LENS_DEPTH behind that (the LM18-LSI's height over the board);
 # - the sensor board stands on the module board; the PMW3610's optical centre at the ball's centre's height, its upper
 #   pin row 5.35 over that and the capacitors' row over it, so the board's top TOP over the centre;
-# - everything at +x (the sensor board, its notch, the module board's end behind it) moves out with the sensor board,
+# - everything at +x (the sensor board, the module board's end behind it) moves out with the sensor board,
 #   but only as far as the 25 mm ball's did, when a screw in the mount's fifth hole (24.5, 0) stood behind it: past
 #   that the ball's axis moves to -x instead. (The module board has no hole there now, it ends behind the sensor
 #   board; the mount still has it, for the other modules. Letting the sensor board out further would move the
@@ -28,22 +28,25 @@ AXIS = {'x': x0 - (R + LENS_GAP + LENS_DEPTH), 'y': -1.5, 'z': R + FLOOR}
 dx = x0 - 16.75                                # how far the +x side moves from the 20 mm ball's
 z = AXIS['z']
 # the module board's outline (KiCad, y down), the 20 mm ball's with its +x side moved: its +x end 0.55 behind the
-# sensor board's parts, the +y corner cut back clear of the keyboard's mounting hole; and the slot the sensor board's
-# tab goes down into (the tab y -11.8..4.8, 0.2 round it), closed at the -y edge too: the sensor board stands on the
-# module board at both its ends, the strip there 1 mm, and the board behind it is held at both ends
-notch = (16.55 + dx, 18.55 + dx, 5.0, -12.0)
+# sensor board's parts, the +y corner cut back clear of the keyboard's mounting hole. The sensor board stands on it,
+# its whole bottom edge
 outline = [(-14.5, -13), (22 + dx, -13), (22 + dx, 4.5), (21 + dx, 4.5), (21 + dx, 7), (18.5 + dx, 13), (-14.5, 13)]
-slot = [(notch[0], notch[3]), (notch[1], notch[3]), (notch[1], notch[2]), (notch[0], notch[2])]
+# the header: a 1x6 right-angle one on the sensor board's back, under the PMW3610, its pins bent down into the module
+# board 1.27 behind the sensor board, in a row along y centred on `c` (the module's y, which is the sensor board's x),
+# pin k at c + 2.54 (k - 3.5); on the sensor board its pads `h` over the bottom edge, so its body stands on the module
+# board (KiCad's PinHeader_1x06_P2.54mm_Horizontal: the body 1.5..4.04 from the pads). The pins in the pogo pins'
+# order along y (GND, MOTION, NCS, SCLK, SDIO, VCC), the sensor's lower row too but for its VCC
+HEADER = {'c': -3.2, 'pitch': 2.54, 'h': 4.04, 'behind': 1.27,
+          'nets': {'1': 'GND', '2': 'MOTION', '3': 'NCS', '4': 'SCLK', '5': 'SDIO', '6': 'VCC'}}
 g = {
     'ball': ball, 'R': R, 'axis': AXIS, 'dx': round(dx, 3),
-    'outline': [[round(x, 3), round(y, 3)] for x, y in outline], 'notch': [round(v, 3) for v in notch],
-    'slot': [[round(x, 3), round(y, 3)] for x, y in slot],
+    'outline': [[round(x, 3), round(y, 3)] for x, y in outline],
     # the sensor board in the module's frame, and its lens and body (y KiCad's, z over the module board's top)
     'sensor': {'x0': x0, 'x1': x0 + SENSOR_T, 'y': 13.0, 'top': z + TOP,
                'lens': {'x0': x0 - LENS_DEPTH, 'y0': -13.0, 'y1': 4.96, 'z0': z - 4.7, 'z1': z + 4.7},
                'body': {'x1': x0 + SENSOR_T + BODY, 'y0': -12.59, 'y1': 3.61, 'z0': z - 4.55, 'z1': z + 4.55}},
-    # the header's holes in the module board: its rows 3.81 and 1.27 in front of the sensor board
-    'j1': {'x': round(x0 - 3.81, 3), 'y': 6.61},
+    # the header: its pins' holes in the module board (x; pin 1's y, the rest along +y), its pads on the sensor board
+    'header': dict(HEADER, x=round(x0 + SENSOR_T + HEADER['behind'], 3), y1=round(HEADER['c'] - 2.5 * HEADER['pitch'], 3)),
     # the sensor board in its own frame (x along it, y down from its top, its bottom edge at y 0): the sensor's
     # optical centre's height over the bottom edge, the board's height
     'sensor_board': {'axis_z': z, 'h': round(z + TOP, 3)},

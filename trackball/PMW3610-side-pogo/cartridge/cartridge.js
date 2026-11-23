@@ -126,14 +126,12 @@ const main = async () => {
         .map(z => Manifold.sphere(r, 16).translate([x, -y, z])))))
     const disc = (d, x, y, z0, z1) => Manifold.cylinder(z1 - z0, d / 2, d / 2, 48).translate([x, -y, z0])
     const ccw = pts => pts.reduce((s, [x, y], i) => { const [u, v] = pts[(i + 1) % pts.length]; return s + x * v - u * y }, 0) > 0 ? pts : [...pts].reverse()
-    // the module board: its outline, less the slot the sensor board's tab goes down into
-    const boardOut = new CrossSection([ccw(OUTLINE.map(([x, y]) => [x, -y]))])
-    const board = boardOut.subtract(new CrossSection([ccw(G.slot.map(([x, y]) => [x, -y]))]))
+    const board = new CrossSection([ccw(OUTLINE.map(([x, y]) => [x, -y]))])
     const grown = (cs, by, z0, z1) => cs.offset(by, 'Round', 2, 64).extrude(z1 - z0).translate([0, 0, z0])
     const R = BALL / 2, C = [AXIS.x, -AXIS.y, AXIS.z]
     // the opening: the mount's, or one that holds the board and the seat
     const seatR = Math.sqrt((R + CLEAR + SHELL) ** 2 - Math.max(0, AXIS.z - CASE_TOP) ** 2)
-    const needed = CrossSection.union([boardOut.offset(0.1, 'Miter', 2),
+    const needed = CrossSection.union([board.offset(0.1, 'Miter', 2),
                                        CrossSection.circle(seatR + 0.2 - GROWN, 96).translate([C[0], C[1]])])
     let opening = new CrossSection([ccw(OPENING)])
     // (and when the mount's is bigger than it needs: the case's opening no wider than the module)
@@ -180,11 +178,10 @@ const main = async () => {
     // the window toward the lens: the lens's box, a little round it, out from the cavity
     const L = SENSOR.lens
     cuts.push(box(AXIS.x + R - 1, SENSOR.x0 + 0.01, L.y0 - 0.5, L.y1 + 0.5, L.z0 - 0.8, L.z1 + 0.8))
-    // the sensor board's slot (its tab too, down the board's notch), its parts and header room behind and in front
-    cuts.push(box(SENSOR.x0 - SLOT.gap, SENSOR.x1 + SLOT.gap, -SENSOR.y - SLOT.gap, SENSOR.y + SLOT.gap, RIM.z0 - 1, SENSOR.top + SLOT.gap))
+    // the sensor board's slot (it stands on the module board), its parts and the header room behind it
+    cuts.push(box(SENSOR.x0 - SLOT.gap, SENSOR.x1 + SLOT.gap, -SENSOR.y - SLOT.gap, SENSOR.y + SLOT.gap, -0.01, SENSOR.top + SLOT.gap))
     const B = SENSOR.body
     cuts.push(box(SENSOR.x1, B.x1 + SLOT.gap, -SENSOR.y - SLOT.gap, SENSOR.y + SLOT.gap, 0, SENSOR.top + SLOT.gap))          // its back, the sensor and parts
-    cuts.push(box(SENSOR.x0 - 4.5, SENSOR.x0, 5.0, SENSOR.y + SLOT.gap, -0.01, 6.5))                                     // the header, in front
     // the pins' solder on the board's top, the screws' clearance and countersinks
     cuts.push(box(PADS.x0, PADS.x1, -PADS.y, PADS.y, -0.1, 1.0))
     const sink = SCREW.head / 2 + 0.1
@@ -407,7 +404,10 @@ const main = async () => {
     }
     // the base: the plate on the keyboard board (open over the pads), the spacers with spigots and inserts
     const floor = -BOARD_T - SPACER_H
+    // (open under the header's pins too, which come through the module board: cut 1 mm under it, their solder clear)
+    const HD = G.header
     let base = grown(board, -PLATE.inset, floor, floor + PLATE.t).subtract(box(PADS.x0, PADS.x1, -PADS.y, PADS.y, floor - 1, floor + PLATE.t + 1))
+        .subtract(box(HD.x - 1.2, HD.x + 1.2, HD.y1 - 1.2, HD.y1 + 5 * HD.pitch + 1.2, floor - 1, floor + PLATE.t + 1))
     for (const [x, y] of HOLES) {
         base = base.add(disc(SPACER.d, x, y, floor, floor + SPACER_H))
             .add(disc(SPACER.spigot, x, y, floor - SPACER.spigotH, floor + 0.01))

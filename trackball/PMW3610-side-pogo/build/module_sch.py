@@ -36,7 +36,7 @@ for head in ('global_label', 'wire', 'junction', 'no_connect', 'text ', 'label')
 s = s.replace('(project "PMW3610-pogo"', '(project "PMW3610-side-pogo"')
 s = s.replace('(title "PMW3610 trackball module (pogo pins)")', '(title "PMW3610 side-read trackball module: the module board (pogo pins)")')
 root = re.search(r'\(path "(/[0-9a-f-]+)"\n\t\t\t\t\t\(reference "TB_P1"', s).group(1)
-sym = kl.get_symbol('Connector_Generic', 'Conn_02x03_Odd_Even')
+sym = kl.get_symbol('Connector_Generic', 'Conn_01x06')
 ls = block(s, s.index('(lib_symbols'))
 s = s[:ls[1] - 1] + '\t' + sexp.dump(sym) + '\n\t' + s[ls[1] - 1:]
 def label(net, x, y, rot, justify):
@@ -53,17 +53,18 @@ for k, net in POGO.items():
 for ref, net in (('#FLG01', 'VCC'), ('#FLG02', 'GND')):
     at = re.search(r'\(at ([\d.]+) ([\d.]+) 0\)', s[s.rindex('\n\t(symbol\n', 0, s.index(f'(property "Reference" "{ref}"')):]).groups()
     add += label(net, float(at[0]), float(at[1]), 0, 'left')
-# the header's holes: pad k as they come, by place, from the sensor board's TB_J1 (its pins bent down into them)
+# the header's holes: pin k into hole k, from the sensor board's TB_J1 (its pins bent down into them); the nets in
+# the pogo pins' order (geometry.py's header)
 X, Y = 101.6, 114.3
-J1 = {'1': 'NCS', '2': 'MOTION', '3': 'SDIO', '4': 'SCLK', '5': 'VCC', '6': 'GND'}
+J1 = {'1': 'GND', '2': 'MOTION', '3': 'NCS', '4': 'SCLK', '5': 'SDIO', '6': 'VCC'}
 for num, name, px, py, ang, _ in kl.pins(sym):
     add += label(J1[num], X + px, Y - py, 180 if ang == 0 else 0, 'right' if ang == 0 else 'left')
-props = [('Reference', 'TB_J1', (X + 1.27, Y - 7.62), False), ('Value', 'Conn_02x03', (X + 1.27, Y + 7.62), False),
-         ('Footprint', 'Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical', (X, Y + 17.78), True),
+props = [('Reference', 'TB_J1', (X + 1.27, Y - 7.62), False), ('Value', 'Conn_01x06', (X + 1.27, Y + 10.16), False),
+         ('Footprint', 'Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical', (X, Y + 17.78), True),
          ('Datasheet', '', (X, Y), True),
-         ('Description', "The six holes the sensor board's 2x3 right-angle header comes down into (its pins soldered "
+         ('Description', "The six holes the sensor board's 1x6 right-angle header comes down into (its pins soldered "
                          "here): no part of its own", (X, Y), True)]
-symtxt = (f'\t(symbol\n\t\t(lib_id "Connector_Generic:Conn_02x03_Odd_Even")\n\t\t(at {X} {Y} 0)\n\t\t(unit 1)\n\t\t(exclude_from_sim no)\n'
+symtxt = (f'\t(symbol\n\t\t(lib_id "Connector_Generic:Conn_01x06")\n\t\t(at {X} {Y} 0)\n\t\t(unit 1)\n\t\t(exclude_from_sim no)\n'
           f'\t\t(in_bom no)\n\t\t(on_board yes)\n\t\t(dnp no)\n\t\t(uuid "{uuid.uuid5(uuid.UUID(root.strip("/")), "TB_J1")}")\n')
 for name, val, at, hide in props:
     symtxt += (f'\t\t(property "{name}" "{val}"\n\t\t\t(at {at[0]:.2f} {at[1]:.2f} 0)\n\t\t\t(effects\n\t\t\t\t(font\n\t\t\t\t\t(size 1.27 1.27)\n'

@@ -1,4 +1,4 @@
-# usage: inset.py <route.dsn> <d mm>: the DSN's boundary replaced with the sensor board's outline (tab and all) inset by
+# usage: inset.py <route.dsn> <d mm>: the DSN's boundary replaced with the sensor board's outline inset by
 # d, so Freerouting keeps the board's edge clearance (DSN: um, y up)
 import sys, os, json
 p, d = sys.argv[1], float(sys.argv[2])
@@ -9,8 +9,8 @@ for j in range(i, len(s)):
     elif s[j] == ')':
         depth -= 1
         if depth == 0: break
-W, H, TAB = 13.0, json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))['sensor_board']['h'], (-11.8, 4.8, 1.6)
-poly = [(-W, -H), (W, -H), (W, 0), (TAB[1], 0), (TAB[1], TAB[2]), (TAB[0], TAB[2]), (TAB[0], 0), (-W, 0)]   # KiCad, y down
+W, H = 13.0, json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))['sensor_board']['h']
+poly = [(-W, -H), (W, -H), (W, 0), (-W, 0)]   # KiCad, y down
 pts = [(x, -y) for x, y in poly]                       # y up
 area = sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]))
 if area < 0: pts = pts[::-1]                           # counter-clockwise: the inside on the left of each edge

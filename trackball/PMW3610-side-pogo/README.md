@@ -7,15 +7,15 @@ it is (not turned), on the mount's holes at x -12.35 (not its fifth, at (24.5, 0
 opens round the mount's User.1 outline (ErgoCai.ts: the mount's cut-outs with `layers: [User.1]`, `cut: outline`).
 
 - `PMW3610-side-pogo.kicad_*`: the module board. The six pogo pins (TB_P1..6) where the mount's pads are (pin k on pad
-  k: VCC, SDIO, SCLK, NCS, MOTION, GND), no hole for the ball (it lies 1.6 mm over the board, its axis at (0, -1.5)), TB_J1's six holes for the
-  sensor board's header, a slot the sensor board's tab goes down into (closed at both ends, so the sensor board stands on the module board at both), two mounting holes.
+  k: VCC, SDIO, SCLK, NCS, MOTION, GND), no hole for the ball (it lies 1.6 mm over the board, its axis at (0, -1.5)), TB_J1's six holes in a row for the
+  sensor board's header, 1.27 mm behind the sensor board, its pins in the pogo pins' order along y (GND, MOTION, NCS, SCLK, SDIO, VCC), two mounting holes.
 - `sensor/`: the sensor board, 26 x 22.5 mm, standing upright on the module board, its front (the LM18-LSI lens) toward
   the ball, the lens's face 2.4 mm from it, the sensor's optical centre 14.1 mm over the module board, level with the
   ball's centre. The PMW3610 on its back, its lens through the board's aperture; the charge
   pump's and VDD's capacitors in a row over its upper pin row; the 1.8 V LDO and its input capacitor beside it, over
-  the header, VDDIO's capacitor and the reset pull-up under its lower pin row (the same circuit as trackball/PMW3610-pogo). TB_J1, a 2x3 right-angle pin header on its
-  front, its pins bent down into the module board, soldered on both. A tab under the sensor's lower pin row goes down
-  through the module board's slot: the lens's aperture boxes that row in, and its lines run in the tab.
+  the upper pin row's end, VDDIO's capacitor and the reset pull-up beside the header (the same circuit as trackball/PMW3610-pogo). TB_J1, a 1x6 right-angle pin header on its
+  back right under the sensor, its body on the module board, its pins bent down into the module board, soldered on both. The board's whole
+  bottom edge stands on the module board.
 - `cartridge/`: the printed frame and base (`cartridge.js`), screwed together through the module board's two holes at -x; the
   frame holds the ball's seat (three 2 mm support balls the ball lies on, the seat's rim 2 mm under its equator;
   nothing holds it down: it lifts out; two more on posts each side of the lens, level with its centre, stop the
@@ -58,12 +58,12 @@ its axes may not run as the trackball read from below: flip them in zmk-config (
 | Ball | 1 | 25 mm (what params.json says) | PTFE, or an acrylic ball; it lies in the seat, and falls out with the keyboard upside down |
 | Small balls | 5 | 2 mm PTFE | three supports and the two stops, pressed into their holes (1.95 mm, a press fit) from inside the seat |
 | Lens | 1 | PixArt LM18-LSI | into the sensor board's aperture from the front, its posts in the sensor; the frame's two strips hold it there (no CA glue: it is polycarbonate) |
-| Pin header | 1 | 2x3, 2.54 mm, right angle | on the sensor board's front; trim its pins after soldering into the module board |
+| Pin header | 1 | 1x6, 2.54 mm, right angle | on the sensor board's back, under the sensor; trim its pins to 1 mm under the module board after soldering (the base is open there, the keyboard's board 3.8 mm under it) |
 | Pogo pins | 6 | KERUI KTT50003UT01-R | on the module board's back |
 | Inserts | 2 | M2 x 3 x 3.2 heat-set | into the base's two spacers |
 | Screws | 2 | M2 x 12 countersunk (DIN 965) | down through the frame's two columns and the module board into the inserts (the +x end is held by the frame's tongue under the case's top) |
 
-Assembly: solder the sensor board (its parts, the sensor with its leads trimmed); the header on its front; stand it
-in the module board's slot, the header's pins through TB_J1, and solder them; the pogo pins; the inserts into the
+Assembly: solder the sensor board (its parts, the sensor with its leads trimmed); the header on its back; stand it
+on the module board, the header's pins through TB_J1, and solder and trim them; the pogo pins; the inserts into the
 base; the module board on the base, the frame over it (its hood over the sensor board), the screws; the support balls
 into the seat, the ball.

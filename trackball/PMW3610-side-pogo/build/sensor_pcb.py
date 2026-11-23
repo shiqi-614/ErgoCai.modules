@@ -1,8 +1,8 @@
 # PMW3610-side-pogo-sensor.kicad_pcb from PMW3610-pogo's: the board upright beside the ball, seen from its front (the
 # lens's side, toward the ball): x along it (the module's y), y down from its top, its bottom edge on the module board
 # at y 0 (z = -y over the module board's top). The pogo pins, the holes, the cup and all copper go; the sensor's
-# optical centre at (AXIS_X, -AXIS_Z), the lens's long side to -x; TB_J1, the 2x3 right-angle header, on the front at
-# +x, its pins bent down past the bottom edge into the module board; the LDO and the capacitors on the back.
+# optical centre at (AXIS_X, -AXIS_Z), the lens's long side to -x; TB_J1, the 1x6 right-angle header, on the back under
+# the sensor, its pins bent down past the bottom edge into the module board; the LDO and the capacitors on the back.
 # usage: sensor_pcb.py <board> <schematic> [place.json]
 import sys, os, re, json, pcbnew
 board, sch = sys.argv[1:3]
@@ -20,10 +20,8 @@ for d in list(b.GetDrawings()): b.Delete(d)
 fps = {f.GetReference(): f for f in b.GetFootprints()}
 for ref in list(fps):
     if ref.startswith('TB_P') or re.match(r'H\d', ref) or ref == 'TB_CUP1': b.Delete(fps.pop(ref))
-# the outline: a tab under the sensor's lower pin row reaches down through a notch in the module board, its bottom
-# flush with the module board's, a channel for that row's lines (the lens's aperture boxes the row in above)
-TAB = (-11.8, 4.8, 1.6)
-pts = [V(-W, -H), V(W, -H), V(W, 0), V(TAB[1], 0), V(TAB[1], TAB[2]), V(TAB[0], TAB[2]), V(TAB[0], 0), V(-W, 0)]
+# the outline: the board's whole bottom edge stands on the module board
+pts = [V(-W, -H), V(W, -H), V(W, 0), V(-W, 0)]
 for a, c in zip(pts, pts[1:] + pts[:1]):
     e = pcbnew.PCB_SHAPE(b, pcbnew.SHAPE_T_SEGMENT); e.SetLayer(pcbnew.Edge_Cuts); e.SetWidth(M(0.05)); e.SetStart(a); e.SetEnd(c); b.Add(e)
 # the sensor: on the back, the lens's long side to -x
@@ -51,14 +49,24 @@ print('TB_U1 at', AXIS_X, -AXIS_Z, 'rot', rot)
 # the header, on the front: local x (its rows) down the board, local y (its columns) to -x; pad 1 at its origin
 uid = re.search(r'\(uuid "([0-9a-f-]+)"\)\n\t\t\(property "Reference" "TB_J1"', open(sch).read()).group(1)
 lib = '/Applications/KiCad/KiCad.app/Contents/SharedSupport/footprints/Connector_PinHeader_2.54mm.pretty'
-j1 = pcbnew.FootprintLoad(lib, 'PinHeader_2x03_P2.54mm_Horizontal')
-j1.SetFPIDAsString('Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal')
-j1.SetReference('TB_J1'); j1.SetValue('Conn_02x03')
+j1 = pcbnew.FootprintLoad(lib, 'PinHeader_1x06_P2.54mm_Horizontal')
+j1.SetFPIDAsString('Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal')
+j1.SetReference('TB_J1'); j1.SetValue('Conn_01x06')
 b.Add(j1)
-j1.SetPosition(V(11.69, -9.98)); j1.SetOrientationDegrees(-90)
+# on the back, pin k at (y1 + 2.54 (k - 1), -h) (the module's y is the board's x), the body from the pads down to the
+# bottom edge: the orientation that puts them so
+HD = G['header']
+j1.SetPosition(V(HD['y1'], -HD['h'])); j1.Flip(j1.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
+for rot in (0, 90, 180, 270):
+    j1.SetOrientationDegrees(rot)
+    q = {p.GetNumber(): (T(p.GetPosition().x), T(p.GetPosition().y)) for p in j1.Pads()}
+    # (its drawing: the body and the pins, which reach on past the bottom edge)
+    below = max(T(g.GetBoundingBox().GetBottom()) for g in j1.GraphicalItems() if g.GetLayerName() in ('F.Fab', 'B.Fab'))
+    if abs(q['6'][0] - (HD['y1'] + 5 * HD['pitch'])) < 0.01 and abs(q['6'][1] + HD['h']) < 0.01 and below > 0: break
+else: sys.exit('no orientation puts the header so')
 j1.SetPath(pcbnew.KIID_PATH(f'/{uid}'))
 j1.SetSheetfile('PMW3610-side-pogo-sensor.kicad_sch'); j1.SetSheetname('/')
-NETS = {'1': 'VCC', '2': 'GND', '3': 'SDIO', '4': 'SCLK', '5': 'NCS', '6': 'MOTION'}
+NETS = HD['nets']
 for p in j1.Pads(): p.SetNet(b.FindNet(NETS[p.GetNumber()]))
 for f in b.GetFootprints():
     if f.GetSheetfile() == 'PMW3610-pogo.kicad_sch': f.SetSheetfile('PMW3610-side-pogo-sensor.kicad_sch')
@@ -71,7 +79,7 @@ if len(sys.argv) > 3:
         if isinstance(place[0], list): place = place[alt % len(place)]
         x, y, r, *frm = place
         f = fps[ref]; f.SetPosition(V(x, y - AXIS_Z if frm == ['axis'] else y)); f.SetOrientationDegrees(r)
-# TB_C2 and TB_C1 in 0402: C2 to fit between the escape lanes under the sensor's lower pin row, C1 by the board's edge
+# TB_C2 and TB_C1 in 0402: C2 beside the header, C1 by the board's edge
 if len(sys.argv) > 3:
     for ref in ('TB_C2', 'TB_C1'):
         c = fps[ref]
@@ -82,24 +90,6 @@ if len(sys.argv) > 3:
         pos, rot = c.GetPosition(), c.GetOrientationDegrees()
         b.Delete(c); b.Add(small); small.SetPosition(pos); small.Flip(pos, pcbnew.FLIP_DIRECTION_TOP_BOTTOM); small.SetOrientationDegrees(rot)
         for p in small.Pads(): p.SetNet(nets[p.GetNumber()])
-# the lower pin row's escape, laid by hand: each pin straight down into the tab, along its lane to the tab's end, up
-# and on to x 5.2, where the router takes over. The leftmost pin's lane is the deepest, so no two lines cross; three
-# lanes on F.Cu, four on B.Cu, 0.4 mm apart
-# Each ends in a via (the router does not go on from a track's end): on B.Cu each lane turns up in turn to a row at
-# y -2.4, on F.Cu it runs on to x 9.6..11.6 and up to y -2.0 (pin, lane, turn, run, end x, via y)
-LANES = {pcbnew.B_Cu: [('8', 1.15, 3.8, -0.45, 8.6, -2.4), ('6', 0.75, 3.4, -0.85, 7.6, -2.4), ('3', 0.35, 3.0, -1.25, 6.6, -2.4),
-                       ('1', -0.05, 2.6, -1.65, 5.6, -2.4)],
-         pcbnew.F_Cu: [('7', 1.15, 3.8, -0.45, 11.6, -2.0), ('5', 0.75, 3.4, -0.85, 10.6, -2.0), ('2', 0.35, 3.0, -1.25, 9.6, -2.0)]}
-pads = {p.GetNumber(): p for p in u1.Pads()}
-for layer, lanes in LANES.items():
-    for num, lane, turn, run, end, via in lanes:
-        pad = pads[num]; x = T(pad.GetPosition().x)
-        pts = [(x, T(pad.GetPosition().y)), (x, lane), (turn, lane), (turn, run), (end, run), (end, via)]
-        v = pcbnew.PCB_VIA(b); v.SetPosition(V(end, via)); v.SetDrill(M(0.3)); v.SetWidth(pcbnew.F_Cu, M(0.6)); v.SetWidth(pcbnew.B_Cu, M(0.6))
-        v.SetNet(pad.GetNet()); v.SetLocked(True); b.Add(v)
-        for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
-            t = pcbnew.PCB_TRACK(b); t.SetStart(V(x0, y0)); t.SetEnd(V(x1, y1)); t.SetWidth(M(0.2)); t.SetLayer(layer)
-            t.SetNet(pad.GetNet()); t.SetLocked(True); b.Add(t)
 b.Save(board)
 for f in (u1, j1):
     for p in sorted(f.Pads(), key=lambda p: int(p.GetNumber())):

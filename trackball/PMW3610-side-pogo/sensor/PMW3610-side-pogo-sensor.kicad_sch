@@ -1325,7 +1325,7 @@
 			(embedded_fonts no)
 		)
 
-		(symbol "Connector_Generic:Conn_02x03_Odd_Even"
+		(symbol "Connector_Generic:Conn_01x06"
 	(pin_names
 		(offset 1.016)
 		(hide yes)
@@ -1334,15 +1334,15 @@
 	(in_bom yes)
 	(on_board yes)
 	(property "Reference" "J"
-		(at 1.27 5.08 0)
+		(at 0 7.62 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 	)
-	(property "Value" "Conn_02x03_Odd_Even"
-		(at 1.27 -5.08 0)
+	(property "Value" "Conn_01x06"
+		(at 0 -10.16 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1367,7 +1367,7 @@
 			(hide yes)
 		)
 	)
-	(property "Description" "Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+	(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
 		(at 0 0 0)
 		(effects
 			(font
@@ -1385,7 +1385,7 @@
 			(hide yes)
 		)
 	)
-	(property "ki_fp_filters" "Connector*:*_2x??_*"
+	(property "ki_fp_filters" "Connector*:*_1x??_*"
 		(at 0 0 0)
 		(effects
 			(font
@@ -1394,16 +1394,27 @@
 			(hide yes)
 		)
 	)
-	(symbol "Conn_02x03_Odd_Even_1_1"
+	(symbol "Conn_01x06_1_1"
 		(rectangle
-			(start -1.27 3.81)
-			(end 3.81 -3.81)
+			(start -1.27 6.35)
+			(end 1.27 -8.89)
 			(stroke
 				(width 0.254)
 				(type default)
 			)
 			(fill
 				(type background)
+			)
+		)
+		(rectangle
+			(start -1.27 5.207)
+			(end 0 4.953)
+			(stroke
+				(width 0.1524)
+				(type default)
+			)
+			(fill
+				(type none)
 			)
 		)
 		(rectangle
@@ -1440,8 +1451,8 @@
 			)
 		)
 		(rectangle
-			(start 3.81 2.667)
-			(end 2.54 2.413)
+			(start -1.27 -4.953)
+			(end 0 -5.207)
 			(stroke
 				(width 0.1524)
 				(type default)
@@ -1451,19 +1462,8 @@
 			)
 		)
 		(rectangle
-			(start 3.81 0.127)
-			(end 2.54 -0.127)
-			(stroke
-				(width 0.1524)
-				(type default)
-			)
-			(fill
-				(type none)
-			)
-		)
-		(rectangle
-			(start 3.81 -2.413)
-			(end 2.54 -2.667)
+			(start -1.27 -7.493)
+			(end 0 -7.747)
 			(stroke
 				(width 0.1524)
 				(type default)
@@ -1473,7 +1473,7 @@
 			)
 		)
 		(pin passive line
-			(at -5.08 2.54 0)
+			(at -5.08 5.08 0)
 			(length 3.81)
 			(name "Pin_1"
 				(effects
@@ -1483,6 +1483,24 @@
 				)
 			)
 			(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -5.08 2.54 0)
+			(length 3.81)
+			(name "Pin_2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "2"
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1511,42 +1529,6 @@
 		(pin passive line
 			(at -5.08 -2.54 0)
 			(length 3.81)
-			(name "Pin_5"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "5"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 7.62 2.54 180)
-			(length 3.81)
-			(name "Pin_2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(number "2"
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-		)
-		(pin passive line
-			(at 7.62 0 180)
-			(length 3.81)
 			(name "Pin_4"
 				(effects
 					(font
@@ -1563,7 +1545,25 @@
 			)
 		)
 		(pin passive line
-			(at 7.62 -2.54 180)
+			(at -5.08 -5.08 0)
+			(length 3.81)
+			(name "Pin_5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+		)
+		(pin passive line
+			(at -5.08 -7.62 0)
 			(length 3.81)
 			(name "Pin_6"
 				(effects
@@ -3617,7 +3617,7 @@
 		(at 119.38 63.5)
 		(uuid "ac224e5e-a4f2-58e5-9566-48ca2fea478d")
 	)
-	(text "PMW3610 side-read trackball, its sensor board: the sensor (its LM18-LSI lens through the board, toward\nthe ball) and a 1.8 V LDO, the board standing upright on the module board (PMW3610-side-pogo), which has the\npogo pins on the joystick mount. TB_J1, a 2x3 right-angle header, takes VCC, GND, SDIO, SCLK, NCS and MOTION\ndown to it. The keyboard keeps VCC on while the trackball is used."
+	(text "PMW3610 side-read trackball, its sensor board: the sensor (its LM18-LSI lens through the board, toward\nthe ball) and a 1.8 V LDO, the board standing upright on the module board (PMW3610-side-pogo), which has the\npogo pins on the joystick mount. TB_J1, a 1x6 right-angle header under the sensor, takes GND, MOTION, NCS, SCLK, SDIO and VCC\ndown to it. The keyboard keeps VCC on while the trackball is used."
 		(exclude_from_sim no)
 		(at 30.48 22.86 0)
 		(effects
@@ -3691,7 +3691,29 @@
 			)
 		)
 	)
-	(global_label "VCC"
+	(global_label "GND"
+		(shape passive)
+		(at 45.72 109.22 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "292d64da-3516-4cfb-8756-4e9bb6d0285c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 45.72 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "MOTION"
 		(shape passive)
 		(at 45.72 111.76 180)
 		(fields_autoplaced yes)
@@ -3701,7 +3723,7 @@
 			)
 			(justify right)
 		)
-		(uuid "cd475b42-1c11-41c5-842c-b91e6fca0844")
+		(uuid "399980e6-6025-4fb6-9c78-a978a7f66904")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 45.72 111.76 0)
 			(effects
@@ -3713,7 +3735,7 @@
 			)
 		)
 	)
-	(global_label "SDIO"
+	(global_label "NCS"
 		(shape passive)
 		(at 45.72 114.30 180)
 		(fields_autoplaced yes)
@@ -3723,7 +3745,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b38c1267-5b19-4292-94d0-b9cf5a5689cd")
+		(uuid "2f826d63-3777-4cba-98fe-fcb4940bf094")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 45.72 114.30 0)
 			(effects
@@ -3735,7 +3757,7 @@
 			)
 		)
 	)
-	(global_label "NCS"
+	(global_label "SCLK"
 		(shape passive)
 		(at 45.72 116.84 180)
 		(fields_autoplaced yes)
@@ -3745,7 +3767,7 @@
 			)
 			(justify right)
 		)
-		(uuid "4c63a87e-25f4-4f5f-97c4-337175c42b9e")
+		(uuid "3c48278c-f12d-4db9-9991-e9d69712efcb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 45.72 116.84 0)
 			(effects
@@ -3757,74 +3779,52 @@
 			)
 		)
 	)
-	(global_label "GND"
+	(global_label "SDIO"
 		(shape passive)
-		(at 58.42 111.76 0)
+		(at 45.72 119.38 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "36e03872-2585-4f59-9e47-2ecba27f193a")
+		(uuid "20c567cc-0d81-463c-a814-18b5eee5775d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.42 111.76 0)
+			(at 45.72 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
-	(global_label "SCLK"
+	(global_label "VCC"
 		(shape passive)
-		(at 58.42 114.30 0)
+		(at 45.72 121.92 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "7ceb6f18-7978-4d29-bc31-b1a6af7e4d9d")
+		(uuid "c2ccdd73-627f-4627-b956-b58308700c7f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.42 114.30 0)
+			(at 45.72 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "MOTION"
-		(shape passive)
-		(at 58.42 116.84 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0c894ca3-1117-4efd-a6c9-3322d13c3de0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 58.42 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_02x03_Odd_Even")
+		(lib_id "Connector_Generic:Conn_01x06")
 		(at 50.8 114.3 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3840,15 +3840,15 @@
 				)
 			)
 		)
-		(property "Value" "Conn_02x03"
-			(at 52.07 121.92 0)
+		(property "Value" "Conn_01x06"
+			(at 52.07 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal"
 			(at 50.80 132.08 0)
 			(effects
 				(font
@@ -3866,7 +3866,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "2x3 right-angle pin header, 2.54 mm, on the board's front beside the lens: its pins bent down into the module board below (PMW3610-side-pogo's TB_J1), soldered on both"
+		(property "Description" "1x6 right-angle pin header, 2.54 mm, on the board's back under the sensor: its pins bent down into the module board below (PMW3610-side-pogo's TB_J1), soldered on both"
 			(at 50.80 114.30 0)
 			(effects
 				(font
@@ -3876,22 +3876,22 @@
 			)
 		)
 		(pin "1"
-			(uuid "08af3526-bc9b-4de7-8cb4-e44d62097e0d")
+			(uuid "e3631065-4237-4c1f-b2fc-100014222f59")
 		)
 		(pin "2"
-			(uuid "f0cbfef1-b7aa-4adc-b5aa-007a0cf343c7")
+			(uuid "a79673c1-8af3-49d8-9893-7d5e0bb699bc")
 		)
 		(pin "3"
-			(uuid "f7e7321a-41aa-4406-9b5c-5ccb637c2c64")
+			(uuid "56363ebc-d7a2-4f6b-bb5b-ea85c5cf0b1e")
 		)
 		(pin "4"
-			(uuid "4ee951a3-8194-412a-af59-26fa7be9369a")
+			(uuid "5283182a-0f9d-4241-8fc6-7eaa09f17909")
 		)
 		(pin "5"
-			(uuid "9925ec3a-6f8e-443e-9e50-312d7b23cbc4")
+			(uuid "c583cde8-4114-47a1-8de8-d398b5bd087f")
 		)
 		(pin "6"
-			(uuid "16f7fd14-58d6-4df3-b44b-e5c197b3a77c")
+			(uuid "7a40e9e3-9669-41c6-8ea0-50fbba54bb2f")
 		)
 		(instances
 			(project "PMW3610-side-pogo-sensor"
