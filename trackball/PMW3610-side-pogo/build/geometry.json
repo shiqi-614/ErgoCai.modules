@@ -34,14 +34,6 @@
   ],
   [
    23.2,
-   -4.5
-  ],
-  [
-   28.2,
-   -4.5
-  ],
-  [
-   28.2,
    4.5
   ],
   [
@@ -98,6 +90,6 @@
   "open": 13.0
  },
  "warnings": [
-  "the ball's axis moves to x -1.30, the sensor board as far out as the fifth hole leaves it"
+  "the ball's axis moves to x -1.30, the sensor board as far out as the 25 mm ball's"
  ]
 }

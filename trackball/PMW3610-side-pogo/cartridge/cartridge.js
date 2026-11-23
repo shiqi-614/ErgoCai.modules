@@ -1,9 +1,9 @@
 // The side-read trackball's cartridge (trackball/PMW3610-side-pogo on the pogo mount, joystick/joystick-mount-pogo): a
-// printed frame and a printed base, screwed together through the module board's three holes into one cartridge that
+// printed frame and a printed base, screwed together through the module board's two holes into one cartridge that
 // snaps into the case (a case of its own: it opens round the mount's User.1 outline, cut: outline).
 //
 // - The base: a plate 1 mm thick on the keyboard board, the module board's outline, open over the mount's contact pads
-//   (x -12.6..-9.4, |y| < 8); on it a spacer under each of the three holes, 3.8 mm (the pogo pins at 3.8 mm), a spigot
+//   (x -12.6..-9.4, |y| < 8); on it a spacer under each of the two holes, 3.8 mm (the pogo pins at 3.8 mm), a spigot
 //   under each into the mount's hole, an M2 x 3 x 3.2 insert in each top. It prints upside down, on the spacers' tops.
 // - The frame, one print: a rim round the module board's edge, from the board's bottom up to the cover; the ball's seat
 //   on the board (a shell round the 20 mm ball, up to 2 mm under its equator, which stands 4 mm over the case's top, so
@@ -13,7 +13,7 @@
 //   the thumb's push toward the sensor; open toward the lens; a slot the sensor board stands in, and a hood over its top, which stands 13.6 mm over the
 //   case (in the case's top layer cut to the opening); a cover over it all flush with the case's top; a column on each
 //   hole, an M2 x 12 countersunk screw down each into the base's inserts. It holds under the case's top layer at both
-//   ends: a tongue at the +x end (on the third hole's tab), which goes in first, the cartridge tilted, and a hook arm
+//   ends: a tongue at the +x end (behind the sensor board), which goes in first, the cartridge tilted, and a hook arm
 //   at the thumb's end (-x, where the pins push up), which snaps as that end goes down. (No hook on a long side: the
 //   25 mm ball's seat covers the +y edge, leaving its lever no room to be pressed, and overhangs the -y edge.)
 //
@@ -37,11 +37,9 @@ const G = JSON.parse(fs.readFileSync(arg('geometry', path.join(__dirname, '..', 
 for (const w of G.warnings) console.log(`  note: ${w}`)
 const OUTLINE = G.outline
 const BOARD_T = 1.6
-const HOLES = [[-12.35, -10.85], [-12.35, 10.85], [24.5, 0]]
-// the holes with a screw down from the top; on the others (the third, which the hood's back half covers from over it) a
-// peg down from the frame's column through the board into its spacer's top, a press fit
-const SCREWED = HOLES.slice(0, 2), PEGGED = HOLES.slice(2)
-const PEG = {d: 2.0, hole: 1.9, depth: 2.5, chamfer: 0.3}
+// the module board's two holes, at -x: a screw down each from the top (the +x end, behind the sensor board, has none:
+// the tongue holds it, and the hood would stand over a hole there)
+const HOLES = [[-12.35, -10.85], [-12.35, 10.85]]
 const PADS = {x0: -12.6, x1: -9.4, y: 8.0}           // the mount's contact pads, and the pins' solder on the board's top
 const AXIS = G.axis                                    // the ball's centre (KiCad y): its equator over the case's top
 const BALL = G.ball, SUPPORT = 2, CLEAR = SUPPORT / 2  // the support balls stand out of the wall by half
@@ -136,11 +134,12 @@ const main = async () => {
     const needed = CrossSection.union([board.offset(0.1, 'Miter', 2),
                                        CrossSection.circle(seatR + 0.2 - GROWN, 96).translate([C[0], C[1]])])
     let opening = new CrossSection([ccw(OPENING)])
-    if (needed.subtract(opening).area() > 0.05) {
+    // (and when the mount's is bigger than it needs: the case's opening no wider than the module)
+    if (needed.subtract(opening).area() > 0.05 || opening.subtract(needed).area() > 0.05) {
         opening = needed.simplify(0.01)
         const pts = opening.toPolygons()[0].map(([x, y]) => [Number(x.toFixed(3)), Number((-y).toFixed(3))])
         fs.writeFileSync(path.join(__dirname, '..', 'build', 'opening.json'), JSON.stringify({user1: pts}, null, 1))
-        console.log(`  note: the mount's User.1 is too small for this module (the seat ${seatR.toFixed(2)} round at the case's top): ` +
+        console.log(`  note: the mount's User.1 does not fit this module (the seat ${seatR.toFixed(2)} round at the case's top): ` +
                     `the outline that fits is in build/opening.json; run build/mount_outline.py to put it into the mount`)
     }
     const holdTop = LEDGE + CLAMP, coverZ0 = CASE_TOP - COVER.t
@@ -154,12 +153,6 @@ const main = async () => {
         parts.push(grown(opening, coverOut - COVER.edge * (k + 1) / steps, CASE_TOP - COVER.edge + COVER.edge * k / steps - 0.001, CASE_TOP - COVER.edge + COVER.edge * (k + 1) / steps))
     // the columns on the holes, the board's top to the cover
     for (const [x, y] of HOLES) parts.push(disc(FOOT.d, x, y, 0, coverZ0 + 0.01))
-    // and the pegs under the columns that have no screw, the tip chamfered
-    for (const [x, y] of PEGGED) {
-        const z0 = -BOARD_T - PEG.depth
-        parts.push(disc(PEG.d, x, y, z0 + PEG.chamfer, 0.01),
-                   Manifold.cylinder(PEG.chamfer, PEG.d / 2 - PEG.chamfer, PEG.d / 2, 32).translate([x, -y, z0]))
-    }
     // the seat: a shell round the ball on the board (its cavity cut below), up to RIM_UNDER under the equator; the ball
     // lies in it on the support balls, held by nothing over it (as keyball's): it lifts out
     const outer = R + CLEAR + SHELL
@@ -193,7 +186,7 @@ const main = async () => {
     // the pins' solder on the board's top, the screws' clearance and countersinks
     cuts.push(box(PADS.x0, PADS.x1, -PADS.y, PADS.y, -0.1, 1.0))
     const sink = SCREW.head / 2 + 0.1
-    for (const [x, y] of SCREWED) {
+    for (const [x, y] of HOLES) {
         cuts.push(disc(SCREW.clear, x, y, -1, CASE_TOP + 1))
         cuts.push(Manifold.cylinder(sink - SCREW.clear / 2 + 0.01, SCREW.clear / 2, sink + 0.01, 48).translate([x, -y, CASE_TOP - (sink - SCREW.clear / 2)]))
     }
@@ -336,7 +329,7 @@ const main = async () => {
     }
     // over each screw a way down for it and the screwdriver, through the seat's shell and rim where they overhang it
     // (the hole nearer the ball, 14.5 from the axis, is under the shell however thin)
-    for (const [x, y] of SCREWED) frame = frame.subtract(disc(SCREW.head + 0.4, x, y, CASE_TOP - 0.01, 50))
+    for (const [x, y] of HOLES) frame = frame.subtract(disc(SCREW.head + 0.4, x, y, CASE_TOP - 0.01, 50))
     // the ball's way into its seat (and out): a search on a grid, its centre in the upright plane toward each open
     // side, 0.2 mm to spare round it for the print; by azimuth, the way or null
     const ways = solid => {
@@ -417,9 +410,7 @@ const main = async () => {
         base = base.add(disc(SPACER.d, x, y, floor, floor + SPACER_H))
             .add(disc(SPACER.spigot, x, y, floor - SPACER.spigotH, floor + 0.01))
             .add(Manifold.cylinder(SPACER.chamfer, SPACER.spigot / 2 - SPACER.chamfer, SPACER.spigot / 2, 48).translate([x, -y, floor - SPACER.spigotH - SPACER.chamfer]))
-        base = PEGGED.some(([u, v]) => u === x && v === y)
-            ? base.subtract(disc(PEG.hole, x, y, floor + SPACER_H - PEG.depth - 0.2, floor + SPACER_H + 0.01))
-            : base.subtract(disc(INSERT.hole, x, y, floor + SPACER_H - INSERT.length - INSERT.extra, floor + SPACER_H + 0.01))
+            .subtract(disc(INSERT.hole, x, y, floor + SPACER_H - INSERT.length - INSERT.extra, floor + SPACER_H + 0.01))
     }
     const reach = SCREW.length - CASE_TOP - BOARD_T
     if (reach > INSERT.length) throw new Error(`the screws reach ${(reach - INSERT.length).toFixed(1)} mm past their inserts`)

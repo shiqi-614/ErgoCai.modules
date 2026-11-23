@@ -1,5 +1,5 @@
 # PMW3610-side-pogo.kicad_sch (the side-read trackball's module board) from PMW3610-pogo's: the six pogo pins (TB_P1..6,
-# pin k for the mount's pad k), three mounting holes, the power flags, and TB_J1, the six holes the sensor board's 2x3
+# pin k for the mount's pad k), two mounting holes (at -x: the +x end is held by the cartridge's tongue), the power flags, and TB_J1, the six holes the sensor board's 2x3
 # right-angle header comes down into; the sensor and its parts are on the sensor board (sensor/).
 # usage: module_sch.py <PMW3610-pogo.kicad_sch> <out.kicad_sch> <kicad_libs dir>
 import sys, re, uuid
@@ -27,7 +27,7 @@ def top_blocks(text, head):
         i = text.find('\n\t(' + head, i)
         if i < 0: return spans
         spans.append(block(text, i + 2)); i += 3
-keep = {f'TB_P{k}' for k in range(1, 7)} | {'H1', 'H2', 'H3', '#FLG01', '#FLG02'}
+keep = {f'TB_P{k}' for k in range(1, 7)} | {'H1', 'H2', '#FLG01', '#FLG02'}
 for span in reversed(top_blocks(s, 'symbol\n')):
     ref = re.search(r'\(property "Reference" "([^"]+)"', s[span[0]:span[1]]).group(1)
     if ref not in keep: s = cut(s, span)

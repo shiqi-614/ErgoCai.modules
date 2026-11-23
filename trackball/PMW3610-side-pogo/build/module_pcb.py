@@ -1,6 +1,6 @@
 # PMW3610-side-pogo.kicad_pcb, the side-read trackball's module board, from PMW3610-pogo's: in the mount's frame (the
 # module goes on it as it is). The pogo pins turned half a turn about the origin, to x -11 (pin k on the mount's pad
-# k); holes at (-12.35, +-10.85) and (24.5, 0); TB_J1's six holes for the sensor board's header pins (x 12.94 and
+# k); holes at (-12.35, +-10.85) (none at the mount's third, (24.5, 0): the cartridge's tongue holds the +x end); TB_J1's six holes for the sensor board's header pins (x 12.94 and
 # 15.48: the header's rows 3.81 and 1.27 in front of the sensor board, whose front is at x 16.75); no hole for the
 # ball, which lies 1.6 mm over the board; a notch the sensor board's tab goes down into; the outline is the mount's
 # User.1 outline less 0.1, the notch cut from its -y edge. Everything else, and all copper, goes.
@@ -16,12 +16,12 @@ b = pcbnew.LoadBoard(board)
 for t in list(b.GetTracks()): b.Delete(t)
 for z in list(b.Zones()): b.Delete(z)
 for d in list(b.GetDrawings()): b.Delete(d)
-keep = {f'TB_P{k}' for k in range(1, 7)} | {'H1', 'H2', 'H3'}
+keep = {f'TB_P{k}' for k in range(1, 7)} | {'H1', 'H2'}
 for f in list(b.GetFootprints()):
     if f.GetReference() not in keep: b.Delete(f)
 fps = {f.GetReference(): f for f in b.GetFootprints()}
 for k in range(1, 7): fps[f'TB_P{k}'].Rotate(V(0, 0), pcbnew.EDA_ANGLE(180, pcbnew.DEGREES_T))
-for ref, (x, y) in {'H1': (-12.35, -10.85), 'H2': (-12.35, 10.85), 'H3': (24.5, 0)}.items(): fps[ref].SetPosition(V(x, y))
+for ref, (x, y) in {'H1': (-12.35, -10.85), 'H2': (-12.35, 10.85)}.items(): fps[ref].SetPosition(V(x, y))
 for a, c in zip(OUTLINE, OUTLINE[1:] + OUTLINE[:1]):
     e = pcbnew.PCB_SHAPE(b, pcbnew.SHAPE_T_SEGMENT); e.SetLayer(pcbnew.Edge_Cuts); e.SetWidth(M(0.05)); e.SetStart(V(*a)); e.SetEnd(V(*c)); b.Add(e)
 uid = re.search(r'\(uuid "([0-9a-f-]+)"\)\n\t\t\(property "Reference" "TB_J1"', open(sch).read()).group(1)

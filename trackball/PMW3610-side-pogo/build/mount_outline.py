@@ -1,5 +1,5 @@
 # usage: mount_outline.py [opening.json]: the case's opening that cartridge.js worked out (build/opening.json, written
-# when the mount's User.1 is too small for the module: a bigger ball) into the mount's User.1 polygon: ErgoCaiLib's
+# when the mount's User.1 does not fit the module: a bigger ball, or a smaller module board) into the mount's User.1 polygon: ErgoCaiLib's
 # Pogo_ModuleMount_1x6_P2.54mm (ERGOCAI_LIB, or ../ErgoCaiLib beside ErgoCai.modules) and its copy in
 # joystick/joystick-mount-pogo. ergogen cuts the side module's case round it (layers [User.1], cut: outline), and
 # cartridge.js reads it back, so run cartridge.js again after this. The joystick and the trackball read from above
