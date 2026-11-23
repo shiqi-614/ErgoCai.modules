@@ -90,25 +90,19 @@ if len(sys.argv) > 3:
         pos, rot = c.GetPosition(), c.GetOrientationDegrees()
         b.Delete(c); b.Add(small); small.SetPosition(pos); small.Flip(pos, pcbnew.FLIP_DIRECTION_TOP_BOTTOM); small.SetOrientationDegrees(rot)
         for p in small.Pads(): p.SetNet(nets[p.GetNumber()])
-# Two lines laid by hand on F.Cu (the lens's side, which has no parts), over the upper row: VCSEL_P from the lower row's
-# end (pin 1) round the aperture's +x end to pin 10, and outside it VCP from pin 9 to its 10 uF (TB_C7, at that end of
-# the capacitors' row) and a via down to it. On B.Cu nothing gets over the upper row's end: the capacitors' row is
-# against the board's top
+# VCSEL_P laid by hand on F.Cu (the lens's side, which has no parts): from the lower row's end (pin 1) round the
+# aperture's +x end and over the upper row to pin 10. On B.Cu nothing gets over the upper row: the capacitors' row is
+# against the board's top. The charge pump's lines (VCP, CP, CN: the Pump netclass, 0.5 mm) the router lays, each
+# capacitor by its pin (datasheet figure 6: under 5 mm, over 20 mil)
 pads = {p.GetNumber(): p for p in u1.Pads()}
 ap = [g for g in u1.GraphicalItems() if g.GetLayerName() == 'Edge.Cuts'][0].GetBoundingBox()
 at = lambda p: (T(p.GetPosition().x), T(p.GetPosition().y))
-(x1, y1), (x9, y9), (x10, y10) = at(pads['1']), at(pads['9']), at(pads['10'])
-c7 = [p for p in fps['TB_C7'].Pads() if p.GetNetname() == 'VCP'][0]
-xr, yin, yout = T(ap.GetRight()) + 0.9, -H + 1.35, -H + 0.65
-for net, pts in ((pads['1'].GetNet(), [(x1, y1), (xr, y1), (xr, yin), (x10, yin), (x10, y10)]),
-                 (pads['9'].GetNet(), [(x9, y9), (x9, yout), (at(c7)[0], yout)])):
-    for (a0, b0), (a1, b1) in zip(pts, pts[1:]):
-        t = pcbnew.PCB_TRACK(b); t.SetStart(V(a0, b0)); t.SetEnd(V(a1, b1)); t.SetWidth(M(0.3)); t.SetLayer(pcbnew.F_Cu)
-        t.SetNet(net); t.SetLocked(True); b.Add(t)
-v = pcbnew.PCB_VIA(b); v.SetPosition(V(at(c7)[0], yout)); v.SetDrill(M(0.3)); v.SetWidth(pcbnew.F_Cu, M(0.6)); v.SetWidth(pcbnew.B_Cu, M(0.6))
-v.SetNet(c7.GetNet()); v.SetLocked(True); b.Add(v)
-t = pcbnew.PCB_TRACK(b); t.SetStart(V(at(c7)[0], yout)); t.SetEnd(V(*at(c7))); t.SetWidth(M(0.3)); t.SetLayer(pcbnew.B_Cu)
-t.SetNet(c7.GetNet()); t.SetLocked(True); b.Add(t)
+(x1, y1), (x10, y10) = at(pads['1']), at(pads['10'])
+xr, yt = T(ap.GetRight()) + 0.9, -H + 1.1
+pts = [(x1, y1), (xr, y1), (xr, yt), (x10, yt), (x10, y10)]
+for (a0, b0), (a1, b1) in zip(pts, pts[1:]):
+    t = pcbnew.PCB_TRACK(b); t.SetStart(V(a0, b0)); t.SetEnd(V(a1, b1)); t.SetWidth(M(0.5)); t.SetLayer(pcbnew.F_Cu)
+    t.SetNet(pads['1'].GetNet()); t.SetLocked(True); b.Add(t)
 b.Save(board)
 for f in (u1, j1):
     for p in sorted(f.Pads(), key=lambda p: int(p.GetNumber())):
