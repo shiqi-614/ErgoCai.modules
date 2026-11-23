@@ -27,15 +27,17 @@ x0 = min(R + LENS_GAP + LENS_DEPTH, X0_MAX)
 AXIS = {'x': x0 - (R + LENS_GAP + LENS_DEPTH), 'y': -1.5, 'z': R + FLOOR}
 dx = x0 - 16.75                                # how far the +x side moves from the 20 mm ball's
 z = AXIS['z']
-# the module board's outline (KiCad, y down), the 20 mm ball's with its +x side moved: the notch the sensor board's tab
-# goes down into, its +x end 0.55 behind the sensor board's parts, the +y corner cut back clear of the keyboard's
-# mounting hole
-notch = (16.55 + dx, 18.55 + dx, 5.0)
-outline = [(-14.5, -13), (notch[0], -13), (notch[0], notch[2]), (notch[1], notch[2]), (notch[1], -13), (22 + dx, -13),
-           (22 + dx, 4.5), (21 + dx, 4.5), (21 + dx, 7), (18.5 + dx, 13), (-14.5, 13)]
+# the module board's outline (KiCad, y down), the 20 mm ball's with its +x side moved: its +x end 0.55 behind the
+# sensor board's parts, the +y corner cut back clear of the keyboard's mounting hole; and the slot the sensor board's
+# tab goes down into (the tab y -11.8..4.8, 0.2 round it), closed at the -y edge too: the sensor board stands on the
+# module board at both its ends, the strip there 1 mm, and the board behind it is held at both ends
+notch = (16.55 + dx, 18.55 + dx, 5.0, -12.0)
+outline = [(-14.5, -13), (22 + dx, -13), (22 + dx, 4.5), (21 + dx, 4.5), (21 + dx, 7), (18.5 + dx, 13), (-14.5, 13)]
+slot = [(notch[0], notch[3]), (notch[1], notch[3]), (notch[1], notch[2]), (notch[0], notch[2])]
 g = {
     'ball': ball, 'R': R, 'axis': AXIS, 'dx': round(dx, 3),
     'outline': [[round(x, 3), round(y, 3)] for x, y in outline], 'notch': [round(v, 3) for v in notch],
+    'slot': [[round(x, 3), round(y, 3)] for x, y in slot],
     # the sensor board in the module's frame, and its lens and body (y KiCad's, z over the module board's top)
     'sensor': {'x0': x0, 'x1': x0 + SENSOR_T, 'y': 13.0, 'top': z + TOP,
                'lens': {'x0': x0 - LENS_DEPTH, 'y0': -13.0, 'y1': 4.96, 'z0': z - 4.7, 'z1': z + 4.7},

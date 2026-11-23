@@ -1,12 +1,11 @@
 # usage: module_finish.py <board> <route.ses|->: the routing in, a GND zone on each layer over the outline, filled
-import sys, pcbnew
+import sys, os, json, pcbnew
 M = pcbnew.FromMM
 b = pcbnew.LoadBoard(sys.argv[1])
 if sys.argv[2] != '-': pcbnew.ImportSpecctraSES(b, sys.argv[2])
 for z in list(b.Zones()):
     if not z.GetIsRuleArea(): b.Delete(z)
-OUTLINE = [(-14.5, -13), (16.55, -13), (16.55, 5.0), (18.55, 5.0), (18.55, -13), (22, -13), (22, -4.5),
-           (27, -4.5), (27, 4.5), (21, 4.5), (21, 7), (18.5, 13), (-14.5, 13)]
+OUTLINE = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))['outline']   # (the slot: the fill keeps off the edges)
 gnd = b.FindNet('GND')
 for layer in (pcbnew.F_Cu, pcbnew.B_Cu):
     z = pcbnew.ZONE(b); z.SetLayer(layer); z.SetNet(gnd)

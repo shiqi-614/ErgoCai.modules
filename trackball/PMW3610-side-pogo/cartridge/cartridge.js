@@ -126,12 +126,14 @@ const main = async () => {
         .map(z => Manifold.sphere(r, 16).translate([x, -y, z])))))
     const disc = (d, x, y, z0, z1) => Manifold.cylinder(z1 - z0, d / 2, d / 2, 48).translate([x, -y, z0])
     const ccw = pts => pts.reduce((s, [x, y], i) => { const [u, v] = pts[(i + 1) % pts.length]; return s + x * v - u * y }, 0) > 0 ? pts : [...pts].reverse()
-    const board = new CrossSection([ccw(OUTLINE.map(([x, y]) => [x, -y]))])
+    // the module board: its outline, less the slot the sensor board's tab goes down into
+    const boardOut = new CrossSection([ccw(OUTLINE.map(([x, y]) => [x, -y]))])
+    const board = boardOut.subtract(new CrossSection([ccw(G.slot.map(([x, y]) => [x, -y]))]))
     const grown = (cs, by, z0, z1) => cs.offset(by, 'Round', 2, 64).extrude(z1 - z0).translate([0, 0, z0])
     const R = BALL / 2, C = [AXIS.x, -AXIS.y, AXIS.z]
     // the opening: the mount's, or one that holds the board and the seat
     const seatR = Math.sqrt((R + CLEAR + SHELL) ** 2 - Math.max(0, AXIS.z - CASE_TOP) ** 2)
-    const needed = CrossSection.union([board.offset(0.1, 'Miter', 2),
+    const needed = CrossSection.union([boardOut.offset(0.1, 'Miter', 2),
                                        CrossSection.circle(seatR + 0.2 - GROWN, 96).translate([C[0], C[1]])])
     let opening = new CrossSection([ccw(OPENING)])
     // (and when the mount's is bigger than it needs: the case's opening no wider than the module)
