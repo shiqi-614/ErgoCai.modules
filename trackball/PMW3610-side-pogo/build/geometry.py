@@ -24,7 +24,12 @@ SENSOR_T, BODY = 1.6, 3.1                      # the sensor board's thickness, t
 HOLE3, SCREW, WALL = (24.5, 0.0), 2.3, 0.5
 X0_MAX = HOLE3[0] - SCREW / 2 - WALL - 0.2 - BODY - SENSOR_T
 x0 = min(R + LENS_GAP + LENS_DEPTH, X0_MAX)
-AXIS = {'x': x0 - (R + LENS_GAP + LENS_DEPTH), 'y': -1.5, 'z': R + FLOOR}
+# the sensor board in its own frame (x along it): its ends (at -x the lens's end; at +x 0.8 past the LDO's courtyard)
+# and the sensor's optical centre. Its middle goes on the module board's (y 0), so the optical centre, and the ball's
+# axis with it, at y OC + SHIFT: module y = the sensor board's x + SHIFT
+END0, END1, OC = -13.0, 10.5, -1.5
+SHIFT = -(END0 + END1) / 2
+AXIS = {'x': x0 - (R + LENS_GAP + LENS_DEPTH), 'y': OC + SHIFT, 'z': R + FLOOR}
 dx = x0 - 16.75                                # how far the +x side moves from the 20 mm ball's
 z = AXIS['z']
 # the module board's outline (KiCad, y down), the 20 mm ball's with its +x side moved: its +x end 0.55 behind the
@@ -33,7 +38,7 @@ z = AXIS['z']
 outline = [(-14.5, -13), (22 + dx, -13), (22 + dx, 4.5), (21 + dx, 4.5), (21 + dx, 7), (18.5 + dx, 13), (-14.5, 13)]
 # the header: a 1x6 right-angle one on the sensor board's back, under the PMW3610, its pins bent down into the module
 # board 1.27 behind the sensor board, in a row along y centred on `c` (the module's y, which is the sensor board's x),
-# pin k at c + 2.54 (k - 3.5); on the sensor board its pads `h` over the bottom edge, so its body stands on the module
+# pin k at c + 2.54 (k - 3.5) (c in the sensor board's frame); on the sensor board its pads `h` over the bottom edge, so its body stands on the module
 # board (KiCad's PinHeader_1x06_P2.54mm_Horizontal: the body 1.5..4.04 from the pads). The pins in the pogo pins'
 # order along y (GND, MOTION, NCS, SCLK, SDIO, VCC), the sensor's lower row too but for its VCC
 HEADER = {'c': -3.2, 'pitch': 2.54, 'h': 4.04, 'behind': 1.27,
@@ -42,15 +47,16 @@ g = {
     'ball': ball, 'R': R, 'axis': AXIS, 'dx': round(dx, 3),
     'outline': [[round(x, 3), round(y, 3)] for x, y in outline],
     # the sensor board in the module's frame, and its lens and body (y KiCad's, z over the module board's top)
-    # (its ends: at -y the lens's end; at +y, the user's side, 0.8 past the LDO's courtyard)
-    'sensor': {'x0': x0, 'x1': x0 + SENSOR_T, 'y0': -13.0, 'y1': 10.5, 'top': z + TOP,
-               'lens': {'x0': x0 - LENS_DEPTH, 'y0': -13.0, 'y1': 4.96, 'z0': z - 4.7, 'z1': z + 4.7},
-               'body': {'x1': x0 + SENSOR_T + BODY, 'y0': -12.59, 'y1': 3.61, 'z0': z - 4.55, 'z1': z + 4.55}},
+    'sensor': {'x0': x0, 'x1': x0 + SENSOR_T, 'y0': END0 + SHIFT, 'y1': END1 + SHIFT, 'top': z + TOP,
+               'lens': {'x0': x0 - LENS_DEPTH, 'y0': -13.0 + SHIFT, 'y1': 4.96 + SHIFT, 'z0': z - 4.7, 'z1': z + 4.7},
+               'body': {'x1': x0 + SENSOR_T + BODY, 'y0': -12.59 + SHIFT, 'y1': 3.61 + SHIFT, 'z0': z - 4.55, 'z1': z + 4.55}},
     # the header: its pins' holes in the module board (x; pin 1's y, the rest along +y), its pads on the sensor board
-    'header': dict(HEADER, x=round(x0 + SENSOR_T + HEADER['behind'], 3), y1=round(HEADER['c'] - 2.5 * HEADER['pitch'], 3)),
+    # (y1 the module's, x1 the sensor board's)
+    'header': dict(HEADER, x=round(x0 + SENSOR_T + HEADER['behind'], 3), y1=round(HEADER['c'] - 2.5 * HEADER['pitch'] + SHIFT, 3),
+                   x1=round(HEADER['c'] - 2.5 * HEADER['pitch'], 3)),
     # the sensor board in its own frame (x along it, y down from its top, its bottom edge at y 0): the sensor's
-    # optical centre's height over the bottom edge, the board's height
-    'sensor_board': {'axis_z': z, 'h': round(z + TOP, 3)},
+    # optical centre's height over the bottom edge, the board's height; its ends, the optical centre's x, the shift
+    'sensor_board': {'axis_z': z, 'h': round(z + TOP, 3), 'x0': END0, 'x1': END1, 'oc': OC, 'shift': SHIFT},
     # the roof over the lens: open round the ball's axis, wide enough for the ball to lift out
     'stop': {'open': R + 0.5},
 }

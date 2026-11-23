@@ -30,6 +30,7 @@ j1 = pcbnew.FootprintLoad(lib, 'PinHeader_1x06_P2.54mm_Vertical')
 j1.SetFPIDAsString('Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical'); j1.SetReference('TB_J1'); j1.SetValue('Conn_01x06')
 b.Add(j1); j1.SetPosition(V(G['header']['x'], G['header']['y1']))      # pin 1 at its origin, the rest along +y
 j1.SetAttributes(j1.GetAttributes() | pcbnew.FP_EXCLUDE_FROM_BOM)   # holes only: the header is the sensor board's
+j1.Models().clear()                                                   # (so no header of its own in the 3D view either)
 j1.SetPath(pcbnew.KIID_PATH(f'/{uid}')); j1.SetSheetfile('PMW3610-side-pogo.kicad_sch'); j1.SetSheetname('/')
 J1 = G['header']['nets']
 for p in j1.Pads(): p.SetNet(b.FindNet(J1[p.GetNumber()]))
@@ -40,11 +41,11 @@ for p in j1.Pads():
 cart = pcbnew.FootprintLoad(os.path.join(os.environ.get('ERGOCAI_LIB', os.path.expanduser('~/Development/ErgoCaiLib')), 'footprints', 'ErgoCai.pretty'), 'TrackballCartridge_PMW3610-side-pogo')
 cart.SetFPIDAsString('ErgoCai.pretty:TrackballCartridge_PMW3610-side-pogo'); cart.SetReference('TB_CART1')
 cart.SetValue('TrackballCartridge_PMW3610-side-pogo'); b.Add(cart); cart.SetPosition(V(0, 0))
-# the sensor board's model where it stands: its back at x1
+# the sensor board's model where it stands: its back at x1, its frame SHIFT along y (KiCad's model offset: y up)
 # (Models() hands out copies: the list is put back)
 models = list(cart.Models())
 for m in models:
-    if 'sensor' in m.m_Filename: m.m_Offset = pcbnew.VECTOR3D(G['sensor']['x1'], m.m_Offset.y, m.m_Offset.z)
+    if 'sensor' in m.m_Filename: m.m_Offset = pcbnew.VECTOR3D(G['sensor']['x1'], -G['sensor_board']['shift'], m.m_Offset.z)
 cart.Models().clear()
 for m in models: cart.Add3DModel(m)
 for f in b.GetFootprints():

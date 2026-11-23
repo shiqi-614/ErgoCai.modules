@@ -11,8 +11,8 @@ V = lambda x, y: pcbnew.VECTOR2I(M(x), M(y))
 # the board's ends; its height and the sensor's optical centre's over its bottom edge (level with the ball's
 # centre: its side over the case's top, for the thumb) from geometry.json (geometry.py: they follow the ball's size)
 G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
-W0, W1, H = G['sensor']['y0'], G['sensor']['y1'], G['sensor_board']['h']     # its ends (the module's y), its height
-AXIS_X, AXIS_Z = -1.5, G['sensor_board']['axis_z']
+W0, W1, H = G['sensor_board']['x0'], G['sensor_board']['x1'], G['sensor_board']['h']     # its ends, its height
+AXIS_X, AXIS_Z = G['sensor_board']['oc'], G['sensor_board']['axis_z']
 b = pcbnew.LoadBoard(board)
 for t in list(b.GetTracks()): b.Delete(t)
 for z in list(b.Zones()): b.Delete(z)
@@ -53,16 +53,16 @@ j1 = pcbnew.FootprintLoad(lib, 'PinHeader_1x06_P2.54mm_Horizontal')
 j1.SetFPIDAsString('Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal')
 j1.SetReference('TB_J1'); j1.SetValue('Conn_01x06')
 b.Add(j1)
-# on the back, pin k at (y1 + 2.54 (k - 1), -h) (the module's y is the board's x), the body from the pads down to the
+# on the back, pin k at (x1 + 2.54 (k - 1), -h), the body from the pads down to the
 # bottom edge: the orientation that puts them so
 HD = G['header']
-j1.SetPosition(V(HD['y1'], -HD['h'])); j1.Flip(j1.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
+j1.SetPosition(V(HD['x1'], -HD['h'])); j1.Flip(j1.GetPosition(), pcbnew.FLIP_DIRECTION_LEFT_RIGHT)
 for rot in (0, 90, 180, 270):
     j1.SetOrientationDegrees(rot)
     q = {p.GetNumber(): (T(p.GetPosition().x), T(p.GetPosition().y)) for p in j1.Pads()}
     # (its drawing: the body and the pins, which reach on past the bottom edge)
     below = max(T(g.GetBoundingBox().GetBottom()) for g in j1.GraphicalItems() if g.GetLayerName() in ('F.Fab', 'B.Fab'))
-    if abs(q['6'][0] - (HD['y1'] + 5 * HD['pitch'])) < 0.01 and abs(q['6'][1] + HD['h']) < 0.01 and below > 0: break
+    if abs(q['6'][0] - (HD['x1'] + 5 * HD['pitch'])) < 0.01 and abs(q['6'][1] + HD['h']) < 0.01 and below > 0: break
 else: sys.exit('no orientation puts the header so')
 j1.SetPath(pcbnew.KIID_PATH(f'/{uid}'))
 j1.SetSheetfile('PMW3610-side-pogo-sensor.kicad_sch'); j1.SetSheetname('/')

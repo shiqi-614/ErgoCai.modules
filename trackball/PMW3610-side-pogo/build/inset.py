@@ -10,7 +10,7 @@ for j in range(i, len(s)):
         depth -= 1
         if depth == 0: break
 G = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'geometry.json')))
-W0, W1, H = G['sensor']['y0'], G['sensor']['y1'], G['sensor_board']['h']     # its ends (the module's y), its height
+W0, W1, H = G['sensor_board']['x0'], G['sensor_board']['x1'], G['sensor_board']['h']     # its ends, its height
 poly = [(W0, -H), (W1, -H), (W1, 0), (W0, 0)]   # KiCad, y down
 pts = [(x, -y) for x, y in poly]                       # y up
 area = sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(pts, pts[1:] + pts[:1]))
