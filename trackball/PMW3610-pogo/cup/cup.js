@@ -444,10 +444,19 @@ const step = (parts, title) => {
         const points = [], normals = []
         for (let i = 0; i < count; i++) {
             points.push(triple(i, 0))
-            normals.push(triple(i, 3))
+            // a point's normal must not be (0, 0, 0): OCCT drops the whole solid over one (as cartridge.js found);
+            // calculateNormals gives none to points only on slivers of no area, and any unit vector does there
+            const n = [3, 4, 5].map(k => v[i * numProp + k])
+            normals.push(Math.hypot(...n) > 1e-6 ? triple(i, 3) : '(0.,0.,1.)')
         }
         const triangles = []
-        for (let i = 0; i < t.length; i += 3) triangles.push(`(${t[i] + 1},${t[i + 1] + 1},${t[i + 2] + 1})`)
+        // and the triangles with an area only (the slivers change nothing of the shape)
+        const at = (i, k) => v[i * numProp + k]
+        for (let i = 0; i < t.length; i += 3) {
+            const [a0, b0, c0] = [t[i], t[i + 1], t[i + 2]], u = [0, 1, 2].map(k => at(b0, k) - at(a0, k)), w = [0, 1, 2].map(k => at(c0, k) - at(a0, k))
+            if (Math.hypot(u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]) < 1e-9) continue
+            triangles.push(`(${a0 + 1},${b0 + 1},${c0 + 1})`)
+        }
         const coordinates = e(`COORDINATES_LIST('',${count},(${points.join(',')}))`)
         const face = e(`TRIANGULATED_FACE('',${coordinates},${count},(${normals.join(',')}),$,(),(${triangles.join(',')}))`)
         const item = e(`TESSELLATED_SOLID('${name}',(${face}),$)`)
