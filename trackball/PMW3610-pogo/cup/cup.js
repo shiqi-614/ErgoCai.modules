@@ -55,6 +55,9 @@ const BALL = Number(arg('ball', 25))
 const SUPPORT = Number(arg('support', 2.5))      // support balls
 const OUT = arg('out', path.join(__dirname, 'cup.stl'))
 const STEP = arg('step', '')
+// with --glb, the same as glTF binary: what ergogen-gui's 3D view reads for a footprint's model (its STEP reader
+// takes no tessellated STEP), by ErgoCaiLib's 3dmodels/sources.yaml
+const GLB = arg('glb', '')
 const SECTIONS = arg('sections', path.join(__dirname, 'sections.svg'))
 const PARTS = arg('parts', path.join(__dirname, 'parts.md'))
 // how the cup holds on: tabs, snapped under the edges of the module board (trackball/PMW3610-pogo); screws, four M2
@@ -327,6 +330,7 @@ const main = async () => {
         supports.forEach((s, i) => parts.push({name: `support ${i + 1}`, solid: Manifold.sphere(SUPPORT / 2, 20).translate(s),
                                                rgb: [0.55, 0.56, 0.6]}))
         fs.writeFileSync(STEP, step(parts, path.basename(STEP, path.extname(STEP))))
+        if (GLB) { fs.writeFileSync(GLB, glb(parts)); console.log(`${GLB}: the same, glTF`) }
         console.log(`${STEP}: ${parts.map(p => p.name).join(', ')}`)
     }
     const box = cup.boundingBox()
@@ -413,6 +417,54 @@ const cartridge = (wasm, seat) => {
     console.log(`cartridge: the board's top ${boardTop.toFixed(1)} over the case's bottom, the hooks ${C.clamp} mm over the ledge at ` +
                 `${ledge.toFixed(1)}; screws M2 x ${C.top.length} countersunk, down (${topReach.toFixed(1)} mm into the spacers' inserts)`)
     return {cup: frame, base}
+}
+
+// glTF binary of solids, a mesh each with its normals, in a colour of its own. glTF is in metres with y up, so
+// the model's (x, y, z) in mm is written as (x, z, -y) / 1000.
+const glb = (parts) => {
+    const chunks = [], bufferViews = [], accessors = [], meshes = [], materials = []
+    let offset = 0
+    const add = (array, target) => {
+        const bytes = Buffer.from(array.buffer)
+        chunks.push(bytes)
+        bufferViews.push({buffer: 0, byteOffset: offset, byteLength: bytes.length, target})
+        offset += bytes.length
+        return bufferViews.length - 1
+    }
+    for (const {name, solid, rgb} of parts) {
+        const {numProp, vertProperties: v, triVerts: t} = solid.calculateNormals(0, 30).getMesh()
+        const count = v.length / numProp
+        const positions = new Float32Array(count * 3), normals = new Float32Array(count * 3)
+        const min = [Infinity, Infinity, Infinity], max = [-Infinity, -Infinity, -Infinity]
+        for (let i = 0; i < count; i++) {
+            const [x, y, z, nx, ny, nz] = [0, 1, 2, 3, 4, 5].map(k => v[i * numProp + k])
+            const p = [x / 1000, z / 1000, -y / 1000]
+            positions.set(p, i * 3)
+            normals.set([nx, nz, -ny], i * 3)
+            p.forEach((value, k) => { min[k] = Math.min(min[k], value); max[k] = Math.max(max[k], value) })
+        }
+        const indices = new Uint32Array(t)
+        accessors.push({bufferView: add(positions, 34962), componentType: 5126, count, type: 'VEC3', min, max})
+        accessors.push({bufferView: add(normals, 34962), componentType: 5126, count, type: 'VEC3'})
+        accessors.push({bufferView: add(indices, 34963), componentType: 5125, count: indices.length, type: 'SCALAR'})
+        materials.push({name, pbrMetallicRoughness: {baseColorFactor: [...rgb, 1], metallicFactor: 0, roughnessFactor: 0.7}})
+        const at = accessors.length - 3
+        meshes.push({name, primitives: [{attributes: {POSITION: at, NORMAL: at + 1}, indices: at + 2, material: materials.length - 1}]})
+    }
+    const binary = Buffer.concat(chunks)
+    const json = {
+        asset: {version: '2.0', generator: 'ErgoCai cup.js (manifold-3d)'},
+        scene: 0, scenes: [{nodes: meshes.map((_, i) => i)}], nodes: meshes.map((m, i) => ({mesh: i, name: m.name})),
+        meshes, materials, buffers: [{byteLength: binary.length}], bufferViews, accessors,
+    }
+    const pad = (buffer, fill) => Buffer.concat([buffer, Buffer.alloc((4 - buffer.length % 4) % 4, fill)])
+    const jsonChunk = pad(Buffer.from(JSON.stringify(json)), 0x20), binChunk = pad(binary, 0)
+    const header = Buffer.alloc(12), jsonHead = Buffer.alloc(8), binHead = Buffer.alloc(8)
+    header.writeUInt32LE(0x46546c67, 0); header.writeUInt32LE(2, 4)
+    header.writeUInt32LE(12 + 8 + jsonChunk.length + 8 + binChunk.length, 8)
+    jsonHead.writeUInt32LE(jsonChunk.length, 0); jsonHead.writeUInt32LE(0x4e4f534a, 4)
+    binHead.writeUInt32LE(binChunk.length, 0); binHead.writeUInt32LE(0x004e4942, 4)
+    return Buffer.concat([header, jsonHead, jsonChunk, binHead, binChunk])
 }
 
 // STEP (AP242) of tessellated solids: each a TRIANGULATED_FACE of the mesh, in a colour of its own, with normals
