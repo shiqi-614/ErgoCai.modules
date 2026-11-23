@@ -1,6 +1,7 @@
 # Pin functions of trackball/PMW3610's TB_U1, by pad number: a PixArt PMW3610DM-SUDU on the keyboard board itself,
 # on its back, its LM18-LSI lens up through the board's aperture, on 3-wire SPI, with its own 1.8 V LDO (TB_U2). The
-# printed ball seat over it is cup/cup.js --fix screws --style seat, M2 screws up through TB_H1..TB_H4 into its inserts.
+# printed ball seat over it is cup/cup.js --fix case --style seat: it stands on the board and snaps under the case's
+# top layer by a hook at each end, as the pogo modules' cartridges do; no screws.
 # For whatever assigns the MCU pins to these signals (kbplacer) and writes the ZMK pin config (shield trackball in
 # zmk-ergo-cai; the pins themselves in zmk-config). KicadGen puts it into the project next to PMW3610.kicad_sch;
 # kbplacer finds it from the sheet file of the module's footprints.

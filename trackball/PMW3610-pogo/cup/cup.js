@@ -13,7 +13,7 @@
 //   node cup.js --step <ErgoCaiLib>/3dmodels/TrackballCup_PMW3610-pogo.step
 // The trackballs in use are --style seat, on a 20 mm ball (--ball 20), both turned half a turn on the keyboard:
 //   PMW3610-pogo:  node cup.js --fix cartridge --style seat --support 2 --ball 20 --step <...>/TrackballCup_PMW3610-pogo.step
-//   PMW3610:       node cup.js --fix screws --style seat --support 2 --ball 20 --out ../../PMW3610/cup/cup.stl ... 
+//   PMW3610:       node cup.js --fix case --style seat --support 2 --ball 20 --out ../../PMW3610/cup/cup.stl ...
 //                  --step <...>/TrackballCup_PMW3610.step
 //
 // usage: node cup.js [--lens <mm>] [--ball <mm>] [--support <mm>] [--out <file.stl>] [--step <file.step>]
@@ -63,7 +63,10 @@ const PARTS = arg('parts', path.join(__dirname, 'parts.md'))
 // hook arms snap under the case's top layer; a printed base under the board, screwed to the cup through the board's
 // corner holes, puts the module's pins on the mount's pads (--style seat)
 const FIX = arg('fix', 'tabs')
-if (!['tabs', 'screws', 'cartridge'].includes(FIX)) throw new Error(`--fix tabs, screws or cartridge, not ${FIX}`)
+// (case: the sensor on the keyboard board itself, trackball/PMW3610: the cartridge's frame, standing on the keyboard
+// board, no module board, base or screws; its hooks hold it down under the case's top layer)
+if (!['tabs', 'screws', 'cartridge', 'case'].includes(FIX)) throw new Error(`--fix tabs, screws, cartridge or case, not ${FIX}`)
+const CASE = FIX === 'case'
 const BASE_OUT = arg('base-out', '')
 // its look: round, a straight wall to the rim, six slits for fingers; petals, after htx-studio's One-Handed
 // Keyboard trackball seat (MIT): the wall rounds in over the equator, cut down to four petals that hold the ball, the
@@ -74,7 +77,7 @@ const BASE_OUT = arg('base-out', '')
 const STYLE = arg('style', 'round')
 if (!['round', 'petals', 'seat'].includes(STYLE)) throw new Error(`--style round, petals or seat, not ${STYLE}`)
 if (STYLE !== 'round' && FIX === 'tabs') throw new Error(`--style ${STYLE} has no skirts for the tabs: --fix screws or cartridge`)
-if (FIX === 'cartridge' && STYLE !== 'seat') throw new Error('--fix cartridge is for --style seat')
+if ((FIX === 'cartridge' || CASE) && STYLE !== 'seat') throw new Error(`--fix ${FIX} is for --style seat`)
 
 const Z_GAP = 2.4                                // reference plane to the ball's surface
 // between the ball and the cup: --style seat leaves the ball the support balls' half that stands out of the wall
@@ -90,7 +93,9 @@ const BOARD = {x0: -14.5, x1: 14.5, y0: -13.0, y1: 13.0, r: 2.15, t: 1.6}
 // the screws' holes: the module board's (tabs, cartridge: the mount's, ErgoCaiLib Pogo_ModuleMount_1x6_P2.54mm), or the cup's own
 // in the keyboard board (screws); where an M2 head (3.8 mm) and its driver stay clear of the seat's wall (OUTER): 16.4 mm
 // or more from the axis
-const HOLES = FIX === 'screws' ? [[-11.8, 11.8], [12.35, 11.8], [-11.8, -11.8], [12.35, -11.8]]
+// (case: no screws; the plinth's lobes where the cartridge's are, out to the frame's rim, which they join)
+const LOBES = CASE ? [[-12.35, 10.85], [12.35, 10.85], [-12.35, -10.85], [12.35, -10.85]] : null
+const HOLES = CASE ? [] : FIX === 'screws' ? [[-11.8, 11.8], [12.35, 11.8], [-11.8, -11.8], [12.35, -11.8]]
                                : [[-12.35, 10.85], [12.35, 10.85], [-12.35, -10.85], [12.35, -10.85]]
 // --fix cartridge, as joystick/Alpsalpine-pogo/retainer/retainer.js has it (its comments say what each rests on): the
 // keyboard board's top over the case's bottom, the board 3.8 mm over it on the base's spacers (the pins at 3.8 mm),
@@ -127,7 +132,7 @@ const PETAL = {gap: 12, below: 2}
 const RETAIN = {elevation: 15, out: 0.3, azimuths: [30, 150, 270], lug: 4.6, over: 0.6, below: 1}
 // --fix cartridge: on thinner lugs, clear of the hook arms bending in at the short ends (from x +-11.95) and inside the
 // case's opening (|y| under 14.15); for a ball over 20 mm, four, where a lug stays inside it
-if (FIX === 'cartridge') Object.assign(RETAIN, BALL > 20 ? {azimuths: [55, 125, 235, 305], lug: 3.4} : {lug: 3.4})
+if (FIX === 'cartridge' || CASE) Object.assign(RETAIN, BALL > 20 ? {azimuths: [55, 125, 235, 305], lug: 3.4} : {lug: 3.4})
 // ... its plinth's top: 1 mm over the ball's bottom, round the lens's pocket
 const SEAT_PLINTH_OVER = 1.0
 // --style seat's bosses: M2 heat-set inserts (M2 x 3 x 3.2) from below, 0.2 mm deeper than they are long
@@ -178,7 +183,7 @@ const main = async () => {
         // a plinth on the board, round with a lobe for each insert's boss, up to just over the ball's bottom (it holds
         // the lens's pocket); on it a shell that follows the ball, a sphere OUTER round its centre, up to the lugs
         const plinth = CrossSection.union([CrossSection.circle(OUTER, SEGMENTS),
-            ...HOLES.map(([x, y]) => CrossSection.hull([CrossSection.circle(INSERT.d / 2, 48).translate([x, -y]),
+            ...(LOBES || HOLES).map(([x, y]) => CrossSection.hull([CrossSection.circle(INSERT.d / 2, 48).translate([x, -y]),
                                                        CrossSection.circle(INSERT.d / 2, 48).translate([x * 0.8, -y * 0.8])]))])
         cup = Manifold.union([slab(plinth, 0, SEAT_PLINTH),
                               Manifold.sphere(OUTER, SEGMENTS).translate([0, 0, CENTRE])
@@ -301,7 +306,7 @@ const main = async () => {
         cup = cup.add(Manifold.union(strips).subtract(Manifold.sphere(R + CLEAR, SEGMENTS).translate([0, 0, CENTRE])))
     }
     let base = null
-    if (FIX === 'cartridge') ({cup, base} = cartridge(wasm, cup))
+    if (FIX === 'cartridge' || CASE) ({cup, base} = cartridge(wasm, cup))
 
     const supports = AZIMUTHS.map(a => {
         const d = R + SUPPORT / 2, t = TILT * Math.PI / 180, p = a * Math.PI / 180
@@ -339,7 +344,9 @@ const main = async () => {
 const cartridge = (wasm, seat) => {
     const {Manifold, CrossSection} = wasm
     const C = CART
-    const boardTop = C.keyboardTop + C.spacer + BOARD.t
+    // (case: the frame on the keyboard board's top, no module board inside its rim)
+    const boardTop = CASE ? C.keyboardTop : C.keyboardTop + C.spacer + BOARD.t
+    const rimZ0 = CASE ? 0 : C.rim.z0
     const ledge = C.ledge - boardTop, caseTop = C.caseTop - boardTop
     const box = (x0, x1, y0, y1, z0, z1) => Manifold.cube([x1 - x0, y1 - y0, z1 - z0]).translate([x0, -y1, z0])
     const disc = (d, x, y, z0, z1) => Manifold.cylinder(z1 - z0, d / 2, d / 2, 48).translate([x, -y, z0])
@@ -350,14 +357,14 @@ const cartridge = (wasm, seat) => {
     const holdTop = ledge + C.clamp
     const parts = []
     // the rim, the board's bottom to the hooks' tops, open over the arms
-    parts.push(box(outer.x0, outer.x1, -outer.y, outer.y, C.rim.z0, holdTop).subtract(box(inner.x0, inner.x1, -inner.y, inner.y, C.rim.z0 - 1, holdTop + 1)))
+    parts.push(box(outer.x0, outer.x1, -outer.y, outer.y, rimZ0, holdTop).subtract(box(inner.x0, inner.x1, -inner.y, inner.y, rimZ0 - 1, holdTop + 1)))
     const sides = [{out: -1, x0: outer.x0, x1: inner.x0}, {out: 1, x0: inner.x1, x1: outer.x1}]
     const openings = sides.map(({x0, x1}) => box(x0 - 0.1, x1 + 0.1, C.arm.free - C.slot, C.arm.root - C.arm.post, 0, holdTop + 1))
     parts[0] = parts[0].subtract(Manifold.union(openings))
     // the arms, their hooks and levers
     const tabs = []
     for (const {out, x0, x1} of sides) {
-        parts.push(box(x0, x1, C.arm.root - C.arm.post, C.arm.root, C.rim.z0, holdTop))
+        parts.push(box(x0, x1, C.arm.root - C.arm.post, C.arm.root, rimZ0, holdTop))
         parts.push(box(x0, x1, C.arm.free, C.arm.root, C.arm.z0, holdTop))
         const face = out > 0 ? x1 : x0, reach = out * C.hook.reach
         const z1 = holdTop, zFlat = z1 - C.hook.flat, z0 = zFlat - C.hook.ramp
@@ -380,8 +387,13 @@ const cartridge = (wasm, seat) => {
         const room = out > 0 ? [inner.x1 - C.lever.t - C.bend, outer.x1 + 1] : [outer.x0 - 1, inner.x0 + C.lever.t + C.bend]
         cup = cup.subtract(box(room[0], room[1], C.arm.free - C.slot, C.arm.root - C.arm.post + C.slot, -0.1, caseTop + C.lever.over + 1))
     }
-    const frame = Manifold.union([Manifold.union(parts).intersect(rounded(C.courtyard.grown - (C.opening.y - outer.y), C.rim.z0 - 1, holdTop + 0.02)),
+    const frame = Manifold.union([Manifold.union(parts).intersect(rounded(C.courtyard.grown - (C.opening.y - outer.y), rimZ0 - 1, holdTop + 0.02)),
                                   cup, ...tabs])
+    if (CASE) {
+        console.log(`case: the frame on the keyboard board's top (${boardTop.toFixed(1)} over the case's bottom), the hooks ${C.clamp} mm over ` +
+                    `the ledge at ${ledge.toFixed(1)}; no base, no screws`)
+        return {cup: frame, base: null}
+    }
     // the base: the plate on the keyboard board, open over the contact pads; the spacers under the board's holes,
     // each with a spigot into the mount's hole and an insert in its top
     const floor = -BOARD.t - C.spacer
@@ -460,7 +472,7 @@ const partsList = () => [
     `Written by cup.js${FIX === 'tabs' ? '' : ' --fix ' + FIX}${STYLE === 'round' ? '' : ' --style ' + STYLE} with the cup (cup.stl)` +
         `${FIX === 'cartridge' ? ', the base (base.stl)' : ''} and its drawing (sections.svg); ` +
         'run it again after changing a number.',
-    FIX !== 'screws' ? 'The module board itself is in the KiCad BOM of PMW3610-pogo.'
+    FIX !== 'screws' && !CASE ? 'The module board itself is in the KiCad BOM of PMW3610-pogo.'
                      : 'The sensor, its lens and the LDO are on the keyboard board, in its KiCad BOM (trackball/PMW3610).',
     '',
     '| Part | Qty | What | Notes |',
@@ -483,7 +495,10 @@ const partsList = () => [
         `seats from inside the cup (holes ${SEAT.toFixed(2)} mm, a press fit: enlarge \`SEAT\` for a loose printer), ` +
         `then a drop of thin CA glue each, left to cure before the cup goes over the lens (the lens is polycarbonate, ` +
         `which CA attacks); they are static, the ball slides on them |`,
-    FIX === 'cartridge'
+    CASE
+        ? `| Cup and frame | 1 | cup.stl, printed | PETG (the arms bend as it snaps under the case's top layer), 3 or more ` +
+          `perimeters; the frame's bottom down, flat on the keyboard board, supports under the arms and hooks |`
+        : FIX === 'cartridge'
         ? `| Cup and frame | 1 | cup.stl, printed | PETG (the arms bend as the cartridge snaps under the case's top layer), ` +
           `3 or more perimeters; the frame's bottom down, supports under the plinth (the rim goes 1.6 mm further down, round the board) and under the arms |\n` +
           `| Base | 1 | base.stl, printed | PETG or PLA; the plate down, flat: no supports |`
@@ -493,7 +508,10 @@ const partsList = () => [
         : `| Cup | 1 | cup.stl, printed | PETG (the rim's fingers bend each time the ball goes in or out), 3 or more ` +
           `perimeters (the wall is ${(OUTER - R - CLEAR).toFixed(1)} mm at the equator); rim up` +
           (FIX === 'tabs' ? `, supports only under the plate, between the skirts |` : `, flat on the plate: no supports |`),
-    FIX === 'tabs'
+    CASE
+        ? '| Fasteners | 0 | none | the frame stands on the keyboard board round the sensor and its arms snap under the ' +
+          "case's top layer, which holds it down: press its levers in to take it out |"
+        : FIX === 'tabs'
         ? '| Module fasteners | 4 | M2 screws and 4 mm M2 standoffs | or M2 locating pins and 4 x 2 mm disc magnets: the mount ' +
           'takes either (ErgoCaiLib Pogo_ModuleMount_1x6_P2.54mm); the module is fastened first, then the cup snaps on |'
         : FIX === 'cartridge'
@@ -521,9 +539,14 @@ const partsList = () => [
         `- The small balls' holes are ${SEAT.toFixed(2)} mm for ${SUPPORT} mm balls, a press fit: print a test cup and ` +
             'try a ball first. Tight: ream with a 2 mm drill by hand (no glue). Loose: make `SEAT` in cup.js smaller. ' +
             'The supports\' holes print at an angle and the holding balls\' straight down; clear the strings out of both.',
-        `- The inserts' holes are ${INSERT.hole} mm across and ${INSERT.depth} mm deep: melt the inserts in square with a ` +
-            'soldering iron (about 220 °C for PETG), let them stand proud by no more than 0.1 mm, then file them flush.',
-        ...(FIX === 'cartridge' ? [
+        ...(CASE ? [] : [`- The inserts' holes are ${INSERT.hole} mm across and ${INSERT.depth} mm deep: melt the inserts in square with a ` +
+            'soldering iron (about 220 °C for PETG), let them stand proud by no more than 0.1 mm, then file them flush.']),
+        ...(CASE ? [
+            '- Cup and frame: frame bottom down, in PETG (PLA is too stiff for the arms and cracks); supports under the ' +
+                'arms and hooks only. None in the cavity: its lowest part is the lens pocket, open down.',
+            `- The hooks' tops stand ${CART.clamp} mm over the case's ledge: if it will not snap in, file them down a ` +
+                'little; if it rattles, raise `clamp` in cup.js and print again.',
+        ] : FIX === 'cartridge' ? [
             '- Cup and frame: frame bottom down, in PETG (PLA is too stiff for the arms and cracks). Supports, touching ' +
                 'the build plate only, under the plinth (inside the rim) and under the arms and hooks; tree supports ' +
                 'come off cleanest. None in the cavity: its lowest part is the lens pocket, open down.',
@@ -580,7 +603,7 @@ const sections = ({cup, ball, supports, board}) => {
         out += '</g></g>'
         views.push(out)
     }
-    const s = 9, cart = FIX === 'cartridge'
+    const s = 9, cart = FIX === 'cartridge' || CASE
     // the cartridge's base is under the module board, and its frame's hooks out past the board's edges
     const side = cart ? [-18, -7, 18, 32] : [-17, -4, 17, 32], plan = cart ? [-18, -16, 19, 16] : [-16, -16, 17, 16]
     view('section x-z through the axis (y = 0)' + (cart ? ': the arms, their hooks' : ''), 'xz', 30, 40, s, side)
@@ -589,20 +612,22 @@ const sections = ({cup, ball, supports, board}) => {
     if (tabs) view(`z -2.0: the tabs' hooks`, -2.0, 30, 410, 6, plan)
     else if (cart) view('z 3.0: the frame, the arms', 3.0, 30, 410, 6, plan)
     else view('z 1.5: the screw bosses', 1.5, 30, 410, 6, plan)
-    if (cart) view(`z ${(-BOARD.t - CART.spacer + 0.5).toFixed(1)}: the base, the spacers`, -BOARD.t - CART.spacer + 0.5, 260, 410, 6, plan)
+    if (cart && !CASE) view(`z ${(-BOARD.t - CART.spacer + 0.5).toFixed(1)}: the base, the spacers`, -BOARD.t - CART.spacer + 0.5, 260, 410, 6, plan)
     else view('z 0.5: plate, pockets', 0.5, 260, 410, 6, plan)
+    if (CASE) view('z 0.5: the frame, the pocket', 0.5, 260, 410, 6, plan)
     const zs = supports.boundingBox().min[2] + SUPPORT / 2          // the lowest balls': the supports
     view(`z ${zs.toFixed(1)}: support balls`, zs, 490, 410, 6, plan)
     view(`z ${(TOP - 0.5).toFixed(1)}: ${STYLE === 'seat' ? 'the lugs' : "the rim's fingers"}`, TOP - 0.5, 720, 410, 6, plan)
     if (tabs) view('the +y tab, x = 0', 'yz', 950, 410, 22, [10.5, -3, 15.5, 6.5])
+    else if (CASE) view('the arms, y = 0', 'xz@0', 950, 410, 7, [-17, -1, 17, 15])
     else if (cart) view(`the screws, y = ${-HOLES[1][1]}`, 'xz@' + -HOLES[1][1], 950, 410, 7, [-15, -7, 15, 9])
     else view(`a screw boss, y = ${-HOLES[1][1]}`, 'xz@' + -HOLES[1][1], 950, 410, 22, [9.5, -3, 15.5, 6.5])
     const w = cart ? 1170 : 1080, h = 640
     return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">` +
         `<rect width="${w}" height="${h}" fill="white"/>${views.join('')}` +
-        `<text x="30" y="${h - 12}" font-size="11" font-family="sans-serif">trackball/${FIX === 'screws' ? 'PMW3610' : 'PMW3610-pogo'} cup ` +
-        `(cup.js${tabs ? '' : ' --fix ' + FIX}${STYLE === 'round' ? '' : ' --style ' + STYLE}): grey the cup${cart ? ', its frame and the base' : ''}, red the ${BALL} mm ball, dark the ${SUPPORT} mm ${STYLE === 'seat' ? '' : 'support '}balls, ` +
-        `green the ${FIX === 'screws' ? 'keyboard' : 'module'} board; mm</text></svg>\n`
+        `<text x="30" y="${h - 12}" font-size="11" font-family="sans-serif">trackball/${FIX === 'screws' || CASE ? 'PMW3610' : 'PMW3610-pogo'} cup ` +
+        `(cup.js${tabs ? '' : ' --fix ' + FIX}${STYLE === 'round' ? '' : ' --style ' + STYLE}): grey the cup${CASE ? ', its frame' : cart ? ', its frame and the base' : ''}, red the ${BALL} mm ball, dark the ${SUPPORT} mm ${STYLE === 'seat' ? '' : 'support '}balls, ` +
+        `green the ${FIX === 'screws' || CASE ? 'keyboard' : 'module'} board; mm</text></svg>\n`
 }
 
 // binary STL, as ergogen writes its cases
