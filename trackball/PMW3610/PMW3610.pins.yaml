@@ -16,8 +16,12 @@
 #        {node: label, gpios: prop, flags}      prop = <&gpio<port> <pin> flags>
 #        {pinctrl: [nodes], psel: F}            NRF_PSEL(F, port, pin) in group1 of each node; F a list for one pin
 #                                               with two functions (SDIO: SPIM_MOSI and SPIM_MISO)
+# - layer_keys: the keys kbplacer puts on layer 1 of the first keymap, on the half's first keys: the pointer
+#   settings (zmk-ergo-cai src/pointer_config.c: flip x, flip y, swap, faster, slower, reset), kept over
+#   power-off; ZMK Studio offers the same as "Trackball" and "Joystick".
 zmk:
   shield: trackball
+  layer_keys: {layer: 1, include: dt-bindings/zmk/pointer_config.h, bindings: ["&tb_cfg PTR_INVERT_X", "&tb_cfg PTR_INVERT_Y", "&tb_cfg PTR_SWAP_XY", "&tb_cfg PTR_FASTER", "&tb_cfg PTR_SLOWER", "&tb_cfg PTR_RESET"]}
   module: {name: zmk-ergo-cai, url: https://github.com/shiqi-614/zmk-ergo-cai, revision: main}
   central: true
 footprint: TB_U1
