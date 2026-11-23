@@ -3,8 +3,8 @@
 # C56282211), pin k on pad k. The mount takes one module at a time:
 # - joystick (joystick/Alpsalpine-pogo): Alps Alpine RKJXV122400R, two potentiometers and a push switch;
 # - trackball (trackball/PMW3610-pogo): a PixArt PMW3610DM-SUDU on 3-wire SPI, with its own 1.8 V LDO.
-# - side trackball (trackball/PMW3610-side-pogo): the same sensor, reading a 20 mm ball from the side; it also
-#   uses the mount's fifth hole and needs a case of its own (the mount's User.1 outline). Its firmware is the
+# - side trackball (trackball/PMW3610-side-pogo): the same sensor, reading a 20 mm ball from the side; it uses
+#   the mount's two holes at x -12.35 only and needs a case of its own (the mount's User.1 outline). Its firmware is the
 #   trackball's.
 # All use the same lines: the stick's wipers are the sensor's SPI clock and data, its switch the sensor's motion
 # line, and the pin the stick leaves free (4) the sensor's chip select.

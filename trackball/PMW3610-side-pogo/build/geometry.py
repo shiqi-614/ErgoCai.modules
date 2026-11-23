@@ -32,10 +32,11 @@ SHIFT = -(END0 + END1) / 2
 AXIS = {'x': x0 - (R + LENS_GAP + LENS_DEPTH), 'y': OC + SHIFT, 'z': R + FLOOR}
 dx = x0 - 16.75                                # how far the +x side moves from the 20 mm ball's
 z = AXIS['z']
-# the module board's outline (KiCad, y down), the 20 mm ball's with its +x side moved: its +x end 0.55 behind the
-# sensor board's parts, the +y corner cut back clear of the keyboard's mounting hole. The sensor board stands on it,
-# its whole bottom edge
-outline = [(-14.5, -13), (22 + dx, -13), (22 + dx, 4.5), (21 + dx, 4.5), (21 + dx, 7), (18.5 + dx, 13), (-14.5, 13)]
+# the module board's outline (KiCad, y down): a rectangle, its +x end 0.2 behind the sensor board's parts (its +y
+# corner was cut back for a keyboard mounting hole there, which the keyboard board no longer has: it lies on
+# silicone pads). The sensor board stands on the module board, its whole bottom edge
+X1 = x0 + SENSOR_T + BODY + 0.2
+outline = [(-14.5, -13), (X1, -13), (X1, 13), (-14.5, 13)]
 # the header: a 1x6 right-angle one on the sensor board's back, under the PMW3610, its pins bent down into the module
 # board 1.27 behind the sensor board, in a row along y centred on `c` (the module's y, which is the sensor board's x),
 # pin k at c + 2.54 (k - 3.5) (c in the sensor board's frame); on the sensor board its pads `h` over the bottom edge, so its body stands on the module
