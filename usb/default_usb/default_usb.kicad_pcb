@@ -1179,8 +1179,8 @@
 	)
 	(via
 		(at 2.125 2.609999)
-		(size 0.6)
-		(drill 0.3)
+		(size 0.61)
+		(drill 0.305)
 		(layers "F.Cu" "B.Cu")
 		(net 1)
 		(uuid "31ba0213-9249-4f6a-aecb-0f6f7390ea3a")
