@@ -15,6 +15,8 @@
 //   each a little past where the leg stops, so that the ball keeps it there: folded, up against the plate; standing,
 //   back on the slot's end. Between the two the leg turns freely; how hard it clicks is how far the plunger is
 //   screwed in.
+// - The peg: printed on the seat's top, in line with the screw between the slots, into a hole in the bottom plate
+//   (ErgoCai.ts unit tentPeg). It keeps the seat from turning on its one screw, also when that is not tight.
 // - The bumper: a bought 8 x 2.5 mm silicone dome stuck under the outer edge, drawn here only for the 3D view.
 //
 // Frame (mm): the seat's screw at x = y = 0, z = 0 the bottom plate's underside, z up; the legs fold toward +x, their
@@ -23,9 +25,10 @@
 // a half turn more (ErgoCai.ts: the tent assemblies). The pin's axis is along y at (PIVOT.x, PIVOT.z).
 //
 // The numbers ErgoCai.ts's tent units repeat: LEG (tentLegW, tentLegT), PIVOT (tentPivotX, tentPivotZ), SLOT and
-// SEAT.yc (where each leg is: tentSlotLow, tentSlotHigh), H (tentSeat), BUMPER (tentBumperD, tentBumper).
+// SEAT.yc (where each leg is: tentSlotLow, tentSlotHigh), H (tentSeat), PEG (tentPeg), BUMPER (tentBumperD,
+// tentBumper).
 //
-// Writes binary STLs to print, each on the face that is against the plate: seat.stl, seat-mirrored.stl (two of each
+// Writes binary STLs to print, each on its bottom, the peg up: seat.stl, seat-mirrored.stl (two of each
 // for a keyboard); with --glb, a glTF binary of each beside it (metres, y up) for ergogen-gui's 3D view, and bumper.glb.
 //
 // usage: node tent.js [--out <dir>] [--glb]
@@ -52,6 +55,8 @@ const PIVOT = {x: 6.5, z: -(LEG.w / 2 + 0.4), hole: 2.3}
 // the slots' middle, beside the screw; the seat's back, behind the screw, 6.7 mm of thread for an M3 x 6 plunger; its
 // front, past the pin; the screw's boss
 const SEAT = {yc: -9.0, x0: -3.5, front: 4.5, boss: 3.5}
+// the peg, on the seat's top at (0, SEAT.yc): 2 mm into the 3 mm plate
+const PEG = {d: 4.0, h: 2.0}
 // how far the seats reach under the plate: 2.2 mm under a folded leg. Folded, the half lies tilted on the seats and the
 // bumpers, the table rising toward the bumpers under the legs; this keeps their ends off it.
 const H = -PIVOT.z + LEG.w / 2 + 2.2
@@ -78,7 +83,8 @@ const main = async () => {
     const screw = solid => solid.subtract(disc(SCREW.hole, -H - 1, 1)).subtract(disc(SCREW.head, -H - 1, -H + SCREW.sink))
 
     const half = (SLOT.n * SLOT.w + (SLOT.n - 1) * SLOT.inner + 2 * SLOT.outer) / 2
-    let seat = Manifold.union([disc(2 * SEAT.boss, -H, 0), box(SEAT.x0, PIVOT.x + SEAT.front, SEAT.yc - half, SEAT.yc + half, -H, 0)])
+    let seat = Manifold.union([disc(2 * SEAT.boss, -H, 0), box(SEAT.x0, PIVOT.x + SEAT.front, SEAT.yc - half, SEAT.yc + half, -H, 0),
+        disc(PEG.d, -1, PEG.h).translate([0, SEAT.yc, 0])])
     for (let i = 0; i < SLOT.n; i++) {
         const y0 = SEAT.yc - half + SLOT.outer + i * (SLOT.w + SLOT.inner)
         // over the pin, room round the leg's round end; under it, the slot's end a standing leg's back is on
@@ -99,8 +105,8 @@ const main = async () => {
 
     const parts = {seat, 'seat-mirrored': seat.mirror([0, 1, 0])}
     for (const [name, solid] of Object.entries(parts)) {
-        // printed on the face that is against the plate: turned over (not mirrored), that face at z = 0
-        fs.writeFileSync(path.join(OUT, `${name}.stl`), stl(solid.rotate([180, 0, 0]), `ErgoCai tent ${name} (manifold-3d)`))
+        // printed on its bottom, the peg up
+        fs.writeFileSync(path.join(OUT, `${name}.stl`), stl(solid.translate([0, 0, H]), `ErgoCai tent ${name} (manifold-3d)`))
         if (GLB) fs.writeFileSync(path.join(OUT, `${name}.glb`), glb([{name, solid, rgb: [0.86, 0.9, 0.95]}]))
         const b = solid.boundingBox()
         console.log(`${name}: ${(solid.volume() / 1000).toFixed(2)} cm3, ${solid.decompose().length} piece(s), ` +
