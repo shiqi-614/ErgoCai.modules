@@ -1,0 +1,11 @@
+{
+  "name": "tent",
+  "private": true,
+  "description": "The tenting legs' printed seats, written as STL and glTF by tent.js",
+  "scripts": {
+    "build": "node tent.js --glb"
+  },
+  "dependencies": {
+    "manifold-3d": "^3.5.5"
+  }
+}
