@@ -174,7 +174,7 @@
 		)
 		(path "/b7c98b01-ae12-5cf8-b60c-f96110990178")
 		(sheetfile "2.13inch.kicad_sch")
-		(attr smd exclude_from_pos_files)
+		(attr smd)
 		(fp_line
 			(start 2.65 1.3)
 			(end 2.65 -1.99)
